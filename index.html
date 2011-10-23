@@ -2,14 +2,15 @@
 layout: base
 ---
 
-{% for post in site.posts %}
-    <article class="post">
-        <h1>{{ post.title }}</h1>
-
-        <a class="permalink" href="{{ post.url }}">
-            <time datetime="{{ post.date | date: "%Y-%m-%d" }}" pubdate>{{ post.date | date: "%B %d, %Y" }}</time>
-        </a>
-
-        {{ post.content }}
-    </article>
-{% endfor %}
+<ul id="posts">
+    {% for post in side.posts %}
+        <li class="post">
+            <h1>
+                <strong>{{ page.title }}</string>
+                <a href="{{ page.url }}">
+                    <time datetime="{{ page.date | date: "%Y-%m-%d" }}" pubdate>{{ page.date | date: "%d %b '%y" }}</time>
+                </a>
+            </h1>
+        </li>
+    {% endfor %}
+</ul>
