@@ -4,11 +4,11 @@ layout: base
 
 {% for post in site.posts %}
     <article class="post">
+        <h1>{{ post.title }}</h1>
+
         <a class="permalink" href="{{ post.url }}">
             <time datetime="{{ post.date | date: "%Y-%m-%d" }}" pubdate>{{ post.date | date: "%B %d, %Y" }}</time>
         </a>
-
-        <h1>{{ post.title }}</h1>
 
         {{ post.content }}
     </article>
