@@ -2,4 +2,10 @@
 layout: base
 ---
 
-{% include post.html %}
+<article class="post">
+    <a class="permalink" href="{{ page.url }}">
+        <time datetime="{{ page.date | date: "%Y-%m-%d" }}" pubdate>{{ page.date | date: "%B %d, %Y" }}</time>
+    </a>
+
+    {{ content }}
+</article>
