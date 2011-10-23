@@ -3,18 +3,22 @@
 <html lang="en-us">
     <head>
         <meta charset="utf-8">
+        <meta content="maximum-scale = 1, minimum-scale = 1, width = device-width" name="viewport">
 
         <link href="/favicon.ico" rel="shortcut icon">
         <link href="/static/styles/main.css" rel="stylesheet">
 
         <script src="/static/scripts/main.js"></script>
 
-        <title>{% if page.title %}{{ page.title }}{% endif %}</title>
+        <title>{% if page.title %}{{ page.title }} &#b7; {% endif %}Taylor Fausak</title>
     </head>
 
     <body>
         <header id="header">
             <div class="wrapper">
+                <h1 id="masthead">
+                    <a href="/"><strong>tfausak</strong>.github.com</a>
+                </h1>
             </div>
         </header>
 
@@ -26,6 +30,17 @@
 
         <footer id="footer">
             <div class="wrapper">
+                <ul id="colophon">
+                    <li>
+                        <a href="http://creativecommons.org/licenses/by/3.0/">CC BY</a>
+                    </li>
+                    <li>
+                        <a href="http://validator.w3.org/check?uri=referer">HTML</a>
+                    </li>
+                    <li>
+                        <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+                    </li>
+                </ul>
             </div>
         </footer>
     </body>
