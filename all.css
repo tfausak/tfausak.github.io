@@ -107,15 +107,6 @@ html, body {
 /*
     Posts
 */
-.post {
-}
-.post + .post {
-    margin-top: 3em;
-}
-.post .permalink {
-    color: #93a1a1;
-    text-decoration: none;
-}
 .post a {
     color: #268bd2;
     text-decoration: underline;
@@ -136,6 +127,13 @@ html, body {
     font-size: 1.5em;
     line-height: 1em;
     margin: 1em 0;
+}
+.post h1 a {
+    color: #93a1a1;
+    text-decoration: none;
+}
+.post h1 strong {
+    color: #586e75;
 }
 .post h2 {
     color: #586e75;
