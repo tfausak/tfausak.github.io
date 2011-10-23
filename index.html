@@ -5,10 +5,10 @@ layout: base
 <ul id="posts">
     {% for post in site.posts %}
         <li class="post">
-            <h1>
-                <strong>{{ post.title }}</string>
+            <h1 class="post-title">
                 <a href="{{ post.url }}">
-                    <time datetime="{{ post.date | date: "%Y-%m-%d" }}" pubdate>{{ post.date | date: "%d %b '%y" }}</time>
+                    <strong>{{ post.title }}</string>
+                    <time datetime="{{ post.date | date: "%Y-%m-%d" }}" pubdate>{{ post.date | date: "%b %d" }}</time>
                 </a>
             </h1>
         </li>
