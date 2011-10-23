@@ -1,7 +1,9 @@
-<div class="post">
+<article class="post">
     <a class="permalink" href="{{ post.url }}">
         <time datetime="{{ post.date | date: "%Y-%m-%d" }}" pubdate>{{ post.date | date: "%x" }}</time>
     </a>
 
+    <h1>{{ post.title }}</h1>
+
     {{ post.content }}
-</div>
+</article>
