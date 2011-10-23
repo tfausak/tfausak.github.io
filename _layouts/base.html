@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+
+        <link href="/static/images/favicon.ico" rel="shortcut icon">
+        <link href="/static/styles/main.css" rel="stylesheet">
+
+        <script src="/static/scripts/main.js"></script>
+
+        <title>{% if page.title %}{{ page.title }}{% endif %}</title>
+    </head>
+
+    <body>
+        <header id="header">
+            <div class="wrapper">
+            </div>
+        </header>
+
+        <div id="content">
+            <div class="wrapper">
+                {{ content }}
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="wrapper">
+            </div>
+        </footer>
+    </body>
+</html>
