@@ -107,6 +107,15 @@ html, body {
 /*
     Posts
 */
+.post-title a {
+    text-decoration: none;
+}
+.post-title strong {
+    color: #586e75;
+}
+.post-title time {
+    color: #93a1a1;
+}
 .post a {
     color: #268bd2;
     text-decoration: underline;
@@ -127,13 +136,6 @@ html, body {
     font-size: 1.5em;
     line-height: 1em;
     margin: 1em 0;
-}
-.post h1 a {
-    color: #93a1a1;
-    text-decoration: none;
-}
-.post h1 strong {
-    color: #586e75;
 }
 .post h2 {
     color: #586e75;
