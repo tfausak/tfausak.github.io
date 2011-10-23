@@ -75,22 +75,7 @@ html, body {
 #footer {
     padding: 1.5em 0;
 }
-#colophon {
-    color: #93a1a1;
-    text-transform: lowercase;
-}
-#colophon li {
-    display: inline;
-}
-#colophon li:before {
-    content: '\b7';
-    padding: 0 0.25em;
-}
-#colophon li:first-child:before {
-    content: '';
-    padding: 0;
-}
-#colophon a {
+#footer a {
     color: inherit;
     font-weight: bold;
     text-decoration: none;
