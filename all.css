@@ -105,17 +105,8 @@ html, body {
 }
 
 /*
-    Posts
+    Post formatting
 */
-.post-title a {
-    text-decoration: none;
-}
-.post-title strong {
-    color: #586e75;
-}
-.post-title time {
-    color: #93a1a1;
-}
 .post a {
     color: #268bd2;
     text-decoration: underline;
@@ -168,4 +159,17 @@ html, body {
 }
 .post ul {
     list-style-type: square;
+}
+
+/*
+    Post sub-classes
+*/
+.post-title a {
+    text-decoration: none;
+}
+.post-title strong {
+    color: #586e75;
+}
+.post-title time {
+    color: #93a1a1;
 }
