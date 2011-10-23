@@ -103,56 +103,69 @@ html, body {
     background: #fdf6e3;
     padding: 1.5em 0;
 }
-#content a {
+
+/*
+    Posts
+*/
+.post {
+}
+.post + .post {
+    margin-top: 3em;
+}
+.post .permalink {
+    color: #93a1a1;
+    text-decoration: none;
+}
+.post a {
     color: #268bd2;
     text-decoration: underline;
 }
-#content a:visited {
+.post a:visited {
     color: #6c71c4;
 }
-#content blockquote {
+.post blockquote {
     border-left: thin solid #93a1a1;
     margin: 1.5em 0;
     padding-left: 1.5em;
 }
-#content code {
+.post code {
     font-family: monospace;
 }
-#content h1 {
+.post h1 {
     color: #586e75;
     font-size: 1.5em;
     line-height: 1em;
     margin: 1em 0;
 }
-#content h2 {
+.post h2 {
     color: #586e75;
     font-size: 1.125em;
     font-weight: bold;
     line-height: 1.3333em;
     margin: 1.3333em 0;
 }
-#content em {
+.post em {
     font-style: italic;
 }
-#content ol, #content ul {
+.post ol, .post ul {
     list-style-position: outside;
     margin: 1.5em 0 1.5em 1.5em;
 }
-#content ol {
+.post ol {
     list-style-type: decimal;
 }
-#content p {
+.post p {
     margin: 1.5em 0;
 }
-#content pre {
+.post pre {
     border-left: thin solid #93a1a1;
     margin: 1.5em 0;
     padding-left: 1.5em;
     white-space: pre-wrap;
 }
-#content strong {
+.post strong {
     font-weight: bold;
 }
-#content ul {
+.post ul {
     list-style-type: square;
 }
