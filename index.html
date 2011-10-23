@@ -6,9 +6,9 @@ layout: base
     {% for post in site.posts %}
         <li class="post">
             <h1>
-                <strong>{{ page.title }}</string>
-                <a href="{{ page.url }}">
-                    <time datetime="{{ page.date | date: "%Y-%m-%d" }}" pubdate>{{ page.date | date: "%d %b '%y" }}</time>
+                <strong>{{ post.title }}</string>
+                <a href="{{ post.url }}">
+                    <time datetime="{{ post.date | date: "%Y-%m-%d" }}" pubdate>{{ post.date | date: "%d %b '%y" }}</time>
                 </a>
             </h1>
         </li>
