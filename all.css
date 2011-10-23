@@ -39,8 +39,8 @@ table {
     Main layout
 */
 html, body {
-    background: #eee8d5;
-    color: #657b83;
+    background: #eeeeec;
+    color: #2e3436;
     font: 1em/1.5em sans-serif;
 }
 .wrapper {
@@ -54,6 +54,7 @@ html, body {
     Header
 */
 #header {
+    border-bottom: thin solid #d3d7cf;
     padding: 1.5em 0;
 }
 #masthead {
@@ -62,17 +63,19 @@ html, body {
     text-transform: lowercase;
 }
 #masthead a {
-    color: #93a1a1;
+    color: #ce5c00;
     text-decoration: none;
 }
 #masthead strong {
-    color: #cb4b16;
+    color: #babdb6;
 }
 
 /*
     Footer
 */
 #footer {
+    border-top: thin solid #d3d7cf;
+    color: #babdb6;
     padding: 1.5em 0;
 }
 #footer a {
@@ -85,7 +88,7 @@ html, body {
     Content
 */
 #content {
-    background: #fdf6e3;
+    background: #ffffff;
     padding: 1.5em 0;
 }
 
@@ -93,14 +96,14 @@ html, body {
     Post formatting
 */
 .post a {
-    color: #268bd2;
+    color: #3465a4;
     text-decoration: underline;
 }
 .post a:visited {
-    color: #6c71c4;
+    color: #75507b;
 }
 .post blockquote {
-    border-left: thin solid #93a1a1;
+    border-left: thin solid #d3d7cf;
     margin: 1.5em 0;
     padding-left: 1.5em;
 }
@@ -108,13 +111,11 @@ html, body {
     font-family: monospace;
 }
 .post h1 {
-    color: #586e75;
     font-size: 1.5em;
     line-height: 1em;
     margin: 1em 0;
 }
 .post h2 {
-    color: #586e75;
     font-size: 1.125em;
     font-weight: bold;
     line-height: 1.3333em;
@@ -134,7 +135,7 @@ html, body {
     margin: 1.5em 0;
 }
 .post pre {
-    border-left: thin solid #93a1a1;
+    border-left: thin solid #d3d7cf;
     margin: 1.5em 0;
     padding-left: 1.5em;
     white-space: pre-wrap;
@@ -153,8 +154,8 @@ html, body {
     text-decoration: none;
 }
 .post-title strong {
-    color: #586e75;
+    color: #000000;
 }
 .post-title time {
-    color: #93a1a1;
+    color: #babdb6;
 }
