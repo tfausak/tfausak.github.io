@@ -3,11 +3,12 @@ layout: base
 ---
 
 <article class="post">
-    <h1>{{ page.title }}</h1>
-
-    <a class="permalink" href="{{ page.url }}">
-        <time datetime="{{ page.date | date: "%Y-%m-%d" }}" pubdate>{{ page.date | date: "%B %d, %Y" }}</time>
-    </a>
+    <h1>
+        <strong>{{ page.title }}</string>
+        <a href="{{ page.url }}">
+            <time datetime="{{ page.date | date: "%Y-%m-%d" }}" pubdate>{{ page.date | date: "%d %b '%y" }}</time>
+        </a>
+    </h1>
 
     {{ content }}
 </article>
