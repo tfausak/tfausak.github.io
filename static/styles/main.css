@@ -127,6 +127,31 @@ html, body {
 #masthead strong {
     color: #ce5c00;
 }
+#logo {
+    display: inline-block;
+    font-size: 0.6667em;
+    height: 3em;
+    width: 3em;
+}
+#logo span {
+    border-color: transparent;
+    border-style: solid;
+    border-width: 0 0 1em 1em;
+    display: block;
+    float: left;
+    height: 0;
+    width: 0;
+}
+#logo-tl {
+    border-bottom-color: #ce5c00;
+}
+#logo-tc, #logo-cc {
+    border-bottom-color: #ce5c00;
+    border-left-color: #ce5c00;
+}
+#logo-tr, #logo-cr, #logo-bc {
+    border-left-color: #ce5c00;
+}
 
 /*
     Footer
