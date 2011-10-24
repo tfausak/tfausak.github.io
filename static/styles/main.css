@@ -49,6 +49,11 @@ html, body {
     padding: 0 1.5em;
     position: relative;
 }
+img {
+    display: block;
+    margin: 1.5em 0;
+    max-width: 100%;
+}
 
 /*
     Header
