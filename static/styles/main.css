@@ -36,6 +36,65 @@ table {
 }
 
 /*
+    Baseline styles
+*/
+a {
+    color: #3465a4;
+}
+a:visited {
+    color: #75507b;
+}
+blockquote {
+    border-left: thin solid #d3d7cf;
+    margin: 1.5em 0;
+    padding-left: 1.5em;
+}
+code {
+    font-family: monospace;
+}
+h1 {
+    font-size: 1.5em;
+    line-height: 1em;
+    margin: 1em 0;
+}
+h2 {
+    font-size: 1.125em;
+    font-weight: bold;
+    line-height: 1.3333em;
+    margin: 1.3333em 0;
+}
+img {
+    display: block;
+    margin: 1.5em 0;
+    max-width: 100%;
+}
+em {
+    font-style: italic;
+}
+ol, ul {
+    list-style-position: outside;
+    margin: 1.5em 0 1.5em 1.5em;
+}
+ol {
+    list-style-type: decimal;
+}
+p {
+    margin: 1.5em 0;
+}
+pre {
+    border-left: thin solid #d3d7cf;
+    margin: 1.5em 0;
+    padding-left: 1.5em;
+    white-space: pre-wrap;
+}
+strong {
+    font-weight: bold;
+}
+ul {
+    list-style-type: square;
+}
+
+/*
     Main layout
 */
 html, body {
@@ -49,11 +108,6 @@ html, body {
     padding: 0 1.5em;
     position: relative;
 }
-img {
-    display: block;
-    margin: 1.5em 0;
-    max-width: 100%;
-}
 
 /*
     Header
@@ -63,8 +117,7 @@ img {
     padding: 1.5em 0;
 }
 #masthead {
-    font-size: 1.5em;
-    line-height: 1em;
+    margin: 0;
     text-transform: lowercase;
 }
 #masthead a {
@@ -83,6 +136,9 @@ img {
     color: #babdb6;
     padding: 1.5em 0;
 }
+#footer p {
+    margin: 0;
+}
 #footer a {
     color: inherit;
     font-weight: bold;
@@ -98,62 +154,7 @@ img {
 }
 
 /*
-    Post formatting
-*/
-.post a {
-    color: #3465a4;
-    text-decoration: underline;
-}
-.post a:visited {
-    color: #75507b;
-}
-.post blockquote {
-    border-left: thin solid #d3d7cf;
-    margin: 1.5em 0;
-    padding-left: 1.5em;
-}
-.post code {
-    font-family: monospace;
-}
-.post h1 {
-    font-size: 1.5em;
-    line-height: 1em;
-    margin: 1em 0;
-}
-.post h2 {
-    font-size: 1.125em;
-    font-weight: bold;
-    line-height: 1.3333em;
-    margin: 1.3333em 0;
-}
-.post em {
-    font-style: italic;
-}
-.post ol, .post ul {
-    list-style-position: outside;
-    margin: 1.5em 0 1.5em 1.5em;
-}
-.post ol {
-    list-style-type: decimal;
-}
-.post p {
-    margin: 1.5em 0;
-}
-.post pre {
-    border-left: thin solid #d3d7cf;
-    margin: 1.5em 0;
-    padding-left: 1.5em;
-    white-space: pre-wrap;
-}
-.post strong {
-    font-weight: bold;
-}
-.post ul {
-    list-style-type: square;
-}
-
-/*
-    Post sub-classes
+    Posts
 */
 .post-title a {
     text-decoration: none;
