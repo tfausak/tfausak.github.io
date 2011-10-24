@@ -2,7 +2,7 @@
 layout: base
 ---
 
-# About Me
+# About
 
 ![][1]
 
@@ -25,6 +25,14 @@ few of them.
 -   [Tumblr](http://gompr.tumblr.com/)
 -   [Twitter](https://twitter.com/#!/taylorfausak)
 
+## This Site
+
+This site is powered by [GitHub Pages][4]. It uses valid [HTML][5]
+and [CSS][6].
+
 [1]: /static/images/taylor-fausak.jpg
 [2]: http://www.famigo.com/
 [3]: http://www.utexas.edu/
+[4]: http://pages.github.com/
+[5]: http://validator.w3.org/check?uri=referer
+[6]: http://jigsaw.w3.org/css-validator/check/referer
