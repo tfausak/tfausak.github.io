@@ -63,11 +63,11 @@ html, body {
     text-transform: lowercase;
 }
 #masthead a {
-    color: #ce5c00;
+    color: #babdb6;
     text-decoration: none;
 }
 #masthead strong {
-    color: #babdb6;
+    color: #ce5c00;
 }
 
 /*
