@@ -156,6 +156,10 @@ html, body {
 /*
     Posts
 */
+.posts {
+    list-style: none;
+    margin: 0;
+}
 .post-title a {
     text-decoration: none;
 }
