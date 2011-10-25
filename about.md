@@ -28,12 +28,14 @@ few of them.
 ## This Site
 
 This site is powered by [GitHub Pages][4]. [Its repository][5] is
-publically available on GitHub. It uses valid [HTML][6] and [CSS][7].
+publically available on GitHub. It uses valid [HTML][6], [CSS][7],
+and [Atom][8].
 
 [1]: /static/images/taylor-fausak.jpg
 [2]: http://www.famigo.com/
 [3]: http://www.utexas.edu/
 [4]: http://pages.github.com/
 [5]: https://github.com/tfausak/tfausak.github.com
-[6]: http://validator.w3.org/check?uri=referer
-[7]: http://jigsaw.w3.org/css-validator/check/referer
+[6]: http://validator.w3.org/check?uri={{ site.url }}/
+[7]: http://jigsaw.w3.org/css-validator/validator?uri={{ site.url }}/
+[8]: http://validator.w3.org/feed/check.cgi?uri={{ site.url }}/
