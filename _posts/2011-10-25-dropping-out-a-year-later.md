@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dropping Out: A Year Later
+title: 'Dropping Out: A Year Later'
 ---
 
 About a year ago, I dropped out of college. I was in my senior year
