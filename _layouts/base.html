@@ -1,15 +1,15 @@
 <!doctype html>
 
-<html lang="en-US" xmlns:og="http://ogp.me/ns#">
-    <head>
+<html lang="en-US">
+    <head xmlns:og="http://ogp.me/ns#">
         <meta charset="utf-8">
         <meta content="maximum-scale=1,minimum-scale=1,width=device-width" name="viewport">
-        <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" property="og:title">
-        <meta content="{% if page.title %}article{% else %}blog{% endif %}" property="og:type">
-        <meta content="{{ site.url }}/static/images/og-image.png" property="og:image">
-        <meta content="{{ site.url }}{% if page.title %}{{ page.url }}{% else %}/{% endif %}" property="og:url">
-        <meta content="en_US" property="og:locale">
-        <meta content="{{ site.title }}" property="og:site_name">
+        <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" name="og:title">
+        <meta content="{% if page.title %}article{% else %}blog{% endif %}" name="og:type">
+        <meta content="{{ site.url }}/static/images/og-image.png" name="og:image">
+        <meta content="{{ site.url }}{% if page.title %}{{ page.url }}{% else %}/{% endif %}" name="og:url">
+        <meta content="en_US" name="og:locale">
+        <meta content="{{ site.title }}" name="og:site_name">
 
         <link href="/static/styles/main.min.css" rel="stylesheet">
         <link href="/atom.xml" rel="alternate" type="application/atom+xml">
