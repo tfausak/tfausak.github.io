@@ -2,13 +2,13 @@
 layout: base
 ---
 
-<ul class="posts">
+<ul class="posts" itemprop="blogPosts">
     {% for post in site.posts %}
-        <li class="post">
+        <li class="post" itemscope itemtype="http://schema.org/BlogPosting">
             <h1 class="post-title">
-                <a href="{{ post.url }}">
-                    <strong>{{ post.title }}</strong>
-                    <time datetime="{{ post.date | date: "%Y-%m-%d" }}" pubdate>{{ post.date | date: "%b %d" }}</time>
+                <a href="{{ post.url }}" itemprop="url">
+                    <strong itemprop="name">{{ post.title }}</strong>
+                    <time datetime="{{ post.date | date: "%Y-%m-%d" }}" itemprop="datePublished" pubdate>{{ post.date | date: "%b %d" }}</time>
                 </a>
             </h1>
         </li>

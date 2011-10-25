@@ -21,11 +21,11 @@
         <title>{% if page.title %}{{ page.title }} &#xb7; {% endif %}{{ site.title }}</title>
     </head>
 
-    <body>
+    <body itemscope itemtype="http://schema.org/Blog">
         <header id="header">
             <div class="wrapper">
-                <h1 id="masthead">
-                    <a href="/">
+                <h1 id="masthead" itemprop="name">
+                    <a href="/" itemprop="url">
                         <span id="logo">
                             <span id="tl"></span><span id="tc"></span><span id="tr"></span>
                             <span id="cl"></span><span id="cc"></span><span id="cr"></span>

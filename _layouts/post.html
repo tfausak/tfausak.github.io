@@ -2,11 +2,15 @@
 layout: base
 ---
 
-<article class="post">
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
     <h1 class="post-title">
-        <strong>{{ page.title }}</strong>
-        <time datetime="{{ page.date | date: "%Y-%m-%d" }}" pubdate>{{ page.date | date: "%b %d" }}</time>
+        <a href="{{ post.url }}" itemprop="url">
+            <strong itemprop="name">{{ page.title }}</strong>
+            <time datetime="{{ page.date | date: "%Y-%m-%d" }}" itemprop="datePublished" pubdate>{{ page.date | date: "%b %d" }}</time>
+        </a>
     </h1>
 
-    {{ content }}
+    <div itemprop="articleBody">
+        {{ content }}
+    </div>
 </article>
