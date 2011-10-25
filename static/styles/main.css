@@ -151,12 +151,28 @@ html, body {
 #logo #tl {
     border-bottom-color: #ce5c00;
 }
-#logo #tc, #logo #cc {
-    border-bottom-color: #ce5c00;
+#logo #tc {
+    border-bottom-color: #d3d7cf;
+    border-left-color: #d3d7cf;
+}
+#logo #tr {
     border-left-color: #ce5c00;
 }
-#logo #tr, #logo #cr, #logo #bc {
+#logo #cl {
+}
+#logo #cc {
+    border-bottom-color: #d3d7cf;
+    border-left-color: #d3d7cf;
+}
+#logo #cr {
     border-left-color: #ce5c00;
+}
+#logo #bl {
+}
+#logo #bc {
+    border-left-color: #d3d7cf;
+}
+#logo #br {
 }
 
 /*
