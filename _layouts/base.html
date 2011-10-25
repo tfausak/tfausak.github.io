@@ -4,9 +4,10 @@
     <head>
         <meta charset="utf-8">
         <meta content="maximum-scale=1,minimum-scale=1,width=device-width" name="viewport">
-        <meta content="{{ site.url }}{% if page.url %}{{ page.url }}{% else %}/{% endif %}" property="og:url">
         <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" property="og:title">
         <meta content="{% if page.title %}article{% else %}blog{% endif %}" property="og:type">
+        <meta content="{{ site.url }}/static/images/og-image.png" property="og:image">
+        <meta content="{{ site.url }}{% if page.url %}{{ page.url }}{% else %}/{% endif %}" property="og:url">
 
         <link href="/static/styles/main.min.css" rel="stylesheet">
         <link href="/atom.xml" rel="alternate" type="application/atom+xml">
