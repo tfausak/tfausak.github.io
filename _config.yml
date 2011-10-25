@@ -1,5 +1,6 @@
-author:    Taylor Fausak
-email:     taylor@fausak.me
-permalink: pretty
-title:     taylor.fausak.me
-url:       http://taylor.fausak.me
+author:
+    name:   Taylor Fausak
+    email:  taylor@fausak.me
+permalink:  pretty
+title:      taylor.fausak.me
+url:        http://taylor.fausak.me
