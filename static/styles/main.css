@@ -103,9 +103,7 @@ html, body {
     font: 1em/1.5em sans-serif;
 }
 .wrapper {
-    margin: 0 auto;
-    max-width: 27em;
-    padding: 0 1.5em;
+    margin: 0 7.5%;
     position: relative;
 }
 
@@ -133,7 +131,7 @@ html, body {
     display: block;
     font-size: 0.6667em;
     height: 3em;
-    left: 0.5em;
+    left: -0.5em;
     margin-top: -1.5em;
     position: absolute;
     top: 50%;
