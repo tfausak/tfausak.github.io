@@ -28,6 +28,11 @@ lets you use vanity URLs (like "bucket.s3.amazonaws.com"), provided
 that your bucket is unique. We set our desired bucket name and
 concatenated it with our access key to make it unique.
 
+    AWS_ACCESS_KEY = '...'
+    AWS_SECRET_KEY = '...'
+    AWS_BUCKET = 'famigo-static'
+    AWS_BUCKET = '{0}-{1}'.format(AWS_ACCESS_KEY, AWS_BUCKET).lower()
+
 
 [1]: http://www.famigo.com/
 [2]: http://www.famigo.com/app/iblastmoki/
