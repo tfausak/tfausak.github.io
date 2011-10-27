@@ -28,7 +28,6 @@ lets you use vanity URLs (like "bucket.s3.amazonaws.com"), provided
 that your bucket is unique. We set our desired bucket name and
 concatenated it with our access key to make it unique.
 
-    python
     AWS_ACCESS_KEY = '...'
     AWS_SECRET_KEY = '...'
     AWS_BUCKET = 'famigo-static'
@@ -38,7 +37,6 @@ On to the hard part: moving everything from the database to S3.
 Create a [Django admin command][9] to do this. The first thing we
 need to do is connect to S3 and make sure our bucket exists.
 
-    python
     import httplib, S3
     connection = S3.AWSAuthConnect(AWS_ACCESS_KEY, AWS_SECRET_KEY)
     if connection.check_bucket_exists(AWS_BUCKET) != httplib.OK:
@@ -50,7 +48,6 @@ access it without a token. And, just like our bucket, our object
 keys need to be unique. We'll be using the app's package name as
 its key.
 
-    python
     for application in Application.objects:
         key = '{0}-icon'.format(application.package_name)
         content = application.icon.read()
@@ -60,7 +57,6 @@ Now the icon is stored on Amazon's server. We'll need a way to get
 it back, though. Amazon's S3 library has a URL generator that does
 exactly that.
 
-    python
     generator = S3.QueryStringAuthGenerator(AWS_ACCESS_KEY, AWS_SECRET_KEY)
     for application in Application.objects:
         url = generator.make_bare_url(AWS_BUCKET, key) # with key as before
