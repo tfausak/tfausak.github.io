@@ -63,12 +63,7 @@ exactly that.
         application.icon_url = url
         application.save()
 
-The final step is using the new URL in templates. Assuming you were
-using Django's URL tag already, this is a piece of cake. Replace
-all instances of `&#x7b;% url application_icon application.id %}`
-with `&#x7b;{ application.icon_url }}`. If you're not using the URL
-tag, you'll have to jump through a few more hoops, but the end
-result should be the same.
+The final step is using the new URL in templates. Assuming you were using Django's URL tag already, this is a piece of cake. Replace all instances of `{{ {% url application_icon application.id }}%}` with `{{ {{ application.icon_url }}}}`. If you're not using the URL tag, you'll have to jump through a few more hoops, but the end result should be the same.
 
 That's it! You are now serving static assets through Amazon S3.
 Getting CloudFront set up to serve them through a CDN is an optional
