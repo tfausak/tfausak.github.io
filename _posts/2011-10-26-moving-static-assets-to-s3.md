@@ -73,8 +73,8 @@ for application in Application.objects:
 
 The final step is using the new URL in templates. Assuming you were
 using Django's URL tag already, this is a piece of cake. Replace all
-instances of `{{{ {% url application_icon application.id%} }}}`
-with `{{{ {{ application.icon_url }} }}}`. If you're not using the
+instances of `{% literal %} {% url application_icon application.id%} {% endliteral %}`
+with `{% literal %} {{ application.icon_url }} {% endliteral %}`. If you're not using the
 URL tag, you'll have to jump through a few more hoops, but the end
 result should be the same.
 
