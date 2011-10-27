@@ -28,19 +28,23 @@ lets you use vanity URLs (like "bucket.s3.amazonaws.com"), provided
 that your bucket is unique. We set our desired bucket name and
 concatenated it with our access key to make it unique.
 
-    AWS_ACCESS_KEY = '...'
-    AWS_SECRET_KEY = '...'
-    AWS_BUCKET = 'famigo-static'
-    AWS_BUCKET = '{0}-{1}'.format(AWS_ACCESS_KEY, AWS_BUCKET).lower()
+{% highlight python %}
+AWS_ACCESS_KEY = '...'
+AWS_SECRET_KEY = '...'
+AWS_BUCKET = 'famigo-static'
+AWS_BUCKET = '{0}-{1}'.format(AWS_ACCESS_KEY, AWS_BUCKET).lower()
+{% endhighlight %}
 
 On to the hard part: moving everything from the database to S3.
 Create a [Django admin command][9] to do this. The first thing we
 need to do is connect to S3 and make sure our bucket exists.
 
-    import httplib, S3
-    connection = S3.AWSAuthConnect(AWS_ACCESS_KEY, AWS_SECRET_KEY)
-    if connection.check_bucket_exists(AWS_BUCKET) != httplib.OK:
-        connection.create_bucket(AWS_BUCKET)
+{% highlight python %}
+import httplib, S3
+connection = S3.AWSAuthConnect(AWS_ACCESS_KEY, AWS_SECRET_KEY)
+if connection.check_bucket_exists(AWS_BUCKET) != httplib.OK:
+    connection.create_bucket(AWS_BUCKET)
+{% endhighlight %}
 
 For every app in our database, we want to get its icon and send it
 over to S3. We also want to make it publicly readable so people can
@@ -48,20 +52,24 @@ access it without a token. And, just like our bucket, our object
 keys need to be unique. We'll be using the app's package name as
 its key.
 
-    for application in Application.objects:
-        key = '{0}-icon'.format(application.package_name)
-        content = application.icon.read()
-        connection.put(AWS_BUCKET, key, content, {'x-amz-acl': 'public-read'})
+{% highlight python %}
+for application in Application.objects:
+    key = '{0}-icon'.format(application.package_name)
+    content = application.icon.read()
+    connection.put(AWS_BUCKET, key, content, {'x-amz-acl': 'public-read'})
+{% endhighlight %}
 
 Now the icon is stored on Amazon's server. We'll need a way to get
 it back, though. Amazon's S3 library has a URL generator that does
 exactly that.
 
-    generator = S3.QueryStringAuthGenerator(AWS_ACCESS_KEY, AWS_SECRET_KEY)
-    for application in Application.objects:
-        url = generator.make_bare_url(AWS_BUCKET, key) # with key as before
-        application.icon_url = url
-        application.save()
+{% highlight python %}
+generator = S3.QueryStringAuthGenerator(AWS_ACCESS_KEY, AWS_SECRET_KEY)
+for application in Application.objects:
+    url = generator.make_bare_url(AWS_BUCKET, key) # with key as before
+    application.icon_url = url
+    application.save()
+{% endhighlight %}
 
 The final step is using the new URL in templates. Assuming you were
 using Django's URL tag already, this is a piece of cake. Replace all
