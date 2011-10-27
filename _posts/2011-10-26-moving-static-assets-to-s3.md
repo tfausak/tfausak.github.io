@@ -1,6 +1,6 @@
 ---
 layout: post
-title: untitled
+title: Moving Static Assets to S3
 published: false
 ---
 
