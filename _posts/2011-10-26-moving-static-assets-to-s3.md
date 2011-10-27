@@ -33,6 +33,47 @@ concatenated it with our access key to make it unique.
     AWS_BUCKET = 'famigo-static'
     AWS_BUCKET = '{0}-{1}'.format(AWS_ACCESS_KEY, AWS_BUCKET).lower()
 
+On to the hard part: moving everything from the database to S3.
+Create a [Django admin command][9] to do this. The first thing we
+need to do is connect to S3 and make sure our bucket exists.
+
+    import httplib, S3
+    connection = S3.AWSAuthConnect(AWS_ACCESS_KEY, AWS_SECRET_KEY)
+    if connection.check_bucket_exists(AWS_BUCKET) != httplib.OK:
+        connection.create_bucket(AWS_BUCKET)
+
+For every app in our database, we want to get its icon and send it
+over to S3. We also want to make it publicly readable so people can
+access it without a token. And, just like our bucket, our object
+keys need to be unique. We'll be using the app's package name as
+its key.
+
+    for application in Application.objects:
+        key = '{0}-icon'.format(application.package_name)
+        content = application.icon.read()
+        connection.put(AWS_BUCKET, key, content, {'x-amz-acl': 'public-read'})
+
+Now the icon is stored on Amazon's server. We'll need a way to get
+it back, though. Amazon's S3 library has a URL generator that does
+exactly that.
+
+    generator = S3.QueryStringAuthGenerator(AWS_ACCESS_KEY, AWS_SECRET_KEY)
+    for application in Application.objects:
+        url = generator.make_bare_url(AWS_BUCKET, key) # with key as before
+        application.icon_url = url
+        application.save()
+
+The final step is using the new URL in templates. Assuming you were
+using Django's URL tag already, this is a piece of cake. Replace
+all instances of `&#x7b;% url application_icon application.id %}`
+with `&#x7b;{ application.icon_url }}`. If you're not using the URL
+tag, you'll have to jump through a few more hoops, but the end
+result should be the same.
+
+That's it! You are now serving static assets through Amazon S3.
+Getting CloudFront set up to serve them through a CDN is an optional
+step, and one I won't cover. It involves lots of administration and
+very little code.
 
 [1]: http://www.famigo.com/
 [2]: http://www.famigo.com/app/iblastmoki/
