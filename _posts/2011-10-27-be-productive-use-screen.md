@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 'Be Productive: Use Screen'
-published: false
 ---
 
 My development machine exists in "the cloud", so to speak. At
