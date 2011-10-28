@@ -10,11 +10,11 @@ production environments. I still connect to EC2 using good old-fashioned
 hardware, but the only thing I know about my development instance
 is that it gives me a shell prompt.
 
-Growing up, my dad introduced me to Linux. But not in the usual
-client-server fashion. I frequently used Linux, but it was always
-sitting in front of the machine, directly connected with a keyboard.
-More often than not, I set up a GUI so I could see more than 80
-columns and 24 rows.
+Growing up, my dad introduced me to Linux, but not in the usual
+client-server fashion. I frequently used Linux, sitting directly
+in front of the machine, connected with a keyboard.  More often
+than not, I set up a GUI so I could see more than 80 columns and
+24 rows.
 
 By the time I got to high school, I was better acquainted with the
 client-server model. I routinely connected to servers to start or
@@ -54,9 +54,9 @@ As you can see, not a whole lot going on. I'm running a server in
 screen 0. I can easily go to it (with `C-a 0`) to catch Django's
 output. Screen 1 is where I do all of my actual work; it's usually
 running [VIm][5]. I run all of my unit tests in screen 2. This is
-handy because I can flip back and forth (with `C-a C-a`)between the
-test output and the code that broke it. Finally, I handle all my
-git commands in screen 3, which lets me commit frequently while
+handy because I can flip back and forth (with `C-a C-a`) between
+the test output and the code that broke it. Finally, I handle all
+my git commands in screen 3, which lets me commit frequently while
 still keeping all my files open and tests running.
 
 So there you have it. That's how I use screen to be productive at work.
