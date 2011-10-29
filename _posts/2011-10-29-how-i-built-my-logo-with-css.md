@@ -6,14 +6,14 @@ title: How I Built My Logo with CSS
 I'm a big fan of [Jon Tan][1]'s [text logo][2]. When I was designing
 this site, I knew I wanted something similar.
 
-The actual design comes from a doodle, drawn a few years ago. It
+The actual design comes from a doodle I drew a few years ago. It
 looks a little bit like a lightning bolt and conveniently combines
 my initials. It has a simple shape and can be rendered easily with
-any number of colors. It was settled: that was to be my logo.
+any number of colors. It was a no-brainer to choose as my logo.
 
-On to the more interesting problem of rendering it. My options were:
-a raster image, like PNG; a vector image, like SVG; or some type
-of HTML, CSS, and/or JS trickery.
+Rendering it was a more interesting problem. My options were: a
+raster image, like PNG; a vector image, like SVG; or some type of
+HTML, CSS, and/or JS trickery.
 
 A raster image is the most traditional solution, but it's problematic
 because it doesn't scale. Changing the text size makes the browser
