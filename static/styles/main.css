@@ -213,9 +213,6 @@ html, body {
 .post-title a {
     text-decoration: none;
 }
-.post-title strong {
-    color: #000000;
-}
 .post-title time {
     color: #babdb6;
 }
