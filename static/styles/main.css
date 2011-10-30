@@ -64,6 +64,8 @@ h2 {
     margin: 1.3333em 0;
 }
 img {
+    background: #eeeeec;
+    border; thin solid #d3d7cf;
     display: block;
     margin: 1.5em auto;
     max-width: 100%;
