@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Working Remotely
-published: false
 ---
 
 Two summers ago, I interned at [Cisco][1]. I worked in the office
