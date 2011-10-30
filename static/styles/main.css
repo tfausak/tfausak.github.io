@@ -224,11 +224,12 @@ html, body {
     border-top: thin solid #d3d7cf;
 }
 .post.home {
-    float: right;
+    float: left;
 }
 .post.about {
-    float: left;
+    float: right;
 }
 #post-related-1 {
     border-top: thin solid #d3d7cf;
+    clear: both;
 }
