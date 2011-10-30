@@ -63,14 +63,6 @@ h2 {
     line-height: 1.3333em;
     margin: 1.3333em 0;
 }
-hr {
-    border: none;
-    border-top: thin solid #d3d7cf;
-    display: block;
-    height: 0;
-    margin: 1.5em auto;
-    width: 50%;
-}
 img {
     display: block;
     margin: 1.5em auto;
@@ -112,7 +104,7 @@ html, body {
 }
 .wrapper {
     margin: 0 auto;
-    max-width: 38.5em;
+    max-width: 40em;
     padding: 0 1.5em;
     position: relative;
 }
@@ -207,6 +199,9 @@ html, body {
     background: #ffffff;
     padding: 1.5em 0;
 }
+#content .wrapper {
+    margin: -1.5em auto;
+}
 
 /*
     Posts
@@ -223,4 +218,17 @@ html, body {
 }
 .post-title time {
     color: #babdb6;
+}
+
+.posts.related {
+    border-top: thin solid #d3d7cf;
+}
+.post.home {
+    float: right;
+}
+.post.about {
+    float: left;
+}
+#post-related-1 {
+    border-top: thin solid #d3d7cf;
 }

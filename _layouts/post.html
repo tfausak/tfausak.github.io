@@ -15,19 +15,25 @@ layout: base
     </div>
 </article>
 
-<hr>
-
-<ul class="posts">
-    <li class="post">
+<ul class="posts related">
+    <li class="post home" style="float: right;">
         <h1 class="post-title">
             <a href="/">
-                <strong>Home</strong>
+                <strong>&#x2190; Home</strong>
             </a>
         </h1>
     </li>
 
-    {% for post in site.related_posts limit:5 %}
-        <li class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <li class="post about" style="float: left;">
+        <h1 class="post-title">
+            <a href="/about/">
+                <strong>About</strong>
+            </a>
+        </h1>
+    </li>
+
+    {% for post in site.related_posts limit:3 %}
+        <li class="post" id="post-related-{{ forloop.index }}" itemscope itemtype="http://schema.org/BlogPosting">
             <h1 class="post-title">
                 <a href="{{ post.url }}" itemprop="url">
                     <strong itemprop="name">{{ post.title }}</strong>
@@ -36,12 +42,4 @@ layout: base
             </h1>
         </li>
     {% endfor %}
-
-    <li class="post">
-        <h1 class="post-title">
-            <a href="/about/">
-                <strong>About</strong>
-            </a>
-        </h1>
-    </li>
 </ul>
