@@ -63,6 +63,13 @@ h2 {
     line-height: 1.3333em;
     margin: 1.3333em 0;
 }
+hr {
+    border-top: thin solid #d3d7cf;
+    display: block;
+    height: 0;
+    margin: 1.5em auto;
+    width: 50%;
+}
 img {
     display: block;
     margin: 1.5em auto;
