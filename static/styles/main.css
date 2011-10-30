@@ -64,6 +64,7 @@ h2 {
     margin: 1.3333em 0;
 }
 hr {
+    border: none;
     border-top: thin solid #d3d7cf;
     display: block;
     height: 0;
