@@ -7,11 +7,9 @@ published: false
 Two summers ago, I interned at [Cisco][1]. I worked in the office
 from 9 to 5 every day -- no exceptions. I couldn't stay late, come
 in early, or work from home. They were very particular about my
-hours.
-
-I'm much happier with my current arrangement at [Famigo][2]. Working
-for a startup offers a lot of perks, and one of my favorites is
-working remotely.
+hours. I didn't like that very much. I'm much happier with my current
+arrangement at [Famigo][2]. Working for a startup offers a lot of
+perks, and one of my favorites is working remotely.
 
 Being able to get out of the office occasionally is important to
 me. My girlfriend lives about 200 miles away in Dallas. Traveling
