@@ -14,3 +14,34 @@ layout: base
         {{ content }}
     </div>
 </article>
+
+<hr>
+
+<ul class="posts">
+    <li class="post">
+        <h1 class="post-title">
+            <a href="/">
+                <strong>Home</strong>
+            </a>
+        </h1>
+    </li>
+
+    {% for post in site.related_posts limit:5 %}
+        <li class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <h1 class="post-title">
+                <a href="{{ post.url }}" itemprop="url">
+                    <strong itemprop="name">{{ post.title }}</strong>
+                    <time datetime="{{ post.date | date: "%Y-%m-%d" }}" itemprop="datePublished" pubdate>{{ post.date | date: "%b %d" }}</time>
+                </a>
+            </h1>
+        </li>
+    {% endfor %}
+
+    <li class="post">
+        <h1 class="post-title">
+            <a href="/about/">
+                <strong>About</strong>
+            </a>
+        </h1>
+    </li>
+</ul>
