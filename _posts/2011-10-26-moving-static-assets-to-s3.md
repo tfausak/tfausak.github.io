@@ -83,6 +83,21 @@ Getting CloudFront set up to serve them through a CDN is an optional
 step, and one I won't cover. It involves lots of administration and
 very little code.
 
+*Update (Oct 31):* As noted in [a Reddit comment][10], it's a good idea
+to set `Expires` (or `Cache-Control`) headers on your static assets. When
+using S3, you want to add another entry to the headers dictionary. It
+should end up looking like this:
+
+{% highlight python %}
+{
+    'Cache-Control': 'max-age=604800, public',
+    'x-amz-acl': 'public-read',
+}
+{% endhighlight %}
+
+For a more detailed look at caching, I suggest [Mark Nottingham][11]'s
+[caching tutorial][12].
+
 [1]: http://www.famigo.com/
 [2]: http://www.famigo.com/app/iblastmoki/
 [3]: https://www.djangoproject.com/
@@ -92,3 +107,6 @@ very little code.
 [7]: http://aws.amazon.com/cloudfront/
 [8]: http://aws.amazon.com/code/134
 [9]: https://docs.djangoproject.com/en/dev/howto/custom-management-commands/
+[10]: http://www.reddit.com/r/programming/comments/lqklm/moving_static_assets_to_s3/c2vjmeh
+[11]: http://www.mnot.net/
+[12]: http://www.mnot.net/cache_docs/
