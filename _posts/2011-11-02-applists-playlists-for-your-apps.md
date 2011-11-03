@@ -1,7 +1,6 @@
 ---
 layout: post
-title: untitled
-published: false
+title: 'Applists: Playlists for Your Apps'
 ---
 
 At [Famigo][1], we're working hard to make smartphones safe for
