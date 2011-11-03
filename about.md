@@ -13,9 +13,7 @@ I live in Austin, TX, where I work for [Famigo][2]. I studied
 Computer Science at [UT Austin][3] for a while, but I don't have
 anything to show for it.
 
-If you want to get a hold of me, you can send me an email. My email
-address is [taylor@fausak.me][4]. If you don't like email, you can
-try one of the websites listed below.
+If you want to contact me, send me an email at [taylor@fausak.me][4].
 
 ## Elsewhere
 
