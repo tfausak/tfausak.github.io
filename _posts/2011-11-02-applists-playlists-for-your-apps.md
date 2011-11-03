@@ -7,9 +7,9 @@ At [Famigo][1], we're working hard to make smartphones safe for
 families. We're also trying to help families find good apps for
 their phones. Our site has tons of curated content, but there's
 only so much we can do. Plus, you know your family better than
-anyone else. You know which apps they'd like.
+anyone else. You know which apps they like.
 
-So we want to make it easy to recommend apps to your family and
+We want to make it easy to recommend apps to your family and
 friends. If you use the [Famigo Sandbox][2], you already have a
 great tool at your disposal: sandbox sharing. It's quick and easy
 to share a link to your sandbox from within our app. (I don't have
@@ -45,4 +45,4 @@ with)! Send comments, suggestions, and questions to [info@famigo.com][10].
 [7]: /static/images/2011-11-02-figure-2.png
 [8]: http://www.famigo.com/applist/4eb1f162cea0992b550121e2/
 [9]: http://www.famigo.com/applist/4eb1f295cea0992b55012d6d/
-[10]: mailto:info@famigo.com?subject=Famigo Applists
+[10]: mailto:info@famigo.com?subject=Famigo+Applists
