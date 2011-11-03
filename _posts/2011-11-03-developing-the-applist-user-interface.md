@@ -34,26 +34,26 @@ that users can pick an app with confidence. (Try searching for
 and platform (Android or iOS) along with the app name should help
 the user pick the right app.
 
-    {% highlight js %}
-    function autocomplete_render (ul, item) {
-        return $('<li/>')
-            .data('item.autocomplete', item)
-            .append($('a/>')
-                .append($('<img/>')
-                    .addClass('platform')
-                    .attr('src', item.platform))
-                .append($('<img/>')
-                    .addClass('icon')
-                    .attr('src', item.icon))
-                .append($('<span/>')
-                    .addClass('name')
-                    .html(item.name))
-                .append($('<span/>')
-                    .addClass('developer')
-                    .html(item.developer)))
-            .appendTo(ul);
-    };
-    {% endhighlight %}
+{% highlight js %}
+function autocomplete_render (ul, item) {
+    return $('<li/>')
+        .data('item.autocomplete', item)
+        .append($('a/>')
+            .append($('<img/>')
+                .addClass('platform')
+                .attr('src', item.platform))
+            .append($('<img/>')
+                .addClass('icon')
+                .attr('src', item.icon))
+            .append($('<span/>')
+                .addClass('name')
+                .html(item.name))
+            .append($('<span/>')
+                .addClass('developer')
+                .html(item.developer)))
+        .appendTo(ul);
+};
+{% endhighlight %}
 
 ![Screenshot of the autocomplete dropdown][7]
 
@@ -67,40 +67,40 @@ The element needs to be added to the top of the applist, and the
 autocomplete box needs to be cleared and re-focused so the user can
 add another app.
 
-    {% highlight js %}
-    function autocomplete_select (event, ui) {
-        $('<li/>')
-            .append($('<img/>')
-                .addClass('platform')
-                .attr('src', ui.item.platform))
-            .append($('<img/>')
-                .addClass('icon')
-                .attr('src', ui.item.icon))
-            .append($('<div/>')
-                .addClass('name')
-                .html(ui.item.name))
-            .append($('<div/>')
-                .addClass('developer')
-                .html(ui.item.developer))
-            .hide()
-            .prependTo('#list')
-            .slideDown();
-        $(this).focus().val('');
-        return false;
-    }
-    {% endhighlight %}
+{% highlight js %}
+function autocomplete_select (event, ui) {
+    $('<li/>')
+        .append($('<img/>')
+            .addClass('platform')
+            .attr('src', ui.item.platform))
+        .append($('<img/>')
+            .addClass('icon')
+            .attr('src', ui.item.icon))
+        .append($('<div/>')
+            .addClass('name')
+            .html(ui.item.name))
+        .append($('<div/>')
+            .addClass('developer')
+            .html(ui.item.developer))
+        .hide()
+        .prependTo('#list')
+        .slideDown();
+    $(this).focus().val('');
+    return false;
+}
+{% endhighlight %}
 
 ![Screenshot of an app in the applist][9]
 
 All that's left is enable the autocompletion widget and set it up
 to use the custom functions.
 
-    {% highlight js %}
-    $('#autocomplete').autocomplete({
-        select: autocomplete_select,
-        source: '/autocomplete/'
-    }).data('autocomplete')._renderItem = autocomplete_render;
-    {% endhighlight %}
+{% highlight js %}
+$('#autocomplete').autocomplete({
+    select: autocomplete_select,
+    source: '/autocomplete/'
+}).data('autocomplete')._renderItem = autocomplete_render;
+{% endhighlight %}
 
 ## Backend
 
@@ -114,20 +114,20 @@ view normalizes the query and searches Solr. Then the results are
 transformed into MongoEngine references, formatted, and returned
 as JSON.
 
-    {% highlight python %}
-    @cache_page(60 * 60 * 24)
-    def autocomplete(request):
-        query = ' '.join(request.GET.get('term', '').split()).lower()
-        results = Solr(SOLR_URL).search(query)
-        ids = [result['id'] for result in results]
-        apps = Application.objects(id__in=ids).order_by('name')
-        return HttpResponse(json.dumps([{
-            'developer': app.developer,
-            'icon': app.icon,
-            'name': app.name,
-            'platform': app.platform,
-        } for app in apps]), mimetype='application/json')
-    {% endhighlight %}
+{% highlight python %}
+@cache_page(60 * 60 * 24)
+def autocomplete(request):
+    query = ' '.join(request.GET.get('term', '').split()).lower()
+    results = Solr(SOLR_URL).search(query)
+    ids = [result['id'] for result in results]
+    apps = Application.objects(id__in=ids).order_by('name')
+    return HttpResponse(json.dumps([{
+        'developer': app.developer,
+        'icon': app.icon,
+        'name': app.name,
+        'platform': app.platform,
+    } for app in apps]), mimetype='application/json')
+{% endhighlight %}
 
 ## Notes
 
