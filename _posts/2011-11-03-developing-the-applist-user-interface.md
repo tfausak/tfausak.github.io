@@ -1,7 +1,6 @@
 ---
 layout: post
-title: untitled
-published: false
+title: Developing the Applist User Interface
 ---
 
 Yesterday, [I introduced a new feature][1] I worked on this week:
