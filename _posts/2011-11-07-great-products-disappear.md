@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Great Products Disappear
-published: false
 ---
 
 Recently, I lost my [Nexus S][1] and replaced it with a [Venue
