@@ -1,7 +1,6 @@
 ---
 layout: post
-title: untitled
-published: false
+title: Why I Love Magic Drafts
 ---
 
 ![Magic: The Gathering logo][1]
