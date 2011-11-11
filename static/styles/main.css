@@ -94,11 +94,8 @@ ul {
     color: #babdb6;
     display: block;
     margin: 0 -1em;
-    overflow-x: hidden;
     padding-left: 4.5em;
     text-decoration: none;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 #header strong {
     color: #2e3436;
