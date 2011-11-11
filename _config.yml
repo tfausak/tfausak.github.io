@@ -3,6 +3,9 @@ author:
     email:  taylor@fausak.me
 charset:    utf-8
 language:   en-US
+lsi:        false
 permalink:  pretty
+pygments:   true
+safe:       true
 title:      taylor.fausak.me
 url:        'http://taylor.fausak.me'
