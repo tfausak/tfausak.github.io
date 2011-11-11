@@ -4,7 +4,7 @@
 html, body {
     background: #eeeeec;
     color: #2e3436;
-    font: 1em/1.5em 'Lucida Grande', sans-serif;
+    font: 1em/1.5em 'Verdana', sans-serif;
 }
 .wrapper {
     margin: 0 auto;
@@ -28,7 +28,7 @@ blockquote {
     padding-left: 1.5em;
 }
 code {
-    font-family: 'Menlo', monospace;
+    font-family: 'Courier New', monospace;
 }
 h1 {
     font-size: 1.5em;
@@ -89,6 +89,7 @@ ul {
 #header h1 {
     line-height: 4em;
     margin: 0;
+    position: relative;
 }
 #header a {
     color: #babdb6;
