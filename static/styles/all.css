@@ -58,7 +58,7 @@ html, body {
 #header img {
     display: block;
     height: 6em;
-    left: 1.5em;
+    left: 0;
     position: absolute;
     top: 0;
     width: 6em;
@@ -67,12 +67,16 @@ html, body {
     font-size: 2em;
     line-height: 3em;
     position: relative;
-    text-indent: 3.75em;
+    text-indent: 3.25em;
 }
 #header a {
     color: #babdb6;
     display: block;
+    margin: 0 -0.75em;
+    overflow-x: hidden;
     text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 #header strong {
     color: #2e3436;
@@ -109,6 +113,32 @@ html, body {
 */
 #content {
     padding: 1.5em 0;
+}
+#content a {
+    cursor: pointer;
+    color: #3465a4;
+    text-decoration: underline;
+}
+#content a:visited {
+    color: #75507b;
+}
+
+/*
+*/
+.posts {
+}
+.posts .month {
+}
+.posts .year {
+    color: #babdb6;
+}
+.posts .post {
+    color: #babdb6;
+    list-style: decimal outside;
+    margin-left: 3em;
+}
+.posts a {
+    text-decoration: none;
 }
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #8f5902; font-style: italic } /* Comment */
