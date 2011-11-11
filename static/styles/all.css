@@ -41,7 +41,7 @@ html, body {
     background: #eeeeec;
     color: #2e3436;
     font: 1em/1.5em sans-serif;
-    padding-bottom: 1.5em;
+    padding-bottom: 3em;
 }
 .wrapper {
     margin: 0 auto;
@@ -147,34 +147,6 @@ ul {
 #header strong {
     color: #2e3436;
     font-weight: normal;
-}
-
-/*
-    Footer
-*/
-#footer {
-    color: #babdb6;
-    text-align: center;
-    text-transform: lowercase;
-}
-#footer ul {
-    list-style: none;
-    margin: 0;
-}
-#footer li {
-    display: inline;
-}
-#footer li:before {
-    content: '\b7';
-    padding: 0 0.25em;
-}
-#footer li:first-child:before {
-    content: '';
-    padding: 0;
-}
-#footer a {
-    color: inherit;
-    text-decoration: none;
 }
 
 /*
