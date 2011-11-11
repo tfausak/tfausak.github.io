@@ -11,9 +11,7 @@ layout: base
     </div>
 </article>
 
-<a class="home" href="/">&#x2190; Home</a>
-<a class="about" href="/about/">About</a>
-<div style="clear: both;"></div>
+{% include about.html %}
 
 <ul class="related-posts">
     {% for post in site.related_posts limit:5 %}

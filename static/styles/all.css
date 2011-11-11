@@ -120,7 +120,6 @@ ul {
 }
 #header img {
     border: none;
-    display: block;
     height: 6em;
     left: 0;
     margin: 0;
@@ -154,6 +153,22 @@ ul {
 */
 #content {
 }
+.about {
+    background: #555753 center no-repeat url('/static/images/taylor-fausak.jpg');
+    border: thin solid #2e3436;
+    display: block;
+    height: 6em;
+    overflow: hidden;
+    position: relative;
+}
+.about img {
+    border: none;
+    height: 6em;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 
 /*
     Archived posts
@@ -182,22 +197,8 @@ ul {
 .post h1 {
     font-weight: bold;
 }
-.home, .about {
-    margin: 1.5em 0;
-    text-decoration: none;
-}
-.home {
-    float: left;
-}
-.about {
-    float: right;
-}
 .related-posts {
-    border-top: thin solid #d3d7cf;
     color: #babdb6;
-    margin-left: 0;
-    margin-top: 0;
-    padding: 1.5em 0 0 1.5em;
 }
 .related-posts a {
     text-decoration: none;
