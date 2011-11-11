@@ -2,7 +2,7 @@
 layout: nil
 ---
 
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="{{ site.charset }}"?>
 
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>{{ site.title }}</title>
@@ -15,7 +15,7 @@ layout: nil
         <email>{{ site.author.email }}</email>
     </author>
 
-    {% for post in site.posts limit:7 %}
+    {% for post in site.posts %}
         <entry>
             <title>{{ post.title }}</title>
             <link href="{{ site.url }}{{ post.url }}"/>
