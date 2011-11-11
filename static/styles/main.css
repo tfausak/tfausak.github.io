@@ -117,23 +117,6 @@ ul {
 */
 #content {
 }
-.about {
-    background: #d3d7cf;
-    border: thin solid #babdb6;
-    display: block;
-    font-size: 1.5em;
-    font-weight: bold;
-    line-height: 4em;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-}
-.about img {
-    margin: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
 
 /*
     Archived posts
@@ -161,10 +144,4 @@ ul {
 */
 .post h1 {
     font-weight: bold;
-}
-.related-posts {
-    color: #babdb6;
-}
-.related-posts a {
-    text-decoration: none;
 }

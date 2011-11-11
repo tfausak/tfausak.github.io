@@ -10,16 +10,3 @@ layout: base
         {{ content }}
     </div>
 </article>
-
-{% include about.html %}
-
-<ul class="related-posts">
-    {% for post in site.related_posts limit:5 %}
-        <li class="post" id="post-related-{{ forloop.index }}" itemscope itemtype="http://schema.org/BlogPosting">
-            <a href="{{ post.url }}" itemprop="url">
-                <meta content="{{ post.date | date:'%Y-%m-%d' }}" itemprop="datePublished">
-                <span itemprop="name">{{ post.title }}</span>
-            </a>
-        </li>
-    {% endfor %}
-</ul>
