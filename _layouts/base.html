@@ -15,8 +15,8 @@
             <div class="wrapper">
                 <img alt="" itemprop="image" src="/static/images/logo.png">
 
-                <h1 id="masthead" itemprop="name">
-                    <a href="/" itemprop="url">{{ site.title }}</a>
+                <h1 itemprop="name">
+                    <a href="/" itemprop="url">{{ site.title | prepend:'<strong>' | replace_first:'.','</strong>&#x2e;<strong>' | replace_first:'.','</strong>.' }}</a>
                 </h1>
             </div>
         </header>
