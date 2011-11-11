@@ -3,43 +3,25 @@ layout: base
 ---
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    <h1 class="post-title">
-        <a href="{{ post.url }}" itemprop="url">
-            <strong itemprop="name">{{ page.title }}</strong>
-            <time datetime="{{ page.date | date: "%Y-%m-%d" }}" itemprop="datePublished" pubdate>{{ page.date | date: "%b %d" }}</time>
-        </a>
-    </h1>
+    <meta content="{{ post.date | date:'%Y-%m-%d' }}" itemprop="datePublished">
+    <h1 itemprop="name">{{ page.title }}</h1>
 
     <div itemprop="articleBody">
         {{ content }}
     </div>
 </article>
 
-<ul class="posts related">
-    <li class="post home">
-        <h1 class="post-title">
-            <a href="/">
-                <strong>&#x2190; Home</strong>
-            </a>
-        </h1>
-    </li>
+<a class="home" href="/">&#x2190; Home</a>
+<a class="about" href="/about/">About</a>
+<div style="clear: both;"></div>
 
-    <li class="post about">
-        <h1 class="post-title">
-            <a href="/about/">
-                <strong>About</strong>
-            </a>
-        </h1>
-    </li>
-
-    {% for post in site.related_posts limit:3 %}
+<ul class="related-posts">
+    {% for post in site.related_posts limit:5 %}
         <li class="post" id="post-related-{{ forloop.index }}" itemscope itemtype="http://schema.org/BlogPosting">
-            <h1 class="post-title">
-                <a href="{{ post.url }}" itemprop="url">
-                    <strong itemprop="name">{{ post.title }}</strong>
-                    <time datetime="{{ post.date | date: "%Y-%m-%d" }}" itemprop="datePublished" pubdate>{{ post.date | date: "%b %d" }}</time>
-                </a>
-            </h1>
+            <a href="{{ post.url }}" itemprop="url">
+                <meta content="{{ post.date | date:'%Y-%m-%d' }}" itemprop="datePublished">
+                <span itemprop="name">{{ post.title }}</span>
+            </a>
         </li>
     {% endfor %}
 </ul>
