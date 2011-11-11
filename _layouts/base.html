@@ -1,23 +1,10 @@
 <!doctype html>
 
-<html lang="en-US">
+<html lang="{{ site.language }}">
     <head>
-        <meta charset="utf-8">
-        <meta content="maximum-scale=1,minimum-scale=1,width=device-width" name="viewport">
-        <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" property="og:title">
-        <meta content="{% if page.title %}article{% else %}blog{% endif %}" property="og:type">
-        <meta content="{{ site.url }}/static/images/og-image.png" property="og:image">
-        <meta content="{{ site.url }}{% if page.title %}{{ page.url }}{% else %}/{% endif %}" property="og:url">
-        <meta content="en_US" property="og:locale">
-        <meta content="{{ site.title }}" property="og:site_name">
+        <meta charset="{{ site.charset }}">
 
         <link href="/static/styles/all.css" rel="stylesheet">
-        <link href="{{ site.url }}{% if page.title %}{{ page.url }}{% else %}/{% endif %}" rel="canonical">
-        <link href="/atom.xml" rel="alternate" type="application/atom+xml">
-        <link href="/static/images/favicon.ico" rel="shortcut icon">
-        <link href="/static/images/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
-        <link href="/static/images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
-        <link href="/static/images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
 
         <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     </head>
@@ -26,16 +13,10 @@
         <header id="header">
             <div class="wrapper">
                 <h1 id="masthead" itemprop="name">
-                    <a href="/" itemprop="url">
-                        <span id="logo">
-                            <span id="tl"></span><span id="tc"></span><span id="tr"></span>
-                            <span id="cl"></span><span id="cc"></span><span id="cr"></span>
-                            <span id="bl"></span><span id="bc"></span><span id="br"></span>
-                        </span>
-
-                        <strong>taylor</strong>.<strong>fausak</strong>.me
-                    </a>
+                    <a href="/" itemprop="url">{{ site.title }}</a>
                 </h1>
+
+                <img alt="" itemprop="image" src="/static/images/logo.svg">
             </div>
         </header>
 
@@ -47,7 +28,17 @@
 
         <footer id="footer">
             <div class="wrapper">
-                <p>This work is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.</p>
+                <ul>
+                    <li>
+                        <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+                    </li>
+                    <li>
+                        <a href="http://validator.w3.org/check?uri=referer">HTML5</a>
+                    </li>
+                    <li>
+                        <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS 2.1</a>
+                    </li>
+                </ul>
             </div>
         </footer>
 
