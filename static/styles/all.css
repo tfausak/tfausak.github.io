@@ -40,7 +40,7 @@ table {
 html, body {
     background: #eeeeec;
     color: #2e3436;
-    font: 1em/1.5em sans-serif;
+    font: 1em/1.5em 'Lucida Grande', sans-serif;
     padding-bottom: 3em;
 }
 .wrapper {
@@ -67,7 +67,7 @@ blockquote {
     padding-left: 1.5em;
 }
 code {
-    font-family: monospace;
+    font-family: 'Menlo', monospace;
 }
 h1 {
     font-size: 1.5em;
