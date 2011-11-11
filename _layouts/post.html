@@ -10,3 +10,14 @@ layout: base
         {{ content }}
     </div>
 </article>
+
+<ul class="posts related" itemprop="blogPosts">
+    {% for post in site.related_posts %}
+        <li class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            <meta content="{{ post.date | date:'%Y-%m-%d' }}" itemprop="datePublished">
+            <a href="{{ post.url }}" itemprop="url">
+                <span itemprop="name">{{ post.title }}</span>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

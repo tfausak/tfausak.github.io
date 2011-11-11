@@ -185,10 +185,17 @@ ul {
 .posts .post {
     color: #babdb6;
     list-style: decimal;
-    margin-left: 3em;
+    margin-left: 1.5em;
 }
 .posts a {
     text-decoration: none;
+}
+.posts.related {
+    border-top: thin solid #d3d7cf;
+    padding-top: 1.5em;
+}
+.posts.related .post {
+    list-style: square;
 }
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #8f5902; font-style: italic } /* Comment */
