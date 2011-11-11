@@ -1,12 +1,8 @@
-charset: utf-8
-language: en-US
-title: taylor.fausak.me
-
-
-
 author:
     name:   Taylor Fausak
     email:  taylor@fausak.me
+charset:    utf-8
+language:   en-US
 permalink:  pretty
 title:      taylor.fausak.me
-url:        http://taylor.fausak.me
+url:        'http://taylor.fausak.me'
