@@ -15,6 +15,18 @@ html, body {
 }
 
 /*
+    Default styles
+*/
+a {
+    cursor: pointer;
+    color: #3465a4;
+    text-decoration: underline;
+}
+a:visited {
+    color: #75507b;
+}
+
+/*
     Header
 */
 #header {
@@ -78,16 +90,9 @@ html, body {
 #content {
     padding: 1.5em 0;
 }
-#content a {
-    cursor: pointer;
-    color: #3465a4;
-    text-decoration: underline;
-}
-#content a:visited {
-    color: #75507b;
-}
 
 /*
+    Post listing
 */
 .posts {
 }
