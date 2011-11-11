@@ -118,16 +118,17 @@ ul {
 #content {
 }
 .about {
-    background: #555753 center no-repeat url('/static/images/taylor-fausak.jpg');
-    border: thin solid #2e3436;
+    background: #d3d7cf;
+    border: thin solid #babdb6;
     display: block;
-    height: 6em;
-    overflow: hidden;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 4em;
     position: relative;
+    text-align: center;
+    text-decoration: none;
 }
 .about img {
-    border: none;
-    height: 6em;
     margin: 0;
     position: absolute;
     right: 0;
