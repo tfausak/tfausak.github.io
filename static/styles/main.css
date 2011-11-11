@@ -5,7 +5,6 @@ html, body {
     background: #eeeeec;
     color: #2e3436;
     font: 1em/1.5em 'Lucida Grande', sans-serif;
-    padding-bottom: 3em;
 }
 .wrapper {
     margin: 0 auto;
@@ -18,9 +17,7 @@ html, body {
     Default styles
 */
 a {
-    cursor: pointer;
     color: #3465a4;
-    text-decoration: underline;
 }
 a:visited {
     color: #75507b;
@@ -84,25 +81,21 @@ ul {
 }
 #header img {
     border: none;
-    height: 6em;
     left: 0;
     margin: 0;
     position: absolute;
     top: 0;
-    width: 6em;
 }
 #header h1 {
-    font-size: 2em;
-    line-height: 3em;
+    line-height: 4em;
     margin: 0;
-    position: relative;
-    text-indent: 3.25em;
 }
 #header a {
     color: #babdb6;
     display: block;
-    margin: 0 -0.75em;
+    margin: 0 -1em;
     overflow-x: hidden;
+    padding-left: 4.5em;
     text-decoration: none;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -113,14 +106,37 @@ ul {
 }
 
 /*
+    Footer
+*/
+#footer {
+}
+#footer ul {
+    list-style: none;
+    margin: 1.5em 0 6em;;
+}
+#footer li {
+    color: #babdb6;
+    display: inline;
+}
+#footer li:before {
+    content: '\b7';
+    padding: 0 0.125em;
+}
+#footer li:first-child:before {
+    content: '';
+    padding: 0;
+}
+#footer a {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/*
     Content
 */
 #content {
 }
-
-/*
-    Archived posts
-*/
 .posts {
     margin-left: 0;
     list-style: none;
@@ -137,11 +153,4 @@ ul {
 }
 .posts a {
     text-decoration: none;
-}
-
-/*
-    Post
-*/
-.post h1 {
-    font-weight: bold;
 }
