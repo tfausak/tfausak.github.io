@@ -25,6 +25,57 @@ a {
 a:visited {
     color: #75507b;
 }
+blockquote {
+    border-left: thin solid #d3d7cf;
+    margin: 1.5em 0;
+    padding-left: 1.5em;
+}
+code {
+    font-family: monospace;
+}
+h1 {
+    font-size: 1.5em;
+    line-height: 1em;
+    margin: 1em 0;
+}
+h2 {
+    font-size: 1.125em;
+    font-weight: bold;
+    line-height: 1.3333em;
+    margin: 1.3333em 0;
+}
+img {
+    background: #555753;
+    border: thin solid #2e3436;
+    display: block;
+    margin: 1.5em auto;
+    max-width: 100%;
+}
+em {
+    font-style: italic;
+}
+ol, ul {
+    list-style-position: outside;
+    margin: 1.5em 0 1.5em 1.5em;
+}
+ol {
+    list-style-type: decimal;
+}
+p {
+    margin: 1.5em 0;
+}
+pre {
+    border-left: thin solid #d3d7cf;
+    margin: 1.5em 0;
+    padding-left: 1.5em;
+    white-space: pre-wrap;
+}
+strong {
+    font-weight: bold;
+}
+ul {
+    list-style-type: square;
+}
 
 /*
     Header
@@ -32,9 +83,11 @@ a:visited {
 #header {
 }
 #header img {
+    border: none;
     display: block;
     height: 6em;
     left: 0;
+    margin: 0;
     position: absolute;
     top: 0;
     width: 6em;
@@ -42,6 +95,7 @@ a:visited {
 #header h1 {
     font-size: 2em;
     line-height: 3em;
+    margin: 0;
     position: relative;
     text-indent: 3.25em;
 }
@@ -56,6 +110,7 @@ a:visited {
 }
 #header strong {
     color: #2e3436;
+    font-weight: normal;
 }
 
 /*
@@ -67,6 +122,8 @@ a:visited {
     text-transform: lowercase;
 }
 #footer ul {
+    list-style: none;
+    margin: 0;
 }
 #footer li {
     display: inline;
@@ -88,13 +145,14 @@ a:visited {
     Content
 */
 #content {
-    padding: 1.5em 0;
 }
 
 /*
     Post listing
 */
 .posts {
+    margin: 1.5em 0;
+    list-style: none;
 }
 .posts .month {
 }
