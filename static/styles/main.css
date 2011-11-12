@@ -204,7 +204,7 @@ ul {
 }
 .posts.related {
     background: #eee8d5;
-    padding: 1.5em 0;
+    padding: 1.5em 1.5em 1.5em 0;
 }
 .posts.related .post {
     list-style: square;
