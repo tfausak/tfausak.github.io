@@ -15,9 +15,14 @@
     <body itemscope itemtype="http://schema.org/Blog">
         <header id="header">
             <div class="wrapper">
-                <img alt="" itemprop="image" src="/static/images/logo.png">
 
                 <h1 itemprop="name">
+                    <span class="logo">
+                        <span class="tl"></span><span class="tc"></span><span class="tr"></span>
+                        <span class="cl"></span><span class="cc"></span><span class="cr"></span>
+                        <span class="bl"></span><span class="bc"></span><span class="br"></span>
+                    </span>
+
                     <a href="/" itemprop="url">{{ site.title | prepend:'<strong>' | replace_first:'.','</strong>&#x2e;<strong>' | replace_first:'.','</strong>.' }}</a>
                 </h1>
             </div>

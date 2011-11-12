@@ -2,14 +2,14 @@
     Main layout
 */
 html, body {
-    background: #eeeeec;
-    color: #2e3436;
+    background: #002b36;
+    color: #586e75;
     font: 1em/1.5em 'Verdana', sans-serif;
 }
 .wrapper {
     margin: 0 auto;
     max-width: 40em;
-    padding: 0 1.5em;
+    padding: 0 0.75em;
     position: relative;
 }
 
@@ -17,13 +17,13 @@ html, body {
     Default styles
 */
 a {
-    color: #3465a4;
+    color: #268bd2;
 }
 a:visited {
-    color: #75507b;
+    color: #6c71c4;
 }
 blockquote {
-    border-left: thin solid #d3d7cf;
+    border-left: thin solid #93a1a1;
     margin: 1.5em 0;
     padding-left: 1.5em;
 }
@@ -42,8 +42,8 @@ h2 {
     margin: 1.3333em 0;
 }
 img {
-    background: #555753;
-    border: thin solid #2e3436;
+    background: #eee8d5;
+    border: thin solid #93a1a1;
     display: block;
     margin: 1.5em auto;
     max-width: 100%;
@@ -62,7 +62,7 @@ p {
     margin: 1.5em 0;
 }
 pre {
-    border-left: thin solid #d3d7cf;
+    border-left: thin solid #93a1a1;
     margin: 1.5em 0;
     padding-left: 1.5em;
     white-space: pre-wrap;
@@ -75,32 +75,82 @@ ul {
 }
 
 /*
+    Keyframes
+*/
+@-webkit-keyframes background-rainbow {
+    0%, 100% { background: #dc322f; }
+    12.5%    { background: #cb4b16; }
+    25%      { background: #b58900; }
+    37.5%    { background: #859900; }
+    50%      { background: #2aa198; }
+    62.5%    { background: #268bd2; }
+    75%      { background: #6c71c4; }
+    87.5%    { background: #d33682; }
+}
+@-webkit-keyframes color-rainbow {
+    0%, 100% { color: #dc322f; }
+    12.5%    { color: #cb4b16; }
+    25%      { color: #b58900; }
+    37.5%    { color: #859900; }
+    50%      { color: #2aa198; }
+    62.5%    { color: #268bd2; }
+    75%      { color: #6c71c4; }
+    87.5%    { color: #d33682; }
+}
+
+/*
+    Logo
+*/
+.logo {
+    background: #dc322f;
+    border: 0.75em solid;
+    color: #002b36;
+    display: block;
+    height: 3em;
+    width: 3em;
+    -webkit-animation: background-rainbow 16s linear 0 infinite normal;
+}
+.logo span {
+    border-style: solid;
+    border-width: 0 0 1em 1em;
+    display: block;
+    float: left;
+    height: 0;
+    width: 0;
+}
+.logo .tl, .logo .tc, .logo .cc {
+    border-bottom-color: transparent;
+}
+.logo .tc, .logo .tr, .logo .cc, .logo .cr, .logo .bc {
+    border-left-color: transparent;
+}
+
+/*
     Header
 */
 #header {
 }
-#header img {
-    border: none;
-    left: 0;
+#header h1 {
+    line-height: 3em;
     margin: 0;
+}
+#header .logo {
+    font-size: 0.6667em;
+    left: 0;
     position: absolute;
     top: 0;
 }
-#header h1 {
-    line-height: 4em;
-    margin: 0;
-    position: relative;
-}
 #header a {
-    color: #babdb6;
+    color: inherit;
     display: block;
-    margin: 0 -1em;
-    padding-left: 4.5em;
+    padding-left: 2.5em;
+    position: relative;
     text-decoration: none;
 }
 #header strong {
-    color: #2e3436;
+    color: #dc322f;
     font-weight: normal;
+    -webkit-animation: color-rainbow 16s linear 0 infinite normal;
 }
 
 /*
@@ -110,23 +160,20 @@ ul {
 }
 #footer ul {
     list-style: none;
-    margin: 1.5em 0 6em;;
+    margin: 1.5em 0;
+    text-align: center;
 }
 #footer li {
-    color: #babdb6;
     display: inline;
 }
 #footer li:before {
     content: '\b7';
-    padding: 0 0.125em;
 }
 #footer li:first-child:before {
     content: '';
-    padding: 0;
 }
 #footer a {
     color: inherit;
-    font-weight: bold;
     text-decoration: none;
 }
 
@@ -134,6 +181,9 @@ ul {
     Content
 */
 #content {
+    background: #fdf6e3;
+    color: #657b83;
+    padding: 1.5em 0;
 }
 .posts {
     margin-left: 0;
@@ -142,19 +192,19 @@ ul {
 .posts .month {
 }
 .posts .year {
-    color: #babdb6;
+    color: #93a1a1;
 }
 .posts .post {
-    color: #babdb6;
+    color: #93a1a1;
     list-style: decimal;
-    margin-left: 1.5em;
+    margin-left: 3em;
 }
 .posts a {
     text-decoration: none;
 }
 .posts.related {
-    border-top: thin solid #d3d7cf;
-    padding-top: 1.5em;
+    background: #eee8d5;
+    padding: 1.5em 0;
 }
 .posts.related .post {
     list-style: square;
