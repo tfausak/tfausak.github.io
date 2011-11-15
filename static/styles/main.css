@@ -2,8 +2,8 @@
     Main layout
 */
 html, body {
-    background: #002b36;
-    color: #586e75;
+    background: #eee8d5;
+    color: #657b83;
     font: 1em/1.5em 'Verdana', sans-serif;
 }
 .wrapper {
@@ -18,9 +18,13 @@ html, body {
 */
 a {
     color: #268bd2;
+    -webkit-transition: color 0.25s;
 }
 a:visited {
     color: #6c71c4;
+}
+a:hover {
+    color: #859900;
 }
 blockquote {
     border-left: thin solid #93a1a1;
@@ -75,40 +79,13 @@ ul {
 }
 
 /*
-    Keyframes
-*/
-@-webkit-keyframes background-rainbow {
-    0%, 100% { background: #dc322f; }
-    12.5%    { background: #cb4b16; }
-    25%      { background: #b58900; }
-    37.5%    { background: #859900; }
-    50%      { background: #2aa198; }
-    62.5%    { background: #268bd2; }
-    75%      { background: #6c71c4; }
-    87.5%    { background: #d33682; }
-}
-@-webkit-keyframes color-rainbow {
-    0%, 100% { color: #dc322f; }
-    12.5%    { color: #cb4b16; }
-    25%      { color: #b58900; }
-    37.5%    { color: #859900; }
-    50%      { color: #2aa198; }
-    62.5%    { color: #268bd2; }
-    75%      { color: #6c71c4; }
-    87.5%    { color: #d33682; }
-}
-
-/*
     Logo
 */
 .logo {
-    background: #dc322f;
-    border: 0.75em solid;
-    color: #002b36;
     display: block;
     height: 3em;
+    padding: 0.75em;
     width: 3em;
-    -webkit-animation: background-rainbow 16s linear 0 infinite normal;
 }
 .logo span {
     border-style: solid;
@@ -118,11 +95,11 @@ ul {
     height: 0;
     width: 0;
 }
-.logo .tl, .logo .tc, .logo .cc {
-    border-bottom-color: transparent;
-}
-.logo .tc, .logo .tr, .logo .cc, .logo .cr, .logo .bc {
+.logo .tl, .logo .cl, .logo .bl, .logo .br {
     border-left-color: transparent;
+}
+.logo .tr, .logo .cl, .logo .cr, .logo .bl, .logo .bc, .logo .br {
+    border-bottom-color: transparent;
 }
 
 /*
@@ -141,22 +118,23 @@ ul {
     top: 0;
 }
 #header a {
-    color: inherit;
+    color: #93a1a1;
     display: block;
-    padding-left: 2.5em;
+    margin: 0 -0.5em;
+    padding-left: 3em;
     position: relative;
     text-decoration: none;
 }
 #header strong {
-    color: #dc322f;
+    color: #cb4b16;
     font-weight: normal;
-    -webkit-animation: color-rainbow 16s linear 0 infinite normal;
 }
 
 /*
     Footer
 */
 #footer {
+    color: #93a1a1;
 }
 #footer ul {
     list-style: none;
