@@ -14,8 +14,8 @@ as far as conferences go. (10gen supplied an absurd number of mugs,
 just like at the last event.) During lunch, we shot the shit with
 some folks from GameStop. One of them asked what the worst thing
 we'd done to a production server was. I didn't really have an answer,
-but Cody told a story about how everything crashed immediately after
-pushing a complete rewrite to production.
+but Cody told a story from his old job. Everything crashed immediately
+after pushing a complete rewrite to production.
 
 Turns out, I would make my worst production blunder later that day.
 
@@ -62,7 +62,7 @@ were suspiciously close.
 
 Unfortunately [my screen session][5] doesn't have enough scrollback
 to see what I entered earlier in the day. And since I was working
-in the interactive prompt, I didn't have any history. My best guess,
+in the interactive shell, I didn't have any history. My best guess,
 though, is that I did something like this, instead:
 
     for family in Family.objects:
@@ -70,9 +70,8 @@ though, is that I did something like this, instead:
 
 D'oh!
 
-(Post mortem: We recovered from a backup and didn't end up losing
-that much. I feel like a total dunce, but there wasn't much lasting
-damage.)
+(Post mortem: we recovered from a backup. I feel like a total dunce,
+but there wasn't much lasting damage.)
 
 [1]: http://www.10gen.com/events/mongo-dallas-2011
 [2]: http://www.codypowell.com/
