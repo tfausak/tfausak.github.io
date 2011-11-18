@@ -1,7 +1,6 @@
 ---
 layout: post
 title: I Accidentally Deleted All Our Data
-published: false
 ---
 
 Yesterday, I went to [MongoDallas][1] with [Cody][2] and [Shaun][3],
@@ -37,11 +36,13 @@ raise the error if anything was amiss. I was working in Python's
 interactive shell, so I don't have the actual code, but it looked
 something like this:
 
-    from mongoengine import connect
-    from models import Family
-    connect('the-production-database')
-    for family in Family.objects:
-        family.save()
+{% highlight python %}
+from mongoengine import connect
+from models import Family
+connect('the-production-database')
+for family in Family.objects:
+    family.save()
+{% endhighlight %}
 
 That finished without issue, so I shut my laptop and turned my
 attention back to the conference. A couple hours later, Cody was
@@ -49,8 +50,10 @@ getting a bunch of emails about our server responding slowly. He
 popped open his laptop and I glanced over at the screen. I nearly
 had a heart attack when I saw:
 
-    >>> Family.objects.count()
-    38
+{% highlight python %}
+>>> Family.objects.count()
+38
+{% endhighlight %}
 
 That number was off by a couple orders of magnitude! We quietly
 freaked out, then excused ourselves from the conference room.
@@ -65,8 +68,10 @@ to see what I entered earlier in the day. And since I was working
 in the interactive shell, I didn't have any history. My best guess,
 though, is that I did something like this, instead:
 
-    for family in Family.objects:
-        family.delete()
+{% highlight python %}
+for family in Family.objects:
+    family.delete()
+{% endhighlight %}
 
 D'oh! Both `save` and `delete` don't return anything, so I didn't
 notice anything wrong when I saw the families scroll by. (I'm not
@@ -74,10 +79,10 @@ convinced this is what actually happened, but it's the simplest
 explanation. Occam's razor is up against my ego here.)
 
 The internet connection at the conference was spotty at best, and
-power outlets were nowhere to be found. So we packed up our stuff
+power outlets were nowhere to be found, so we packed up our stuff
 and hustled to find a coffee shop. Turns out, all the coffee shops
 in downtown Dallas close at about four in the afternoon. They offer
-free wifi 24 hours a day, though. So we set up shop outside of a
+free wifi 24 hours a day, though, so we set up shop outside of a
 Starbucks and got to work.
 
 (It was much colder in Dallas than we anticipated. When we left
