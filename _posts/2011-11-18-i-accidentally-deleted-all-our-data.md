@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I Accidentally All the Families
+title: I Accidentally Deleted All Our Data
 published: false
 ---
 
@@ -68,13 +68,37 @@ though, is that I did something like this, instead:
     for family in Family.objects:
         family.delete()
 
-D'oh!
+D'oh! Both `save` and `delete` don't return anything, so I didn't
+notice anything wrong when I saw the families scroll by. (I'm not
+convinced this is what actually happened, but it's the simplest
+explanation. Occam's razor is up against my ego here.)
 
-(Post mortem: we recovered from a backup. I feel like a total dunce,
-but there wasn't much lasting damage.)
+The internet connection at the conference was spotty at best, and
+power outlets were nowhere to be found. So we packed up our stuff
+and hustled to find a coffee shop. Turns out, all the coffee shops
+in downtown Dallas close at about four in the afternoon. They offer
+free wifi 24 hours a day, though. So we set up shop outside of a
+Starbucks and got to work.
+
+(It was much colder in Dallas than we anticipated. When we left
+Austin, it was 80 degrees and sunny. In Dallas, it was 40, cloudy,
+and windy. The three of us were huddled around a laptop in jeans
+and t-shirts, trying to quickly fix the problem before we froze.)
+
+We had a backup from earlier in the week, so we transferred that
+over to our development box and Cody restored it to a separate
+database. Then I wrote a script to transfer the missing family
+accounts from one to the other. Fortunately, everything went smoothly
+and all the families were restored.
+
+There's still some work to be done to make sure all the references
+in our database point to the right things, but most of the fires
+have been put out. November 17 will live on as our [backup awareness
+day][6].
 
 [1]: http://www.10gen.com/events/mongo-dallas-2011
 [2]: http://www.codypowell.com/
 [3]: https://twitter.com/#!/shaundubs
 [4]: http://www.famigo.com/
 [5]: /2011/10/27/be-productive-use-screen/
+[6]: http://www.codinghorror.com/blog/2009/12/international-backup-awareness-day.html
