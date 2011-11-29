@@ -24,7 +24,7 @@ a:visited {
     color: #6c71c4;
 }
 a:hover {
-    color: #859900;
+    color: #cb4b16;
 }
 blockquote {
     border-left: thin solid #93a1a1;
@@ -161,7 +161,7 @@ ul {
 #content {
     background: #fdf6e3;
     color: #657b83;
-    padding: 1.5em 0;
+    padding: 0.75em 0;
 }
 .posts {
     margin-left: 0;
