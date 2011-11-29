@@ -171,10 +171,13 @@ ul {
 .posts a {
     text-decoration: none;
 }
-.posts.related {
-    background: #eee8d5;
-    padding: 1.5em 1.5em 1.5em 0;
+.colophon {
+    border-top: thin solid;
+    color: #93a1a1;
+    overflow: auto;
 }
-.posts.related .post {
+.colophon .posts {
+}
+.colophon .posts .post {
     list-style: square;
 }
