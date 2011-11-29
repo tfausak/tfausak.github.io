@@ -6,10 +6,13 @@ html, body {
     color: #657b83;
     font: 1em/1.5em 'Verdana', sans-serif;
 }
+#header, #content, #footer {
+    overflow: auto;
+    padding: 0 0.75em;
+}
 .wrapper {
     margin: 0 auto;
     max-width: 40em;
-    padding: 0 0.75em;
     position: relative;
 }
 
@@ -18,7 +21,6 @@ html, body {
 */
 a {
     color: #268bd2;
-    -webkit-transition: color 0.25s;
 }
 a:visited {
     color: #6c71c4;
@@ -136,23 +138,13 @@ ul {
 #footer {
     color: #93a1a1;
 }
-#footer ul {
-    list-style: none;
-    margin: 1.5em 0;
-    text-align: center;
-}
-#footer li {
-    display: inline;
-}
-#footer li:before {
-    content: '\b7';
-}
-#footer li:first-child:before {
-    content: '';
-}
 #footer a {
     color: inherit;
+    font-weight: bold;
     text-decoration: none;
+}
+#footer a:hover {
+    color: #657b83;
 }
 
 /*
@@ -161,7 +153,6 @@ ul {
 #content {
     background: #fdf6e3;
     color: #657b83;
-    padding: 0.75em 0;
 }
 .posts {
     margin-left: 0;
