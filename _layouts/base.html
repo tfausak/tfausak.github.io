@@ -1,18 +1,9 @@
 <!doctype html>
 
-<!--             _             __                      _
-| |             | |           / _|                    | |
-| |_  __ _ _   _| | ___  _ __| |_ __ _ _   _ ___  __ _| | __  _ __ ___   ___
-| __|/ _` | | | | |/ _ \| '__|  _/ _` | | | / __|/ _` | |/ / | '_ ` _ \ / _ \
-| |_| (_| | |_| | | (_) | | _| || (_| | |_| \__ \ (_| |   < _| | | | | |  __/
- \__|\__,_|\__, |_|\___/|_|(_)_| \__,_|\__,_|___/\__,_|_|\_(_)_| |_| |_|\___|
-            __/ |
-           |___/ -->
-
-<html lang="{{ site.language }}">
+<html>
     <head>
-        <meta charset="{{ site.charset }}">
-        <meta content="maximum-scale=1,minimum-scale=1,width=device-width" name="viewport">
+        <meta charset="utf-8">
+        <meta content="maximum-scale = 1, minimum-scale = 1, width = device-width" name="viewport">
 
         <link href="/atom.xml" rel="alternate" type="application/atom+xml">
         <link href="/static/images/favicon.ico" rel="shortcut icon">
@@ -22,34 +13,33 @@
     </head>
 
     <body itemscope itemtype="http://schema.org/Blog">
-        <header id="header">
+        <header class="header">
             <div class="wrapper">
-
                 <h1 itemprop="name">
-                    <a href="/" itemprop="url">
-                        <strong class="logo">
-                            <span class="tl"></span><span class="tc"></span><span class="tr"></span>
-                            <span class="cl"></span><span class="cc"></span><span class="cr"></span>
-                            <span class="bl"></span><span class="bc"></span><span class="br"></span>
-                        </strong>
-
-                        {{ site.title | prepend:'<strong>' | replace_first:'.','</strong>&#x2e;<strong>' | replace_first:'.','</strong>.' }}
-                    </a>
+                    {{ site.title }}
                 </h1>
+
+                <a href="/" itemprop="url">
+                    <span class="logo">
+                        <span class="tl"></span>
+                        <span class="tc"></span>
+                        <span class="tr"></span>
+                        <span class="cl"></span>
+                        <span class="cc"></span>
+                        <span class="cr"></span>
+                        <span class="bl"></span>
+                        <span class="bc"></span>
+                        <span class="br"></span>
+                    </span>
+                </a>
             </div>
         </header>
 
-        <div id="content">
+        <div class="content">
             <div class="wrapper">
                 {{ content }}
             </div>
         </div>
-
-        <footer id="footer">
-            <div class="wrapper">
-                <p>Content on this site is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
-            </div>
-        </footer>
 
         <script src="/static/scripts/all.js"></script>
     </body>

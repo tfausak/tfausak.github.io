@@ -2,11 +2,11 @@
     Main layout
 */
 html, body {
-    background: #eee8d5;
+    background: #fdf6e3;
     color: #657b83;
-    font: 1em/1.5em 'Verdana', sans-serif;
+    font: 1em/1.5em sans-serif;
 }
-#header, #content, #footer {
+.header, .content {
     overflow: auto;
     padding: 0 0.75em;
 }
@@ -25,16 +25,13 @@ a {
 a:visited {
     color: #6c71c4;
 }
-a:hover {
-    color: #cb4b16;
-}
 blockquote {
     border-left: thin solid #93a1a1;
     margin: 1.5em 0;
     padding-left: 1.5em;
 }
 code {
-    font-family: 'Courier New', monospace;
+    font-family: monospace;
 }
 h1 {
     font-size: 1.5em;
@@ -107,52 +104,63 @@ ul {
 /*
     Header
 */
-#header {
+.header {
+    border-top: 0.25em solid;
+    color: #dc322f;
+    -moz-animation: solarized 14s infinite;
+    -ms-animation: solarized 14s infinite;
+    -webkit-animation: solarized 14s infinite;
 }
-#header h1 {
-    line-height: 3em;
-    margin: 0;
+.header h1 {
+    display: none;
 }
-#header .logo {
-    font-size: 0.6667em;
-    left: 0;
-    position: absolute;
-    top: 0;
-}
-#header a {
-    color: #93a1a1;
+.header a {
+    color: inherit;
     display: block;
-    margin: 0 -0.5em;
-    padding-left: 3em;
-    position: relative;
-    text-decoration: none;
 }
-#header strong {
-    color: #cb4b16;
-    font-weight: normal;
+.header .logo {
+    margin: 0 auto;
 }
 
 /*
-    Footer
+    Header logo keyframes
 */
-#footer {
-    color: #93a1a1;
+@-moz-keyframes solarized {
+    0%, 100% { color: #dc322f; }
+    12.5%    { color: #cb4b16; }
+    25%      { color: #b58900; }
+    37.5%    { color: #859900; }
+    50%      { color: #2aa198; }
+    62.5%    { color: #268bd2; }
+    75%      { color: #6c71c4; }
+    87.5%    { color: #d33682; }
 }
-#footer a {
-    color: inherit;
-    font-weight: bold;
-    text-decoration: none;
+@-ms-keyframes solarized {
+    0%, 100% { color: #dc322f; }
+    12.5%    { color: #cb4b16; }
+    25%      { color: #b58900; }
+    37.5%    { color: #859900; }
+    50%      { color: #2aa198; }
+    62.5%    { color: #268bd2; }
+    75%      { color: #6c71c4; }
+    87.5%    { color: #d33682; }
 }
-#footer a:hover {
-    color: #657b83;
+@-webkit-keyframes solarized {
+    0%, 100% { color: #dc322f; }
+    12.5%    { color: #cb4b16; }
+    25%      { color: #b58900; }
+    37.5%    { color: #859900; }
+    50%      { color: #2aa198; }
+    62.5%    { color: #268bd2; }
+    75%      { color: #6c71c4; }
+    87.5%    { color: #d33682; }
 }
 
 /*
     Content
 */
-#content {
-    background: #fdf6e3;
-    color: #657b83;
+.content {
+    margin-bottom: 3em;
 }
 .posts {
     margin-left: 0;
@@ -171,13 +179,8 @@ ul {
 .posts a {
     text-decoration: none;
 }
-.colophon {
-    border-top: thin solid;
+.pubdate {
     color: #93a1a1;
-    overflow: auto;
-}
-.colophon .posts {
-}
-.colophon .posts .post {
-    list-style: square;
+    display: block;
+    margin-top: -1.5em;
 }

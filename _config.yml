@@ -1,8 +1,6 @@
 author:
     name:   Taylor Fausak
     email:  taylor@fausak.me
-charset:    utf-8
-language:   en-US
 lsi:        false
 permalink:  pretty
 pygments:   true
