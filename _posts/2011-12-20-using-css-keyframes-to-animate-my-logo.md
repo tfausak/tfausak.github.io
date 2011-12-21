@@ -9,10 +9,10 @@ CSS: I animated it.
 
 ![Exploded logo animation][2]
 
-That's not to say I couldn't have an animated logo without CSS. An
+(That's not to say I couldn't have an animated logo without CSS. An
 animated GIF would technically work, but it wouldn't stay synchronized
 with the colored bar across the top. And the color palette would
-be pretty limited.
+be pretty limited.0
 
 The key to animating in CSS is [keyframes][3]. They're just a list
 of properties to apply at a given time. Since the color of the
@@ -33,8 +33,8 @@ attribute, that's the only one that needs animating.
 {% endhighlight %}
 
 Unfortunately, that won't work in any browsers yet. CSS animation
-is still a working draft, so the vendor prefixes are required. The
-keyframe definition must be repeated for every vendor prefix, too.
+is still a working draft, so the vendor prefixes are required. And
+the keyframe definition must be repeated for every vendor prefix.
 
 {% highlight css %}
 @-moz-keyframes    solarized { ... }
