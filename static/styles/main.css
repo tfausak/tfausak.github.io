@@ -4,7 +4,7 @@
 html, body {
     background: #fdf6e3;
     color: #657b83;
-    font: 1em/1.5em sans-serif;
+    font: 1em/1.5em 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Segoe WP', sans-serif;
 }
 .header, .content {
     overflow: auto;
@@ -31,7 +31,7 @@ blockquote {
     padding-left: 1.5em;
 }
 code {
-    font-family: monospace;
+    font-family: 'Menlo', 'Consolas', 'Courier', 'Courier New', monospace;
 }
 h1 {
     font-size: 1.5em;
