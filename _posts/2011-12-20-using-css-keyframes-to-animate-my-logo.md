@@ -37,11 +37,11 @@ is still a working draft, so the vendor prefixes are required. And
 the keyframe definition must be repeated for every vendor prefix.
 
 {% highlight css %}
-@-moz-keyframes    solarized { ... }
-@-ms-keyframs      solarized { ... }
-@-o-keyframs       solarized { ... }
-@-webkit-keyframes solarized { ... }
-@keyframes         solarized { ... }
+@-moz-keyframes    solarized { /* ... */ }
+@-ms-keyframes     solarized { /* ... */ }
+@-o-keyframes      solarized { /* ... */ }
+@-webkit-keyframes solarized { /* ... */ }
+@keyframes         solarized { /* ... */ }
 {% endhighlight %}
 
 Once the keyframes have been defined, they need to be applied. It's
