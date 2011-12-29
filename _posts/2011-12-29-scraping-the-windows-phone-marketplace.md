@@ -18,44 +18,85 @@ work too well. For instance, getting the page for [Tentacles][xad]
 
     <html>
         <head>
-            <meta http-equiv="REFRESH" content="0; URL=..." />
+            <meta http-equiv="REFRESH" content="0; URL=http://www.windowsphone.com/en-US/apps/6651b8fe-0da1-e011-986b-78e7d1fa76f8" />
             <script type="text/javascript">
                 function OnBack() {}
             </script>
         </head>
     </html>
 
+Turns out that the Windows Phone Marketplace sets a cookie and
+redirects back to the same page. If the cookie isn't present, it
+returns the ugly chunk of HTML above. If it is, the full page is
+returned. (I didn't discover this on my own; a [StackOverflow
+question][xae] pointed me in the right direction.)
+
+Setting the cookies isn't as easy as just getting the URL, but it's
+not too much trouble with Python's [`CookieJar`][xaf] class. The
+first request just sets the cookies, so the response is unneeded.
+The second request returns the actual page.
+
+    import cookielib, urllib2
+    jar = cookielib.CookieJar()
+    handler = urllib2.HTTPCookieProcessor(jar)
+    opener = urllib2.build_opener(handler)
+    opener.open(url)
+    response = opener.open(url)
+
+After getting the raw HTML, it's time to parse it. My tool of choice
+is [Beautiful Soup][xag], but there are others. ([Don't use regular
+expressions][xah]!)
+
+    import BeautifulSoup
+    soup = BeautifulSoup.BeautifulSoup(response)
+
+Most of the information can be extracted right out of the DOM. The
+HTML is surprisingly easy to navigate and pull data out of. The
+only thing that's particularly tricky is the average rating. It's
+displayed as a part of a sprite, and it's specified by a class like
+"fourPtFive". Translating that pseudo-English into a number isn't
+too hard, though.
+
+    def parse_rating(rating):
+        values = {'zero': 0, 'one': 1, 'two': 2,
+            'three': 3, 'four': 4, 'five': 5}
+        integer, fraction = rating.split('Pt')
+        integer = values[integer]
+        fraction = values[fraction.lower()]
+        return integer + (fraction / 10.0)
+
+(I avoided putting all the boring data extraction inline with this
+post because it's not very interesting. If you're interested in the
+nitty-gritty of it, my scraper is available as [a Gist on GitHub][xai].)
+
+At this point, the whole page has been parsed into an easy-to-use
+format. But grabbing multiple pages in a row will be really slow
+because each one will have to do the cookie handshake. That means
+getting `n` pages will require `2n` requests. We can do better.
+Much better, in fact: `1 + n`.
+
+    if jar is None:
+        jar = cookielib.CookieJar()
+    handler = urllib2.HTTPCookieProcessor(jar)
+    opener = urllib2.build_opener(handler)
+    if not jar:
+        opener.open(url)
+    response = opener.open(url)
+
+The first time a page is requested, the cookie jar will be created
+and filled. Every time after that, it'll just use the existing
+cookie jar and save a request.
+
+So, there you have it. Scraping the Windows Phone Marketplace through
+its website. The [full source code][xai] is available if you want
+to poke around.
+
 [xaa]: http://en.wikipedia.org/wiki/Web_scraping
 [xab]: http://www.windowsphone.com/en-US/marketplace
 [xad]: http://www.windowsphone.com/en-US/apps/6651b8fe-0da1-e011-986b-78e7d1fa76f8
 [xac]: http://docs.python.org/library/urllib2.html#urllib2.urlopen
-
-* * *
-
-The Windows Phone Marketplace sets a cookie and does some redirection.
-See this StackOverflow answer:
-
-    http://stackoverflow.com/a/8047329
-
-So we can use Python's CookieJar class to load the required cookies.
-Then we can begin to parse the page. We don't want to use regular
-expressions <http://stackoverflow.com/a/1732454>, so we'll go with
-BeautifulSoup <http://www.crummy.com/software/BeautifulSoup/>.
-
-Most of the information is pretty easy to get. We can just extract
-it right out of the DOM. Some of the data takes a little finagling.
-
-Rating in particular takes some work, since its only expressed as
-a class name, and the class name isn't numerical. We'll write a
-function to handle transforming the psuedo-english class name into
-a number.
-
-Now we've got all the information about this app in an easy-to-use
-format. But what if you want to get information about lots of apps?
-The current function will make two requests every time: one to set
-the cookie, and another to get the actual data. So let's just get
-the cookie once.
-
-Now you can quickly scrape lots of app data from the Windows Phone
-Marketplace. The full code from this post is available on GitHub:
-https://gist.github.com/1518335
+[xae]: http://stackoverflow.com/q/8046907
+[xaf]: http://docs.python.org/library/cookielib.html#cookielib.CookieJar
+[xag]: http://www.crummy.com/software/BeautifulSoup/
+[xah]: http://stackoverflow.com/a/1732454
+[xai]: https://gist.github.com/1518335
