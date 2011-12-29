@@ -3,9 +3,9 @@ layout: post
 title: Scraping the Windows Phone Marketplace
 ---
 
-[Web scraping][1] makes the world go round. For services that
-don't supply an API, it's the only way to reliably and repeatedly
-get the information you want out of a website.
+[Web scraping][1] makes the world go round. For services that don't
+supply an API, it's the only way to reliably and repeatedly get the
+information you want out of a website.
 
 I'm fairly well versed in writing scrapers, so I decided to have
 some fun over Christmas break and write one for the [Windows Phone
@@ -16,14 +16,16 @@ Unfortunately, naively grabbing an application's market page doesn't
 work too well. For instance, getting the page for [Tentacles][3]
 (using Python's [`urlopen`][4]) returns this cryptic HTML:
 
-    <html>
-        <head>
-            <meta http-equiv="REFRESH" content="0; URL=http://www.windowsphone.com/en-US/apps/6651b8fe-0da1-e011-986b-78e7d1fa76f8" />
-            <script type="text/javascript">
-                function OnBack() {}
-            </script>
-        </head>
-    </html>
+{% highlight html %}
+<html>
+    <head>
+        <meta http-equiv="REFRESH" content="0; URL=http://www.windowsphone.com/en-US/apps/6651b8fe-0da1-e011-986b-78e7d1fa76f8" />
+        <script type="text/javascript">
+            function OnBack() {}
+        </script>
+    </head>
+</html>
+{% endhighlight %}
 
 Turns out that the Windows Phone Marketplace sets a cookie and
 redirects back to the same page. If the cookie isn't present, it
@@ -32,23 +34,27 @@ returned. (I didn't discover this on my own; a [StackOverflow
 question][5] pointed me in the right direction.)
 
 Setting the cookies isn't as easy as just getting the URL, but it's
-not too much trouble with Python's [`CookieJar`][6] class. The
-first request just sets the cookies, so the response is unneeded.
-The second request returns the actual page.
+not too much trouble with Python's [`CookieJar`][6] class. The first
+request just sets the cookies, so the response is unneeded. The
+second request returns the actual page.
 
-    import cookielib, urllib2
-    jar = cookielib.CookieJar()
-    handler = urllib2.HTTPCookieProcessor(jar)
-    opener = urllib2.build_opener(handler)
-    opener.open(url)
-    response = opener.open(url)
+{% highlight python %}
+import cookielib, urllib2
+jar = cookielib.CookieJar()
+handler = urllib2.HTTPCookieProcessor(jar)
+opener = urllib2.build_opener(handler)
+opener.open(url)
+response = opener.open(url)
+{% endhighlight %}
 
 After getting the raw HTML, it's time to parse it. My tool of choice
 is [Beautiful Soup][7], but there are others. ([Don't use regular
 expressions][8]!)
 
-    import BeautifulSoup
-    soup = BeautifulSoup.BeautifulSoup(response)
+{% highlight python %}
+import BeautifulSoup
+soup = BeautifulSoup.BeautifulSoup(response)
+{% endhighlight %}
 
 Most of the information can be extracted right out of the DOM. The
 HTML is surprisingly easy to navigate and pull data out of. The
@@ -57,13 +63,15 @@ displayed as a part of a sprite, and it's specified by a class like
 "fourPtFive". Translating that pseudo-English into a number isn't
 too hard, though.
 
-    def parse_rating(rating):
-        values = {'zero': 0, 'one': 1, 'two': 2,
-            'three': 3, 'four': 4, 'five': 5}
-        integer, fraction = rating.split('Pt')
-        integer = values[integer]
-        fraction = values[fraction.lower()]
-        return integer + (fraction / 10.0)
+{% highlight python %}
+def parse_rating(rating):
+    values = {'zero': 0, 'one': 1, 'two': 2,
+        'three': 3, 'four': 4, 'five': 5}
+    integer, fraction = rating.split('Pt')
+    integer = values[integer]
+    fraction = values[fraction.lower()]
+    return integer + (fraction / 10.0)
+{% endhighlight %}
 
 (I avoided putting all the boring data extraction inline with this
 post because it's not very interesting. If you're interested in the
@@ -75,21 +83,23 @@ because each one will have to do the cookie handshake. That means
 getting `n` pages will require `2n` requests. We can do better.
 Much better, in fact: `1 + n`.
 
-    if jar is None:
-        jar = cookielib.CookieJar()
-    handler = urllib2.HTTPCookieProcessor(jar)
-    opener = urllib2.build_opener(handler)
-    if not jar:
-        opener.open(url)
-    response = opener.open(url)
+{% highlight python %}
+if jar is None:
+    jar = cookielib.CookieJar()
+handler = urllib2.HTTPCookieProcessor(jar)
+opener = urllib2.build_opener(handler)
+if not jar:
+    opener.open(url)
+response = opener.open(url)
+{% endhighlight %}
 
 The first time a page is requested, the cookie jar will be created
 and filled. Every time after that, it'll just use the existing
 cookie jar and save a request.
 
 So, there you have it. Scraping the Windows Phone Marketplace through
-its website. The [full source code][9] is available if you want
-to poke around.
+its website. The [full source code][9] is available if you want to
+poke around.
 
 [1]: http://en.wikipedia.org/wiki/Web_scraping
 [2]: http://www.windowsphone.com/en-US/marketplace
