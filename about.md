@@ -18,11 +18,12 @@ Or, if email isn't your thing, you can find me on:
 -   [Endomondo][5]
 -   [Facebook][6]
 -   [GitHub][7]
--   [Hacker News][8]
--   [Reddit][9]
--   [Steam][10]
--   [Tumblr][11]
--   [Twitter][12]
+-   [Google+][8]
+-   [Hacker News][9]
+-   [Reddit][10]
+-   [Steam][11]
+-   [Tumblr][12]
+-   [Twitter][13]
 
 Content on this site is licensed under a [Creative Commons Attribution
 3.0 License][14].
@@ -34,10 +35,10 @@ Content on this site is licensed under a [Creative Commons Attribution
 [5]: http://www.endomondo.com/profile/2203917
 [6]: https://www.facebook.com/taylorfausak
 [7]: https://github.com/tfausak
-[8]: http://news.ycombinator.com/user?id=taylorfausak
-[9]: http://www.reddit.com/user/taylorfausak/
-[10]: http://steamcommunity.com/id/gompers
-[11]: http://gompr.tumblr.com/
-[12]: https://twitter.com/#!/taylorfausak
-[13]: http://pages.github.com/
+[8]: https://plus.google.com/111507914518262812295
+[9]: http://news.ycombinator.com/user?id=taylorfausak
+[10]: http://www.reddit.com/user/taylorfausak/
+[11]: http://steamcommunity.com/id/gompers
+[12]: http://gompr.tumblr.com/
+[13]: https://twitter.com/#!/taylorfausak
 [14]: http://creativecommons.org/licenses/by/3.0/
