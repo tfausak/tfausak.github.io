@@ -25,14 +25,16 @@ together), but commenting out the whitespace keeps the markup readable.
 At this point, [the markup][6] is a good baseline to work on. Each letter
 can be styled individually but the whole thing just looks like a word.
 
-    <h1 class="famigo-logo">
-        <span class="famigo-logo-f">F</span><!--
-     --><span class="famigo-logo-a">a</span><!--
-     --><span class="famigo-logo-m">m</span><!--
-     --><span class="famigo-logo-i">i</span><!--
-     --><span class="famigo-logo-g">g</span><!--
-     --><span class="famigo-logo-o">o</span>
-    </h1>
+{% highlight html %}
+<h1 class="famigo-logo">
+    <span class="famigo-logo-f">F</span><!--
+ --><span class="famigo-logo-a">a</span><!--
+ --><span class="famigo-logo-m">m</span><!--
+ --><span class="famigo-logo-i">i</span><!--
+ --><span class="famigo-logo-g">g</span><!--
+ --><span class="famigo-logo-o">o</span>
+</h1>
+{% endhighlight %}
 
 It's worth noting that the Famigo logo uses [Clarendon][7]. It's not a
 web font, but [Georgia][8] is pretty close and basically ubiquitous.
@@ -53,31 +55,33 @@ browsers, `-moz-`, `-ms-`, and `-o-` should be added.
 otherwise the rotations won't work. I've ignored that here, but it's in
 [the code][12].)
 
-    .famigo-logo-f {
-        color: #8dc63f;
-        letter-spacing: -0.075em;
-        -webkit-transform: rotate(-9deg); }
-    .famigo-logo-a {
-        color: #f4911e;
-        letter-spacing: -0.05em;
-        vertical-align: 0.05em;
-        -webkit-transform: rotate(5deg); }
-    .famigo-logo-m {
-        color: #ee3124;
-        vertical-align: 0.05em;
-        -webkit-transform: rotate(-4deg); }
-    .famigo-logo-i {
-        color: #b0006e;
-        letter-spacing: -0.075em;
-        vertical-align: 0.15em;
-        -webkit-transform: rotate(7deg); }
-    .famigo-logo-g {
-        color: #deb406;
-        -webkit-transform: rotate(-10deg); }
-    .famigo-logo-o {
-        color: #1ab7ea;
-        vertical-align: 0.075em;
-        -webkit-transform: rotate(9deg); }
+{% highlight css %}
+.famigo-logo-f {
+    color: #8dc63f;
+    letter-spacing: -0.075em;
+    -webkit-transform: rotate(-9deg); }
+.famigo-logo-a {
+    color: #f4911e;
+    letter-spacing: -0.05em;
+    vertical-align: 0.05em;
+    -webkit-transform: rotate(5deg); }
+.famigo-logo-m {
+    color: #ee3124;
+    vertical-align: 0.05em;
+    -webkit-transform: rotate(-4deg); }
+.famigo-logo-i {
+    color: #b0006e;
+    letter-spacing: -0.075em;
+    vertical-align: 0.15em;
+    -webkit-transform: rotate(7deg); }
+.famigo-logo-g {
+    color: #deb406;
+    -webkit-transform: rotate(-10deg); }
+.famigo-logo-o {
+    color: #1ab7ea;
+    vertical-align: 0.075em;
+    -webkit-transform: rotate(9deg); }
+{% endhighlight %}
 
 ![Logo with proper color, rotation, and spacing][13]
 
@@ -90,15 +94,17 @@ components: the bottom part, a [dotless "i"][15], and the top part,
 a [dot diacritic][16]. Their code points are U+0131 (&#x131;) for the
 lower case dotless "i" and U+02D9 (&#x2d9;) for the dot diacritic.
 
-    <h1 class="famigo-logo">
-        <span class="famigo-logo-f">F</span><!--
-     --><span class="famigo-logo-a">a</span><!--
-     --><span class="famigo-logo-m">m</span><!--
-     --><span class="famigo-logo-i">&#x131;</span><!--
-     --><span class="famigo-logo-g">g</span><!--
-     --><span class="famigo-logo-o">o</span>
-        <span class="famigo-logo-tittle">&#x307;</span>
-    </h1>
+{% highlight html %}
+<h1 class="famigo-logo">
+    <span class="famigo-logo-f">F</span><!--
+ --><span class="famigo-logo-a">a</span><!--
+ --><span class="famigo-logo-m">m</span><!--
+ --><span class="famigo-logo-i">&#x131;</span><!--
+ --><span class="famigo-logo-g">g</span><!--
+ --><span class="famigo-logo-o">o</span>
+    <span class="famigo-logo-tittle">&#x307;</span>
+</h1>
+{% endhighlight %}
 
 Each part gets styled just the same as the "i", but the dot either
 has to be moved over to fit over the "i" or be absolutely positioned
@@ -106,15 +112,17 @@ on top of it. I initially did it the first way but ended up with the
 second. Absolutely positioning it requires the top-level container to
 be positioned, too.
 
-    .famigo-logo {
-        position: relative
-        /* ... */ }
-    .famigo-logo-tittle {
-        color: #ee3124;
-        left: 2.8em;
-        position: absolute;
-        vertical-align: 0.15em;
-        -webkit-transform: rotate(7deg); }
+{% highlight css %}
+.famigo-logo {
+    position: relative
+    /* ... */ }
+.famigo-logo-tittle {
+    color: #ee3124;
+    left: 2.8em;
+    position: absolute;
+    vertical-align: 0.15em;
+    -webkit-transform: rotate(7deg); }
+{% endhighlight %}
 
 ![Logo with tittle colored properly][17]
 
@@ -126,10 +134,12 @@ source, though.
 Since I want to do this without images, I'll use CSS [gradients][18]
 and [masks][19] for this effect.
 
-    .famigo-logo {
-        -webkit-mask-image: -webkit-linear-gradient(
-            transparent, black);
-        /* ... */ }
+{% highlight css %}
+.famigo-logo {
+    -webkit-mask-image: -webkit-linear-gradient(
+        transparent, black);
+    /* ... */ }
+{% endhighlight %}
 
 ![Logo with gradient mask][20]
 
@@ -150,54 +160,58 @@ the foreground mask makes parts of the foreground transpent. It would
 be counter-productive to put an opaque letter behind a partially
 transparent one.
 
-    .famigo-logo-background {
-        height: 0;
-        -webkit-text-stroke: 1px; }
-    .famigo-logo-foreground {
-        -webkit-mask-image: -webkit-linear-gradient(
-            transparent, black); }
-    .famigo-logo-background .famigo-logo-f {
-        color: transparent;
-        -webkit-text-stroke-color: #8dc63f; }
-    .famigo-logo-background .famigo-logo-a {
-        color: transparent;
-        -webkit-text-stroke-color: #f4911e; }
-    .famigo-logo-background .famigo-logo-m {
-        color: transparent;
-        -webkit-text-stroke-color: #ee3124; }
-    .famigo-logo-background .famigo-logo-i {
-        color: transparent;
-        -webkit-text-stroke-color: #b0006e; }
-    .famigo-logo-background .famigo-logo-g {
-        color: transparent;
-        -webkit-text-stroke-color: #deb406; }
-    .famigo-logo-background .famigo-logo-o {
-        color: transparent;
-        -webkit-text-stroke-color: #1ab7ea; }
-    .famigo-logo-background .famigo-logo-tittle {
-        color: transparent;
-        -webkit-text-stroke-color: #ee3124; }
+{% highlight css %}
+.famigo-logo-background {
+    height: 0;
+    -webkit-text-stroke: 1px; }
+.famigo-logo-foreground {
+    -webkit-mask-image: -webkit-linear-gradient(
+        transparent, black); }
+.famigo-logo-background .famigo-logo-f {
+    color: transparent;
+    -webkit-text-stroke-color: #8dc63f; }
+.famigo-logo-background .famigo-logo-a {
+    color: transparent;
+    -webkit-text-stroke-color: #f4911e; }
+.famigo-logo-background .famigo-logo-m {
+    color: transparent;
+    -webkit-text-stroke-color: #ee3124; }
+.famigo-logo-background .famigo-logo-i {
+    color: transparent;
+    -webkit-text-stroke-color: #b0006e; }
+.famigo-logo-background .famigo-logo-g {
+    color: transparent;
+    -webkit-text-stroke-color: #deb406; }
+.famigo-logo-background .famigo-logo-o {
+    color: transparent;
+    -webkit-text-stroke-color: #1ab7ea; }
+.famigo-logo-background .famigo-logo-tittle {
+    color: transparent;
+    -webkit-text-stroke-color: #ee3124; }
+{% endhighlight %}
 
-    <h1 class="famigo-logo">
-        <div class="famigo-logo-background">
-            <span class="famigo-logo-f">F</span><!--
-         --><span class="famigo-logo-a">a</span><!--
-         --><span class="famigo-logo-m">m</span><!--
-         --><span class="famigo-logo-i">&#x131;</span><!--
-         --><span class="famigo-logo-g">g</span><!--
-         --><span class="famigo-logo-o">o</span>
-            <span class="famigo-logo-tittle">&#x307;</span>
-        </div>
-        <div class="famigo-logo-foreground">
-            <span class="famigo-logo-f">F</span><!--
-         --><span class="famigo-logo-a">a</span><!--
-         --><span class="famigo-logo-m">m</span><!--
-         --><span class="famigo-logo-i">&#x131;</span><!--
-         --><span class="famigo-logo-g">g</span><!--
-         --><span class="famigo-logo-o">o</span>
-            <span class="famigo-logo-tittle">&#x307;</span>
-        </div>
-    </h1>
+{% highlight html %}
+<h1 class="famigo-logo">
+    <div class="famigo-logo-background">
+        <span class="famigo-logo-f">F</span><!--
+     --><span class="famigo-logo-a">a</span><!--
+     --><span class="famigo-logo-m">m</span><!--
+     --><span class="famigo-logo-i">&#x131;</span><!--
+     --><span class="famigo-logo-g">g</span><!--
+     --><span class="famigo-logo-o">o</span>
+        <span class="famigo-logo-tittle">&#x307;</span>
+    </div>
+    <div class="famigo-logo-foreground">
+        <span class="famigo-logo-f">F</span><!--
+     --><span class="famigo-logo-a">a</span><!--
+     --><span class="famigo-logo-m">m</span><!--
+     --><span class="famigo-logo-i">&#x131;</span><!--
+     --><span class="famigo-logo-g">g</span><!--
+     --><span class="famigo-logo-o">o</span>
+        <span class="famigo-logo-tittle">&#x307;</span>
+    </div>
+</h1>
+{% endhighlight %}
 
 ![Logo with stroke][22]
 
