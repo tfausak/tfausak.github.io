@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Making the Famigo Logo with CSS
+published: false
 ---
 
 The [Famigo][1] [logo][2] is relatively simple. Some colorful, jumbled
