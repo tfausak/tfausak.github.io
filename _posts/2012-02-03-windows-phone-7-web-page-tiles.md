@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Home Screen Tiles for Web Pages on Windows Phone 7
+title: Windows Phone 7 Web Page Tiles
 ---
 
 Adding a web page to the home screen of an iOS device uses a
