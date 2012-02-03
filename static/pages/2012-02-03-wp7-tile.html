@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="maximum-scale=1,minimum-scale=1,width=device-width" name="viewport">
+
+        <style>
+            body {
+                margin: 0;
+                position: relative;
+            }
+            #icon {
+                display: block;
+                width: 100%;
+            }
+            #title {
+                bottom: 0;
+                color: white;
+                font: 40px/80px 'Segoe UI', sans-serif;
+                left: 20px;
+                position: absolute;
+                white-space: nowrap;
+            }
+            div {
+                bottom: -100px;
+                font: 30px/40px 'Segoe UI', sans-serif;
+                left: 20px;
+                position: absolute;
+            }
+        </style>
+
+        <title></title>
+    </head>
+
+    <body>
+        <img id="icon">
+        <h1 id="title"></h1>
+        <div>
+            Tap <strong>...</strong><br>
+            Select <strong>pin to start</strong>
+        </div>
+
+        <script>
+            // Set defaults.
+            var title = 'taylor.fausak.me',
+                icon = 'http://taylor.fausak.me/static/images/apple-touch-icon-114x114.png',
+                url = 'http://taylor.fausak.me/';
+
+            // Parse query string.
+            var query_string = location.search.substring(1),
+                regex = /([^&=]+)=([^&]*)/g,
+                get = {},
+                match;
+            while (match = regex.exec(query_string)) {
+                get[decodeURIComponent(match[1])] = decodeURIComponent(match[2])
+            }
+
+            // Set title.
+            title = get['title'] || title;
+            document.title = title;
+            document.getElementById('title').innerHTML = title;
+
+            // Set the icon.
+            icon = get['icon'] || icon;
+            document.getElementById('icon').src = icon;
+
+            // Redirect if this isn't their first time.
+            url = get['url'] || url;
+            if (localStorage.getItem(url)) {
+                window.location.replace(url);
+            }
+            else {
+                localStorage.setItem(url, true);
+            }
+        </script>
+    </body>
+</html>
