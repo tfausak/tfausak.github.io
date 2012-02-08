@@ -7,6 +7,9 @@
     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=133083533456136";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+window.fbAsyncInit = function () {
+    _ga.trackFacebook();
+};
 
 // Set up Google +1 button.
 (function () {
@@ -26,6 +29,7 @@ function (d, s, id) {
         js = d.createElement(s);
         js.id = id;
         js.src = "//platform.twitter.com/widgets.js";
+        js.onload = _ga.trackTwitter;
         fjs.parentNode.insertBefore(js, fjs);
     }
 }(document, "script", "twitter-wjs");
