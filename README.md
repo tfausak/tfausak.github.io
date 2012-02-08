@@ -13,13 +13,22 @@ Pages.
 Rebuilding them requires the [YUI Compressor][3] for minification.
 Combine and minify them like so:
 
-    cat static/styles/{reset,main,syntax}.css >static/styles/all.css
-    java -jar yuicompressor-2.4.7.jar -o static/styles/all.min.css static/styles/all.css
-    rm static/styles/all.css
+    cat static/styles/{reset,main,syntax}.css >tmp.css
+    java -jar yuicompressor-2.4.7.jar tmp.css >static/styles/all.min.css
+    rm tmp.css
 
-    cat static/scripts/{analytics,social}.js >static/scripts/all.js
-    java -jar yuicompressor-2.4.7.jar -o static/scripts/all.min.js static/scripts/all.js
-    rm static/scripts/all.js
+    cat static/scripts/{analytics,social}.js >tmp.js
+    java -jar yuicompressor-2.4.7.jar tmp.js >static/scripts/all.min.js
+    rm tmp.js
+
+It's also a good idea to make sure all other assets are as small
+as possible. To wit, PNG images can be minimized with [Pngcrush][4]:
+
+    pngcrush -rem alla -rem allb -rem text -brute -d tmp static/images/*.png
+    mv tmp/*.png static/images/.
+    rmdir tmp
 
 [1]: http://pages.github.com/
 [2]: http://jekyllrb.com/
+[3]: http://developer.yahoo.com/yui/compressor/
+[4]: http://pmt.sourceforge.net/pngcrush/
