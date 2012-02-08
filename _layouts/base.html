@@ -11,7 +11,7 @@
         <meta property="og:type" content="{% if page.title %}article{% else %}website{% endif %}">
         <meta property="og:url" content="{{ site.url }}{% if page.title %}{{ page.url }}{% else %}/{% endif %}">
 
-        <link href="/static/styles/all.css" rel="stylesheet">
+        <link href="/static/styles/all.min.css" rel="stylesheet">
         <link href="/static/images/favicon.ico" rel="shortcut icon">
         <link href="/static/images/apple-touch-icon-57x57.png" rel="apple-touch-icon-precomposed" sizes="57x57">
         <link href="/static/images/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72">
@@ -22,6 +22,8 @@
     </head>
 
     <body itemscope itemtype="http://schema.org/Blog">
+        <div id="fb-root"></div>
+
         <header class="header">
             <div class="wrapper">
                 <h1 itemprop="name">
@@ -50,6 +52,6 @@
             </div>
         </div>
 
-        <script src="/static/scripts/all.js"></script>
+        <script src="/static/scripts/all.min.js"></script>
     </body>
 </html>
