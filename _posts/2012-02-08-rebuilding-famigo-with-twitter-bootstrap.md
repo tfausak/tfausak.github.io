@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Rebuilding Famigo with Twitter Bootstrap
-published: false
 ---
 
 Over the past week, I rebuilt [Famigo's website][1] using the
@@ -52,6 +51,23 @@ Now the tiles have been refactored into a separate template file.
 They're styled with reusable styles defined in one CSS file. A
 single JavaScript file handles every user interaction with them.
 
+## Moving Forward
+
+We still have a lot of work to do. One of our top priorities at
+this point is not looking like a "bootstrap site". Not to say that
+we're not a fan of how it looks -- we are. But as anyone who has
+used the [default WordPress theme][11] can tell you, you need to
+be unique.
+
+We're looking forward to customizing the bootstrap, though. It was
+so easy to get everything set up with the defaults that we're
+assuming tinkering with it will be a piece of cake.
+
+[![Screenshot of new site][12]][13]
+
+Please send feedback about the new site to [taylor@fausak.me][14].
+I'd love to hear what you think about it!
+
 [1]: http://www.famigo.com/
 [2]: http://twitter.github.com/bootstrap/
 [3]: /static/images/2012-02-08-figure-1.png
@@ -62,3 +78,7 @@ single JavaScript file handles every user interaction with them.
 [8]: http://lessframework.com/
 [9]: /2011/11/02/applists-playlists-for-your-apps/
 [10]: /static/images/2012-02-08-figure-3.png
+[11]: http://wordpress.org/extend/themes/default
+[12]: /static/images/2012-02-08-figure-4.png
+[13]: http://www.famigo.com/best-free-games/
+[14]: mailto:taylor@fausak.me
