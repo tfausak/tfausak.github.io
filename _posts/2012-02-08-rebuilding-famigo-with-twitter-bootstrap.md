@@ -7,7 +7,7 @@ Over the past week, I rebuilt [Famigo's website][1] using the
 [Twitter Bootstrap][2]. I'm happy to announce that version 2.0 of
 our website is going live today.
 
-![Comparison between old and new home page][3]
+[![Famigo][3]][1]
 
 The bootstrap made it easy to quickly put together a great-looking
 website. I loved working with it and look forward to continuing
@@ -27,7 +27,7 @@ on the back end. We tried to mitigate it using [Django's template
 inheritance][4], which worked okay. But it's always easier to worry
 about one file instead of two.
 
-![Comparison between desktop and mobile pages][5]
+[![Reflexions][5]][14]
 
 Of the many CSS frameworks out there, only a handful use responsive
 layouts. [Foundation][6], [Skeleton][7], and [Less][8] were the
@@ -45,7 +45,7 @@ As time went on, little bits of HTML, CSS, and JS crept into disparate
 parts of the code base. And we'd need one of those bits for some
 other widget on our site, like [applists][9].
 
-![Comparison between old and new app tiles][10]
+![Comparison of app tiles][10]
 
 Now the tiles have been refactored into a separate template file.
 They're styled with reusable styles defined in one CSS file. A
@@ -63,7 +63,7 @@ We're looking forward to customizing the bootstrap, though. It was
 so easy to get everything set up with the defaults that we're
 assuming tinkering with it will be a piece of cake.
 
-![Screenshot of new site][12]
+[![Best Free Games][12]][15]
 
 Please send feedback about the new site to [taylor@fausak.me][13].
 I'd love to hear what you think about it!
@@ -81,3 +81,5 @@ I'd love to hear what you think about it!
 [11]: http://wordpress.org/extend/themes/default
 [12]: /static/images/2012-02-08-figure-4.png
 [13]: mailto:taylor@fausak.me
+[14]: http://www.famigo.com/app/reflexions/
+[15]: http://www.famigo.com/best-free-games/
