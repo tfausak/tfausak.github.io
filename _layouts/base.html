@@ -6,9 +6,9 @@
         <meta content="maximum-scale = 1, minimum-scale = 1, width = device-width" name="viewport">
         <meta property="og:image" content="{{ site.url }}/static/images/og-image.png">
         <meta property="og:locale" content="en_US">
-        <meta property="og:site_name" content="{{ site.title }}">
-        <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}">
-        <meta property="og:type" content="{% if page.title %}article{% else %}blog{% endif %}">
+        {% if page.title %}<meta property="og:site_name" content="{{ site.title }}">{% endif %}
+        <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+        <meta property="og:type" content="{% if page.title %}article{% else %}website{% endif %}">
         <meta property="og:url" content="{{ site.url }}{% if page.title %}{{ page.url }}{% else %}/{% endif %}">
 
         <link href="/static/styles/all.css" rel="stylesheet">
@@ -18,7 +18,7 @@
         <link href="/static/images/apple-touch-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114">
         <link href="/atom.xml" rel="alternate" type="application/atom+xml">
 
-        <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+        <title>{% if page.title %}{{ page.title }} &#xb7; {% endif %}{{ site.title }}</title>
     </head>
 
     <body itemscope itemtype="http://schema.org/Blog">
