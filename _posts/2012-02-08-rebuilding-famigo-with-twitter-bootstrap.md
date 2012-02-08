@@ -63,9 +63,9 @@ We're looking forward to customizing the bootstrap, though. It was
 so easy to get everything set up with the defaults that we're
 assuming tinkering with it will be a piece of cake.
 
-[![Screenshot of new site][12]][13]
+![Screenshot of new site][12]
 
-Please send feedback about the new site to [taylor@fausak.me][14].
+Please send feedback about the new site to [taylor@fausak.me][13].
 I'd love to hear what you think about it!
 
 [1]: http://www.famigo.com/
@@ -80,5 +80,4 @@ I'd love to hear what you think about it!
 [10]: /static/images/2012-02-08-figure-3.png
 [11]: http://wordpress.org/extend/themes/default
 [12]: /static/images/2012-02-08-figure-4.png
-[13]: http://www.famigo.com/best-free-games/
-[14]: mailto:taylor@fausak.me
+[13]: mailto:taylor@fausak.me
