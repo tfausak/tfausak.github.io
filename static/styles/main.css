@@ -189,20 +189,11 @@ ul {
     Social widgets
 */
 .social-widgets {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: -6em;
-}
-@media (min-width: 768px) {
-    .social-widgets {
-        display: block;
-    }
+    float: right;
 }
 .social-widget {
     float: left;
     height: 3.875em;
-    padding: 0.75em 0;
     width: 3.4375em;
 }
 .facebook-widget {

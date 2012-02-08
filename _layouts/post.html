@@ -2,18 +2,6 @@
 layout: base
 ---
 
-<div class="social-widgets">
-    <div class="social-widget facebook-widget">
-        <div class="fb-like" data-send="false" data-layout="box_count"></div>
-    </div>
-    <div class="social-widget google-widget">
-        <div class="g-plusone" data-size="tall"></div>
-    </div>
-    <div class="social-widget twitter-widget">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" data-url="{{ site.url }}{{ page.url }}" data-via="taylorfausak">Tweet</a>
-    </div>
-</div>
-
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
     <h1 itemprop="name">{{ page.title }}</h1>
 
@@ -28,6 +16,18 @@ layout: base
 </article>
 
 <aside class="colophon">
+    <div class="social-widgets">
+        <div class="social-widget facebook-widget">
+            <div class="fb-like" data-send="false" data-layout="box_count"></div>
+        </div>
+        <div class="social-widget google-widget">
+            <div class="g-plusone" data-size="tall"></div>
+        </div>
+        <div class="social-widget twitter-widget">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" data-url="{{ site.url }}{{ page.url }}" data-via="taylorfausak">Tweet</a>
+        </div>
+    </div>
+
     <h2>Related Posts</h2>
 
     <ul>
