@@ -181,25 +181,40 @@ ul {
     font-weight: normal;
     margin-top: 0;
 }
-.colophon ul {
+.colophon .posts {
     margin-bottom: 0;
+}
+.colophon .post {
+    list-style: square;
+    margin-left: 1.5em;
 }
 
 /*
     Social widgets
 */
 .social-widgets {
+    display: none;
     float: right;
+}
+@media (min-width: 640px) {
+    .social-widgets {
+        display: block;
+    }
 }
 .social-widget {
     float: left;
-    height: 3.875em;
-    width: 3.4375em;
+    margin-left: 0.5em; /* 8px */
 }
 .facebook-widget {
+    height: 3.875em; /* 62px */
+    width: 3em; /* 48px */
 }
 .google-widget {
-    margin-top: 0.125em;
+    height: 3.75em; /* 60px */
+    margin-top: 0.125em; /* 2px */
+    width: 3.125em; /* 50px */
 }
 .twitter-widget {
+    height: 3.875em; /* 62px */
+    width: 3.4375em; /* 55px */
 }
