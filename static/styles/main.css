@@ -172,19 +172,19 @@ ul {
     color: inherit;
     text-decoration: none;
 }
-.colophon {
+.footer {
     background: #eee8d5;
     margin-top: 1.5em;
     padding: 0.75em;
 }
-.colophon h2 {
+.footer h2 {
     font-weight: normal;
     margin-top: 0;
 }
-.colophon .posts {
+.footer .posts {
     margin-bottom: 0;
 }
-.colophon .post {
+.footer .post {
     list-style: square;
     margin-left: 1.5em;
 }
@@ -250,7 +250,7 @@ ul {
     .logo {
         display: none;
     }
-    .colophon {
+    .footer {
         display: none;
     }
 }
