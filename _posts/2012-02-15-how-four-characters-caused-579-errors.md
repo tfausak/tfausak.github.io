@@ -5,7 +5,7 @@ title: How Four Characters Caused 579 Errors
 
 When I started work this morning, my goal was to eliminate errors
 from our server log. We have a couple functions that occasionally
-throw an error when given weird input. Typically they don't matter
+throw errors when given weird input. Typically they don't matter
 because no data gets messed up and the user doesn't see anything.
 
 However, they are problematic because they pollute the logs, making
@@ -54,12 +54,12 @@ around the time I pushed that commit. My heart sunk. I immediately
 started thinking about the time [I accidentally deleted all our
 data][4] and hoped it wasn't that bad.
 
-I started looking over my commits. ([GitHub's compare view][5]
-helped immensely.) At first, nothing looked amiss. I finally got
-it down to three possible commits and scrutinized every bit of each
-of them. That's when I saw it: I wrote `Family.objects(...)` instead
-of `Family.objects.get(...)`. That missing `.get` meant I was
-returning a `QuerySet` instead of a `Family` object.
+I looked over my commits. ([GitHub's compare view][5] helped
+immensely.) At first, nothing seemed amiss. I finally got it down
+to three possible commits and scrutinized every bit of them. That's
+when I saw it: I wrote `Family.objects(...)` instead of
+`Family.objects.get(...)`. That missing `.get` meant I was returning
+a `QuerySet` instead of a `Family` object.
 
 That wouldn't have been so bad if it wasn't for the other change I
 made further down. Instead of using `family.id`, which would've
