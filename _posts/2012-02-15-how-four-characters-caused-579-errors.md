@@ -22,10 +22,12 @@ to be true weren't true any more.
 The trickiest ones, though, were logic errors. Take this chunk of
 code for example (we use [Django][1], backed by [MongoEngine][2]):
 
-    if 'family_id' in request.GET:
-        family = Family.objects(id=request.GET['family_id']).first()
-        if family:
-            request.session['family_id'] = family.id
+{% highlight python %}
+if 'family_id' in request.GET:
+    family = Family.objects(id=request.GET['family_id']).first()
+    if family:
+        request.session['family_id'] = family.id
+{% endhighlight %}
 
 Generally speaking, calling `objects(...).first()` instead of
 `objects.get(...)` is a good way to avoid handling `DoesNotExist`
@@ -37,12 +39,14 @@ culprit. Turns out that `family_id` was sometimes set to `None`,
 which is an invalid ID. I knew it was an easy fix, so I changed it
 to this:
 
-    try:
-        family = Family.objects(id=request.GET.get('family_id'))
-    except (ValidationError, Family.DoesNotExist):
-        pass
-    if family is not None:
-        request.session['family_id'] = getattr(family, 'id', None)
+{% highlight python %}
+try:
+    family = Family.objects(id=request.GET.get('family_id'))
+except (ValidationError, Family.DoesNotExist):
+    pass
+if family is not None:
+    request.session['family_id'] = getattr(family, 'id', None)
+{% endhighlight %}
 
 That took care of the `ValidationError`s, but I introduced two more
 subtle bugs. So subtle, in fact, that our unit tests missed them.
@@ -69,12 +73,14 @@ raised an `AttributeError` when called on a `QuerySet`, I used
 I quickly changed the offending code and pushed a new commit. The
 final working code looked like this:
 
-    try:
-        family = Family.objects.get(id=request.GET.get('family_id'))
-    except (ValidationError, Family.DoesNotExist):
-        pass
-    if family is not None:
-        request.session['family_id'] = family.id
+{% highlight python %}
+try:
+    family = Family.objects.get(id=request.GET.get('family_id'))
+except (ValidationError, Family.DoesNotExist):
+    pass
+if family is not None:
+    request.session['family_id'] = family.id
+{% endhighlight %}
 
 During the six hours that the code was missing that very important
 `.get`, it managed to cause 579 errors. Luckily they didn't affect
