@@ -1,21 +1,7 @@
 ---
 layout: post
 title: Your Code is an Essay
-published: false
 ---
-
-Writing code is a lot like writing an essay.
-I'm not talking about the essays you write for school, though.
-[Paul Graham's idea of essays][1] is closer to what I'm going for:
-"something you write to try to figure something out."
-Code is something you write to do something.
-
-They take similar paths.
-Both start as an idea in your head.
-Then you might jot bullet points down in a notebook or type pseudocode into an editor.
-
-[1]: http://paulgraham.com/essay.html
-
 
 Writing code is a lot like writing an essay.
 
@@ -32,10 +18,20 @@ Usually the author is keenly aware of the concessions they've made.
 Few things move on to the last step, a finished product.
 Published essays get checked by friends and editors.
 Code gets checked by friends, coworkers, and bosses.
-This finished product is much more polished.
-It handles edge cases and doesn't leave out viewpoints.
+This finished product is polished and handles edge cases.
 
 But why does this matter to you, a developer.
+
+You can use similar development techniques.
+Peer review is the de facto standard for essays.
+Ask for input on the code, not the output.
+Publish the code instead of showcasing the project.
+If you're feeling adventurous, convince writers to use coding best practices.
+
+The easiest thing you can do to improve your code is to read more code.
+Good writers read far more than they write.
+What you read should interest you.
+Not much else is required -- it doesn't even have to be useful.
 
 -   similar development flow
     -   bullet points of main ideas / outline or pseudocode
@@ -58,15 +54,3 @@ But why does this matter to you, a developer.
         -   good writers read a lot, good coders should too
         -   ideally should be interesting
         -   not necessarily immediately relevant
-
--   "An essay is something you write to try to figure something out."
-    similarly, a program is something you write to try to do something
--   "Gradualness is very powerful."
-    wrt combovers; works against programs, too, in the form of entropy
-http://paulgraham.com/essay.html
-
--   "They decided to rewrite the code from scratch."
-    rarely do people restart essays from scratch
--   "It’s harder to read code than to write it."
-    quite different than essays, which are much easier to read than write
-http://www.joelonsoftware.com/articles/fog0000000069.html
