@@ -3,54 +3,34 @@ layout: post
 title: Your Code is an Essay
 ---
 
-Writing code is a lot like writing an essay.
+Writing code is a lot like writing an essay. You start off with an
+outline. Probably some bullet points or pseudo code. Maybe it's all
+in your head or maybe it's jotted down in a notebook -- it doesn't
+matter.
 
-They start off the same way, with an outline.
-For code this means pseudocode or maybe a UML diagram.
-Essays start with a list of main ideas and supporting facts.
-In either case, this step can be skipped.
+You move on to the first draft. It's the shortest, simplest thing
+that works. It might not be pretty, but it gets the point across.
+The author is frequently aware of the shortcomings of the draft and
+why they're there. They just wanted to get something working. It
+can be refined later.
 
-Then it moves on to the first draft.
-It's the smallest, simplest thing that works.
-It might not be pretty, but it gets the point across.
-Usually the author is keenly aware of the concessions they've made.
+And that's exactly what comes next: the finished product. It's been
+polished, reviewed, edited, and debugged. It handles edge cases,
+provides sources, matches the house style, and is formatted properly.
+It's the type of thing you'd use as an example of a good essay or
+chunk of code.
 
-Few things move on to the last step, a finished product.
-Published essays get checked by friends and editors.
-Code gets checked by friends, coworkers, and bosses.
-This finished product is polished and handles edge cases.
+So essays and code are similar. They're developed in similar fashions.
+Why does that matter to you, a software developer? Because you can
+use the same strategies writers use to improve your code.
 
-But why does this matter to you, a developer.
+Peer review is the de facto standard for reviewing written work,
+but I feel it's underused for code. All too often programmers focus
+only on the output of their program. A good way to counteract this
+is is to publish the code itself in addition to showcasing the
+project. GitHub is helping make this a more common occurence.
 
-You can use similar development techniques.
-Peer review is the de facto standard for essays.
-Ask for input on the code, not the output.
-Publish the code instead of showcasing the project.
-If you're feeling adventurous, convince writers to use coding best practices.
-
-The easiest thing you can do to improve your code is to read more code.
-Good writers read far more than they write.
-What you read should interest you.
-Not much else is required -- it doesn't even have to be useful.
-
--   similar development flow
-    -   bullet points of main ideas / outline or pseudocode
-        -   good for establishing a structure
-        -   not always needed, depends on skill and objective
-        -   useful for collaborating
-    -   first draft / most basic code that works
-        -   most essays and code don't make it past this point
-        -   it gets the point across and works, but it's not pretty
-        -   often the author knows this
-    -   revised, edited, published copy / peer-reviewed, tested, shared code
-        -   takes a lot of time and, usually, a lot of people
-        -   often covers cases you didn't think of initially ("wiser")
--   why does this matter (aka "so what?")
-    -   use similar development techniques, as outlined above
-        -   already use a lot of the same ones
-        -   ask others for input on code, not output
-        -   publish code
-    -   read more code
-        -   good writers read a lot, good coders should too
-        -   ideally should be interesting
-        -   not necessarily immediately relevant
+But becoming a better coder is even easier than that. All it takes
+it reading more code. Good writers read. A lot. Good coders should,
+too. The code you read doesn't have to be useful, it just has to
+be interesting. It might come in handy later.
