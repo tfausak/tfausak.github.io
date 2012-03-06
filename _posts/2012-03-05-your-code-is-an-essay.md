@@ -10,9 +10,9 @@ matter.
 
 You move on to the first draft. It's the shortest, simplest thing
 that works. It might not be pretty, but it gets the point across.
-The author is frequently aware of the shortcomings of the draft and
-why they're there. They just wanted to get something working. It
-can be refined later.
+You're probably aware of its shortcomings and, more importantly,
+why they're there. You just wanted to get something working. It can
+be refined later.
 
 And that's exactly what comes next: the finished product. It's been
 polished, reviewed, edited, and debugged. It handles edge cases,
@@ -28,9 +28,16 @@ Peer review is the de facto standard for reviewing written work,
 but I feel it's underused for code. All too often programmers focus
 only on the output of their program. A good way to counteract this
 is is to publish the code itself in addition to showcasing the
-project. GitHub is helping make this a more common occurence.
+project. [GitHub][1] is helping make this a more common occurence.
 
 But becoming a better coder is even easier than that. All it takes
 it reading more code. Good writers read. A lot. Good coders should,
 too. The code you read doesn't have to be useful, it just has to
 be interesting. It might come in handy later.
+
+Fortunately, these two tips play nicely with each other. By publishing
+your code, you're giving other developers more code to read. Their
+code will get better, and hopefully they'll publish it too. Then
+you can learn from it.
+
+[1]: https://github.com/
