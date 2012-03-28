@@ -43,6 +43,11 @@ h2 {
     line-height: 1.3333em;
     margin: 1.3333em 0;
 }
+h3 {
+    font-variant: small-caps;
+    font-weight: bold;
+    margin: 1.5em 0;
+}
 img {
     background: #eee8d5;
     border: thin solid #93a1a1;
