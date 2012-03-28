@@ -5,9 +5,9 @@ title: iOS Web App Icons & Startup Images
 
 Apple makes it a piece of cake to develop web apps for iOS.
 Unfortunately, they haven't updated [their web app documentation][1]
-since October of last year. That wouldn't be a big problem, but
-they wrote it before the release of the new iPad. They need to
-update it to explain how to configure web apps on the new iPad and
+since October of last year. That wouldn't be a big deal, but they
+wrote it before the release of the new iPad. They need to update
+it to explain how to configure web apps on the new iPad and
 retina iPhones.
 
 Until they do, I hope this post can help you configure your web app
@@ -27,10 +27,12 @@ for iPads and `114x114` for retina iPhones. Since retina iPads have
 twice the resolution of regular iPads, it makes sense that their
 icons are `144x144`, twice that of the regular iPad.
 
-    <!-- iPad (Retina) -->
-    <link rel="apple-touch-icon"
-          sizes="144x144"
-          href="apple-touch-icon-144x144.png">
+{% highlight html %}
+<!-- iPad (Retina) -->
+<link rel="apple-touch-icon"
+      sizes="144x144"
+      href="apple-touch-icon-144x144.png">
+{% endhighlight %}
 
 The official icon sizes are listed in Apple's [icon creation
 guidelines][2]. If you want to support all iOS devices, you need
@@ -55,27 +57,29 @@ Note that it's 20 pixels shorter than the iPhone's resolution of
 `320x480`. The status bar is always visible while a web app is
 loading, and it's exactly 20 pixels tall.
 
-Startup images for retina iPhones should be twice the resolution:
+Startup images for retina iPhones should be twice the resolution,
 `640x920`. Unfortunately, linking to a retina startup image isn't
 as easy as the icon. The `sizes` attribute doesn't work for startup
 images. Looking for a workaround to this lead me to a [Gist about
 iOS web app configuration][3]. It reminded me that startup images
-are just `<link>`s and can be targeted using media queries.
+are just `<link>` elements that can be targeted using media queries.
 
 All iPhones report their resolution as `320x480`. This means a media
 query of `(device-width: 320px)` will match all iPhones. Retina
 iPhones report their [pixel ratio][4] as `2`, so a
 `(-webkit-device-pixel-ratio: 2)` will match retina iPhones.
 
-    <!-- iPhone -->
-    <link rel="apple-touch-startup-image"
-          media="(device-width: 320px)"
-          href="apple-touch-startup-image-320x460.png">
-    <!-- iPhone (Retina) -->
-    <link rel="apple-touch-startup-image"
-          media="(device-width: 320px)
-             and (-webkit-device-pixel-ratio: 2)"
-          href="apple-touch-startup-image-640x920.png">
+{% highlight html %}
+<!-- iPhone -->
+<link rel="apple-touch-startup-image"
+      media="(device-width: 320px)"
+      href="apple-touch-startup-image-320x460.png">
+<!-- iPhone (Retina) -->
+<link rel="apple-touch-startup-image"
+      media="(device-width: 320px)
+         and (-webkit-device-pixel-ratio: 2)"
+      href="apple-touch-startup-image-640x920.png">
+{% endhighlight %}
 
 ### iPads
 
@@ -84,28 +88,30 @@ Fortunately, the `orientation` media query makes specifying startup
 images easy as pie. The technique is the same as the one described
 for iPhones, except iPads report their resolution as `768x1024`.
 
-    <!-- iPad (portrait) -->
-    <link rel="apple-touch-startup-image"
-          media="(device-width: 768px)
-             and (orientation: portrait)"
-          href="apple-touch-startup-image-768x1004.png">
-    <!-- iPad (landscape) -->
-    <link rel="apple-touch-startup-image"
-          media="(device-width: 768px)
-             and (orientation: landscape)"
-          href="apple-touch-startup-image-748x1024.png">
-    <!-- iPad (Retina, portrait) -->
-    <link rel="apple-touch-startup-image"
-          media="(device-width: 768px)
-             and (orientation: portrait)
-             and (-webkit-device-pixel-ratio: 2)"
-          href="apple-touch-startup-image-1536x2008.png">
-    <!-- iPad (Retina, landscape) -->
-    <link rel="apple-touch-startup-image"
-          media="(device-width: 768px)
-             and (orientation: landscape)
-             and (-webkit-device-pixel-ratio: 2)"
-          href="apple-touch-startup-image-1496x2048.png">
+{% highlight html %}
+<!-- iPad (portrait) -->
+<link rel="apple-touch-startup-image"
+      media="(device-width: 768px)
+         and (orientation: portrait)"
+      href="apple-touch-startup-image-768x1004.png">
+<!-- iPad (landscape) -->
+<link rel="apple-touch-startup-image"
+      media="(device-width: 768px)
+         and (orientation: landscape)"
+      href="apple-touch-startup-image-748x1024.png">
+<!-- iPad (Retina, portrait) -->
+<link rel="apple-touch-startup-image"
+      media="(device-width: 768px)
+         and (orientation: portrait)
+         and (-webkit-device-pixel-ratio: 2)"
+      href="apple-touch-startup-image-1536x2008.png">
+<!-- iPad (Retina, landscape) -->
+<link rel="apple-touch-startup-image"
+      media="(device-width: 768px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 2)"
+      href="apple-touch-startup-image-1496x2048.png">
+{% endhighlight %}
 
 Note that landscape images are not actually defined as such --
 they're taller than they are wide. When you're creating your assets,
@@ -114,7 +120,7 @@ rotate them 90° clockwise.
 
 ## Complete Example
 
-I've created [a minimal  web app][5] that includes all icons and
+I've created [a minimal web app][5] that includes all icons and
 startup images for iOS devices. It's also available [a Gist][6].
 Please let me know if you notice any problems or want to suggest
 an improvement.
