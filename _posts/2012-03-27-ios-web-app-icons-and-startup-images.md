@@ -1,7 +1,6 @@
 ---
 layout: post
 title: iOS Web App Icons & Startup Images
-published: false
 ---
 
 Apple makes it a piece of cake to develop web apps for iOS.
