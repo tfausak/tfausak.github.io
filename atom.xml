@@ -13,7 +13,7 @@
 
     <entry>
         <title>Deprecated</title>
-        <link href="http://taylor.fausak.me/sitemap.atom">
+        <link href="http://taylor.fausak.me/sitemap.atom"/>
         <updated>2012-04-27T00:00:00</updated>
         <id>http://taylor.fausak.me/sitemap.atom</id>
         <content type="html">&lt;p&gt;This feed has been deprecated. Please use &lt;a href="http://taylor.fausak.me/sitemap.atom"&gt;http://taylor.fausak.me/sitemap.atom&lt;/a&gt; instead.&lt;/p&gt;</content>
