@@ -33,7 +33,7 @@ come to terms with it, although plenty of them still think dropping
 out was dumb. Ultimately, that doesn't matter. I am immeasurably
 happier. I stand by [what I said][3] when I dropped out:
 
-> This was the hardest decision of my life, and I’m certain that I
+> This was the hardest decision of my life, and I'm certain that I
 > made it right.
 
 [1]: http://www.utexas.edu/
