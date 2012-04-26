@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Serving Atom Feeds with GitHub Pages
-published: false
 ---
 
 I recently checked on my blog through [Google's Webmaster Tools][1].
@@ -32,15 +31,14 @@ be `utf-8`, but [it defaults to `us-ascii`][3]. The other problem
 is that `text/xml` is deprecated and should be replaced with
 `application/xml`. Or, better yet, `application/atom+xml`.
 
-Fortunately, solving the second problem solves the first problem,
-too. The default `charset` for `application/xml` is `utf-8`, so
-it's not necessary to specify it.
+Fortunately, solving the second problem solves the first problem
+too. The default `charset` for `application/xml` is `utf-8`.
 
-Unfortunately for me, my blog is hosted on [GitHub Pages][4]. I
-can't modify the headers. I can, however, modify the filenames.
-GitHub doesn't know that my sitemap is an Atom feed since it has
-an `.xml` extension. Changing it to `.atom` clues them in, and they
-serve it with `Content-Type: application/atom+xml`. See for yourself:
+Unfortunately, my blog is hosted on [GitHub Pages][4]. I can't
+modify the headers. I can, however, modify the filenames. GitHub
+doesn't know that my sitemap is an Atom feed since it has an `.xml`
+extension. Changing it to `.atom` clues them in, and they serve it
+with the right header. See for yourself:
 
     $ curl -v 'http://taylor.fausak.me/sitemap.atom'
     * About to connect() to taylor.fausak.me port 80 (#0)
@@ -50,7 +48,7 @@ serve it with `Content-Type: application/atom+xml`. See for yourself:
     > User-Agent: curl/7.21.4 (universal-apple-darwin11.0) libcurl/7.21.4 OpenSSL/0.9.8r zlib/1.2.5
     > Host: taylor.fausak.me
     > Accept: */*
-    > 
+    >
     < HTTP/1.1 200 OK
     < Server: nginx/1.0.13
     < Date: Thu, 26 Apr 2012 16:47:37 GMT
@@ -61,17 +59,16 @@ serve it with `Content-Type: application/atom+xml`. See for yourself:
     < Expires: Fri, 27 Apr 2012 16:47:37 GMT
     < Cache-Control: max-age=86400
     < Accept-Ranges: bytes
-    < 
+    <
 
 In short, to get GitHub pages to serve your Atom feed with the right
 MIME type, use `.atom` instead of `.xml`. (The same thing goes for
-RSS: `.rss` instead of `.xml`.)
+RSS: use `.rss` instead of `.xml`.)
 
 Renaming the sitemap means that anyone subscribed to that feed won't
 receive updates. I could keep both of them around indefinitely, but
-I don't want to duplicate the content. Instead, I'll truncate the
-feed and add a note to use the new URL. Eventually, I'll delete it
-entirely.
+I don't want to duplicate the content. Instead, I'll create a feed
+at the old URL with one entry that points to the new URL.
 
 [1]: https://www.google.com/webmasters/tools/
 [2]: http://validator.w3.org/feed/
