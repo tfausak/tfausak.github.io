@@ -28,7 +28,7 @@ layout: base
         </div>
     </div>
 
-    <h2>Related Posts</h2>
+    <h2>Recent Posts</h2>
 
     <ul class="posts">
         {% for post in site.related_posts limit:3 %}
@@ -36,5 +36,10 @@ layout: base
                 <a href="{{ post.url }}">{{ post.title }}</a>
             </li>
         {% endfor %}
+        <li class="post">
+            <a href="/about/">
+                <strong>About</strong>
+            </a>
+        </li>
     </ul>
 </footer>
