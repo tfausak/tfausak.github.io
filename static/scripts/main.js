@@ -10,7 +10,7 @@ var _gaq = [
     // Google Analytics
     script = document.createElement('script');
     script.async = true;
-    script.src = (/^....s/.test(location) ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    script.src = (/^https/.test(location) ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
     document.body.appendChild(script);
 
     // Delay loading social widgets until the user scrolls.
@@ -39,4 +39,4 @@ var _gaq = [
             document.body.appendChild(script);
         }
     };
-})();
+}());
