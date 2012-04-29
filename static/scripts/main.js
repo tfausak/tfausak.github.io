@@ -39,7 +39,7 @@ var _gaq = [
     };
 
     // Load social widgets if the viewport is taller than the content.
-    if (window.clientHeight >= document.body.innerHeight) {
+    if (window.innerHeight >= document.body.clientHeight) {
         window.onscroll();
     }
 }());
