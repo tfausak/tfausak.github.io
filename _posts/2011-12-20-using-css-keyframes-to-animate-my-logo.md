@@ -12,7 +12,7 @@ CSS: I animated it.
 (That's not to say I couldn't have an animated logo without CSS. An
 animated GIF would technically work, but it wouldn't stay synchronized
 with the colored bar across the top. And the color palette would
-be pretty limited.0
+be pretty limited.)
 
 The key to animating in CSS is [keyframes][3]. They're just a list
 of properties to apply at a given time. Since the color of the
