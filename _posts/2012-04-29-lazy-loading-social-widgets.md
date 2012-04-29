@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Lazy Loading Social Widgets
-published: false
 ---
 
 I added social widgets (Facebook like, Google +1, and Twitter tweet
@@ -36,29 +35,31 @@ and doesn't require a framework. Loading the social widgets when
 the user scrolls is nearly as good as loading when they should be
 visible. You need to scroll to see them, anyway.
 
-    window.onscroll = function () {
-        window.onscroll = null;
+{% highlight js %}
+window.onscroll = function () {
+    window.onscroll = null;
 
-        // Facebook JS SDK
-        script = document.createElement('script');
-        script.async = true;
-        script.id = 'facebook-jssdk';
-        script.src = '//connect.facebook.net/en_US/all.js#xfbml=1&appId=133083533456136';
-        document.body.appendChild(script);
+    // Facebook JS SDK
+    script = document.createElement('script');
+    script.async = true;
+    script.id = 'facebook-jssdk';
+    script.src = '//connect.facebook.net/en_US/all.js#xfbml=1&appId=133083533456136';
+    document.body.appendChild(script);
 
-        // Google +1 button
-        script = document.createElement('script');
-        script.async = true;
-        script.src = '//apis.google.com/js/plusone.js';
-        document.body.appendChild(script);
+    // Google +1 button
+    script = document.createElement('script');
+    script.async = true;
+    script.src = '//apis.google.com/js/plusone.js';
+    document.body.appendChild(script);
 
-        // Twitter widgets
-        script = document.createElement('script');
-        script.async = true;
-        script.id = 'twitter-wjs';
-        script.src = '//platform.twitter.com/widgets.js';
-        document.body.appendChild(script);
-    };
+    // Twitter widgets
+    script = document.createElement('script');
+    script.async = true;
+    script.id = 'twitter-wjs';
+    script.src = '//platform.twitter.com/widgets.js';
+    document.body.appendChild(script);
+};
+{% endhighlight %}
 
 Note that the first part of the `onscroll` function is to unassign
 it. That's because the scripts for these social widgets only need
@@ -77,9 +78,11 @@ elements. In this case, I'm okay with the old behavior of just
 loading the widgets anyway. So I can just call the `onscroll`
 function if the viewport is tall enough.
 
-    if (window.innerHeight >= document.body.clientHeight) {
-        window.onscroll();
-    }
+{% highlight js %}
+if (window.innerHeight >= document.body.clientHeight) {
+    window.onscroll();
+}
+{% endhighlight %}
 
 This method is [reasonably well-supported][3], but it won't work
 in Internet Explorer before version 9. That's not a problem for my
