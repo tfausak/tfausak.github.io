@@ -37,4 +37,9 @@ var _gaq = [
         script.src = '//platform.twitter.com/widgets.js';
         document.body.appendChild(script);
     };
+
+    // Load social widgets if the viewport is taller than the content.
+    if (window.clientHeight >= document.body.innerHeight) {
+        window.onscroll();
+    }
 }());
