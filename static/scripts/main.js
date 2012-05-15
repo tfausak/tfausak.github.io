@@ -5,7 +5,7 @@ var _gaq = [
 
 (function () {
     "use strict";
-    var script;
+    var script, element;
 
     // Google Analytics
     script = document.createElement('script');
@@ -13,33 +13,41 @@ var _gaq = [
     script.src = (/^https/.test(location) ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
     document.body.appendChild(script);
 
-    // Delay loading social widgets until the user scrolls.
-    window.onscroll = function () {
-        window.onscroll = null;
+    // Facebook like widget
+    element = document.getElementById('facebook-widget');
+    element.onmouseover = function () {
+        element.onmouseover = null;
+        element.parentNode.removeChild(element);
 
-        // Facebook JS SDK
         script = document.createElement('script');
         script.async = true;
         script.id = 'facebook-jssdk';
         script.src = '//connect.facebook.net/en_US/all.js#xfbml=1&appId=133083533456136';
         document.body.appendChild(script);
+    };
 
-        // Google +1 button
+    // Google +1 widget
+    element = document.getElementById('google-widget');
+    element.onmouseover = function () {
+        element.onmouseover = null;
+        element.parentNode.removeChild(element);
+
         script = document.createElement('script');
         script.async = true;
         script.src = '//apis.google.com/js/plusone.js';
         document.body.appendChild(script);
+    };
 
-        // Twitter widgets
+    // Twitter tweet widget
+    element = document.getElementById('twitter-widget');
+    element.onmouseover = function () {
+        element.onmouseover = null;
+        element.parentNode.removeChild(element);
+
         script = document.createElement('script');
         script.async = true;
         script.id = 'twitter-wjs';
         script.src = '//platform.twitter.com/widgets.js';
         document.body.appendChild(script);
     };
-
-    // Load social widgets if the viewport is taller than the content.
-    if (window.innerHeight >= document.body.clientHeight) {
-        window.onscroll();
-    }
 }());
