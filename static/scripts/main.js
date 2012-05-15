@@ -16,8 +16,8 @@ var _gaq = [
     // Facebook like widget
     element = document.getElementById('facebook-widget');
     element.onmouseover = function () {
-        element.onmouseover = null;
-        element.parentNode.removeChild(element);
+        this.onmouseover = null;
+        this.parentNode.removeChild(this);
 
         script = document.createElement('script');
         script.async = true;
@@ -29,8 +29,8 @@ var _gaq = [
     // Google +1 widget
     element = document.getElementById('google-widget');
     element.onmouseover = function () {
-        element.onmouseover = null;
-        element.parentNode.removeChild(element);
+        this.onmouseover = null;
+        this.parentNode.removeChild(this);
 
         script = document.createElement('script');
         script.async = true;
@@ -41,8 +41,8 @@ var _gaq = [
     // Twitter tweet widget
     element = document.getElementById('twitter-widget');
     element.onmouseover = function () {
-        element.onmouseover = null;
-        element.parentNode.removeChild(element);
+        this.onmouseover = null;
+        this.parentNode.removeChild(this);
 
         script = document.createElement('script');
         script.async = true;

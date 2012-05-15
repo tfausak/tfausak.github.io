@@ -252,20 +252,19 @@ ul {
 #twitter-widget {
     color: #fff;
     display: block;
+    line-height: 3.875em; /* 62px */
     text-align: center;
     text-decoration: none;
 }
 #facebook-widget {
     background: #3b5b99;
-    line-height: 3.875em;
 }
 #google-widget {
     background: #dd4b39;
-    line-height: 3.75em;
+    margin-top: -0.125em; /* 2px */
 }
 #twitter-widget {
     background: #33ccff;
-    line-height: 3.875em;
 }
 
 /*
