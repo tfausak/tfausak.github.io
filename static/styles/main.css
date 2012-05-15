@@ -220,15 +220,9 @@ ul {
     Social widgets
 */
 .social-widgets {
-    display: none;
     float: right;
     list-style: none;
     margin: 0;
-}
-@media (min-width: 640px) {
-    .social-widgets {
-        display: block;
-    }
 }
 .social-widget {
     float: left;
