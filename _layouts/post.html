@@ -16,17 +16,26 @@ layout: base
 </article>
 
 <footer class="footer">
-    <div class="social-widgets">
-        <div class="social-widget facebook-widget">
-            <div class="fb-like" data-send="false" data-layout="box_count"></div>
-        </div>
-        <div class="social-widget google-widget">
+    <ul class="social-widgets">
+        <li class="social-widget facebook-widget">
+            <a href="//www.facebook.com/sharer/sharer.php?u={{ page.url }}" id="facebook-widget">
+                Like
+            </a>
+            <div class="fb-like" data-send="false" data-layout="box_count" id="facebook-widget"></div>
+        </li>
+        <li class="social-widget google-widget">
+            <a href="//plus.google.com/_/+1/confirm?url={{ page.url }}" id="google-widget">
+                +1
+            </a>
             <div class="g-plusone" data-size="tall"></div>
-        </div>
-        <div class="social-widget twitter-widget">
+        </li>
+        <li class="social-widget twitter-widget">
+            <a href="//twitter.com/intent/tweet?url={{ page.url }}&text={{ page.title }}&related=taylorfausak" id="twitter-widget">
+                Tweet
+            </a>
             <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" data-related="taylorfausak" data-url="{{ site.url }}{{ page.url }}"></a>
-        </div>
-    </div>
+        </li>
+    </ul>
 
     <h2>Recent Posts</h2>
 
