@@ -200,6 +200,8 @@ ul {
 .social-widgets {
     display: none;
     float: right;
+    list-style: none;
+    margin: 0;
 }
 @media (min-width: 640px) {
     .social-widgets {
@@ -222,6 +224,26 @@ ul {
 .twitter-widget {
     height: 3.875em; /* 62px */
     width: 3.4375em; /* 55px */
+}
+#facebook-widget,
+#google-widget,
+#twitter-widget {
+    color: #fff;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+#facebook-widget {
+    background: #3b5b99;
+    line-height: 3.875em;
+}
+#google-widget {
+    background: #dd4b39;
+    line-height: 3.75em;
+}
+#twitter-widget {
+    background: #33ccff;
+    line-height: 3.875em;
 }
 
 /*
