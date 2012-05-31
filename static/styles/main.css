@@ -1,12 +1,14 @@
 /*
     Main layout
 */
-html, body {
+html,
+body {
     background: #fdf6e3;
     color: #657b83;
     font: 1em/1.5em 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Segoe WP', sans-serif;
 }
-.header, .content {
+.header,
+.content {
     padding: 0 0.75em;
 }
 .wrapper {
@@ -58,7 +60,8 @@ img {
 em {
     font-style: italic;
 }
-ol, ul {
+ol,
+ul {
     list-style-position: outside;
     margin: 1.5em 0 1.5em 1.5em;
 }
@@ -98,10 +101,18 @@ ul {
     height: 0;
     width: 0;
 }
-.logo .tl, .logo .cl, .logo .bl, .logo .br {
+.logo .tl,
+.logo .cl,
+.logo .bl,
+.logo .br {
     border-left-color: transparent;
 }
-.logo .tr, .logo .cl, .logo .cr, .logo .bl, .logo .bc, .logo .br {
+.logo .tr,
+.logo .cl,
+.logo .cr,
+.logo .bl,
+.logo .bc,
+.logo .br {
     border-bottom-color: transparent;
 }
 
@@ -265,7 +276,8 @@ ul {
     Print styles
 */
 @media print {
-    html, body {
+    html,
+    body {
         background: #ffffff;
         color: #000000;
         font-family: 'Hoefler Text', 'Cambria', serif;
@@ -273,7 +285,8 @@ ul {
     a {
         color: inherit;
     }
-    .header, .content {
+    .header,
+    .content {
         padding: 0;
     }
     .wrapper {
