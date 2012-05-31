@@ -7,13 +7,13 @@ published: false
 Last month, I streamlined my blog by [lazy loading social widgets][1].
 I liked the results but felt that I could do better. A [Hacker News
 comment][2] tipped me off to [Socialite.js][3]. That script reminded
-me that `onhover` is more appropriate thn `onscroll`. So I updated
+me that `onhover` is more appropriate than `onscroll`. So I updated
 my script.
 
 I held off writing a post describing what I changed because the
 core idea is the same: don't load the widgets until the user wants
 them. However, a couple people emailed me about my new approach.
-In addition, Oliver Reichenstein urged webmaster to [sweep the
+In addition, Oliver Reichenstein urged webmasters to [sweep the
 sleaze][4]; lazy loading widgets addresses the technical concerns
 (privacy, load times, scrolling performance) with ease.
 
@@ -26,8 +26,8 @@ like this:
 
 Waiting to load the widget until the user hovers over it requires
 some additional markup. The widget needs a placeholder, which will
-be used until the user hovers (and for clients with JavaScript
-disabled). Both the widget and the placeholder need to be wrapped
+be used until the user hovers, and for clients with JavaScript
+disabled. Both the widget and the placeholder need to be wrapped
 in a container.
 
     <div class="social-widget google-widget">
@@ -68,7 +68,7 @@ Now the placeholders won't be an eyesore before the actual widgets load.
 
 ## Scripts
 
-Since the markup for the widgets is already in the page, all the
+Since the markup for the widgets is already in the page, all that
 needs to be done is load the appropriate JavaScript library. So
 when the user hovers over the +1 widget, load Google's +1 library.
 In addition, the placeholder should be removed, since it's obsoleted
