@@ -74,8 +74,9 @@ p {
 pre {
     border-left: thin solid #93a1a1;
     margin: 1.5em 0;
+    overflow: auto;
     padding-left: 1.5em;
-    white-space: pre-wrap;
+    white-space: pre;
 }
 strong {
     font-weight: bold;
