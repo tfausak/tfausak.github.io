@@ -4,26 +4,26 @@ title: Encouraging Referrals with Free Apps
 published: false
 ---
 
-I'm particularly excited about a new feature in the [Famigo Sandbox][]: bundled apps. We introduced our first pass in version 1.6, which our users loved. The next version is going to be even better, and we're working hard to get it in your hands in the next couple of weeks.
+At [Famigo][], we're always making our [Sandbox][] better. But one of the biggest problems we face is letting people know about our app. Sure, we can (and do) run ads and work on app store SEO, but word-of-mouth is much more powerful. Dropbox noticed this and implemented [a referral program][] to give out free space.
 
-This is the idea: refer a friend to the Sandbox and you both get a free app. That's it! Refer lots of people and you'll get lots of free apps.
+We started a similar program. Instead of space, we give out apps. Here's the idea: refer a friend to the Sandbox and you both get a free app. We're all very excited about this and we're working hard to get it in your hands as soon as possible.
 
 ## Front End
 
-We wanted this feature to be as easy as possible to use. No signup codes, nothing to remember or hang on to, and immediate results. Here's what you, as a user of the Sandbox, have to do:
+This feature is a piece of cake to use. There are no signup codes and nothing to remember or hang on to. Here's what you, as a user of the Sandbox, have to do:
 
 1.  Tap the glowing share button in manage mode.
 2.  Select the people you want to share the Sandbox with.
 3.  Send them an email.
 
-And you're done! We even prepopulate the email's recipients, subject, and body. All your have to do is hit send.
+That's it! We even prepopulate the email's recipients, subject, and body. All your have to do is hit send. You can customize the email if you want to, though. We just use the default email client.
 
 On the other side of things, this is what the recipients of your email have to do:
 
 1.  Open your email, read it and click on the link.
 2.  Download, install, and run the Sandbox.
 
-That's it! Once they finish setting up their Sandbox, you'll both get a push notification with your free app. Piece of cake, right?
+What could be easier? Once they finish setting up their sandbox, you'll both get a push notification with your free app.
 
 ## Back End
 
@@ -50,6 +50,8 @@ To that end, this is exactly what happens:
 5.  Some time later, one of the people you referred opens the link you sent them, downloads the Sandbox and runs it. When they do that, we hash the email and check to see if anyone referred them.
 6.  Thirty days after you sent the email, we remove the email addresses from our database and invalidate the referral.
 
+[]: http://www.famigo.com/
 []: https://play.google.com/store/apps/details?id=com.famigo.sandbox
+[]: https://www.dropbox.com/help/54
 []: http://urbanairship.com/
 []: http://developer.android.com/reference/android/Manifest.permission.html#READ_CONTACTS
