@@ -66,32 +66,25 @@ both devies.
 
 ## Privacy
 
-Because of this feature, the Sandbox now requests the [`READ_CONTACTS`][5]
-permission. We were hesitant to request this permission. We don't
-want to betray our users' trust. Also, our users' privacy is very
-important to us.
+As a result of implementing this referral program, the Sandbox now
+requests the [`READ_CONTACTS`][5] permission. We didn't make this
+decision lightly. Our users' privacy is very important to us.
 
-To that end, this is exactly what happens:
+I think the best way to address privacy concerns is with transparency.
+To that end, this is exactly what happens during the referral
+process:
 
-1.  You, as a user of the Sandbox, decide to share it with your
-    friends and family. From manage mode, you tap the glowing share
-    button. It tells you what's going to happen and asks you to
-    select some contacts.
-2.  We read your contacts and show you an easy way to select emails.
-    This is the only point in the Sandbox where your contacts are
-    accessed.
-3.  After selecting some contacts, their emails are uploaded to
-    Famigo, where they are hashed and stored. They are uploaded
-    through our API, which logs the call for about six hours. After
-    that, the email addresses are unrecoverable.
-4.  You are presented with the default email app, pre-populated
-    with the contacts you selected and a shareable URL.
-5.  Some time later, one of the people you referred opens the link
-    you sent them, downloads the Sandbox and runs it. When they do
-    that, we hash the email and check to see if anyone referred
+1.  After deciding to share the Sandbox, we read your contacts and
+    show you an email selection dialog. This is the only point in
+    the Sandbox where we access your contacts.
+2.  The email addresses you selected are uploaded to our server and
+    hashed. We log the API call in plain text for about six hours.
+3.  When one of the people you referred runs the Sandbox for the
+    first time, we hash their email address to see if anyone referred
     them.
-6.  Thirty days after you sent the email, we remove the email
-    addresses from our database and invalidate the referral.
+4.  Thirty days after you sent the referral email, we remove the
+    hashed email addresses from our database and invalidate the
+    referral.
 
 [1]: http://www.famigo.com/
 [2]: https://play.google.com/store/apps/details?id=com.famigo.sandbox
