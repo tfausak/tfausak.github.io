@@ -1,19 +1,19 @@
 ---
 layout: post
 title: Encouraging Referrals with Free Apps
-published: false
 ---
 
 At [Famigo][1], we're always making our [Sandbox][2] better. But
 one of the biggest problems we face is letting people know about
 our app. Sure, we can (and do) run ads and work on app store SEO,
-but word-of-mouth is much more powerful. Dropbox noticed this and
-implemented [a referral program][3] to give out free space.
+but word-of-mouth is much more powerful. For instance, Dropbox
+noticed this and implemented [a referral program][3] to give out
+free space.
 
-We started a similar program. Instead of space, we give out apps.
-Here's the idea: refer a friend to the Sandbox and you both get a
-free app. We're all very excited about this and we're working hard
-to get it in your hands as soon as possible.
+We started a similar program. Except instead of space, we give out
+apps. Here's the idea: refer a friend to the Sandbox and you both
+get a free app! We're all very excited about this and we're working
+hard to get it in your hands as soon as possible.
 
 ## Front End
 
@@ -44,25 +44,24 @@ In order to make things easy for the end-user, we have to do some
 magic on the back end. It's not terribly complicated, but I think
 it's a pretty novel referral program. Here's how it works:
 
-After the user selects the contacts they want to share with, their
-email addresses are uploaded to our server. We hash them, store
-them for later, and send back a shareable URL.
+After the user selects some email addresses, they're uploaded to
+our server. We hash them, store them for later, and send back a
+shareable URL.
 
 When any of the recipients go to the URL their friend sent them,
 we note that they opened it and send them along to the Play Store.
-Nothing interesting happens at this step, but it allows us to
-effectively track users throughout the process.
+Nothing interesting happens at this step, but it allows us to track
+the effectiveness of our referral campaign.
 
 Then they download and install the Sandbox. Running it logs them
 in, at which point we hash their email and check for any referrals
 to redeem. If there is one, we mark it as used and pick an app they
 don't have already. (If they already have all the apps we've got,
-we apologize in an email.)
+we can't do anything so we send an apology email.)
 
 Now we know a referral has been completed and we've picked a new
-app for both people to get. We need to get it to them! So we pass
-the baton to [Urban Airship][4], who sends a push notification to
-both devies.
+app for both people to get. We need to get it to them, so we send
+a push notification through [Urban Airship][4] to both devies.
 
 ## Privacy
 
