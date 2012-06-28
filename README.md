@@ -19,21 +19,16 @@ Combine and minify them like so:
 
 ```sh
 # CSS
-cat static/styles/{reset,main,syntax}.css | java -jar yuicompressor-2.4.7.jar --type css > static/styles/all.min.css
+cat static/styles/{reset,main,syntax}.css |
+java -jar yuicompressor-2.4.7.jar --type css > \
+static/styles/all.min.css
+
 # JS
-cat static/scripts/main.js | java -jar yuicompressor-2.4.7.jar --type js > static/scripts/all.min.js
-```
-
-It's also a good idea to make sure all other assets are as small
-as possible. To wit, PNG images can be minimized with [Pngcrush][4]:
-
-```sh
-pngcrush -rem alla -rem allb -rem text -brute -d tmp static/images/*.png
-mv tmp/*.png static/images/.
-rmdir tmp
+cat static/scripts/main.js |
+java -jar yuicompressor-2.4.7.jar --type js > \
+static/scripts/all.min.js
 ```
 
 [1]: http://pages.github.com/
 [2]: http://jekyllrb.com/
 [3]: http://developer.yahoo.com/yui/compressor/
-[4]: http://pmt.sourceforge.net/pngcrush/
