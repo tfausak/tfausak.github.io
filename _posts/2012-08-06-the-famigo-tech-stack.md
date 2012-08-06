@@ -4,33 +4,48 @@ title: The Famigo Tech Stack
 published: false
 ---
 
-The easiest way to explain most of our tech stack is to follow a
-request to our web site or API.
+Ever wonder what happens when you point your browser to [Famigo][]?
+An array of no fewer than 20 technologies work together to bring
+you the requested page. The best way to explain it is to follow the
+request from start to finish.
 
-1.  The first thing the request hits is our load balancer
-    (`lb.famigo.com`), which is powered by Amazon's [Elastic Load
-    Balancing][].
-2.  Then it's routed to one of our servers (`buster.fam.io` or
-    `dev1.fam.io`). For all intents and purposes, they are identical.
-    They run [Ubuntu][] 11.04 "Natty Narwhal" on Amazon's [Elastic
-    Compute Cloud][] (EC2).
-3.  First thing it hits on the machine is [lighttpd][], our web
-    server. This serves static files like stylesheets and images.
-    (Actually, most of our static files are served from Amazon's [Simple
-    Storage Service][] (S3) through their [CloudFront][] content delivery
-    network.)
-4.  For dynamic (i.e., not static) requests, lighttpd passes the
-    baton to [flup][], which hands it off to [Python][] 2.7. Python's
-    dependencies are managed with [virtualenv][].
-5.  Our Python code uses [Django][] 1.3, a web framework.
-6.  Most responses can be cached with [Memcached][] and served
-    straight from memory.
-7.  Requests that miss the cache probably hit the database. We use
-    [MongoDB][] with [MongoEngine][] as our document-object mapper.
+1.  The first thing the request hits is our load balancer, which
+    is powered by Amazon's [Elastic Load Balancing][] service. This
+    decides which server should handle the request by picking the
+    one that's least busy.
+
+2.  We have two identical servers for the load balancer to pick
+    from. They both run the 64-bit version of [Ubuntu][] Server
+    11.04 hosted on Amazon's [Elastic Compute Cloud][], also known
+    as EC2. That means we don't have any physical servers in the
+    Famigo offices; everything's in the cloud.
+
+3.  After arriving on the server, the first program the request
+    runs into is [lighttpd][], our web server. It serves static
+    files like images and stylesheets. (Actually, most of our static
+    files are served from Amazon's [Simple Storage Service][] (S3)
+    through their [CloudFront][] content delivery network. It's a
+    lot faster.)
+
+4.  For requests that aren't static, lighttpd hands things over to
+    [flup][], which in turn gives it to [Python][] 2.7.1. All of
+    our server-side code is written in Python and uses [Django][]
+    1.3, a web framework.
+
+5.  Most dynamic requests can be saved and returned later without
+    doing any extra work. This saves us from computing a page twice
+    if we know the results are going to be the same. [Memcached][]
+    handles caching the pages and getting them from memory.
+
+6.  Pages that aren't in the cache probably require reading or
+    writing from the database. We store everything in [MongoDB][]
+    and retrieve it with [MongoEngine][], which maps database
+    documents to Python objects.
 
 That covers almost everything required to return a web page back
 to the user. There are still a couple more things, though.
 
+-   virtualenv
 -   We use [Rackspace][] to manage DNS for our servers (`lb`, `fido`,
     `buster`, and `dev1`) as well as forwarding old domains like
     `famigogames.com`.
@@ -54,6 +69,7 @@ else is running smoothly.
 -   [CopperEgg][] and 10gen's [MMS][] handle external monitoring,
     in case everything goes belly-up.
 
+  [famigo]: http://www.famigo.com
   [elastic load balancing]: http://aws.amazon.com/elasticloadbalancing/
   [ubuntu]: http://www.ubuntu.com
   [elastic compute cloud]: http://aws.amazon.com/ec2/
