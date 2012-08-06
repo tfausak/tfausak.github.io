@@ -1,7 +1,6 @@
 ---
 layout: post
 title: The Famigo Tech Stack
-published: false
 ---
 
 Ever wonder what happens when you point your browser to [Famigo][1]?
