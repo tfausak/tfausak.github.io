@@ -42,23 +42,36 @@ request from start to finish.
     and retrieve it with [MongoEngine][], which maps database
     documents to Python objects.
 
-That covers almost everything required to return a web page back
-to the user. There are still a couple more things, though.
+That covers almost everything required to process a request and
+return a web page. There are still a couple stones left to turn,
+though.
 
--   virtualenv
--   We use [Rackspace][] to manage DNS for our servers (`lb`, `fido`,
-    `buster`, and `dev1`) as well as forwarding old domains like
-    `famigogames.com`.
--   All of our data is stored in Amazon's [Elastic Block Store][]
-    (EBS). That handles the servers themselves, but the actual database
-    is in ephemeral storage.
--   Search on the site is powered with [Solr][]. We interface with
-    it through [pysolr][].
--   For long-running tasks, we use [Celery][], a distributed task
-    queue. It stores its tasks in [Redis][].
+## Back End
+
+We use a lot of things on the back end that aren't directly involved
+with processing requests but are nonetheless essential.
+
+-   [Rackspace][] manages DNS for all our servers as well as
+    forwarding old domains like `famigogames.com`.
+
+-   We store our data in Amazon's [Elastic Block Store][] (EBS).
+    That handles the server images; the actual databases are in
+    ephemeral storage.
+
+-   Our Python environment requires more than 40 dependencies, which
+    are managed by [virtualenv][]. It's hard to overstate the
+    importance and ease of using virtualenv.
+
+-   [Solr][] powers site search. We speak to Solr through [pysolr][].
+
+-   For long-running or periodic tasks, we use [Celery][]. It's a
+    distributed task queue backed by [Redis][].
+
 -   All of our code is managed with [Git][] and hosted on [GitHub][]
     in a private repository. [Jenkins][] handles continuous integration
     whenever we push to GitHub.
+
+- - -
 
 In addition to all that, we use a few things to make sure everything
 else is running smoothly.
