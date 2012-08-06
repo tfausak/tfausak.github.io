@@ -71,16 +71,21 @@ with processing requests but are nonetheless essential.
     in a private repository. [Jenkins][] handles continuous integration
     whenever we push to GitHub.
 
-- - -
+## Monitoring
 
 In addition to all that, we use a few things to make sure everything
 else is running smoothly.
 
--   [Monit][] runs on each of our servers and makes sure everything
-    behaves.
--   `fido` keeps an eye on `buster` and `dev` with [Nagios][].
--   [CopperEgg][] and 10gen's [MMS][] handle external monitoring,
-    in case everything goes belly-up.
+-   Every one of our servers runs [Monit][] to make sure everything
+    behaves. As soon as anything out of the ordinary happens, we
+    get an email with a description of the offense.
+
+-   We have one sentinel server that keeps an eye on the others
+    using [Nagios][]. It's important for us not to put all our eggs
+    in one basket, especially when it comes to monitoring.
+
+-   Just in case everything goes belly-up, we use [CopperEgg][] and
+    10get's [MMS][] for external monitoring.
 
   [famigo]: http://www.famigo.com
   [elastic load balancing]: http://aws.amazon.com/elasticloadbalancing/
