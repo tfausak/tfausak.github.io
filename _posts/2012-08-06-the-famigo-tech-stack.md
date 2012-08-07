@@ -52,20 +52,15 @@ with processing requests but are nonetheless essential.
 
 -   [Rackspace][14] manages DNS for all our servers as well as
     forwarding old domains like `famigogames.com`.
-
 -   We store our data in Amazon's [Elastic Block Store][15] (EBS).
     That handles the server images; the actual databases are in
     ephemeral storage.
-
 -   Our Python environment requires more than 40 dependencies, which
     are managed by [virtualenv][16]. It's hard to overstate the
     importance and ease of using virtualenv.
-
 -   [Solr][17] powers site search. We speak to Solr through [pysolr][18].
-
 -   For long-running or periodic tasks, we use [Celery][19]. It's a
     distributed task queue backed by [Redis][20].
-
 -   All of our code is managed with [Git][21] and hosted on [GitHub][22]
     in a private repository. [Jenkins][23] handles continuous integration
     whenever we push to GitHub.
@@ -78,11 +73,9 @@ else is running smoothly.
 -   Every one of our servers runs [Monit][24] to make sure everything
     behaves. As soon as anything out of the ordinary happens, we
     get an email with a description of the offense.
-
 -   We have one sentinel server that keeps an eye on the others
     using [Nagios][25]. It's important for us not to put all our eggs
     in one basket, especially when it comes to monitoring.
-
 -   Just in case everything goes belly-up, we use [CopperEgg][26] and
     10get's [MMS][27] for external monitoring.
 
