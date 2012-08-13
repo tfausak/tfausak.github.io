@@ -1,7 +1,6 @@
 ---
 layout: post
 title: The Importance of Documentation
-published: false
 ---
 
 Yesterday, I spent a couple hours scouring an old machine for a
@@ -21,9 +20,9 @@ directories with `README`s. Without them, understanding old code
 bases turns into archaeology. I can see why [GitHub][] recommends
 them for every repository they host.
 
-But what makes a good `README`? Just having the file doesn't do you
-any good. You need to write good information for it. I like to
-answer the [Five Ws][] in mine.
+But what makes a good `README`? Just having the file doesn't get
+you anywhere. You need to fill it with useful information. I try
+to answer the [Five Ws][] in mine.
 
 -   *Who* created it? This is the person to bother if anything
     doesn't work like it should. Alternatively, if the creator isn't
@@ -36,10 +35,10 @@ answer the [Five Ws][] in mine.
 -   *When* was it created? And when was the last change made? Source
     control and file modification times help here, but they're easy
     to overlook. Knowing when it was created gives you context. A
-    project started in 1999 is going to look different than out
+    project started in 1999 is going to look different than one
     created in 2009.
 
--   *Where* is it hosted? And, if appropriate, where is a live demo?
+-   *Where* is it hosted? And, if appropriate, where's the live demo?
     Many projects have extensive online documentation, but it's
     useless if you can't figure out where it is.
 
@@ -53,7 +52,7 @@ answer the [Five Ws][] in mine.
     It should be possible to get it working using nothing more than
     this.
 
-If my past self had followed my own advice, hunting for my old
+If my past self had followed this advice, hunting for my old
 project would've been a piece of cake. I eventually found it, added
 a `README`, and uploaded it to GitHub where it lives as [bdbxml-jukebox][].
 
