@@ -65,7 +65,7 @@ without using a different device.
 [3]: http://support.apple.com/kb/HT4689
 [4]: /static/images/2012-08-21-figure-2.jpg
 [5]: http://manytricks.com/moom/
-[6]: /static/images/2012-08-21-figure-3.jpg
+[6]: /static/images/2012-08-21-figure-3.png
 [7]: http://mark.pilgrim.usesthis.com
 [8]: http://www.codinghorror.com/blog/2010/04/three-monitors-for-every-user.html
 [9]: http://www.reddit.com/r/battlestations/top/?sort=top&t=all
