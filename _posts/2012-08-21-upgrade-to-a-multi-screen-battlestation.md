@@ -1,7 +1,6 @@
 ---
 layout: post
-title: untitled
-published: false
+title: Upgrade to a Multi-Screen Battlestation
 ---
 
 ![My workstation][1]
@@ -27,7 +26,7 @@ It's hard to overstate the utility of having enough screen real
 estate to display everything at once. Especially things that stay
 the same most of the time, like email, chat, and to-do lists. Turning
 my head a couple inches is a lot easier than switching between a
-bunch of open apps. It also helps me focus better by keeping relevant
+bunch of open apps. It also helps keep me focused by keeping relevant
 information like documentation visible while I work.
 
 Moving tackled one of the reasons I avoided multiple monitors in
