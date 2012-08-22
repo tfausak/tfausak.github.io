@@ -7,38 +7,30 @@ title: About
 
 # {{ page.title }}
 
-Howdy! My name is Taylor Fausak. I'm a 22-year-old software developer
-living in Austin, TX and working for [Famigo][2]. I studied Computer
-Science at [UT Austin][3] for a couple years, but I don't have
-anything to show for it.
+Hwody! My name is Taylor Fausak (pronounced [fɑːsæk], like "fa
+sack"). I'm a 22-year-old software developer living in Dallas,
+Texas. I currently work for [Famigo][2]. I studied Computer Science
+at [UT Austin][3] for a couple years, but I don't have anything to
+show for it.
 
-If you want to contact me, send an email to [taylor@fausak.me][4].
-Or, if email isn't your thing, you can find me on:
+The best way to reach me is by sending an email to [taylor@fausak.me][4].
+If you want to find me elsewhere on the web, try [Facebook][5],[GitHub][6],
+[Google+][7], or [Twitter][8].
 
--   [Endomondo][5]
--   [Facebook][6]
--   [GitHub][7]
--   [Google+][8]
--   [Hacker News][9]
--   [Reddit][10]
--   [Steam][11]
--   [Tumblr][12]
--   [Twitter][13]
-
-Content on this site is licensed under a [Creative Commons Attribution
-3.0 License][14].
+This blog is hosted in [a public repository on GitHub][9] and powered
+by [GitHub Pages][10]. It uses the [Solarized][11] color scheme.
+All its content is licensed under a [Creative Commons Attribution
+3.0 License][12].
 
 [1]: /static/images/taylor-fausak.jpg
 [2]: http://www.famigo.com/
 [3]: http://www.utexas.edu/
 [4]: mailto:taylor+honeypot@fausak.me
-[5]: http://www.endomondo.com/profile/2203917
-[6]: https://www.facebook.com/taylorfausak
-[7]: https://github.com/tfausak
-[8]: https://plus.google.com/111507914518262812295
-[9]: http://news.ycombinator.com/user?id=taylorfausak
-[10]: http://www.reddit.com/user/taylorfausak/
-[11]: http://steamcommunity.com/id/gompers
-[12]: http://gompr.tumblr.com/
-[13]: https://twitter.com/#!/taylorfausak
-[14]: http://creativecommons.org/licenses/by/3.0/
+[5]: https://www.facebook.com/taylorfausak
+[6]: https://github.com/tfausak
+[7]: https://plus.google.com/111507914518262812295
+[8]: https://twitter.com/taylorfausak
+[9]: https://github.com/tfausak/tfausak.github.com
+[10]: http://pages.github.com/
+[11]: http://ethanschoonover.com/solarized
+[12]: http://creativecommons.org/licenses/by/3.0/
