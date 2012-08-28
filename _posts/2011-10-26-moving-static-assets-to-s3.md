@@ -71,11 +71,11 @@ for application in Application.objects:
     application.save()
 {% endhighlight %}
 
-The final step is using the new URL in templates. Assuming you were
-using Django's URL tag already, this is a piece of cake. Replace all
-instances of `{{ " {% url application_icon application.id " }}%}`
-with `{{ " {{ application.icon_url " }}}}`. If you're not using the
-URL tag, you'll have to jump through a few more hoops, but the end
+The final step is using the new URL in templates. Assuming you were using
+Django's URL tag already, this is a piece of cake. Replace all instances of
+`{% raw %}{% url application_icon application.id %}{% endraw %}` with
+`{% raw %}{{ application.icon_url " }}{% endraw %}`. If you're not using
+the URL tag, you'll have to jump through a few more hoops, but the end
 result should be the same.
 
 That's it! You are now serving static assets through Amazon S3.
