@@ -21,7 +21,7 @@ correct. Django makes specifying the URL a piece of cake with
 [`build_absolute_uri`][7]:
 
     http://pinterest.com/pin/create/button/
-    ?url={% literal %}{{ request.build_absolute_uri }}{% endliteral %}
+    ?url={% raw %}{{ request.build_absolute_uri }}{% endraw %}
 
 Every pin on Pinterest has a description. They recommend setting
 the description with the "Pin It" button because "it lowers the
@@ -34,10 +34,10 @@ name, rating, price, and our review. Since we like to keep things
 positive, we'll include the "cool" part of our review and leave out
 the "drool" part.
 
-    &description={% literal %}{{ application.name }}{% endliteral %}
-                 {% literal %}{{ application.rating }}{% endliteral %}
-                 {% literal %}{{ application.price }}{% endliteral %}
-                 {% literal %}{{ application.cool }}{% endliteral %}
+    &description={% raw %}{{ application.name }}{% endraw %}
+                 {% raw %}{{ application.rating }}{% endraw %}
+                 {% raw %}{{ application.price }}{% endraw %}
+                 {% raw %}{{ application.cool }}{% endraw %}
 
 Now, on to the hardest part: the image. By this point, I'm not
 surprised that Pinterest doesn't load any media automatically. No
@@ -63,7 +63,7 @@ def pinterest_media(self):
 Adding it to the URL for the "Pin It" button is a piece of cake
 now.
 
-    &media={% literal %}{{ application.pinterest_media }}{% endliteral %}
+    &media={% raw %}{{ application.pinterest_media }}{% endraw %}
 
 [![Talking Tom Cat][9]][10]
 
