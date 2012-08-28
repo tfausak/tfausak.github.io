@@ -20,7 +20,7 @@ it from the dropdown. Nothing could be simpler!
 To implement it, I turned to [jQuery UI][3] since [jQuery][4] is
 my JavaScript library of choice. Plus, jQuery UI has a built-in
 [autocomplete widget][5] that does everything I need. It's highly
-configuratable, to boot.
+configurable, to boot.
 
 I set it up with a customized list of suggestions, a hook on
 selection, and a remote data source (more on that later). Two

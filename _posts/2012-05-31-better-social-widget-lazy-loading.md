@@ -48,8 +48,8 @@ JavaScript][5]. That answer also covers Facebook and Twitter.
 
 Before the actual widgets load, the placeholder needs to look pretty.
 Fortunately, each widget has a distinctive color and verb associated
-with it. Facebook's "Like" is blue (`#3b5b99`), Google's "+1" is
-orange (`#dd4b39`), and Twitter's "Tweet" is light blue (`#33ccff`).
+with it. Facebook's Like is blue (`#3b5b99`), Google's +1 is
+orange (`#dd4b39`), and Twitter's Tweet is light blue (`#33ccff`).
 Also, the widgets are all about the same size. They'll all fit in
 a 62-by-55 pixel rectangle.
 

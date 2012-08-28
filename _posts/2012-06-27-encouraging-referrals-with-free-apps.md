@@ -25,7 +25,7 @@ of the Sandbox, have to do:
 2.  Select the people you want to share the Sandbox with.
 3.  Send them an email.
 
-That's it! We even prepopulate the email's recipients, subject, and
+That's it! We even pre-populate the email's recipients, subject, and
 body. All your have to do is hit send. You can customize the email
 if you want to, though. We just use the default email client.
 
@@ -61,7 +61,7 @@ we can't do anything so we send an apology email.)
 
 Now we know a referral has been completed and we've picked a new
 app for both people to get. We need to get it to them, so we send
-a push notification through [Urban Airship][4] to both devies.
+a push notification through [Urban Airship][4] to both devices.
 
 ## Privacy
 

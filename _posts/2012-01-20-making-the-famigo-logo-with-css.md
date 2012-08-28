@@ -155,7 +155,7 @@ mask to one of them (the foreground) and apply the stroke to the other
 (the background).
 
 This solution also requires the background to be transparent, since
-the foreground mask makes parts of the foreground transpent. It would
+the foreground mask makes parts of the foreground transparent. It would
 be counter-productive to put an opaque letter behind a partially
 transparent one.
 

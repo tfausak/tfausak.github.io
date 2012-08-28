@@ -17,12 +17,12 @@ just to figure out if it was the one I was looking for.
 
 By this point, I was beating myself for not littering my top-level
 directories with `README`s. Without them, understanding old code
-bases turns into archaeology. I can see why [GitHub][] recommends
+bases turns into archaeology. I can see why [GitHub][1] recommends
 them for every repository they host.
 
 But what makes a good `README`? Just having the file doesn't get
 you anywhere. You need to fill it with useful information. I try
-to answer the [Five Ws][] in mine.
+to answer the [Five Ws][2] in mine.
 
 -   *Who* created it? This is the person to bother if anything
     doesn't work like it should. Alternatively, if the creator isn't
@@ -54,8 +54,8 @@ to answer the [Five Ws][] in mine.
 
 If my past self had followed this advice, hunting for my old
 project would've been a piece of cake. I eventually found it, added
-a `README`, and uploaded it to GitHub where it lives as [bdbxml-jukebox][].
+a `README`, and uploaded it to GitHub where it lives as [bdbxml-jukebox][3].
 
-[github]: https://github.com
-[five ws]: http://en.wikipedia.org/wiki/Five_Ws
-[bdbxml-jukebox]: https://github.com/tfausak/bdbxml-jukebox
+[1]: https://github.com
+[2]: http://en.wikipedia.org/wiki/Five_Ws
+[3]: https://github.com/tfausak/bdbxml-jukebox

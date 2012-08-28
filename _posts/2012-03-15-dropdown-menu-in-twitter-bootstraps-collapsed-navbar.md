@@ -97,7 +97,7 @@ class from `dropdown-menu` to `dropdown-menu-no-collapse`. For example:
 
 Then change all the lines in `bootstrap.css` that refer to
 `dropdown-menu`. Copy the entire selector, then replace the second
-instance of `dropdown-menu` with `dropdown-menu-no-collapse`. For instace:
+instance of `dropdown-menu` with `dropdown-menu-no-collapse`. For instance:
 
 {% highlight css %}
 .navbar .dropdown-menu { /* ... */ }

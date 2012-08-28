@@ -52,7 +52,7 @@ The output typically looks like this:
 As you can see, not a whole lot going on. I'm running a server in
 screen 0. I can easily go to it (with `C-a 0`) to catch Django's
 output. Screen 1 is where I do all of my actual work; it's usually
-running [VIm][5]. I run all of my unit tests in screen 2. This is
+running [Vim][5]. I run all of my unit tests in screen 2. This is
 handy because I can flip back and forth (with `C-a C-a`) between
 the test output and the code that broke it. Finally, I handle all
 my git commands in screen 3, which lets me commit frequently while

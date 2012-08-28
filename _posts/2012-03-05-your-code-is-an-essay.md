@@ -28,7 +28,7 @@ Peer review is the de facto standard for reviewing written work,
 but I feel it's underused for code. All too often programmers focus
 only on the output of their program. A good way to counteract this
 is is to publish the code itself in addition to showcasing the
-project. [GitHub][1] is helping make this a more common occurence.
+project. [GitHub][1] is helping make this a more common occurrence.
 
 But becoming a better coder is even easier than that. All it takes
 it reading more code. Good writers read. A lot. Good coders should,

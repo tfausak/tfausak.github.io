@@ -54,7 +54,7 @@ If you're curious about what hardware I'm running, read on.
     locking casters
 -   Power strip screwed onto the underside of the desk
 
-Having the high-desnity Retina screen side-by-side with low-density
+Having the high desnity Retina screen side-by-side with low-density
 screens makes testing a piece of cake. I agree with Marco that web
 designers ["really, really need to get a Retina MacBook Pro"][10].
 Surrounding it with regular displays lets you test 2X and 1X versions
