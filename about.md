@@ -14,7 +14,7 @@ at [UT Austin][3] for a couple years, but I don't have anything to
 show for it.
 
 The best way to reach me is by sending an email to [taylor@fausak.me][4].
-If you want to find me elsewhere on the web, try [Facebook][5],[GitHub][6],
+If you want to find me elsewhere on the web, try [Facebook][5], [GitHub][6],
 [Google+][7], or [Twitter][8].
 
 This blog is hosted in [a public repository on GitHub][9] and powered
