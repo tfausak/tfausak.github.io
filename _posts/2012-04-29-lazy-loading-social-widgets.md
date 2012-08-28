@@ -19,7 +19,7 @@ for people that want them?
 
 # Lazy Loading
 
-The answer is [lazy loading][1]: "defer[ing] initialization of an
+The answer is [lazy loading][1]: "defer\[ing\] initialization of an
 object until the point at which it is needed". So now I need to
 know when the social widgets are needed. Better yet, when are they
 *not* needed?
