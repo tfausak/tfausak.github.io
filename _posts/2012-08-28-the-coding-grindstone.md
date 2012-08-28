@@ -1,7 +1,6 @@
 ---
 layout: post
 title: The Coding Grindstone
-published: false
 ---
 
 [![Disused grindstones][1]][2]
