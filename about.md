@@ -3,7 +3,7 @@ layout: base
 title: About
 ---
 
-![Portrait][1]
+![Taylor Fausak][1]
 
 # {{ page.title }}
 

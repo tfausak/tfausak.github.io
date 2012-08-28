@@ -300,6 +300,21 @@ ul {
 }
 
 /*
+    About block
+*/
+.about {
+    min-height: 6em;
+}
+.about img {
+    border: 0;
+    float: right;
+    margin: 0 0 0 1.5em;
+}
+.about p {
+    margin-bottom: 0;
+}
+
+/*
     Print styles
 */
 @media print {
