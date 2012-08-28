@@ -70,16 +70,16 @@ I'd love to hear what you think about it!
 
 [1]: http://www.famigo.com/
 [2]: http://twitter.github.com/bootstrap/
-[3]: /static/images/2012-02-08-figure-1.png
+[3]: /static/images/2012-02-08-famigo-bootstrap-comparison.png
 [4]: https://docs.djangoproject.com/en/1.3/topics/templates/#template-inheritance
-[5]: /static/images/2012-02-08-figure-2.png
+[5]: /static/images/2012-02-08-famigo-bootstrap-responsive.png
 [6]: http://foundation.zurb.com/
 [7]: http://www.getskeleton.com/
 [8]: http://lessframework.com/
 [9]: /2011/11/02/applists-playlists-for-your-apps/
-[10]: /static/images/2012-02-08-figure-3.png
+[10]: /static/images/2012-02-08-famigo-app-tile-comparison.png
 [11]: http://wordpress.org/extend/themes/default
-[12]: /static/images/2012-02-08-figure-4.png
+[12]: /static/images/2012-02-08-famigo-best-free-games.png
 [13]: mailto:taylor@fausak.me
 [14]: http://www.famigo.com/app/reflexions/
 [15]: http://www.famigo.com/best-free-games/

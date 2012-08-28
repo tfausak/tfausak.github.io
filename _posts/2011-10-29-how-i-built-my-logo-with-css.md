@@ -6,7 +6,7 @@ title: How I Built My Logo with CSS
 I'm a big fan of [Jon Tan][1]'s [text logo][2]. When I was designing
 this site, I knew I wanted something similar.
 
-![][3]
+![My logo][3]
 
 The actual design comes from a doodle I drew a few years ago. It
 looks a little bit like a lightning bolt and conveniently combines
@@ -102,7 +102,7 @@ any extra HTTP requests.
 
 [1]: http://jontangerine.com/
 [2]: http://jontangerine.com/log/2007/11/complex-type-css-fix-cleartype-miss
-[3]: /static/images/2011-10-29-figure-1.png
+[3]: /static/images/2011-10-29-my-logo.png
 [4]: http://caniuse.com/svg
 [5]: http://meyerweb.com/
 [6]: http://meyerweb.com/eric/css/edge/slantastic/demo.html

@@ -41,8 +41,8 @@ with)! Send comments, suggestions, and questions to [info@famigo.com][10].
 [3]: http://www.famigo.com/family/TkhYNRMsAG1JYT0fCBMNASkZZW0CbCxa/sandbox/
 [4]: http://www.famigo.com/family/TkhYNRMsAjpJYT0fCBMNASkZZW0CbC1W/sandbox/
 [5]: http://www.famigo.com/applist/
-[6]: /static/images/2011-11-02-figure-1.png
-[7]: /static/images/2011-11-02-figure-2.png
+[6]: /static/images/2011-11-02-applist-creation.png
+[7]: /static/images/2011-11-02-applist.png
 [8]: http://www.famigo.com/applist/4eb1f162cea0992b550121e2/
 [9]: http://www.famigo.com/applist/4eb1f295cea0992b55012d6d/
 [10]: mailto:info@famigo.com?subject=Famigo+Applists

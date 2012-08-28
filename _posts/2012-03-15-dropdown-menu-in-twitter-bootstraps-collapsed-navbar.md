@@ -152,11 +152,11 @@ values are correct. You should only use this method if you can't (or
 don't want to) modify the bootstrap's CSS files.
 
 [1]: /2012/02/08/rebuilding-famigo-with-twitter-bootstrap/
-[2]: /static/images/2012-03-15-figure-1.png
-[3]: /static/images/2012-03-15-figure-2.png
-[4]: /static/images/2012-03-15-figure-3.png
-[5]: /static/images/2012-03-15-figure-4.png
-[6]: /static/images/2012-03-15-figure-5.png
+[2]: /static/images/2012-03-15-famigo-bootstrap-old-navbar.png
+[3]: /static/images/2012-03-15-famigo-bootstrap-old-navbar-mobile.png
+[4]: /static/images/2012-03-15-famigo-bootstrap-navbar.png
+[5]: /static/images/2012-03-15-famigo-bootstrap-navbar-mobile.png
+[6]: /static/images/2012-03-15-famigo-bootstrap-navbar-dropdown.png
 [7]: http://www.quirksmode.org/css/contents.html#t13
 [8]: http://www.quirksmode.org/css/contents.html#t37
 [9]: http://www.famigo.com/

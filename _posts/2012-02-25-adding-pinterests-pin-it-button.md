@@ -73,10 +73,10 @@ figured that out yet.
 [1]: http://www.famigo.com/
 [2]: http://www.famigo.com/free-apps/
 [3]: /2012/02/08/rebuilding-famigo-with-twitter-bootstrap/
-[4]: /static/images/2012-02-25-figure-1.png
+[4]: /static/images/2012-02-25-famigo-cut-the-rope.png
 [5]: http://www.famigo.com/app/cut-the-rope/
 [6]: http://pinterest.com/about/goodies/#button_for_websites
 [7]: https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.build_absolute_uri
 [8]: http://ogp.me/
-[9]: /static/images/2012-02-25-figure-2.png
+[9]: /static/images/2012-02-25-famigo-talking-tom-cat.png
 [10]: http://www.famigo.com/app/talking-tom-cat/

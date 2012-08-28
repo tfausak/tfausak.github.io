@@ -49,7 +49,7 @@ above are for [Google][10], [Facebook][11], and [Twitter][12].)
 [5]: http://www.russellbeattie.com/blog/creating-a-pinnable-windows-phone-7-tile-for-your-website-like-google
 [6]: http://blogs.msdn.com/b/iemobile/archive/2010/12/08/targeting-mobile-optimized-css-at-windows-phone-7.aspx
 [7]: /static/pages/2012-02-03-wp7-tile.html
-[8]: /static/images/2012-02-03-figure-1.png
+[8]: /static/images/2012-02-03-web-page-tiles.png
 [9]: https://gist.github.com/1727983
 [10]: /static/pages/2012-02-03-wp7-tile.html?title=Google&icon=http://i.imgur.com/4UNSv.png&url=https://www.google.com/
 [11]: /static/pages/2012-02-03-wp7-tile.html?title=Facebook&icon=http://i.imgur.com/wXxZR.png&url=https://www.facebook.com/

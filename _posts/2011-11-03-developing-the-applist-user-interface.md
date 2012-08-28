@@ -147,9 +147,9 @@ pretty quickly.
 [4]: http://jquery.com/
 [5]: http://jqueryui.com/demos/autocomplete/
 [6]: https://market.android.com/search?q=angry+birds
-[7]: /static/images/2011-11-02-figure-1.png
+[7]: /static/images/2011-11-02-applist-creation.png
 [8]: http://www.famigo.com/family/TkhYNRMsAG1JYT0fCBMNASkZZW0CbCxa/sandbox/
-[9]: /static/images/2011-11-02-figure-2.png
+[9]: /static/images/2011-11-02-applist.png
 [10]: http://mongoengine.org/
 [11]: https://github.com/toastdriven/pysolr/
 [12]: http://www.famigo.com/static/scripts/applist.js

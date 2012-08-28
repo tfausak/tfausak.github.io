@@ -60,13 +60,13 @@ designers ["really, really need to get a Retina MacBook Pro"][10].
 Surrounding it with regular displays lets you test 2X and 1X versions
 without using a different device.
 
-[1]: /static/images/2012-08-21-figure-1.jpg
+[1]: /static/images/2012-08-21-my-workstation.jpg
 [2]: http://windows.microsoft.com/en-us/windows7/products/features/snap
 [3]: http://support.apple.com/kb/HT4689
-[4]: /static/images/2012-08-21-figure-2.jpg
+[4]: /static/images/2012-08-21-my-desktop.jpg
 [5]: http://manytricks.com/moom/
-[6]: /static/images/2012-08-21-figure-3.png
-[7]: http://mark.pilgrim.usesthis.com
+[6]: /static/images/2012-08-21-moom.png
+[7]: http://mark.pilgrim.usesthis.com/
 [8]: http://www.codinghorror.com/blog/2010/04/three-monitors-for-every-user.html
 [9]: http://www.reddit.com/r/battlestations/top/?sort=top&t=all
 [10]: http://www.marco.org/2012/07/05/web-designers-need-retina
