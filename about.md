@@ -8,7 +8,7 @@ title: About
 # {{ page.title }}
 
 Howdy! My name is Taylor Fausak (pronounced \[fɑːsæk\], like "fah
-sack"). I'm a 22-year-old software developer living in Dallas,
+sack"). I'm a 23-year-old software developer living in Dallas,
 Texas. I currently work for [Famigo][2]. I studied Computer Science
 at [UT Austin][3] for a couple years, but I don't have anything to
 show for it.
