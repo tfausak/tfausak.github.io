@@ -25,7 +25,7 @@ one like those. So I wrote my own.
 
 [Delay][6] is a Safari extension that delays the loading of
 time-wasting websites. It's very simple. Set up a list of hostnames
-to blacklist and they'll be delayed by however long you want. When
+to blacklist and they'll be delayed for however long you want. When
 you visit a site that matches the blacklist, it will hide the whole
 page and show a countdown timer instead. The timer only runs when
 the window has focus, so you can't open a bunch of tabs to sidestep
