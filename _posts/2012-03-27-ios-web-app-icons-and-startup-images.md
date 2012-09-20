@@ -3,6 +3,8 @@ layout: post
 title: iOS Web App Icons & Startup Images
 ---
 
+<aside>Update: <a href="/2012/09/20/iphone-5-web-app-startup-image/">iPhone 5 Web App Startup Image</a></aside>
+
 Apple makes it a piece of cake to develop web apps for iOS.
 Unfortunately, they haven't updated [their web app documentation][1]
 since October of last year. That wouldn't be a big deal, but they
