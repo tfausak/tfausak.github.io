@@ -45,7 +45,26 @@ iPhone 5s downloading images and then discarding them. It's possible
 to make the media queries a little simpler by only specifying the
 `device-height`, but I don't think that optimization is worth it.
 
+Web apps can be letterboxed, but only if their viewport's width is
+set to either `device-width` or `320`. To set the proper scale and
+avoid letterboxing, set the viewport's initial scale to `1.0`.
+(Thanks to [Max Firtman][5] for this solution.)
+
+{% highlight html %}
+<!-- Letterboxed on iPhone 5 -->
+<meta name="viewport"
+      content="width=device-width">
+<meta name="viewport"
+      content="width=320">
+<!-- Not letterboxed on iPhone 5 -->
+<meta name="viewport"
+      content="initial-scale=1.0">
+<meta name="viewport"
+      content="width=320.1">
+{% endhighlight %}
+
 [1]: /static/images/2012-09-20-iphone-comparison.png
 [2]: /2012/03/27/ios-web-app-icons-and-startup-images/
 [3]: /static/pages/2012-09-20-web-app.html
 [4]: https://gist.github.com/2222823
+[5]: http://www.mobilexweb.com/blog/iphone-5-ios-6-html5-developers
