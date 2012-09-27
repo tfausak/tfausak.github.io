@@ -3,6 +3,8 @@ layout: post
 title: Lazy Loading Social Widgets
 ---
 
+<aside>Update: <a href="/2012/05/31/better-social-widget-lazy-loading/">Better Social Widget Lazy Loading</a></aside>
+
 I added social widgets (Facebook like, Google +1, and Twitter tweet
 buttons) to this site about three months ago. I had no idea if
 anyone would use them or not. Turns out, they do.
