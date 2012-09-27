@@ -39,7 +39,7 @@ booster packs and about three hours of entertainment. Not bad,
 considering you walk away with all your cards at the end of the
 night. If you win a couple of matches, you end up with even more
 packs. Compare that to standard, where one card in your deck can
-cost more than $40 -- and you need four of them to be competitive.
+cost more than $40 --- and you need four of them to be competitive.
 
 Building decks is much harder in constructed formats, too. You have
 to sift through thousands of cards, look for archetypes online, and

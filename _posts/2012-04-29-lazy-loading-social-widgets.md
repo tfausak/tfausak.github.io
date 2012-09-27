@@ -11,7 +11,7 @@ anyone would use them or not. Turns out, they do.
 
 I have one big problem with them, though: they take forever to load!
 An entire page of mine takes about 750 milliseconds to load. Adding
-social widgets drags that down to almost 3 seconds -- more than
+social widgets drags that down to almost 3 seconds --- more than
 three times longer!
 
 I like my pages to load fast. I have just over 6 kB of assets (CSS

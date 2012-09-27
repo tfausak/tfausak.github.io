@@ -55,7 +55,7 @@ single JavaScript file handles every user interaction with them.
 
 We still have a lot of work to do. One of our top priorities at
 this point is not looking like a "bootstrap site". Not to say that
-we're not a fan of how it looks -- we are. But as anyone who has
+we're not a fan of how it looks --- we are. But as anyone who has
 used the [default WordPress theme][11] can tell you, you need to
 be unique.
 

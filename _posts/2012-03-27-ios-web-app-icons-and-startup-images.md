@@ -115,7 +115,7 @@ for iPhones, except iPads report their resolution as `768x1024`.
       href="apple-touch-startup-image-1496x2048.png">
 {% endhighlight %}
 
-Note that landscape images are not actually defined as such --
+Note that landscape images are not actually defined as such ---
 they're taller than they are wide. When you're creating your assets,
 make them as landscape images. Then, when you're ready to publish,
 rotate them 90° clockwise.

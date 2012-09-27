@@ -10,7 +10,7 @@ preferred one large high-resolution monitor, for two main reasons:
 Most software, like Windows 7's [Aero Snap][2] and OS X's [Mission
 Control][3], works better with only one display; and I kept my
 workstations in sync by hauling my laptop to and from work everyday.
-My desk at work looked exactly like the one at home -- same monitor,
+My desk at work looked exactly like the one at home --- same monitor,
 mouse, and keyboard. I kept my laptop shut and plugged into an
 external monitor in both places.
 

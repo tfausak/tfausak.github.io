@@ -4,7 +4,7 @@ title: Personal Per Diem
 ---
 
 For the past week, I've been running a financial experiment. I'm
-no good at saving money -- I tend to spend as much as I have. To
+no good at saving money --- I tend to spend as much as I have. To
 curtail that, I've been giving myself an allowance. Every day when
 I wake up, I give myself a twenty dollar bill.
 

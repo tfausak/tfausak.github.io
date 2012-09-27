@@ -5,7 +5,7 @@ title: Your Code is an Essay
 
 Writing code is a lot like writing an essay. You start off with an
 outline. Probably some bullet points or pseudo code. Maybe it's all
-in your head or maybe it's jotted down in a notebook -- it doesn't
+in your head or maybe it's jotted down in a notebook --- it doesn't
 matter.
 
 You move on to the first draft. It's the shortest, simplest thing

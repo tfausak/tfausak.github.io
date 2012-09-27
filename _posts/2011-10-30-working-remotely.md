@@ -4,7 +4,7 @@ title: Working Remotely
 ---
 
 Two summers ago, I interned at [Cisco][1]. I worked in the office
-from 9 to 5 every day -- no exceptions. I couldn't stay late, come
+from 9 to 5 every day --- no exceptions. I couldn't stay late, come
 in early, or work from home. They were very particular about my
 hours. I didn't like that very much. I'm much happier with my current
 arrangement at [Famigo][2]. Working for a startup offers a lot of

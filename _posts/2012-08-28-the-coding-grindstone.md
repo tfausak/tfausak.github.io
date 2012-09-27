@@ -11,7 +11,7 @@ your hand, but that's all you know. New technology comes and goes
 without a chance to explore it. The parts of your tech stack that
 your coworkers manage remain a mystery to you.
 
-Don't get me wrong -- it's not necessarily a bad thing. You may be
+Don't get me wrong --- it's not necessarily a bad thing. You may be
 stuck in a highly productive rut. Focusing on one thing for a while
 lets you develop a solid mental model of it. You can make changes
 with surgical precision and add new features with ease.

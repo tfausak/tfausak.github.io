@@ -146,7 +146,7 @@ needed. Here's a snippet:
 }
 {% endhighlight %}
 
-As you can see, it's a bit ungainly. And it's very brittle -- any change
+As you can see, it's a bit ungainly. And it's very brittle --- any change
 to the bootstrap means you'll have to go back and make sure all these
 values are correct. You should only use this method if you can't (or
 don't want to) modify the bootstrap's CSS files.
