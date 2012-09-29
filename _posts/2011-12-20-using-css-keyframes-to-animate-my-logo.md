@@ -65,4 +65,4 @@ than an in-your-face effect.
 
 [1]: /2011/10/29/how-i-built-my-logo-with-css/
 [2]: /static/images/2011-12-20-my-animated-logo.png
-[3]: https://developer.mozilla.org/en/CSS/@keyframes
+[3]: https://developer.mozilla.org/en-US/docs/CSS/@keyframes

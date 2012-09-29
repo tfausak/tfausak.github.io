@@ -141,7 +141,7 @@ Phone 7][7] using completely unrelated techniques.
 [1]: http://developer.apple.com/library/ios/#DOCUMENTATION/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
 [2]: http://developer.apple.com/library/ios/#DOCUMENTATION/UserExperience/Conceptual/MobileHIG/IconsImages/IconsImages.html#//apple_ref/doc/uid/TP40006556-CH14
 [3]: https://gist.github.com/472519
-[4]: https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
+[4]: https://developer.mozilla.org/en-US/docs/CSS/Media_queries#-moz-device-pixel-ratio
 [5]: /static/pages/2012-03-27-web-app.html
 [6]: https://gist.github.com/2222823
 [7]: /2012/02/03/windows-phone-7-web-page-tiles/

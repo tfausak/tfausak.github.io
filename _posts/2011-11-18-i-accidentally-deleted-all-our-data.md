@@ -103,7 +103,7 @@ day][6].
 
 [1]: http://www.10gen.com/events/mongo-dallas-2011
 [2]: http://www.codypowell.com/
-[3]: https://twitter.com/#!/shaundubs
+[3]: https://twitter.com/shaundubs
 [4]: http://www.famigo.com/
 [5]: /2011/10/27/be-productive-use-screen/
 [6]: http://www.codinghorror.com/blog/2009/12/international-backup-awareness-day.html

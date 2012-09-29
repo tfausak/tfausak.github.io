@@ -142,11 +142,11 @@ lot of extra work for a small benefit. Django returns cached pages
 pretty quickly.
 
 [1]: /2011/11/02/applists-playlists-for-your-apps/
-[2]: http://www.famigo.com/applist/
+[2]: http://www.famigo.com/applists/
 [3]: http://jqueryui.com/
 [4]: http://jquery.com/
 [5]: http://jqueryui.com/demos/autocomplete/
-[6]: https://market.android.com/search?q=angry+birds
+[6]: https://play.google.com/store/search?q=angry+birds&c=apps
 [7]: /static/images/2011-11-02-applist-creation.png
 [8]: http://www.famigo.com/family/TkhYNRMsAG1JYT0fCBMNASkZZW0CbCxa/sandbox/
 [9]: /static/images/2011-11-02-applist.png

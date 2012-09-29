@@ -25,5 +25,5 @@ Noticing this detail about my phone made me aware of a bigger
 concept: well-designed things are imperceptible. They do what they're
 designed to do so well that you don't even think about it.
 
-[1]: http://www.google.com/phone/detail/nexus-s
-[2]: http://www.dell.com/us/p/mobile-venue-pro/pd
+[1]: http://www.android.com/devices/detail/nexus-s
+[2]: http://en.wikipedia.org/wiki/Dell_Venue_Pro
