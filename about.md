@@ -12,14 +12,16 @@ living in Dallas, Texas. I currently work for [OrgSync][2]. I studied
 Computer Science at [UT Austin][3] for a while, but I don't have
 anything to show for it.
 
-The best way to reach me is by sending an email to [taylor@fausak.me][4]. If email isn't your thing, try [Facebook][5], [Google+][6], or [Twitter][7].
+The best way to reach me is by sending an email to [taylor@fausak.me][4].
+If email isn't your thing, try [Facebook][5], [Google+][6], or
+[Twitter][7].
 
 <footer class="footer about">
     <img alt="GitHub" src="/static/images/octonaut.png">
 
     <h2>Colophon</h2>
 
-    <p>This blog is hosted in a public repository on GitHub, powered by GitHub Pages, and licensed under Creative Commons Attribution 3.0. <a href="https://github.com/tfausak/tfausak.github.com">Fork me on GitHub &#x2192;</a></p>
+    <p>This blog is hosted in a public repository on GitHub and powered by GitHub Pages. <a href="https://github.com/tfausak/tfausak.github.com">Fork me on GitHub &#x2192;</a></p>
 </footer>
 
 [1]: /static/images/taylor-fausak.jpg
