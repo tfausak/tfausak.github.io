@@ -51,11 +51,11 @@ keyframe so nothing flashes when the page loads.
 {% highlight css %}
 .header {
     color: #dc322f;
-    -moz-animation: solarized 14s infinite;
-    -ms-animation: solarized 14s infinite;
-    -o-animation: solarized 14s infinite;
+       -moz-animation: solarized 14s infinite;
+        -ms-animation: solarized 14s infinite;
+         -o-animation: solarized 14s infinite;
     -webkit-animation: solarized 14s infinite;
-    animation: solarized 14s infinite;
+            animation: solarized 14s infinite;
 }
 {% endhighlight %}
 
