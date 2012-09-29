@@ -338,7 +338,7 @@ aside {
     }
     .wrapper {
         margin: 1.5em;
-        max-width: auto;
+        max-width: none;
     }
     .header {
         border-bottom: thin solid;
