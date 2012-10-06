@@ -3,6 +3,8 @@ layout: post
 title: Dropdown Menu in Twitter Bootstrap's Collapsed Navbar
 ---
 
+<aside>Update: Twitter Bootstrap (version 2.0.3 and above) natively supports dropdown menus in collapsed navbars. It was fixed in <a href="https://github.com/twitter/bootstrap/pull/2907">pull request 2907 by Bryan Petty</a>. <a href="https://gist.github.com/3845213">This Gist</a> shows a complete example.</aside>
+
 A few weeks ago, I [rebuilt Famigo's website with the Twitter
 Bootstrap][1]. Overall, we are very happy with the results. We noticed
 a little problem, though: our login link and user dropdown got lost in
