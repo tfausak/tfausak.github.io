@@ -3,38 +3,52 @@ layout: post
 title: Shuffle Music the Right Way
 ---
 
-![iTunes shuffle playlist][]
+![iTunes shuffle playlist][1]
 
-- usually drive myself crazy listening to the same songs all the time
-- especially when i find a new song i listen to it on rpeat
-- ideally i just hit play and listen to music i like all day
-- don't always want to listen to new music (on pandora et al)
+I have problem: I love listening to music, but I hate picking music
+to listen to. In a perfect world, I could just hit play and listen
+to music I like all day. Services like [Pandora][2] get really close,
+but I don't enjoy listening to new music all the time.
 
-- rate every song in your library
-    1.  hate it, can't even listen to it once
-    2.  don't like it, won't listen to again
-    3.  it's ok, could listen again
-    4.  like it, want to listen again
-    5.  love it, could listen to it on repeat
-- create three smart playlists
-    1.  five star songs you havent heard in a X days
-    2.  four star songs you havent heard in a Y weeks
-    3.  three star songs you havent heard in Z months
-- put them all in a folder (or meta smart playlist) and enjoy
+A couple months ago, [a Hacker News comment][3] suggested a way to
+avoid hearing the same songs over and over again when shuffling. I
+thought it solved my problem pretty well, so I set up [three smart
+playlists][4]:
 
-- i have 618 songs spanning 55 albums
-- 5 star ~ 3 days
-- 4 star ~ 9 days
-- 3 star ~ 27 days
+-   5-star songs I haven't heard since yesterday
+-   4-star songs I haven't heard for a week
+-   3-star songs I haven't heard in a month
 
-- conveniently confirm rating of songs
-- if youre sick of hearing it, bump it down a star
-- if you havent heard it enough, push the rating up
-- i recommend using [i love stars][] for easy rating
+Then I grouped them into a folder and let it run wild. I've been
+listening to it for the past couple months and I love it.
 
-- id like this better if the decay could be adjusted to play count
-- that way new high-rated songs would be played more frequently than old ones
-- plus it would effectively balance the play counts in your library
+I had to tune the delays from 1, 7, and 30 days to 3, 9, and 27
+days for 5-, 4-, and 3-star songs, respectively. My library is
+pretty small, though --- just 618 songs spanning 55 albums. These
+smart playlists give me about six hours worth of music to listen
+to every day.
 
-[itunes shuffle playlist]: /static/images/2012-10-06-itunes-shuffle-playlist.jpg
-[i love stars]: http://itunes.apple.com/app/id402642760
+Obviously this only works if you've rated a substantial number of
+songs in your library. I used the following rating system, which
+is why I completely ignore 1- and 2-star songs:
+
+1.  I hate this song! I can't even list to it once.
+2.  I don't like this song. I probably won't listen to it again.
+3.  This song is okay. I won't skip it if it comes on.
+4.  I like this song. I'd listen to it again.
+5.  I love this song! I could listen to it on repeat.
+
+This system has the neat side effect of conveniently confirming
+song ratings. If you're sick of hearing a song, bump its rating
+down a star. If you haven't heard enough of it, push the rating up.
+(I recommend [I Love Stars][5] for quickly rating songs.)
+
+I only have one gripe with this setup: I wish it played new songs
+more frequently. I'd prefer to hear a 5-star song I've only heard
+once over a 5-star song I've heard a couple dozen times.
+
+[1]: /static/images/2012-10-07-itunes-shuffle-playlist.jpg
+[2]: http://www.pandora.com/
+[3]: http://news.ycombinator.com/item?id=4302318
+[4]: /static/pages/2012-10-07-itunes-playlists.xml
+[5]: http://itunes.apple.com/app/id402642760
