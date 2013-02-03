@@ -4,7 +4,7 @@ var _gaq = [
 ];
 
 (function () {
-    "use strict";
+    'use strict';
     var script, element;
 
     // Google Analytics
