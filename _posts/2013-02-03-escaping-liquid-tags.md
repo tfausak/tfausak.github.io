@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Escaping Liquid Tags on GitHub Pages
+title: Escaping Liquid Tags
 ---
 
 Every so often, I post code samples that contain things that look like
-[Liquid][] tags, so I have to escape them. This turned out to be harder than I
+[Liquid][1] tags, so I have to escape them. This turned out to be harder than I
 thought. I went through four tries, each better than the last.
 
-## [The Ugly][]
+## [The Ugly][2]
 
 The first method works by using Liquid to output a string, and then using that
 to break up the thing that needs to be escaped so that Liquid won't parse it.
@@ -26,7 +26,7 @@ Then you can use that to separate the opening tag from the closing tag:
 I find this method to be ugly and non-obvious, so I don't recommend it. It is,
 however, pretty clever. And it works with all versions of Liquid.
 
-## [The Bad][]
+## [The Bad][3]
 
 If you're outputting something that looks like Liquid output, you can escape it
 by assigning it to a variable, then outputting the variable.
@@ -39,7 +39,7 @@ This does *not* work if you want to output a Liquid tag like
 parser. And of course this method gets annoying if you need to escape a lot of
 things. For those reasons, I can't recommend it either.
 
-## [The Good][]
+## [The Good][4]
 
 Finally we arrive at a reasonable solution. Liquid 2.2.2 added support for the
 `{% raw %}{% literal %}{% endraw %}` tag, making escaping anything a piece of
@@ -56,7 +56,7 @@ test your site locally and only deploy to GitHub Pages, this should work for
 you. That being said, I can't recommend it because the next method is just as
 good and it works everywhere.
 
-## *[Il Buono][]*
+## *[Il Buono][5]*
 
 The final and best method is the `{% raw %}{% raw %}{% endraw %}` tag. It's
 just like the `{% raw %}{% literal %}{% endraw %}` tag, except it works with
@@ -76,11 +76,11 @@ Liquid parser. If you need to do that, I suggest the following:
     # => {{ "{% endraw " }}%}
 
 What's really going to bake your noodle later on is, how did I write this blog
-post? Check out [the source][] for that.
+post? Check out [the source][6] for that.
 
-[liquid]: http://liquidmarkup.org
-[the ugly]: http://stackoverflow.com/questions/3426182/how-to-escape-liquid-template-tags
-[the bad]: http://stackoverflow.com/questions/3330979/outputting-literal-curly-braces-in-liquid-templates
-[the good]: http://stackoverflow.com/questions/11676027/jekyll-page-failing-on-github-but-works-successfully-locally-with-safe-flag
-[il buono]: http://wiki.shopify.com/UsingLiquid#No_Liquid_Zone:_the_raw_tag
-[the source]: https://github.com/tfausak/tfausak.github.com/blob/master/_posts/2013-02-03-untitled.md
+[1]: http://liquidmarkup.org
+[2]: http://stackoverflow.com/questions/3426182/how-to-escape-liquid-template-tags
+[3]: http://stackoverflow.com/questions/3330979/outputting-literal-curly-braces-in-liquid-templates
+[4]: http://stackoverflow.com/questions/11676027/jekyll-page-failing-on-github-but-works-successfully-locally-with-safe-flag
+[5]: http://wiki.shopify.com/UsingLiquid#No_Liquid_Zone:_the_raw_tag
+[6]: https://github.com/tfausak/tfausak.github.com/blob/master/_posts/2013-02-03-escaping-liquid-tags.md
