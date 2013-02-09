@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ReDoS: Regular Expression Denial of Service
+title: 'ReDoS: Regular Expression Denial of Service'
 published: false
 ---
 
