@@ -55,9 +55,9 @@ I've enjoyed working on a great product with such a talented group
 of people.
 
 [1]: /static/images/2012-09-28-famigo-and-orgsync.png
-[2]: http://www.famigo.com/
+[2]: http://www.famigo.com
 [3]: https://github.com/tfausak/MadMinute
 [4]: /2011/10/25/dropping-out-a-year-later/
 [5]: https://play.google.com/store/apps/details?id=com.famigo.sandbox
 [6]: http://www.codypowell.com/taods/2012/07/the-start-of-a-new-adventure.html
-[7]: http://www.orgsync.com/
+[7]: http://www.orgsync.com

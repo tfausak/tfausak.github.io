@@ -35,9 +35,9 @@ group. [Skype][5] lets us do our stand-ups even if we're all standing
 in different cities. Laptops and [a remote development environment][6]
 mean we're not tied to our desks.
 
-[1]: http://www.cisco.com/
-[2]: http://www.famigo.com/
-[3]: http://www.hypergleam.com/
-[4]: http://campfirenow.com/
-[5]: http://www.skype.com/
+[1]: http://www.cisco.com
+[2]: http://www.famigo.com
+[3]: http://www.hypergleam.com
+[4]: http://campfirenow.com
+[5]: http://www.skype.com/en/
 [6]: /2011/10/27/be-productive-use-screen/

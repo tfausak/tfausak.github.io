@@ -36,6 +36,6 @@ happier. I stand by [what I said][3] when I dropped out:
 > This was the hardest decision of my life, and I'm certain that I
 > made it right.
 
-[1]: http://www.utexas.edu/
-[2]: http://www.famigo.com/
+[1]: http://www.utexas.edu
+[2]: http://www.famigo.com
 [3]: http://gompr.tumblr.com/tagged/dropout

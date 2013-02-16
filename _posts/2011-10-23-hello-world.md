@@ -22,8 +22,8 @@ warning.
 If you want to know more about me or this site, check out the [about
 page][5].
 
-[1]: http://pages.github.com/
-[2]: http://mercurial.selenic.com/
+[1]: http://pages.github.com
+[2]: http://mercurial.selenic.com
 [3]: http://ringce.com/hyde
 [4]: http://daringfireball.net/projects/markdown/
 [5]: /about/

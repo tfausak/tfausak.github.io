@@ -40,4 +40,4 @@ your code, you're giving other developers more code to read. Their
 code will get better, and hopefully they'll publish it too. Then
 you can learn from it.
 
-[1]: https://github.com/
+[1]: https://github.com

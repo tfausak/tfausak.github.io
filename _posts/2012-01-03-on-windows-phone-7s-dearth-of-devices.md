@@ -35,5 +35,5 @@ write home about. I hope [Microsoft's partnership with Nokia][3]
 pays off.
 
 [1]: http://gompr.tumblr.com/post/11644275061
-[2]: http://www.microsoft.com/windowsphone/en-US/buy/7/default.aspx
-[3]: http://www.microsoft.com/presspass/press/2011/feb11/02-11partnership.mspx
+[2]: http://www.windowsphone.com/en-us/phones
+[3]: http://www.microsoft.com/en-us/news/press/2011/feb11/02-11partnership.aspx

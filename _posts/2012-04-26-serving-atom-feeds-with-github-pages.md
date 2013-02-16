@@ -70,7 +70,7 @@ receive updates. I could keep both of them around indefinitely, but
 I don't want to duplicate the content. Instead, I'll create a feed
 at the old URL with one entry that points to the new URL.
 
-[1]: https://www.google.com/webmasters/tools/
+[1]: https://www.google.com/webmasters/tools/home?hl=en
 [2]: http://validator.w3.org/feed/
 [3]: http://annevankesteren.nl/2005/03/text-xml
-[4]: http://pages.github.com/
+[4]: http://pages.github.com

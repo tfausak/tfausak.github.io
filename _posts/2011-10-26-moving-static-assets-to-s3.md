@@ -98,15 +98,15 @@ should end up looking like this:
 For a more detailed look at caching, I suggest [Mark Nottingham][11]'s
 [caching tutorial][12].
 
-[1]: http://www.famigo.com/
+[1]: http://www.famigo.com
 [2]: http://www.famigo.com/app/iblastmoki/
-[3]: https://www.djangoproject.com/
-[4]: http://www.mongodb.org/
-[5]: http://www.lighttpd.net/
+[3]: https://www.djangoproject.com
+[4]: http://www.mongodb.org
+[5]: http://www.lighttpd.net
 [6]: http://aws.amazon.com/s3/
 [7]: http://aws.amazon.com/cloudfront/
-[8]: http://aws.amazon.com/code/134
+[8]: https://github.com/boto/boto
 [9]: https://docs.djangoproject.com/en/dev/howto/custom-management-commands/
 [10]: http://www.reddit.com/r/programming/comments/lqklm/moving_static_assets_to_s3/c2vjmeh
-[11]: http://www.mnot.net/
+[11]: http://www.mnot.net
 [12]: http://www.mnot.net/cache_docs/

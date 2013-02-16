@@ -102,11 +102,11 @@ its website. The [full source code][9] is available if you want to
 poke around.
 
 [1]: http://en.wikipedia.org/wiki/Web_scraping
-[2]: http://www.windowsphone.com/en-US/marketplace
-[3]: http://www.windowsphone.com/en-US/apps/6651b8fe-0da1-e011-986b-78e7d1fa76f8
-[4]: http://docs.python.org/library/urllib2.html#urllib2.urlopen
-[5]: http://stackoverflow.com/q/8046907
-[6]: http://docs.python.org/library/cookielib.html#cookielib.CookieJar
+[2]: http://www.windowsphone.com/en-us/store
+[3]: http://www.windowsphone.com/en-us/store/app/tentacles/6651b8fe-0da1-e011-986b-78e7d1fa76f8
+[4]: http://docs.python.org/2/library/urllib2.html#urllib2.urlopen
+[5]: http://stackoverflow.com/questions/8046907/how-come-i-cant-download-this-webpage-in-python
+[6]: http://docs.python.org/2/library/cookielib.html#cookielib.CookieJar
 [7]: http://www.crummy.com/software/BeautifulSoup/
-[8]: http://stackoverflow.com/a/1732454
-[9]: https://gist.github.com/1518335
+[8]: http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454
+[9]: https://gist.github.com/tfausak/1518335

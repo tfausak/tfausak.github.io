@@ -48,7 +48,7 @@ more frequently. I'd prefer to hear a 5-star song I've only heard
 once over a 5-star song I've heard a couple dozen times.
 
 [1]: /static/images/2012-10-07-itunes-shuffle-playlist.jpg
-[2]: http://www.pandora.com/
+[2]: http://www.pandora.com
 [3]: http://news.ycombinator.com/item?id=4302318
 [4]: /static/pages/2012-10-07-itunes-playlists.xml
-[5]: http://itunes.apple.com/app/id402642760
+[5]: https://itunes.apple.com/app/id402642760

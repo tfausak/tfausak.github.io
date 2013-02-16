@@ -83,8 +83,8 @@ No thanks. I subscribed for a reason.
 
 [1]: http://en.wikipedia.org/wiki/Nexus_S
 [2]: http://en.wikipedia.org/wiki/Dell_Venue_Pro
-[3]: http://www.pandora.com/
-[4]: http://www.zune.net/en-us/products/zunepass/default.htm
+[3]: http://www.pandora.com
+[4]: http://www.xbox.com/en-US/music
 [5]: https://twitter.com/ZuneSupport
 [6]: https://twitter.com/ZuneSupport/status/131088159638433793
-[7]: http://www.cakemusic.com/
+[7]: http://www.cakemusic.com

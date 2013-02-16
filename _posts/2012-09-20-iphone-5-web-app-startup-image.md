@@ -66,5 +66,5 @@ avoid letterboxing, set the viewport's initial scale to `1.0`.
 [1]: /static/images/2012-09-20-iphone-comparison.png
 [2]: /2012/03/27/ios-web-app-icons-and-startup-images/
 [3]: /static/pages/2012-09-20-web-app.html
-[4]: https://gist.github.com/2222823
+[4]: https://gist.github.com/tfausak/2222823
 [5]: http://www.mobilexweb.com/blog/iphone-5-ios-6-html5-developers

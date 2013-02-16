@@ -57,7 +57,7 @@ function autocomplete_render (ul, item) {
 
 ![Screenshot of the autocomplete dropdown][7]
 
-Following the template on the [Famigo shared sandbox][8] seemed
+Following the template on the Famigo shared sandbox seemed
 like a good idea for creating DOM elements in `autocomplete_select`.
 Each element would have all the same information as the dropdown,
 but it would look much prettier.
@@ -90,7 +90,7 @@ function autocomplete_select (event, ui) {
 }
 {% endhighlight %}
 
-![Screenshot of an app in the applist][9]
+![Screenshot of an app in the applist][8]
 
 All that's left is enable the autocompletion widget and set it up
 to use the custom functions.
@@ -108,8 +108,8 @@ The backend just suggests apps based on a search query and returns
 JSON results. That's pretty easy. The results are prime candidates
 for caching, too.
 
-At Famigo, our Django backend is powered by [MongoEngine][10], and
-we use [pysolr][11] for searching. Once Django routes the URL, the
+At Famigo, our Django backend is powered by [MongoEngine][9], and
+we use [pysolr][10] for searching. Once Django routes the URL, the
 view normalizes the query and searches Solr. Then the results are
 transformed into MongoEngine references, formatted, and returned
 as JSON.
@@ -133,8 +133,7 @@ def autocomplete(request):
 
 I glossed over lots of implementation details that aren't particularly
 enlightening. The code presented here isn't exactly what's running
-on our site, but it's pretty close. (The [applist JavaScript][12]
-is not minified or obfuscated.)
+on our site, but it's pretty close.
 
 The autocomplete results could be cached on the client side to
 prevent unnecessary roundtrips for repeated queries, but that's a
@@ -143,13 +142,11 @@ pretty quickly.
 
 [1]: /2011/11/02/applists-playlists-for-your-apps/
 [2]: http://www.famigo.com/applists/
-[3]: http://jqueryui.com/
-[4]: http://jquery.com/
-[5]: http://jqueryui.com/demos/autocomplete/
+[3]: http://jqueryui.com
+[4]: http://jquery.com
+[5]: http://jqueryui.com/autocomplete/
 [6]: https://play.google.com/store/search?q=angry+birds&c=apps
 [7]: /static/images/2011-11-02-applist-creation.png
-[8]: http://www.famigo.com/family/TkhYNRMsAG1JYT0fCBMNASkZZW0CbCxa/sandbox/
-[9]: /static/images/2011-11-02-applist.png
-[10]: http://mongoengine.org/
-[11]: https://github.com/toastdriven/pysolr/
-[12]: http://www.famigo.com/static/scripts/applist.js
+[8]: /static/images/2011-11-02-applist.png
+[9]: http://mongoengine.org
+[10]: https://github.com/toastdriven/pysolr/

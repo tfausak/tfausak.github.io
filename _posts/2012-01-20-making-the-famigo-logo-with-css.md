@@ -224,18 +224,18 @@ letters and have them rotate when they're hit. CSS animations don't play
 nice with all the other stuff I'm doing, though. Letters get clipped in
 weird places, gradients and strokes disappear. It's ugly.
 
-[1]: http://www.famigo.com/
+[1]: http://www.famigo.com
 [2]: http://www.famigo.com/static/images/famigo-logo.png
-[3]: https://gist.github.com/1644047#file_famigo_logo.png
+[3]: https://gist.github.com/tfausak/1644047#file-famigo-logo-png
 [4]: /static/images/2012-01-20-famigo-logo-comparison.png
-[5]: https://gist.github.com/1644047/75d290bceb5c397e28aaa81b6aa2d678bffde936
-[6]: https://gist.github.com/1644047/ce27e0bad757ac8a56a74784a7bf5d7b4763754c
+[5]: https://gist.github.com/tfausak/1644047/75d290bceb5c397e28aaa81b6aa2d678bffde936
+[6]: https://gist.github.com/tfausak/1644047/ce27e0bad757ac8a56a74784a7bf5d7b4763754c
 [7]: http://en.wikipedia.org/wiki/Clarendon_(typeface)
 [8]: http://en.wikipedia.org/wiki/Georgia_(typeface)
 [9]: /static/images/2012-01-20-famigo-logo-1.png
 [10]: https://developer.mozilla.org/en-US/docs/CSS/transform#rotate
 [11]: https://developer.mozilla.org/en-US/docs/CSS/letter-spacing
-[12]: https://gist.github.com/1644047/0c4397aca8d7dee8028388ad04c17b4ec13625c3
+[12]: https://gist.github.com/tfausak/1644047/0c4397aca8d7dee8028388ad04c17b4ec13625c3
 [13]: /static/images/2012-01-20-famigo-logo-2.png
 [14]: http://en.wikipedia.org/wiki/Tittle
 [15]: http://en.wikipedia.org/wiki/Dotted_and_dotless_I
@@ -244,7 +244,7 @@ weird places, gradients and strokes disappear. It's ugly.
 [18]: https://developer.mozilla.org/en-US/docs/CSS/linear-gradient
 [19]: https://developer.mozilla.org/en-US/docs/CSS/mask
 [20]: /static/images/2012-01-20-famigo-logo-4.png
-[21]: http://www.webkit.org/blog/85/introducing-text-stroke/
+[21]: https://www.webkit.org/blog/85/introducing-text-stroke/
 [22]: /static/images/2012-01-20-famigo-logo-5.png
 [23]: http://en.wikipedia.org/wiki/B%C3%A9zier_curve
-[24]: https://gist.github.com/1644047
+[24]: https://gist.github.com/tfausak/1644047

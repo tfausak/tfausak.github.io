@@ -68,14 +68,14 @@ assuming tinkering with it will be a piece of cake.
 Please send feedback about the new site to [taylor@fausak.me][13].
 I'd love to hear what you think about it!
 
-[1]: http://www.famigo.com/
+[1]: http://www.famigo.com
 [2]: http://twitter.github.com/bootstrap/
 [3]: /static/images/2012-02-08-famigo-bootstrap-comparison.png
 [4]: https://docs.djangoproject.com/en/1.3/topics/templates/#template-inheritance
 [5]: /static/images/2012-02-08-famigo-bootstrap-responsive.png
-[6]: http://foundation.zurb.com/
-[7]: http://www.getskeleton.com/
-[8]: http://lessframework.com/
+[6]: http://foundation.zurb.com
+[7]: http://www.getskeleton.com
+[8]: http://lessframework.com
 [9]: /2011/11/02/applists-playlists-for-your-apps/
 [10]: /static/images/2012-02-08-famigo-app-tile-comparison.png
 [11]: http://wordpress.org/extend/themes/default

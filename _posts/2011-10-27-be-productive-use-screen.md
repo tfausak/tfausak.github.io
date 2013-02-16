@@ -60,7 +60,7 @@ still keeping all my files open and tests running.
 
 So there you have it. That's how I use screen to be productive at work.
 
-[1]: http://www.famigo.com/
+[1]: http://www.famigo.com
 [2]: http://aws.amazon.com/ec2/
 [3]: http://www.srcds.com/db/engine.php?&id=1098643920
 [4]: http://en.wikipedia.org/wiki/GNU_Screen

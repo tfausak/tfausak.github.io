@@ -100,11 +100,11 @@ bytes for both the markup and styles. The vector image is the
 smallest at 311 bytes. However, the CSS-based version doesn't require
 any extra HTTP requests.
 
-[1]: http://jontangerine.com/
-[2]: http://jontangerine.com/log/2007/11/complex-type-css-fix-cleartype-miss
+[1]: http://v1.jontangerine.com
+[2]: http://v1.jontangerine.com/log/2007/11/complex-type-css-fix-cleartype-miss
 [3]: /static/images/2011-10-29-my-logo.png
 [4]: http://caniuse.com/svg
-[5]: http://meyerweb.com/
+[5]: http://meyerweb.com
 [6]: http://meyerweb.com/eric/css/edge/slantastic/demo.html
 [7]: http://www.quirksmode.org/css/display.html
 [8]: http://en.wikipedia.org/wiki/Tango_Desktop_Project

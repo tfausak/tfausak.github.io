@@ -43,14 +43,14 @@ The page is available [as a Gist on GitHub][9]. (The example pages
 above are for [Google][10], [Facebook][11], and [Twitter][12].)
 
 [1]: https://developer.apple.com/library/IOs/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
-[2]: http://stackoverflow.com/q/1951381
-[3]: http://stackoverflow.com/q/5994380
-[4]: http://msdn.microsoft.com/en-us/ie/dd797411
+[2]: http://stackoverflow.com/questions/1951381/configuring-android-web-applications
+[3]: http://stackoverflow.com/questions/5994380/windows-phone-7-internet-shortcut-icon
+[4]: http://msdn.microsoft.com/en-us/library/IE/gg491731(v=vs.85).aspx
 [5]: http://www.russellbeattie.com/blog/creating-a-pinnable-windows-phone-7-tile-for-your-website-like-google
 [6]: http://blogs.msdn.com/b/iemobile/archive/2010/12/08/targeting-mobile-optimized-css-at-windows-phone-7.aspx
 [7]: /static/pages/2012-02-03-wp7-tile.html
 [8]: /static/images/2012-02-03-web-page-tiles.png
-[9]: https://gist.github.com/1727983
+[9]: https://gist.github.com/tfausak/1727983
 [10]: /static/pages/2012-02-03-wp7-tile.html?title=Google&icon=http://i.imgur.com/4UNSv.png&url=https://www.google.com/
 [11]: /static/pages/2012-02-03-wp7-tile.html?title=Facebook&icon=http://i.imgur.com/wXxZR.png&url=https://www.facebook.com/
 [12]: /static/pages/2012-02-03-wp7-tile.html?title=Twitter&icon=http://i.imgur.com/lfyve.png&url=https://twitter.com/

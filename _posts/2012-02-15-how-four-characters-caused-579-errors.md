@@ -90,8 +90,8 @@ After slamming my head on the desk for a couple minutes, I wrote a
 handful of test cases to make sure this problem never happened
 again.
 
-[1]: https://www.djangoproject.com/
-[2]: http://mongoengine.org/
-[3]: http://www.codypowell.com/
+[1]: https://www.djangoproject.com
+[2]: http://mongoengine.org
+[3]: http://www.codypowell.com
 [4]: /2011/11/18/i-accidentally-deleted-all-our-data/
 [5]: https://github.com/blog/612-introducing-github-compare-view

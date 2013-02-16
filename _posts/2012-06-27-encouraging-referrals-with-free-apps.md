@@ -85,8 +85,8 @@ process:
     hashed email addresses from our database and invalidate the
     referral.
 
-[1]: http://www.famigo.com/
+[1]: http://www.famigo.com
 [2]: https://play.google.com/store/apps/details?id=com.famigo.sandbox
-[3]: https://www.dropbox.com/help/54
-[4]: http://urbanairship.com/
+[3]: https://www.dropbox.com/help/54/en
+[4]: http://urbanairship.com
 [5]: http://developer.android.com/reference/android/Manifest.permission.html#READ_CONTACTS
