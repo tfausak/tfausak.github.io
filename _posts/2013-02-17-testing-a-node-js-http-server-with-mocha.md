@@ -6,17 +6,13 @@ title: Testing a Node.js HTTP Server with Mocha
 I spent the better part of the past week updating a [Node.js][1]
 HTTP server from version 0.4.8 of Node to the most recent version,
 0.8.20. I started looking over the change logs but they quickly
-overwhelmed me. Two years worth of changes to Node, V8, npm, and
+overwhelmed me. Two years of development on Node, V8, npm, and
 dependent packages generated a lot of changes.
 
 Instead of trying to reason about what might break, I decided to
 write tests. That way any breaking changes would break the build.
 Plus writing tests would allow me to refactor the code in the future
 and be confident that I didn't break anything.
-
-(If all of this seems obvious and pedestrian, that's because it is.
-I couldn't find anyone talking about testing Node servers so I
-figured I'd get the ball rolling.)
 
 ## Package
 
