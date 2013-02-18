@@ -1,0 +1,117 @@
+---
+layout: post
+title: Testing a Node.js HTTP Server with Mocha
+---
+
+I spent the better part of the past week updating a [Node.js][]
+HTTP server from version 0.4.8 of Node to the most recent version,
+0.8.20. I started looking over the changelogs but they quickly
+overwhelmed me. Two years worth of changes to Node, V8, npm, and
+dependent packages generated a lot of changes.
+
+Instead of trying to reason about what might break, I decided to
+write tests. That way any breaking changes would break the build.
+Plus writing tests would allow me to refactor the code in the future
+and be confident that I didn't break anything.
+
+(If all of this seems obvious and pedestrian, that's because it is.
+I couldn't find anyone talking about testing Node servers so I
+figured I'd get the ball rolling.)
+
+## Package
+
+I created a simple Node package called [massive-wight][] that
+contains nothing more than an HTTP server and tests for it. The
+layout is pretty simple: `lib` contains the business logic, `bin`
+has the executable, and the tests live in `test`.
+
+## Server
+
+The server couldn't be simpler. It returns an HTTP 200 OK response
+to every request. It also includes the text "Hello, world!" in the
+response.
+
+{% highlight javascript %}
+var http = require('http');
+
+this.server = http.createServer(function (req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello, world!\n');
+});
+
+exports.listen = function () {
+  this.server.listen.apply(this.server, arguments);
+};
+
+exports.close = function (callback) {
+  this.server.close(callback);
+};
+{% endhighlight %}
+
+You may notice that the server doesn't start automatically. You
+have to call `listen` for anything to happen. Setting up the server
+like this makes `require` idempotent, which is a good thing.
+
+## Tests
+
+I happen to use [Mocha][] for testing, but the concepts described
+here should be applicable to other JavaScript test frameworks.
+
+Before getting to the actual tests, there's a little bit of boilerplate
+to get out of the way. The test suite should fire up the server
+when it starts and kill the server when it finishes.
+
+{% highlight javascript %}
+var server = require('../lib/massive-wight');
+
+describe('server', function () {
+  before(function () {
+    server.listen(8000);
+  });
+
+  after(function () {
+    server.close();
+  });
+});
+{% endhighlight %}
+
+With that out of the way, it's on to the actual tests. Since the
+server is so simple, it stands to reason that the tests are, too.
+All they do is check the status code and response body. Exactly
+what you'd expect.
+
+{% highlight javascript %}
+var assert = require('assert'),
+    http = require('http');
+
+describe('/', function () {
+  it('should return 200', function (done) {
+    http.get('http://localhost:8000', function (res) {
+      assert.equal(200, res.statusCode);
+      done();
+    });
+  });
+
+  it('should say "Hello, world!"', function (done) {
+    http.get('http://localhost:8000', function (res) {
+      var data = '';
+
+      res.on('data', function (chunk) {
+        data += chunk;
+      });
+
+      res.on('end', function () {
+        assert.equal('Hello, world!\n', data);
+        done();
+      });
+    });
+  });
+});
+{% endhighlight %}
+
+That's all there is to it! Running the test suite is a piece of
+cake with `npm test`.
+
+[node.js]: http://nodejs.org
+[massive-wight]: https://github.com/tfausak/massive-wight
+[mocha]: http://visionmedia.github.com/mocha/
