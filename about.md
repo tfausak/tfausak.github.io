@@ -25,8 +25,8 @@ If email isn't your thing, try [Facebook][5], [Google+][6], or
 </footer>
 
 [1]: /static/images/taylor-fausak.jpg
-[2]: http://www.orgsync.com/
-[3]: http://www.utexas.edu/
+[2]: http://www.orgsync.com
+[3]: http://www.utexas.edu
 [4]: mailto:taylor+honeypot@fausak.me
 [5]: https://www.facebook.com/taylorfausak
 [6]: https://plus.google.com/111507914518262812295

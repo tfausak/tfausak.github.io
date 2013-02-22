@@ -2,9 +2,17 @@
 
 This is my blog. There are many like it, but this one is mine.
 
-Powered by [GitHub Pages][2]. Licensed under [Creative Commons
-Attribution 3.0][3].
+Powered by [GitHub Pages][2].
 
-[1]: http://taylor.fausak.me/
-[2]: http://pages.github.com/
-[3]: http://creativecommons.org/licenses/by/3.0/
+## Setup
+
+```shell
+git clone https://github.com/tfausak/tfausak.github.com.git
+cd tfausak.github.com
+bundle install
+bundle exec jekyll --auto --no-lsi --pygments --safe --server
+open 'http://localhost:4000'
+```
+
+[1]: http://taylor.fausak.me
+[2]: http://pages.github.com
