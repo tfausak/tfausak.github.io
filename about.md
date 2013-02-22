@@ -17,7 +17,7 @@ If email isn't your thing, try [Facebook][5], [Google+][6], or
 [Twitter][7].
 
 <footer class="footer about">
-    <img alt="GitHub" src="/static/images/octonaut.png">
+    <img alt="GitHub" src="/static/images/octocat.png">
 
     <h2>Colophon</h2>
 
