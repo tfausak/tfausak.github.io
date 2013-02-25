@@ -4,7 +4,7 @@ title: Hacking Hubot with Hubot
 ---
 
 Right before last week's [Dallas Ruby Brigade][1] hack night, my
-coworker [Aaron][2] planted an idea in my head. He thought reprogramming
+coworker [Aaron][2] planted an idea in my head. He thought programming
 [Hubot][3] on the fly would be neat. I agreed with him; modifying
 Hubot from within the chat room simply by talking to him would be
 awesome. Since I spent last week hacking on Node.js and working on
@@ -40,14 +40,14 @@ module.exports = (robot) ->
 {% endhighlight %}
 
 (This seems like as good a time as any to point out that having a
-reprogrammable Hubot means that it's possible for someone to write
+programmable Hubot means that it's possible for someone to write
 a malicious script. Consider yourself warned.)
 
 The only thing to watch out for here is that this forces the pattern
 to be case-insensitive by requiring the `i` flag. This allows you
 to address your Hubot as "Hubot", "hubot", or "HUBOT".
 
-But that's all you need to have a completely reprogrammable Hubot!
+But that's all you need to have a completely programmable Hubot!
 Here's how it ends up working:
 
     user  > hubot respond /widdly/i _ = function (msg) { msg.send('scuds'); }
