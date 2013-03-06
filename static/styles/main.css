@@ -6,6 +6,9 @@ body {
     background: #fdf6e3;
     color: #657b83;
     font: 1em/1.5em 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Segoe WP', sans-serif;
+
+    /* Prevent mobile clients from resizing text when changing orientation. */
+    -webkit-text-size-adjust: 100%;
 }
 .header,
 .content {
