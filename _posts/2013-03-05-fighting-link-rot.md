@@ -32,9 +32,9 @@ Those facts make finding links as easy as `grep '^\[[0-9]*\]:'
 _posts/*.md`. The script outputs:
 
 <div class="highlight">
-    <pre><code><span class="g">./_posts/2011-10-23-hello-world.md</span>
-<span class="err">✖ http://pages.github.com/404!</span>
-<span class="g">✓ http://mercurial.selenic.com</span></code></pre>
+    <pre><code>./_posts/2011-10-23-hello-world.md
+<span class="gr">✖ http://pages.github.com/404!</span>
+<span class="gi">✓ http://mercurial.selenic.com</span></code></pre>
 </div>
 
 The script found 127 bad links, which I fixed in [one fell swoop][8].
