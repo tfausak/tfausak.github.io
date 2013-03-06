@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 # https://help.github.com/articles/using-jekyll-with-pages#troubleshooting
 gem 'jekyll',    '0.12.0'
