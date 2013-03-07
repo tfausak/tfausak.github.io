@@ -6,7 +6,7 @@ Powered by [GitHub Pages][2].
 
 ## Setup
 
-```shell
+```sh
 git clone https://github.com/tfausak/tfausak.github.com.git
 cd tfausak.github.com
 bundle install
