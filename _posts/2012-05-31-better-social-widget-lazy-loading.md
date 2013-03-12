@@ -79,7 +79,7 @@ when the user hovers over the +1 widget, load Google's +1 library.
 In addition, the placeholder should be removed, since it's obsoleted
 by the actual widget.
 
-{% highlight js %}
+{% highlight javascript %}
 var element, script;
 element = document.getElementById('google-widget');
 element.onmouseover = function () {

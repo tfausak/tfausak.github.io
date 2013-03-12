@@ -34,7 +34,7 @@ that users can pick an app with confidence. (Try searching for
 and platform (Android or iOS) along with the app name should help
 the user pick the right app.
 
-{% highlight js %}
+{% highlight javascript %}
 function autocomplete_render (ul, item) {
     return $('<li/>')
         .data('item.autocomplete', item)
@@ -67,7 +67,7 @@ The element needs to be added to the top of the applist, and the
 autocomplete box needs to be cleared and re-focused so the user can
 add another app.
 
-{% highlight js %}
+{% highlight javascript %}
 function autocomplete_select (event, ui) {
     $('<li/>')
         .append($('<img/>')
@@ -95,7 +95,7 @@ function autocomplete_select (event, ui) {
 All that's left is enable the autocompletion widget and set it up
 to use the custom functions.
 
-{% highlight js %}
+{% highlight javascript %}
 $('#autocomplete').autocomplete({
     select: autocomplete_select,
     source: '/autocomplete/'

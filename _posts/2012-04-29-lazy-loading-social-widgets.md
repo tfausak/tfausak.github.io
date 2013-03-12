@@ -37,7 +37,7 @@ and doesn't require a framework. Loading the social widgets when
 the user scrolls is nearly as good as loading when they should be
 visible. You need to scroll to see them, anyway.
 
-{% highlight js %}
+{% highlight javascript %}
 window.onscroll = function () {
     window.onscroll = null;
 
@@ -80,7 +80,7 @@ elements. In this case, I'm okay with the old behavior of just
 loading the widgets anyway. So I can just call the `onscroll`
 function if the viewport is tall enough.
 
-{% highlight js %}
+{% highlight javascript %}
 if (window.innerHeight >= document.body.clientHeight) {
     window.onscroll();
 }
