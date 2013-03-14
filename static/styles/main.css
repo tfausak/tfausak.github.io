@@ -123,9 +123,65 @@ ul {
 /*
     Header
 */
+@-moz-keyframes solarized {
+    0%, 100% { color: #dc322f; }
+    12.5%    { color: #cb4b16; }
+    25%      { color: #b58900; }
+    37.5%    { color: #859900; }
+    50%      { color: #2aa198; }
+    62.5%    { color: #268bd2; }
+    75%      { color: #6c71c4; }
+    87.5%    { color: #d33682; }
+}
+@-ms-keyframes solarized {
+    0%, 100% { color: #dc322f; }
+    12.5%    { color: #cb4b16; }
+    25%      { color: #b58900; }
+    37.5%    { color: #859900; }
+    50%      { color: #2aa198; }
+    62.5%    { color: #268bd2; }
+    75%      { color: #6c71c4; }
+    87.5%    { color: #d33682; }
+}
+@-o-keyframes solarized {
+    0%, 100% { color: #dc322f; }
+    12.5%    { color: #cb4b16; }
+    25%      { color: #b58900; }
+    37.5%    { color: #859900; }
+    50%      { color: #2aa198; }
+    62.5%    { color: #268bd2; }
+    75%      { color: #6c71c4; }
+    87.5%    { color: #d33682; }
+}
+@-webkit-keyframes solarized {
+    0%, 100% { color: #dc322f; }
+    12.5%    { color: #cb4b16; }
+    25%      { color: #b58900; }
+    37.5%    { color: #859900; }
+    50%      { color: #2aa198; }
+    62.5%    { color: #268bd2; }
+    75%      { color: #6c71c4; }
+    87.5%    { color: #d33682; }
+}
+@keyframes solarized {
+    0%, 100% { color: #dc322f; }
+    12.5%    { color: #cb4b16; }
+    25%      { color: #b58900; }
+    37.5%    { color: #859900; }
+    50%      { color: #2aa198; }
+    62.5%    { color: #268bd2; }
+    75%      { color: #6c71c4; }
+    87.5%    { color: #d33682; }
+}
 .header {
     border-top: 0.25em solid;
     color: #dc322f;
+
+       -moz-animation: solarized 14s infinite;
+        -ms-animation: solarized 14s infinite;
+         -o-animation: solarized 14s infinite;
+    -webkit-animation: solarized 14s infinite;
+            animation: solarized 14s infinite;
 }
 .header h1 {
     display: none;
