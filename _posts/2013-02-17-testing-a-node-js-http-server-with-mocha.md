@@ -14,13 +14,6 @@ write tests. That way any breaking changes would break the build.
 Plus writing tests would allow me to refactor the code in the future
 and be confident that I didn't break anything.
 
-## Package
-
-I created [a simple Node package][2] that contains nothing more
-than an HTTP server and tests for it. The layout is pretty
-straightforward: `lib` contains the business logic, `bin` has the
-executable, and the tests live in `test`.
-
 ## Server
 
 The server isn't too complicated. It returns an HTTP 200 OK response
@@ -50,7 +43,7 @@ like this makes `require` idempotent, which is a good thing.
 
 ## Tests
 
-I happen to use [Mocha][3] for testing, but the concepts described
+I happen to use [Mocha][2] for testing, but the concepts described
 here should be applicable to other JavaScript test frameworks.
 
 Before getting to the actual tests, there's a little bit of boilerplate
@@ -58,7 +51,7 @@ to get out of the way. The test suite should fire up the server
 when it starts and kill the server when it finishes.
 
 {% highlight javascript %}
-var server = require('../lib/massive-wight');
+var server = require('../lib/server');
 
 describe('server', function () {
   before(function () {
@@ -109,5 +102,4 @@ That's all there is to it! Running the test suite is a piece of
 cake with `npm test`.
 
 [1]: http://nodejs.org
-[2]: https://github.com/tfausak/massive-wight
-[3]: http://visionmedia.github.com/mocha/
+[2]: http://visionmedia.github.com/mocha/
