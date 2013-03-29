@@ -8,7 +8,7 @@
         {% if page.title %}<meta content="{{ content | strip_html | strip_newlines | truncate: 200 }}" property="og:description">{% endif %}
         <meta content="{{ site.config.url }}/static/images/og-image.png" property="og:image">
         <meta content="en_US" property="og:locale">
-        {% if page.title %}<meta content="{{ site.config.title }}" property="og:site_name">{% endif %}
+        <meta content="{{ site.config.title }}" property="og:site_name">
         <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.config.title }}{% endif %}" property="og:title">
         <meta content="{% if page.title %}article{% else %}website{% endif %}" property="og:type">
         <meta content="{{ site.config.url }}{% if page.title %}{{ page.url }}{% endif %}" property="og:url">
