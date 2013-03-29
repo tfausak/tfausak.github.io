@@ -17,7 +17,7 @@ layout: base
 
 <footer class="footer">
     <ul class="social-widgets">
-        {% capture url %}{{ site.url | cgi_escape }}{{ page.url | cgi_escape }}{% endcapture %}
+        {% capture url %}{{ site.config.url | cgi_escape }}{{ page.url | cgi_escape }}{% endcapture %}
 
         <li class="social-widget facebook-widget">
             <a href="https://www.facebook.com/sharer/sharer.php?u={{ url }}" id="facebook-widget">
@@ -35,7 +35,7 @@ layout: base
             <a href="https://twitter.com/intent/tweet?related=taylorfausak&amp;text={{ page.title | cgi_escape }}&amp;url={{ url }}" id="twitter-widget">
                 Tweet
             </a>
-            <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" data-related="taylorfausak" data-url="{{ site.url }}{{ page.url }}"></a>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" data-related="taylorfausak" data-url="{{ site.config.url }}{{ page.url }}"></a>
         </li>
     </ul>
 

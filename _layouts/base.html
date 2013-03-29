@@ -5,12 +5,12 @@
         <meta charset="utf-8">
         <meta content="initial-scale=1,width=device-width" name="viewport">
         <meta property="fb:admins" content="100001771158100">
-        <meta property="og:image" content="{{ site.url }}/static/images/og-image.png">
+        <meta property="og:image" content="{{ site.config.url }}/static/images/og-image.png">
         <meta property="og:locale" content="en_US">
-        {% if page.title %}<meta property="og:site_name" content="{{ site.title }}">{% endif %}
-        <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+        {% if page.title %}<meta property="og:site_name" content="{{ site.config.title }}">{% endif %}
+        <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.config.title }}{% endif %}">
         <meta property="og:type" content="{% if page.title %}article{% else %}website{% endif %}">
-        <meta property="og:url" content="{{ site.url }}{% if page.title %}{{ page.url }}{% else %}/{% endif %}">
+        <meta property="og:url" content="{{ site.config.url }}{% if page.title %}{{ page.url }}{% else %}/{% endif %}">
 
         <link href="/static/styles/all.min.css" rel="stylesheet">
         <link href="/static/images/favicon.ico" rel="shortcut icon">
@@ -21,7 +21,7 @@
         <link href="/sitemap.atom" rel="alternate" type="application/atom+xml">
         <link href="/sitemap.rss" rel="alternate" type="application/rss+xml">
 
-        <title>{% if page.title %}{{ page.title }} &#xb7; {% endif %}{{ site.title }}</title>
+        <title>{% if page.title %}{{ page.title }} &#xb7; {% endif %}{{ site.config.title }}</title>
     </head>
 
     <body itemscope itemtype="http://schema.org/Blog">
@@ -30,7 +30,7 @@
         <header class="header">
             <div class="wrapper">
                 <h1 itemprop="name">
-                    {{ site.title }}
+                    {{ site.config.title }}
                 </h1>
 
                 <a href="/" itemprop="url">
