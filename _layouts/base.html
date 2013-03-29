@@ -12,6 +12,8 @@
         <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.config.title }}{% endif %}" property="og:title">
         <meta content="{% if page.title %}article{% else %}website{% endif %}" property="og:type">
         <meta content="{{ site.config.url }}{% if page.title %}{{ page.url }}{% endif %}" property="og:url">
+        <meta content="summary" name="twitter:card">
+        <meta content="{{ site.config.author.twitter_id }}" name="twitter:creator:id">
 
         <link href="/static/styles/all.min.css" rel="stylesheet">
         <link href="/static/images/favicon.ico" rel="shortcut icon">
