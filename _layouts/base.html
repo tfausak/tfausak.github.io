@@ -1,16 +1,16 @@
 <!doctype html>
 
-<html lang="en-us">
+<html lang="en-us" prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
         <meta content="initial-scale=1,width=device-width" name="viewport">
         <meta property="fb:admins" content="100001771158100">
-        <meta property="og:image" content="{{ site.config.url }}/static/images/og-image.png">
-        <meta property="og:locale" content="en_US">
-        {% if page.title %}<meta property="og:site_name" content="{{ site.config.title }}">{% endif %}
-        <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.config.title }}{% endif %}">
-        <meta property="og:type" content="{% if page.title %}article{% else %}website{% endif %}">
-        <meta property="og:url" content="{{ site.config.url }}{% if page.title %}{{ page.url }}{% else %}/{% endif %}">
+        <meta content="{{ site.config.url }}/static/images/og-image.png" property="og:image">
+        <meta content="en_US" property="og:locale">
+        {% if page.title %}<meta content="{{ site.config.title }}" property="og:site_name">{% endif %}
+        <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.config.title }}{% endif %}" property="og:title">
+        <meta content="{% if page.title %}article{% else %}website{% endif %}" property="og:type">
+        <meta content="{{ site.config.url }}{% if page.title %}{{ page.url }}{% endif %}" property="og:url">
 
         <link href="/static/styles/all.min.css" rel="stylesheet">
         <link href="/static/images/favicon.ico" rel="shortcut icon">
