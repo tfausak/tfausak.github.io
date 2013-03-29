@@ -7,5 +7,6 @@ config:
     author:
         email: taylor@fausak.me
         name: Taylor Fausak
+    fb_admins: 100001771158100
     title: taylor.fausak.me
     url: 'http://taylor.fausak.me'
