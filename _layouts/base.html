@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta content="initial-scale=1,width=device-width" name="viewport">
-        {% if site.config.fb_admins %}<meta property="fb:admins" content="{{ site.config.fb_admins }}">{% endif %}
+        <meta property="fb:admins" content="{{ site.config.author.facebook_id }}">
         {% if page.title %}<meta content="{{ content | strip_html | strip_newlines | truncate: 200 }}" property="og:description">{% endif %}
         <meta content="{{ site.config.url }}/static/images/og-image.png" property="og:image">
         <meta content="en_US" property="og:locale">
