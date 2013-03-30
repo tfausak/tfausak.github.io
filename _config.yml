@@ -1,8 +1,14 @@
-lsi:        false
-permalink:  pretty
-pygments:   true
-safe:       true
+# GitHub Pages forces these options.
+# https://help.github.com/articles/using-jekyll-with-pages#troubleshooting
+lsi: false
+pygments: true
+safe: true
 
+# Use this URL format: "/:year/:month/:day/:title/".
+# https://github.com/mojombo/jekyll/wiki/Permalinks#built-in-styles
+permalink: pretty
+
+# Keep the site DRY by customizing things here.
 config:
     author:
         email: taylor@fausak.me

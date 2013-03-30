@@ -7,11 +7,9 @@ Powered by [GitHub Pages][2].
 ## Setup
 
 ```sh
-git clone https://github.com/tfausak/tfausak.github.com.git
-cd tfausak.github.com
 bundle install
 bundle exec jekyll --auto --no-lsi --pygments --safe --server
-open 'http://localhost:4000'
+# http://localhost:4000
 ```
 
 [1]: http://taylor.fausak.me
