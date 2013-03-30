@@ -24,8 +24,15 @@ var _gaq = [
             script = document.createElement('script');
             script.async = true;
             script.id = 'facebook-jssdk';
-            script.src = '//connect.facebook.net/en_US/all.js#xfbml=1&appId=133083533456136';
+            script.src = '//connect.facebook.net/en_US/all.js';
             document.body.appendChild(script);
+
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '133083533456136',
+                    xfbml: true
+                });
+            };
         };
     }
 
