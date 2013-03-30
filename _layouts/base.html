@@ -3,29 +3,39 @@
 <html lang="en-us" prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
-        <meta content="initial-scale=1,width=device-width" name="viewport">
-        <meta property="fb:admins" content="{{ site.config.author.facebook_id }}">
-        {% if page.title %}<meta content="{{ content | strip_html | strip_newlines | truncate: 200 }}" property="og:description">{% endif %}
+        <meta content="initial-scale=1, width=device-width" name="viewport">
+
+        {% comment %} Facebook {% endcomment %}
+        <meta content="{{ site.config.author.facebook_id }}" property="fb:admins">
+
+        {% comment %} Open Graph {% endcomment %}
+        <meta content="{{ content | strip_html | strip_newlines | split: ' ' | join: ' ' | truncate: 200 }}" property="og:description">
         <meta content="{{ site.config.url }}/static/images/og-image.png" property="og:image">
         <meta content="en_US" property="og:locale">
         <meta content="{{ site.config.title }}" property="og:site_name">
         <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.config.title }}{% endif %}" property="og:title">
         <meta content="{% if page.title %}article{% else %}website{% endif %}" property="og:type">
         <meta content="{{ site.config.url }}{% if page.title %}{{ page.url }}{% endif %}" property="og:url">
-        <meta content="summary" name="twitter:card">
-        <meta content="{{ site.config.author.twitter_id }}" name="twitter:creator:id">
-        <meta content="{{ site.config.author.twitter_id }}" name="twitter:site:id">
+
+        {% comment %} Twitter {% endcomment %}
+        <meta content="summary" property="twitter:card">
+        <meta content="{{ site.config.author.twitter_id }}" property="twitter:creator:id">
+        <meta content="{{ site.config.author.twitter_id }}" property="twitter:site:id">
+
+        <title>{% if page.title %}{{ page.title }} &#xb7; {% endif %}{{ site.config.title }}</title>
 
         <link href="/static/styles/all.min.css" rel="stylesheet">
+
+        {% comment %} Icons {% endcomment %}
         <link href="/static/images/favicon.ico" rel="shortcut icon">
         <link href="/static/images/apple-touch-icon-57x57.png" rel="apple-touch-icon-precomposed" sizes="57x57">
         <link href="/static/images/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72">
         <link href="/static/images/apple-touch-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114">
         <link href="/static/images/apple-touch-icon-144x144.png" rel="apple-touch-icon-precomposed" sizes="144x144">
-        <link href="/sitemap.atom" rel="alternate" type="application/atom+xml">
-        <link href="/sitemap.rss" rel="alternate" type="application/rss+xml">
 
-        <title>{% if page.title %}{{ page.title }} &#xb7; {% endif %}{{ site.config.title }}</title>
+        {% comment %} Feeds {% endcomment %}
+        <link href="/sitemap.atom" rel="alternate" title="{{ site.config.title }} (Atom)" type="application/atom+xml">
+        <link href="/sitemap.rss" rel="alternate" title="{{ site.config.title }} (RSS)" type="application/rss+xml">
     </head>
 
     <body itemscope itemtype="http://schema.org/Blog">
