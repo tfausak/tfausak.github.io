@@ -30,6 +30,7 @@ var _gaq = [
             window.fbAsyncInit = function () {
                 FB.init({
                     appId: '133083533456136',
+                    channelUrl: '//taylor.fausak.me/channel.html',
                     xfbml: true
                 });
             };
