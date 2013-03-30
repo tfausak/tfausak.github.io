@@ -19,7 +19,7 @@ var _gaq = [
         element.onmouseover = function () {
             this.onmouseover = null;
             this.parentNode.removeChild(this);
-            _gaq.push(['_trackEvent', 'Social', 'Facebook', 'Like']);
+            _gaq.push(['_trackEvent', 'Social', 'Facebook - Like', element.getAttribute('data-label')]);
 
             script = document.createElement('script');
             script.async = true;
@@ -35,7 +35,7 @@ var _gaq = [
         element.onmouseover = function () {
             this.onmouseover = null;
             this.parentNode.removeChild(this);
-            _gaq.push(['_trackEvent', 'Social', 'Google', '+1']);
+            _gaq.push(['_trackEvent', 'Social', 'Google - +1', element.getAttribute('data-label')]);
 
             script = document.createElement('script');
             script.async = true;
@@ -50,7 +50,7 @@ var _gaq = [
         element.onmouseover = function () {
             this.onmouseover = null;
             this.parentNode.removeChild(this);
-            _gaq.push(['_trackEvent', 'Social', 'Twitter', 'Tweet']);
+            _gaq.push(['_trackEvent', 'Social', 'Twitter - Tweet', element.getAttribute('data-label')]);
 
             script = document.createElement('script');
             script.async = true;
