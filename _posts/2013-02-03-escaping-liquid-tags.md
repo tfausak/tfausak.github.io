@@ -83,4 +83,4 @@ post? Check out [the source][6] for that.
 [3]: http://stackoverflow.com/questions/3330979/outputting-literal-curly-braces-in-liquid-templates
 [4]: http://stackoverflow.com/questions/11676027/jekyll-page-failing-on-github-but-works-successfully-locally-with-safe-flag
 [5]: http://wiki.shopify.com/UsingLiquid#No_Liquid_Zone:_the_raw_tag
-[6]: https://github.com/tfausak/tfausak.github.com/blob/master/_posts/2013-02-03-escaping-liquid-tags.md
+[6]: https://raw.github.com/tfausak/tfausak.github.io/master/_posts/2013-02-03-escaping-liquid-tags.md

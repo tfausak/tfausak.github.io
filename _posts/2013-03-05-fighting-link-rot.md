@@ -53,4 +53,4 @@ or looked for a suitable replacement.
 [5]: http://search.cpan.org/dist/W3C-LinkChecker/
 [6]: /2012/05/31/better-social-widget-lazy-loading/
 [7]: https://gist.github.com/tfausak/5096655
-[8]: https://github.com/tfausak/tfausak.github.com/commit/4f5bfc7
+[8]: https://github.com/tfausak/tfausak.github.io/commit/4f5bfc7

@@ -111,4 +111,4 @@ If you have any complaints or recommendations, please let me know.
 [3]: http://socialitejs.com
 [4]: http://informationarchitects.net/blog/sweep-the-sleaze/
 [5]: http://stackoverflow.com/questions/7157411/adding-a-google-plus-one-or-share-link-to-an-email-newsletter
-[6]: https://github.com/tfausak/tfausak.github.com
+[6]: https://github.com/tfausak/tfausak.github.io

@@ -21,7 +21,7 @@ If email isn't your thing, try [Facebook][5], [Google+][6], or
 
     <h2>Colophon</h2>
 
-    <p>This blog is hosted in a public repository on GitHub and powered by GitHub Pages. <a href="https://github.com/tfausak/tfausak.github.com">Fork me on GitHub &#x2192;</a></p>
+    <p>This blog is hosted in a public repository on GitHub and powered by GitHub Pages. <a href="https://github.com/tfausak/tfausak.github.io">Fork me on GitHub &#x2192;</a></p>
 </footer>
 
 [1]: /static/images/taylor-fausak.jpg
