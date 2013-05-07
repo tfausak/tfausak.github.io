@@ -8,7 +8,7 @@ Powered by [GitHub Pages][2].
 
 ```sh
 bundle install
-bundle exec jekyll --auto --no-lsi --pygments --safe --server
+bundle exec jekyll serve --drafts --future --watch
 # http://localhost:4000
 ```
 
