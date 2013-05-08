@@ -39,16 +39,16 @@ in plain text. Hopefully you don't actually do this, but it makes
 this example a lot simpler. The same principles work regardless of
 how you store your passwords.
 
-Assuming a straightforward account model, you might authenticate
-users with a class method. All it does is try to find the account,
-then compare the passwords. If everything checks out, it returns
-the account. In all other cases, it returns `nil`.
+Assuming a straightforward user model, you might authenticate users
+with a class method. All it does is try to find the user, then
+compare the passwords. If everything checks out, it returns the
+user. In all other cases, it returns `nil`.
 
 {% highlight ruby %}
-class Account < ActiveRecord::Base
+class User < ActiveRecord::Base
   def self.authenticate(username, password)
-    account = find_by_username(username)
-    account if account && password == account.password
+    user = find_by_username(username)
+    user if user && password == user.password
   end
 end
 {% endhighlight %}
@@ -57,29 +57,29 @@ end
 
 We want to jump straight to the best case scenario and start using
 bcrypt. Three things are necessary to get that done: add another
-field to the account model; add a handful of new methods; and modify
+field to the user model; add a handful of new methods; and modify
 the authenticate model.
 
-Up first is adding a new field to the account model. We need to
-store the derived key bcrypt generates. A simple migration takes
-care of this step:
+Up first is adding a new field to the user model. We need to store
+the derived key bcrypt generates. A simple migration takes care of
+this step:
 
 {% highlight ruby %}
-class AddBcryptHashToAccount < ActiveRecord::Migration
+class AddBcryptHashToUser < ActiveRecord::Migration
   def change
-    add_column :accounts, :bcrypt_hash, :string
+    add_column :users, :bcrypt_hash, :string
   end
 end
 {% endhighlight %}
 
 Now we need a couple utility functions. They'll allow us to see
-which accounts use bcrypt, set the password, and compare strings
-against it. These all require the [bcrypt-ruby][3] gem, so add `gem
+which users use bcrypt, set the password, and compare strings against
+it. These all require the [bcrypt-ruby][3] gem, so add `gem
 'bcrypt-ruby'` to you Gemfile.
 
 {% highlight ruby %}
 require 'bcrypt'
-class Account < ActiveRecord::Base
+class User < ActiveRecord::Base
   include BCrypt
   def bcrypt?
     bcrypt_hash.present?
@@ -95,21 +95,21 @@ end
 {% endhighlight %}
 
 Lastly the authenticate function needs to modified to do a couple
-things. It should compare using bcrypt if the account has been
-updated. If it hasn't, it should compare using the old method, then
-generate a new hash using bcrypt and delete the old one.
+things. It should compare using bcrypt if the user has been updated.
+If it hasn't, it should compare using the old method, then generate
+a new hash using bcrypt and delete the old one.
 
 {% highlight ruby %}
 def self.authenticate(username, password)
-  account = find_by_username(username)
-  return unless account
-  if account.bcrypt?
-    account if account.bcrypt == password
-  elsif password == account.password
-    account.bcrypt = password
-    account.password = nil
-    account.save!
-    account
+  user = find_by_username(username)
+  return unless user
+  if user.bcrypt?
+    user if user.bcrypt == password
+  elsif password == user.password
+    user.bcrypt = password
+    user.password = nil
+    user.save!
+    user
   end
 end
 {% endhighlight %}
@@ -117,30 +117,30 @@ end
 ## After
 
 At some point you'll want to remove everything that's still stored
-in the old format. For accounts that haven't updated yet, a new
-password must be generated. You can either email it to them or they
-can rely on your password recovery service.
+in the old format. For users that haven't updated yet, a new password
+must be generated. You can either email it to them or they can rely
+on your password recovery service.
 
 {% highlight ruby %}
 require 'bcrypt'
-class RemovePasswordFromAccount < ActiveRecord::Migration
+class RemovePasswordFromUser < ActiveRecord::Migration
   def up
-    account_ids = ActiveRecord::Base.connection.
-      select_all('SELECT id FROM accounts WHERE bcrypt_hash IS NULL').
+    user_ids = ActiveRecord::Base.connection.
+      select_all('SELECT id FROM users WHERE bcrypt_hash IS NULL').
       map { |e| e['id'] }
-    remove_column :accounts, :password
-    return if account_ids.blank?
+    remove_column :users, :password
+    return if user_ids.blank?
 
-    passwords = account_ids.length.times.
+    passwords = user_ids.length.times.
       map { SecureRandom.hex }
     bcrypt_hashes = passwords.
       map { |e| BCrypt::Password.create(e) }
-    cases = account_ids.zip(bcrypt_hashes).
+    cases = user_ids.zip(bcrypt_hashes).
       map { |a, b| "WHEN #{a} THEN '#{b}'" }
     update_sql <<-SQL
-      UPDATE accounts
+      UPDATE users
       SET bcrypt_hash = CASE id #{cases.join(' ')} END
-      WHERE id IN (#{account_ids.join(', ')})
+      WHERE id IN (#{user_ids.join(', ')})
     SQL
   end
 end
