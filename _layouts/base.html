@@ -15,7 +15,7 @@
         <meta content="{{ site.config.title }}" property="og:site_name">
         <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.config.title }}{% endif %}" property="og:title">
         <meta content="{% if page.title %}article{% else %}website{% endif %}" property="og:type">
-        <meta content="{{ site.config.url }}{% if page.title %}{{ page.url }}{% endif %}" property="og:url">
+        <meta content="{{ site.config.url }}{{ page.url }}" property="og:url">
 
         {% comment %} Twitter {% endcomment %}
         <meta content="summary" property="twitter:card">
@@ -25,6 +25,7 @@
         <title>{% if page.title %}{{ page.title }} &#xb7; {% endif %}{{ site.config.title }}</title>
 
         <link href="/static/styles/all.min.css" rel="stylesheet">
+        <link href="{{ site.config.url }}{{ page.url }}" rel="canonical">
 
         {% comment %} Icons {% endcomment %}
         <link href="/static/images/favicon.ico" rel="shortcut icon">
