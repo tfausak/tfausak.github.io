@@ -153,7 +153,7 @@ class RemovePasswordFromUser < ActiveRecord::Migration
       WHERE id IN (#{user_ids.join(', ')})
     SQL
 
-    account_ids.zip(passwords).each do |account_id, password|
+    user_ids.zip(passwords).each do |user_id, password|
       # Send an email, generate a notification, ...
     end
   end
@@ -164,7 +164,7 @@ end
 
 Depending on how your tests are set up, switching to bcrypt could
 slow them down. Changing the work factor is the easiest way to avoid
-this slowdown. In the next version, bcrypt-ruby will support setting
+this slowdown. The next version of bcrypt-ruby will support setting
 the cost with `BCrypt::Engine.cost = x`. For the time being, monkey
 patching is the way to go. Drop this into `spec/support/bcrypt.rb`:
 
