@@ -74,7 +74,7 @@ end
 
 Now we need a couple utility functions. They'll allow us to see
 which accounts use bcrypt, set the password, and compare strings
-against it. These all require the bcrypt-ruby gem, so add `gem
+against it. These all require the [bcrypt-ruby][3] gem, so add `gem
 'bcrypt-ruby'` to you Gemfile.
 
 {% highlight ruby %}
@@ -104,7 +104,7 @@ def self.authenticate(username, password)
   account = find_by_username(username)
   return unless account
   if account.bcrypt?
-    account if password == account.bcrypt
+    account if account.bcrypt == password
   elsif password == account.password
     account.bcrypt = password
     account.password = nil
@@ -152,7 +152,7 @@ Depending on how your tests are set up, switching to bcrypt could
 slow them down. Changing the work factor is the easiest way to avoid
 this slowdown. In the next version, bcrypt-ruby will support setting
 the cost with `BCrypt::Engine.cost = x`. For the time being, monkey
-patching is the way to do. Drop this into `spec/support/bcrypt.rb`:
+patching is the way to go. Drop this into `spec/support/bcrypt.rb`:
 
 {% highlight ruby %}
 require 'bcrypt'
@@ -167,3 +167,4 @@ end
 
 [1]: /static/images/2013-05-10-crypt.jpg
 [2]: http://commons.wikimedia.org/wiki/File:Wola_Gułowska-trumna.jpg
+[3]: https://github.com/codahale/bcrypt-ruby
