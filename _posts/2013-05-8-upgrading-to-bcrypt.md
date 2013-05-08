@@ -25,8 +25,8 @@ cover the majority of password storage techniques:
 5.  Salted and hashed
 6.  Computed from a key derivation function (bcrypt)
 
-It's unequivocally better to store passwords more securely. There
-are no downsides and brute-force attacks become orders of magnitude
+It's unequivocally better to store passwords securely. There are
+no downsides and brute-force attacks become orders of magnitude
 harder. Any greenfield project should use bcrypt (or another key
 derivation function like PBKDF2 or scrypt).
 
