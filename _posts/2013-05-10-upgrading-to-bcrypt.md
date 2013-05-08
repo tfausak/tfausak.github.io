@@ -100,10 +100,14 @@ class User < ActiveRecord::Base
 end
 {% endhighlight %}
 
-Lastly the authenticate function needs to modified to do a couple
-things. It should compare using bcrypt if the user has been updated.
-If it hasn't, it should compare using the old method, then generate
-a new hash using bcrypt and delete the old one.
+Lastly, the authenticate function needs to be modified. It should
+compare using bcrypt if the user has been updated. If they haven't,
+it should compare using the old method.
+
+Once a user authenticates using the old method, it should generate
+a bcrypt hash for them so it'll use that next time. In addition,
+it needs to delete data stored by the old method. If it doesn't,
+an attacker could just focus their efforts on the legacy data.
 
 {% highlight ruby %}
 def self.authenticate(username, password)
