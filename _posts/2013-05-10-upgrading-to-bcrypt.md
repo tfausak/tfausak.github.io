@@ -80,7 +80,7 @@ end
 
 Now we need a couple utility functions. They'll allow us to see
 which users use bcrypt, set the password, and compare strings against
-it. These all require the [bcrypt-ruby][6] gem, so add `gem
+it. These all require the [bcrypt-ruby][5] gem, so add `gem
 'bcrypt-ruby'` to your Gemfile.
 
 {% highlight ruby %}
