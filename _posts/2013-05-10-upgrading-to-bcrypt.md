@@ -125,8 +125,8 @@ on your password recovery service.
 require 'bcrypt'
 class RemovePasswordFromUser < ActiveRecord::Migration
   def up
-    user_ids = ActiveRecord::Base.connection.
-      select_all('SELECT id FROM users WHERE bcrypt_hash IS NULL').
+    user_ids = ActiveRecord::Base.connection.select_all(
+        'SELECT id FROM users WHERE bcrypt_hash IS NULL').
       map { |e| e['id'] }
     remove_column :users, :password
     return if user_ids.blank?
@@ -142,6 +142,10 @@ class RemovePasswordFromUser < ActiveRecord::Migration
       SET bcrypt_hash = CASE id #{cases.join(' ')} END
       WHERE id IN (#{user_ids.join(', ')})
     SQL
+
+    account_ids.zip(passwords).each do |account_id, password|
+      # Send an email, generate a notification, ...
+    end
   end
 end
 {% endhighlight %}
