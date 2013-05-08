@@ -183,7 +183,7 @@ end
 
 Upgrading a legacy system to use bcrypt isn't that hard. You should
 do it sooner rather than later. In the unlikely (but entirely
-possible) event of a database leak, your users' information will
+possible) event of a database leak, your users' passwords will
 be protected.
 
 [1]: /static/images/2013-05-10-crypt.jpg
