@@ -5,11 +5,17 @@ title: Upgrading to bcrypt
 
 [![Crypt][1]][2]
 
-Usually when a database leaks, it contains a bunch of email addresses
-and passwords. Any user with a row in the database should be aware
-that someone could discover their credentials. Depending on how
-their data is stored, it can be either simple or impossible to
-extract the passwords. From least to most secure, these six formats
+Every so often, someone hacks a company and steals their database.
+Usually the database contains a bunch of email addresses and
+passwords. Two weeks ago, [LivingSocial][3] was hacked, leaking 50
+million users' data. Even companies as big as [Sony][4] aren't
+immune; they were hacked in 2011 and had 77 million users' data
+stolen.
+
+As a developer, it's your responsibility to protect your users'
+data should this happen to you. Depending on how you store passwords,
+it can either be trivial or impossible for attackers to compromise
+your users' accounts. From least to most secure, these six formats
 cover the majority of password storage techniques:
 
 1.  Plain text
@@ -74,7 +80,7 @@ end
 
 Now we need a couple utility functions. They'll allow us to see
 which users use bcrypt, set the password, and compare strings against
-it. These all require the [bcrypt-ruby][3] gem, so add `gem
+it. These all require the [bcrypt-ruby][6] gem, so add `gem
 'bcrypt-ruby'` to you Gemfile.
 
 {% highlight ruby %}
@@ -171,4 +177,6 @@ end
 
 [1]: /static/images/2013-05-10-crypt.jpg
 [2]: http://commons.wikimedia.org/wiki/File:Wola_Gułowska-trumna.jpg
-[3]: https://github.com/codahale/bcrypt-ruby
+[3]: http://blog.us.playstation.com/2011/04/26/update-on-playstation-network-and-qriocity/
+[4]: https://www.livingsocial.com/createpassword
+[5]: https://github.com/codahale/bcrypt-ruby
