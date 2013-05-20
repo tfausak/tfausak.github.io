@@ -64,7 +64,7 @@ end
 We want to jump straight to the best case scenario and start using
 bcrypt. Three things are necessary to get that done: add another
 field to the user model; add a handful of new methods; and modify
-the authenticate model.
+the authenticate method.
 
 Up first is adding a new field to the user model. We need to store
 the derived key bcrypt generates. A simple migration takes care of
