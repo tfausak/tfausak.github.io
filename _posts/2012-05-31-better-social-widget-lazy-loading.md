@@ -106,7 +106,7 @@ This blog uses this technique, so just scroll down for an example.
 If you want to see exactly how it's implemented, [check the source][6].
 If you have any complaints or recommendations, please let me know.
 
-[1]: /2012/04/29/lazy-loading-social-widgets/
+[1]: {% post_url 2012-04-29-lazy-loading-social-widgets %}
 [2]: http://news.ycombinator.com/item?id=3907424
 [3]: http://socialitejs.com
 [4]: http://informationarchitects.net/blog/sweep-the-sleaze/

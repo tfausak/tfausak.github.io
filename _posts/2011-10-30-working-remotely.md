@@ -40,4 +40,4 @@ mean we're not tied to our desks.
 [3]: http://www.hypergleam.com
 [4]: http://campfirenow.com
 [5]: http://www.skype.com/en/
-[6]: /2011/10/27/be-productive-use-screen/
+[6]: {% post_url 2011-10-27-be-productive-use-screen %}

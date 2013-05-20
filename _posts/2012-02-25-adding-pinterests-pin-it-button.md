@@ -72,7 +72,7 @@ figured that out yet.
 
 [1]: http://www.famigo.com
 [2]: http://www.famigo.com/free-apps/
-[3]: /2012/02/08/rebuilding-famigo-with-twitter-bootstrap/
+[3]: {% post_url 2012-02-08-rebuilding-famigo-with-twitter-bootstrap %}
 [4]: /static/images/2012-02-25-famigo-cut-the-rope.png
 [5]: http://www.famigo.com/app/cut-the-rope/
 [6]: http://business.pinterest.com/widget-builder/#do_pin_it_button

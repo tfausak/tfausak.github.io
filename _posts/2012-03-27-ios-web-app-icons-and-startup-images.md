@@ -3,7 +3,7 @@ layout: post
 title: iOS Web App Icons & Startup Images
 ---
 
-<aside>Update: <a href="/2012/09/20/iphone-5-web-app-startup-image/">iPhone 5 Web App Startup Image</a></aside>
+<aside>Update: <a href="{% post_url 2012-09-20-iphone-5-web-app-startup-image %}">iPhone 5 Web App Startup Image</a></aside>
 
 Apple makes it a piece of cake to develop web apps for iOS.
 Unfortunately, they haven't updated [their web app documentation][1]
@@ -144,4 +144,4 @@ Phone 7][7] using completely unrelated techniques.
 [4]: https://developer.mozilla.org/en-US/docs/CSS/Media_queries#-moz-device-pixel-ratio
 [5]: /static/pages/2012-03-27-web-app.html
 [6]: https://gist.github.com/tfausak/2222823
-[7]: /2012/02/03/windows-phone-7-web-page-tiles/
+[7]: {% post_url 2012-02-03-windows-phone-7-web-page-tiles %}

@@ -93,5 +93,5 @@ again.
 [1]: https://www.djangoproject.com
 [2]: http://mongoengine.org
 [3]: http://www.codypowell.com
-[4]: /2011/11/18/i-accidentally-deleted-all-our-data/
+[4]: {% post_url 2011-11-18-i-accidentally-deleted-all-our-data %}
 [5]: https://github.com/blog/612-introducing-github-compare-view

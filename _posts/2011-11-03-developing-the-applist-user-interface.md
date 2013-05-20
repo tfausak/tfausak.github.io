@@ -140,7 +140,7 @@ prevent unnecessary roundtrips for repeated queries, but that's a
 lot of extra work for a small benefit. Django returns cached pages
 pretty quickly.
 
-[1]: /2011/11/02/applists-playlists-for-your-apps/
+[1]: {% post_url 2011-11-02-applists-playlists-for-your-apps %}
 [2]: http://www.famigo.com/applists/
 [3]: http://jqueryui.com
 [4]: http://jquery.com

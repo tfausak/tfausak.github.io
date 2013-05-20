@@ -153,7 +153,7 @@ to the bootstrap means you'll have to go back and make sure all these
 values are correct. You should only use this method if you can't (or
 don't want to) modify the bootstrap's CSS files.
 
-[1]: /2012/02/08/rebuilding-famigo-with-twitter-bootstrap/
+[1]: {% post_url 2012-02-08-rebuilding-famigo-with-twitter-bootstrap %}
 [2]: /static/images/2012-03-15-famigo-bootstrap-old-navbar.png
 [3]: /static/images/2012-03-15-famigo-bootstrap-old-navbar-mobile.png
 [4]: /static/images/2012-03-15-famigo-bootstrap-navbar.png
