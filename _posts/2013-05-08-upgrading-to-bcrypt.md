@@ -3,6 +3,8 @@ layout: post
 title: Upgrading to bcrypt
 ---
 
+<aside>Update: <a href="#TODO">Migrating to bcrypt</a></aside>
+
 [![Crypt][1]][2]
 
 Every so often, someone hacks a company and steals their database.
