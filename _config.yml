@@ -1,14 +1,13 @@
-# GitHub Pages forces these options.
-# https://help.github.com/articles/using-jekyll-with-pages#troubleshooting
+%YAML 1.1
+---
+# https://help.github.com/articles/using-jekyll-with-pages#configuring-jekyll
 lsi: false
 pygments: true
 safe: true
 
-# Use this URL format: "/:year/:month/:day/:title/".
-# https://github.com/mojombo/jekyll/wiki/Permalinks#built-in-styles
 permalink: pretty
+timezone: America/Chicago
 
-# Keep the site DRY by customizing things here.
 config:
     author:
         email: taylor@fausak.me

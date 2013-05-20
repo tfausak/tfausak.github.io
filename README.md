@@ -7,8 +7,9 @@ Powered by [GitHub Pages][2].
 ## Setup
 
 ```sh
-bundle install
-bundle exec jekyll serve --drafts --future --watch
+git clone https://github.com/tfausak/tfausak.github.io.git
+cd tfausak.github.io
+make
 # http://localhost:4000
 ```
 
