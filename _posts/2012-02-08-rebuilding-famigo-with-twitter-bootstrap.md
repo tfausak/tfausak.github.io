@@ -76,7 +76,7 @@ I'd love to hear what you think about it!
 [6]: http://foundation.zurb.com
 [7]: http://www.getskeleton.com
 [8]: http://lessframework.com
-[9]: /2011/11/02/applists-playlists-for-your-apps/
+[9]: {% post_url 2011-11-02-applists-playlists-for-your-apps %}
 [10]: /static/images/2012-02-08-famigo-app-tile-comparison.png
 [11]: http://wordpress.org/extend/themes/default
 [12]: /static/images/2012-02-08-famigo-best-free-games.png

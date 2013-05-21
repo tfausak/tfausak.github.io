@@ -3,6 +3,8 @@ layout: post
 title: Upgrading to bcrypt
 ---
 
+<aside>Update: <a href="{% post_url 2013-05-21-immediately-migrating-existing-passwords-to-bcrypt %}">Immediately Migrating Existing Passwords to bcrypt</a></aside>
+
 [![Crypt][1]][2]
 
 Every so often, someone hacks a company and steals their database.
@@ -64,7 +66,7 @@ end
 We want to jump straight to the best case scenario and start using
 bcrypt. Three things are necessary to get that done: add another
 field to the user model; add a handful of new methods; and modify
-the authenticate model.
+the authenticate method.
 
 Up first is adding a new field to the user model. We need to store
 the derived key bcrypt generates. A simple migration takes care of
