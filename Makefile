@@ -1,6 +1,6 @@
 .PHONY: all clean server setup
 
-all: setup server
+all: clean setup server
 
 clean:
 	rm -fr ./_site/
