@@ -17,67 +17,80 @@ However, none of us could come up with any real objections.
 I decided to do a little research.
 After all, combining cryptographic primitives in the wrong way is an easy way to do cryptography wrong.
 I eventually found [a question on the cryptography Stack Exchange][3] that assuaged my fears.
-It said that "the overall idea is a sound migration strategy," which was good enough for me.
+It said that "the overall idea is a sound migration strategy", which was good enough for me.
 
 Motivated by that, and [Geoffrey Couprie's Tweet][4] that "security cannot afford to be eventually consistent", here's how to immediately migrate passwords to bcrypt.
 
-* * *
+## Setup
 
-- everything in the old post stands
-- just add this migration
-- it will take a long time to run
-- that's a good thing, though
-
-- unlike the last post, let's assume you hash your passwords
-- it doesn't matter how (md5, sha1, etc.)
-- or if you use a salt
-- for simplicity, assume `hash(password)` is what you do
-- and that you store the result in a column called `password_hash`
-
-- now instead of calculating bcrypt hashes using the plain text, you'll use the hash
-- `bcrypt(hash(password))`
-- this goes for both comparing and storing
-- so we need to update the user model and the authenticate method
+Assume everything is the same as before, with one notable exception: passwords are hashed.
+The method of hashing is unimportant, as is the presence of a salt.
+For simplicity's sake, let's say they're hashed with a function called `digest`.
+And instead of saving the password itself, save the hash into a field called `password_hash`.
 
 {% highlight ruby %}
-def bcrypt=(new_password)
-  @bcrypt = Password.create(hash(new_password))
-  self.bcrypt_hash = @bcrypt
+def digest(password)
+  password.hash.to_s
 end
+# account.password_hash = digest(password)
 {% endhighlight %}
 
+Now instead of generating bcrypt hashes using the plain text, use the hash.
+This goes for comparing, too.
+We'll need to make two changes to the user model:
+update the bcrypt assignment to use the hash,
+and modify the authenticate method to also use the hash.
+
 {% highlight ruby %}
-def self.authenticate(username, password)
-  user = find_by_username(username)
-  return unless user
-  if user.bcrypt?
-    user if user.bcrypt == password
-  elsif hash(password) == user.password_hash
-    user.bcrypt = hash(password)
-    user.password = nil
-    user.save!
-    user
+class User < ActiveRecord::Base
+  def bcrypt=(new_password)
+    @bcrypt = Password.create(digest(new_password))
+    self.bcrypt_hash = @bcrypt
+  end
+  def self.authenticate(username, password)
+    user = find_by_username(username)
+    return unless user
+    if user.bcrypt?
+      user if user.bcrypt == password
+    elsif digest(password) == user.password_hash
+      user.bcrypt = digest(password)
+      user.password = nil
+      user.save!
+      user
+    end
   end
 end
 {% endhighlight %}
 
+## Migrate
+
+Once that's done, all that's left is the actual migration.
+It'll take a long time to run, but that's a good thing.
+It's by design.
+
+There are three main things going on with this migration:
+
+1.  Grab unmigrated users in chunks until there are no more left.
+    This allows the migration to pick up from where it left off if it gets interrupted.
+
+2.  Calculate each user's bcrypt hash using the password hash as input.
+    Since bcrypt is designed to be slow, this will take a while.
+
+3.  Save the bcrypt hash.
+    Using `update_column` avoids triggering callbacks or running validators.
+
 {% highlight ruby %}
-class CalculateBcryptHashes < ActiveRecord::Migration
+class BcryptMigration < ActiveRecord::Migration
   class User < ActiveRecord::Base; end
   def up
     loop do
-      #
       users = User.select([:id, :password_hash]).
         where(:bcrypt_hash => nil).order(:id).limit(100)
       break if users.empty?
-      #
       users.each do |user|
-        user['bcrypt_hash'] =
+        bcrypt_hash =
           BCrypt::Password.create(user['password_hash'])
-      end
-      #
-      users.each do |user|
-        user.update_column(:bcrypt_hash, user['bcrypt_hash'])
+        user.update_column(:bcrypt_hash, bcrypt_hash)
       end
     end
   end
