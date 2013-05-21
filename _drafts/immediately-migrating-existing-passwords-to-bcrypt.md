@@ -34,7 +34,7 @@ and storing the result in `password_hash`.
 def digest(password)
   password.hash.to_s
 end
-# account.password_hash = digest(password)
+# user.password_hash = digest(password)
 {% endhighlight %}
 
 Setting the password is now slightly more complicated than before.
@@ -60,7 +60,7 @@ def self.authenticate(username, password)
   if user.bcrypt?
     user if user.bcrypt == password_hash
   elsif user.password_hash == password_hash
-    user.bcrypt = password_hash
+    user.bcrypt = password
     user.save!
     user
   end
