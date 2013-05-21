@@ -3,7 +3,7 @@ layout: post
 title: Upgrading to bcrypt
 ---
 
-<aside>Update: <a href="#TODO">Migrating to bcrypt</a></aside>
+<aside>Update: <a href="{% post_url 2013-05-21-immediately-migrating-existing-passwords-to-bcrypt %}">Immediately Migrating Existing Passwords to bcrypt</a></aside>
 
 [![Crypt][1]][2]
 
