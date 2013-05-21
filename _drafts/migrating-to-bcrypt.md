@@ -23,10 +23,10 @@ Motivated by that, and [Geoffrey Couprie's Tweet][4] that "security cannot affor
 
 ## Setup
 
-Assume everything is the same as before, with one notable exception: passwords are hashed.
-The method of hashing is unimportant, as is the presence of a salt.
-For simplicity's sake, let's say they're hashed with a function called `digest`.
-And instead of saving the password itself, save the hash into a field called `password_hash`.
+Assume that everything's the same as before, except that the passwords
+are hashed. It doesn't matter how they're hashed or if a salt is
+used. Let's keep it simple by calling the hash function `digest`
+and storing the result in `password_hash`.
 
 {% highlight ruby %}
 def digest(password)
@@ -35,29 +35,32 @@ end
 # account.password_hash = digest(password)
 {% endhighlight %}
 
-Now instead of generating bcrypt hashes using the plain text, use the hash.
-This goes for comparing, too.
-We'll need to make two changes to the user model:
-update the bcrypt assignment to use the hash,
-and modify the authenticate method to also use the hash.
+Setting the password is now slightly more complicated than before.
+Instead of simply using the plain text password as the input to
+bcrypt, we have to use the password hash. This adds a layer of
+indirection but allows us to migrate without knowing the original
+passwords.
 
 {% highlight ruby %}
-class User < ActiveRecord::Base
-  def bcrypt=(new_password)
-    @bcrypt = Password.create(digest(new_password))
-    self.bcrypt_hash = @bcrypt
-  end
-  def self.authenticate(username, password)
-    user = find_by_username(username)
-    return unless user
-    if user.bcrypt?
-      user if user.bcrypt == password
-    elsif digest(password) == user.password_hash
-      user.bcrypt = digest(password)
-      user.password = nil
-      user.save!
-      user
-    end
+def bcrypt=(new_password)
+  @bcrypt = self.bcrypt_hash =
+    Password.create(digest(new_password))
+end
+{% endhighlight %}
+
+Similarly, checking passwords now requires comparing against the
+hashed password.
+
+{% highlight ruby %}
+def self.authenticate(username, password)
+  return unless user = find_by_username(username)
+  password_hash = digest(password)
+  if user.bcrypt?
+    user if user.bcrypt == password_hash
+  elsif user.password_hash == password_hash
+    user.bcrypt = password_hash
+    user.save!
+    user
   end
 end
 {% endhighlight %}
