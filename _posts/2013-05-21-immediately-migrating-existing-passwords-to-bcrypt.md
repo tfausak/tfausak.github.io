@@ -5,7 +5,7 @@ title: Immediately Migrating Existing Passwords to bcrypt
 
 > Security cannot afford to be "eventually consistent".
 
-That's [Geoffrey Couprie's response][1] to my last post about
+That's [Geoffroy Couprie's response][1] to my last post about
 [upgrading to bcrypt][2]. He's right, of course. The solution he
 proposed is the same one [kcen suggested][3] on Reddit:
 
