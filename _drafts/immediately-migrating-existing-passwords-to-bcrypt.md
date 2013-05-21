@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Migrating to bcrypt
+title: Immediately Migrating Existing Passwords to bcrypt
 ---
 
 [Redditor kcen commented][1] on my last post about [upgrading to bcrypt][2], pointing out a problem and proposing a solution:
