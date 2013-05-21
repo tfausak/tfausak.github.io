@@ -3,23 +3,25 @@ layout: post
 title: Immediately Migrating Existing Passwords to bcrypt
 ---
 
-[Redditor kcen commented][1] on my last post about [upgrading to bcrypt][2], pointing out a problem and proposing a solution:
+> Security cannot afford to be "eventually consistent".
 
-> The transition from the old style password store to the bcrypted store leaves far too much in limbo and essentially leaves you with a large set of known insecure passwords in your database. \[...\]
->
-> I solved this problem at a company I joined a couple years ago. \[...\] I created a new database column, bcrypted all of those hashes, then dropped the original password column from the database.
+That's [Geoffrey Couprie's response][4] to my last post about
+[upgrading to bcrypt][2]. He's right, of course. The solution he
+propsed is the same one [kcen suggested][1] on Reddit:
 
-At first, and for no good reason, I disliked the idea of bcrypting a password hash.
-It just felt weird.
-I asked some of my colleagues about it and they agreed.
-However, none of us could come up with any real objections.
+> I solved this problem at a company I joined a couple years ago.
+> \[...\] I created a new database column, bcrypted all of those
+> hashes, then dropped the original password column from the database.
 
-I decided to do a little research.
-After all, combining cryptographic primitives in the wrong way is an easy way to do cryptography wrong.
-I eventually found [a question on the cryptography Stack Exchange][3] that assuaged my fears.
-It said that "the overall idea is a sound migration strategy", which was good enough for me.
+At first, and for no good reason, I disliked the idea of bcrypting
+a password hash. It just felt weird. I asked around and everyone
+agreed: weird, but not real objections.
 
-Motivated by that, and [Geoffrey Couprie's Tweet][4] that "security cannot afford to be eventually consistent", here's how to immediately migrate passwords to bcrypt.
+So I decided to do a little research. After all, combining cryptographic
+primitives in the wrong way is an easy way to do cryptography wrong.
+I eventually found [a question on the cryptography Stack Exchange][3]
+that assuaged my fears. It said that "the overall idea is a sound
+migration strategy", which was good enough for me.
 
 ## Setup
 
