@@ -7,7 +7,7 @@ title: Immediately Migrating Existing Passwords to bcrypt
 
 That's [Geoffrey Couprie's response][1] to my last post about
 [upgrading to bcrypt][2]. He's right, of course. The solution he
-propsed is the same one [kcen suggested][3] on Reddit:
+proposed is the same one [kcen suggested][3] on Reddit:
 
 > I solved this problem at a company I joined a couple years ago.
 > \[...\] I created a new database column, bcrypted all of those
@@ -15,7 +15,7 @@ propsed is the same one [kcen suggested][3] on Reddit:
 
 At first, and for no good reason, I disliked the idea of bcrypting
 a password hash. It just felt weird. I asked around and everyone
-agreed: weird, but not real objections.
+agreed: weird, but no real objections.
 
 So I decided to do a little research. After all, combining cryptographic
 primitives in the wrong way is an easy way to do cryptography wrong.
