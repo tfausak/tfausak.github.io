@@ -5,9 +5,9 @@ title: Immediately Migrating Existing Passwords to bcrypt
 
 > Security cannot afford to be "eventually consistent".
 
-That's [Geoffrey Couprie's response][4] to my last post about
+That's [Geoffrey Couprie's response][1] to my last post about
 [upgrading to bcrypt][2]. He's right, of course. The solution he
-propsed is the same one [kcen suggested][1] on Reddit:
+propsed is the same one [kcen suggested][3] on Reddit:
 
 > I solved this problem at a company I joined a couple years ago.
 > \[...\] I created a new database column, bcrypted all of those
@@ -19,7 +19,7 @@ agreed: weird, but not real objections.
 
 So I decided to do a little research. After all, combining cryptographic
 primitives in the wrong way is an easy way to do cryptography wrong.
-I eventually found [a question on the cryptography Stack Exchange][3]
+I eventually found [a question on the cryptography Stack Exchange][4]
 that assuaged my fears. It said that "the overall idea is a sound
 migration strategy", which was good enough for me.
 
@@ -121,8 +121,8 @@ it's better to do that as a separate migration after this one
 finishes. That way if anything goes wrong with the switch to bcrypt
 you can fall back to the old method.
 
-[1]: http://www.reddit.com/r/rails/comments/1e049z/upgrading_to_bcrypt/c9vws08
+[1]: https://twitter.com/gcouprie/status/335888084170338304
 [2]: {% post_url 2013-05-08-upgrading-to-bcrypt %}
-[3]: http://crypto.stackexchange.com/questions/2945/is-this-password-migration-strategy-secure
-[4]: https://twitter.com/gcouprie/status/335888084170338304
-[5]: http://www.ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html
+[3]: http://www.reddit.com/r/rails/comments/1e049z/upgrading_to_bcrypt/c9vws08
+[4]: http://crypto.stackexchange.com/questions/2945/is-this-password-migration-strategy-secure
+[5]: http://www.ruby-doc.org/stdlib-2.0/libdoc/benchmark/rdoc/Benchmark.html
