@@ -67,20 +67,34 @@ end
 
 ## Migrate
 
-Once that's done, all that's left is the actual migration.
-It'll take a long time to run, but that's a good thing.
-It's by design.
+After doing that, the only thing left to do is the actual migration.
+Be warned: this will take a long time. Although the exact time
+depends on your machine, you can get an estimate using the
+[benchmark][5] module.
 
-There are three main things going on with this migration:
+{% highlight ruby %}
+Benchmark.measure do
+  100.times do
+    BCrypt::Password.create('secret')
+  end
+end.total
+# => 7.45
+{% endhighlight %}
 
-1.  Grab unmigrated users in chunks until there are no more left.
-    This allows the migration to pick up from where it left off if it gets interrupted.
+The migration itself is pretty straightforward. It has three moving
+parts:
 
-2.  Calculate each user's bcrypt hash using the password hash as input.
-    Since bcrypt is designed to be slow, this will take a while.
+1.  Grab unmigrated users in chunks until none are left. This allows
+    the migration to pick up from where it left off it it gets
+    interrupted. In addition, users migrated through the authenticate
+    method won't throw a wrench in the works.
 
-3.  Save the bcrypt hash.
-    Using `update_column` avoids triggering callbacks or running validators.
+2.  Calculate a bcrypt hash for each user using the password hash
+    as input. This part will take a while, since bcrypt is designed
+    to be slow.
+
+3.  Save the bcrypt hash to the database. Using `update_column`
+    avoids triggering callbacks or running validators.
 
 {% highlight ruby %}
 class BcryptMigration < ActiveRecord::Migration
@@ -100,7 +114,13 @@ class BcryptMigration < ActiveRecord::Migration
 end
 {% endhighlight %}
 
+Although you could remove `password_hash` entirely in this migration,
+it's better to do that as a separate migration after this one
+finishes. That way if anything goes wrong with the switch to bcrypt
+you can fall back to the old method.
+
 [1]: http://www.reddit.com/r/rails/comments/1e049z/upgrading_to_bcrypt/c9vws08
 [2]: {% post_url 2013-05-08-upgrading-to-bcrypt %}
 [3]: http://crypto.stackexchange.com/questions/2945/is-this-password-migration-strategy-secure
 [4]: https://twitter.com/gcouprie/status/335888084170338304
+[5]: http://www.ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html
