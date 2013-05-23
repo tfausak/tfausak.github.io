@@ -5,6 +5,10 @@
         <meta charset="utf-8">
         <meta content="initial-scale=1, width=device-width" name="viewport">
 
+        {% comment %} Windows 8 Tile {% endcomment %}
+        <meta content="#dc322f" name="msapplication-TileColor">
+        <meta content="{{ site.config.url }}/static/images/msapplication-TileImage.png" name="msapplication-TileImage">
+
         {% comment %} Facebook {% endcomment %}
         <meta content="{{ site.config.author.facebook_id }}" property="fb:admins">
 
@@ -22,6 +26,9 @@
         <meta content="{{ site.config.author.twitter_id }}" property="twitter:creator:id">
         <meta content="{{ site.config.author.twitter_id }}" property="twitter:site:id">
 
+        {% comment %} Title {% endcomment %}
+        <meta content="{{ site.config.title }}" name="apple-mobile-web-app-title">
+        <meta content="{{ site.config.title }}" name="application-name">
         <title>{% if page.title %}{{ page.title }} &#xb7; {% endif %}{{ site.config.title }}</title>
 
         <link href="/static/styles/all.min.css" rel="stylesheet">
