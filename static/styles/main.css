@@ -218,13 +218,13 @@ ul {
     margin: 0;
     vertical-align: middle;
 }
-.footer .posts.relative .post.older {
+.footer .posts.relative .post.prev {
     text-align: left;
 }
 .footer .posts.relative .post.home {
     text-align: center;
 }
-.footer .posts.relative .post.newer {
+.footer .posts.relative .post.next {
     text-align: right;
 }
 aside {

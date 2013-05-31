@@ -51,9 +51,9 @@ layout: base
     </ul>
 
     <ul class="posts relative">
-        <li class="post older">
+        <li class="post prev">
             {% if page.previous %}
-                &#x2190;&#xa0;<a href="{{ page.previous.url }}">{{ page.previous.title }}</a>
+                &#x2190;&#xa0;<a href="{{ page.previous.url }}" rel="prev">{{ page.previous.title }}</a>
             {% endif %}
         </li>
 
@@ -61,9 +61,9 @@ layout: base
             <a href="/">Home</a>
         </li>
 
-        <li class="post newer">
+        <li class="post next">
             {% if page.next %}
-                <a href="{{ page.next.url }}">{{ page.next.title }}</a>&#xa0;&#x2192;
+                <a href="{{ page.next.url }}" rel="next">{{ page.next.title }}</a>&#xa0;&#x2192;
             {% endif %}
         </li>
     </ul>
