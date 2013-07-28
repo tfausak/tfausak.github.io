@@ -202,30 +202,27 @@ ul {
     font-weight: normal;
     margin-top: 0;
 }
-.footer .posts.related .post {
+.footer .posts {
+    margin-bottom: 0;
+}
+.footer .post,
+.footer .home {
     list-style: square;
     margin-left: 1.5em;
 }
-.footer .posts.relative {
-    display: table;
+.footer .home {
     list-style: none;
-    margin: 0;
-    table-layout: fixed;
-    width: 100%;
+    position: relative;
 }
-.footer .posts.relative .post {
-    display: table-cell;
-    margin: 0;
-    vertical-align: middle;
+.footer .home:before {
+    display: block;
+    left: -1.5em;
+    position: absolute;
+    top: 0;
+    width: 1.5em;
 }
-.footer .posts.relative .post.prev {
-    text-align: left;
-}
-.footer .posts.relative .post.home {
-    text-align: center;
-}
-.footer .posts.relative .post.next {
-    text-align: right;
+.footer .home:before {
+    content: '\2190';
 }
 aside {
     background: #eee8d5;
