@@ -19,10 +19,11 @@ There's a comment right above them that says:
 
 But none of them have any versions specified.
 You could argue that that's what `Gemfile.lock` is for.
-I don't buy that, though.
+I don't buy that.
 There's a world of difference between `gem 'sass'` and `gem 'sass', '~> 3.2.10'`.
 
-So what can be done?
+## What can be done?
+
 With one simple helper function, you can fix both problems.
 Drop this into your Gemfile before any gems:
 
@@ -58,5 +59,5 @@ You'll have to explicitly require them at the top of the file.
 
 As a Pythonista, this doesn't bug me one bit.
 If you still need convincing, consider this:
-It got the OrgSync project's startup time down to 10 seconds (a 30% improvement)!
+It got the OrgSync project's startup time down to 12 seconds (a 20% improvement)!
 And that's not even as fast as it could be --- 43 gems are still eagerly required.
