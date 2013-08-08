@@ -10,12 +10,12 @@ Running `bundle exec rake environment` takes at least 15 seconds.
 That might not sound like much, but it adds up.
 Think of it as a 15 second tax every time you do anything.
 
-Many of the gems are severely under-specified, too.
+Plus, we don't specify versions for many of the gems.
 This makes running `bundle update` downright dangerous, as you could upgrade to a new major version of a gem.
-Our worst offenders were for assets, like CoffeeScript and Sass.
+Gems in the asset group, like CoffeeScript and Sass, were the worst offenders.
 There's a comment right above them that says:
 
-> Make sure you peform a full asset precompile on deploy whenever you update any of the gems in the following group.
+> Make sure you perform a full asset precompile on deploy whenever you update any of the gems in the following group.
 
 But none of them have any versions specified.
 You could argue that that's what `Gemfile.lock` is for.
@@ -58,6 +58,7 @@ As a result, most of your gems won't be available any more.
 You'll have to explicitly require them at the top of the file.
 
 As a Pythonista, this doesn't bug me one bit.
+After all, explicit is better than implicit.
 If you still need convincing, consider this:
-It got the OrgSync project's startup time down to 12 seconds (a 20% improvement)!
+It got the OrgSync project's startup time down to 12 seconds (a 20% improvement).
 And that's not even as fast as it could be --- 43 gems are still eagerly required.
