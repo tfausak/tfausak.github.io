@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.0.0'
 
-gem 'github-pages', '1', require: false
+gem 'github-pages', '4', require: false
