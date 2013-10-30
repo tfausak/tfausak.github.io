@@ -1,10 +1,29 @@
 <!doctype html>
 
-<html lang="en-us">
+<html lang="en-us" prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
         <meta content="initial-scale=1, width=device-width" name="viewport">
 
+        <meta content="#ac4142" name="msapplication-TileColor">
+        <meta content="/static/images/msapplication-TileImage.png" name="msapplication-TileImage">
+
+        <meta content="100001771158100" property="fb:admins">
+
+        <meta content="404 Not Found" property="og:description">
+        <meta content="http://taylor.fausak.me/static/images/og-image.png" property="og:image">
+        <meta content="en_US" property="og:locale">
+        <meta content="taylor.fausak.me" property="og:site_name">
+        <meta content="taylor.fausak.me" property="og:title">
+        <meta content="website" property="og:type">
+        <meta content="http://taylor.fausak.me/404" property="og:url">
+
+        <meta content="summary" property="twitter:card">
+        <meta content="204457677" property="twitter:creator:id">
+        <meta content="204457677" property="twitter:site:id">
+
+        <meta content="taylor.fausak.me" name="apple-mobile-web-app-title">
+        <meta content="taylor.fausak.me" name="application-name">
         <title>404 &#xb7; taylor.fausak.me</title>
 
         <link href="/static/styles/all.min.css" rel="stylesheet">
@@ -15,46 +34,52 @@
         <link href="/static/images/apple-touch-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114">
         <link href="/static/images/apple-touch-icon-144x144.png" rel="apple-touch-icon-precomposed" sizes="144x144">
 
-        <link href="/sitemap.atom" rel="alternate" title="taylor.fausak.me Atom" type="application/atom+xml">
-        <link href="/sitemap.rss" rel="alternate" title="taylor.fausak.me RSS" type="application/rss+xml">
+        <link href="/sitemap.atom" rel="alternate" title="{{ site.config.title }} (Atom)" type="application/atom+xml">
+        <link href="/sitemap.rss" rel="alternate" title="{{ site.config.title }} (RSS)" type="application/rss+xml">
+
+        <link href="http://taylor.fausak.me/404" rel="canonical">
     </head>
 
     <body itemscope itemtype="http://schema.org/Blog">
-        <div id="fb-root"></div>
-
         <header class="header">
             <div class="wrapper">
                 <h1 itemprop="name">
-                    taylor.fausak.me
-                </h1>
+                    <a href="/" itemprop="url" title="taylor.fausak.me">
+                        <i class="logo">
+                            <i class="tl"></i> <i class="tc"></i> <i class="tr"></i>
+                            <i class="cl"></i> <i class="cc"></i> <i class="cr"></i>
+                            <i class="bl"></i> <i class="bc"></i> <i class="br"></i>
+                        </i>
 
-                <a href="/" itemprop="url">
-                    <span class="logo">
-                        <span class="tl"></span>
-                        <span class="tc"></span>
-                        <span class="tr"></span>
-                        <span class="cl"></span>
-                        <span class="cc"></span>
-                        <span class="cr"></span>
-                        <span class="bl"></span>
-                        <span class="bc"></span>
-                        <span class="br"></span>
-                    </span>
-                </a>
+                        <span>
+                            taylor.fausak.me
+                        </span>
+                    </a>
+                </h1>
             </div>
         </header>
 
         <div class="content">
             <div class="wrapper">
-                <article class="post">
-                    <h1>404</h1>
+                <h1>404</h1>
 
-                    <div>
-                        <p>Not found</p>
-                    </div>
-                </article>
+                <p>Not Found</p>
             </div>
         </div>
+
+        <footer class="footer">
+            <div class="wrapper">
+                <ul>
+                    <li class="home">
+                        <i class="logo">
+                            <i class="tl"></i> <i class="tc"></i> <i class="tr"></i>
+                            <i class="cl"></i> <i class="cc"></i> <i class="cr"></i>
+                            <i class="bl"></i> <i class="bc"></i> <i class="br"></i>
+                        </i>
+                    </li>
+                </ul>
+            </div>
+        </footer>
 
         <script async src="/static/scripts/all.min.js"></script>
     </body>
