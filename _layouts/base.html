@@ -32,7 +32,6 @@
         <title>{% if page.title %}{{ page.title }} &#xb7; {% endif %}{{ site.config.title }}</title>
 
         <link href="/static/styles/all.min.css" rel="stylesheet">
-        <link href="{{ site.config.url }}{{ page.url }}" rel="canonical">
 
         {% comment %} Icons {% endcomment %}
         <link href="/static/images/favicon.ico" rel="shortcut icon">
@@ -44,6 +43,15 @@
         {% comment %} Feeds {% endcomment %}
         <link href="/sitemap.atom" rel="alternate" title="{{ site.config.title }} (Atom)" type="application/atom+xml">
         <link href="/sitemap.rss" rel="alternate" title="{{ site.config.title }} (RSS)" type="application/rss+xml">
+
+        {% comment %} Pagination {% endcomment %}
+        <link href="{{ site.config.url }}{{ page.url }}" rel="canonical">
+        {% if page.previous %}
+            <link href="{{ site.config.url }}{{ page.previous.url }}" rel="prefetch prev">
+        {% endif %}
+        {% if page.next %}
+            <link href="{{ site.config.url }}{{ page.next.url }}" rel="prefetch next">
+        {% endif %}
     </head>
 
     <body itemscope itemtype="http://schema.org/Blog">
