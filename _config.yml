@@ -12,7 +12,7 @@ config:
     author:
         email: taylor@fausak.me
         facebook_id: 100001771158100
-        google_id: '+TaylorFausak'
+        google_id: +TaylorFausak
         name: Taylor Fausak
         twitter_id: 204457677
     title: taylor.fausak.me
