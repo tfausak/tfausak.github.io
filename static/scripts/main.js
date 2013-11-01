@@ -10,7 +10,7 @@ var _gaq = [
     // Google Analytics
     script = document.createElement('script');
     script.async = true;
-    script.src = (/^https/.test(location) ? '//ssl' : '//www') +
+    script.src = (/^https/.test(window.location) ? '//ssl' : '//www') +
         '.google-analytics.com/ga.js';
     document.body.appendChild(script);
 }());
