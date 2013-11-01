@@ -3,56 +3,23 @@
 <html lang="en-us" prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
-        <meta content="initial-scale=1, width=device-width" name="viewport">
 
-        {% comment %} Windows 8 Tile {% endcomment %}
-        <meta content="#ac4142" name="msapplication-TileColor">
-        <meta content="/static/images/msapplication-TileImage.png" name="msapplication-TileImage">
-
-        {% comment %} Facebook {% endcomment %}
-        <meta content="{{ site.config.author.facebook_id }}" property="fb:admins">
-
-        {% comment %} Open Graph {% endcomment %}
-        <meta content="{{ content | strip_html | strip_newlines | split: ' ' | join: ' ' | truncate: 200 }}" property="og:description">
-        <meta content="{{ site.config.url }}/static/images/og-image.png" property="og:image">
-        <meta content="en_US" property="og:locale">
-        <meta content="{{ site.config.title }}" property="og:site_name">
-        <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.config.title }}{% endif %}" property="og:title">
-        <meta content="{% if page.title %}article{% else %}website{% endif %}" property="og:type">
-        <meta content="{{ site.config.url }}{{ page.url }}" property="og:url">
-
-        {% comment %} Twitter {% endcomment %}
-        <meta content="summary" property="twitter:card">
-        <meta content="{{ site.config.author.twitter_id }}" property="twitter:creator:id">
-        <meta content="{{ site.config.author.twitter_id }}" property="twitter:site:id">
-
-        {% comment %} Title {% endcomment %}
-        <meta content="{{ site.config.title }}" name="apple-mobile-web-app-title">
-        <meta content="{{ site.config.title }}" name="application-name">
         <title>{% if page.title %}{{ page.title }} &#xb7; {% endif %}{{ site.config.title }}</title>
 
-        {% comment %} Styles {% endcomment %}
         <link href="/static/styles/all.min.css" rel="stylesheet">
-
-        {% comment %} Icons {% endcomment %}
         <link href="/static/images/favicon.ico" rel="shortcut icon">
-        <link href="/static/images/apple-touch-icon-57x57.png" rel="apple-touch-icon-precomposed" sizes="57x57">
-        <link href="/static/images/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72">
-        <link href="/static/images/apple-touch-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114">
-        <link href="/static/images/apple-touch-icon-144x144.png" rel="apple-touch-icon-precomposed" sizes="144x144">
 
-        {% comment %} Feeds {% endcomment %}
         <link href="/sitemap.atom" rel="alternate" title="{{ site.config.title }} (Atom)" type="application/atom+xml">
         <link href="/sitemap.rss" rel="alternate" title="{{ site.config.title }} (RSS)" type="application/rss+xml">
 
-        {% comment %} Pagination {% endcomment %}
         <link href="{{ site.config.url }}{{ page.url }}" rel="canonical">
-        {% if page.previous %}
-            <link href="{{ page.previous.url }}" rel="prefetch prev">
-        {% endif %}
-        {% if page.next %}
-            <link href="{{ page.next.url }}" rel="prefetch next">
-        {% endif %}
+
+        {% include apple.html %}
+        {% include facebook.html %}
+        {% include opengraph.html %}
+        {% include pagination.html %}
+        {% include twitter.html %}
+        {% include windows.html %}
     </head>
 
     <body itemscope itemtype="http://schema.org/Blog">
@@ -60,11 +27,7 @@
             <div class="wrapper">
                 <h1 itemprop="name">
                     <a href="/" itemprop="url" title="{{ site.config.title }}">
-                        <i class="logo">
-                            <i class="tl"></i> <i class="tc"></i> <i class="tr"></i>
-                            <i class="cl"></i> <i class="cc"></i> <i class="cr"></i>
-                            <i class="bl"></i> <i class="bc"></i> <i class="br"></i>
-                        </i>
+                        {% include logo.html %}
 
                         <span>
                             {{ site.config.title }}
@@ -100,17 +63,12 @@
                     {% endif %}
 
                     <li class="home">
-                        <i class="logo">
-                            <i class="tl"></i> <i class="tc"></i> <i class="tr"></i>
-                            <i class="cl"></i> <i class="cc"></i> <i class="cr"></i>
-                            <i class="bl"></i> <i class="bc"></i> <i class="br"></i>
-                        </i>
+                        {% include logo.html %}
                     </li>
                 </ul>
             </div>
         </footer>
 
-        {% comment %} Scripts {% endcomment %}
         <script async src="/static/scripts/all.min.js"></script>
     </body>
 </html>

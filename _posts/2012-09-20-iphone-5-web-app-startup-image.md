@@ -3,6 +3,8 @@ layout: post
 title: iPhone 5 Web App Startup Image
 ---
 
+<aside>Update: <a href="{% post_url 2013-11-01-ios-7-web-apps %}">iOS 7 Web Apps</a></aside>
+
 ![iPhone comparison][1]
 
 I wrote about [icons and startup images for iOS web apps][2] a while

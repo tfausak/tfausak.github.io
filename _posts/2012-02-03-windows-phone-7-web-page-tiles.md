@@ -3,6 +3,8 @@ layout: post
 title: Windows Phone 7 Web Page Tiles
 ---
 
+<aside>Update: You should use <a href="http://www.buildmypinnedsite.com/">My Pinned Site</a> by Microsoft to create web page tiles.</aside>
+
 Adding a web page to the home screen of an iOS device uses a
 screenshot of the page or [a web page icon][1] if it's available.
 Similarly, adding a web page to a home screen on an Android device

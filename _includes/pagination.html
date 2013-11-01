@@ -1,0 +1,11 @@
+{% if page.previous %}
+    <link
+        rel="prefetch prev"
+        href="{{ page.previous.url }}">
+{% endif %}
+
+{% if page.next %}
+    <link
+        rel="prefetch next"
+        href="{{ page.next.url }}">
+{% endif %}
