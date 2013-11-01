@@ -18,4 +18,4 @@
     content="{% if page.title %}article{% else %}website{% endif %}">
 <meta
     property="og:url"
-    content="{{ site.config.url }}{{ page.url }}">
+    content="{{ site.config.url }}{% if page.title %}{{ page.url }}{% endif %}">

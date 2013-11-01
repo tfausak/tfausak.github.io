@@ -9,7 +9,7 @@ layout: nil
     <link href="{{ site.config.url }}/sitemap.atom" rel="self"/>
     <link href="{{ site.config.url }}"/>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
-    <id>{{ site.config.url }}/</id>
+    <id>{{ site.config.url }}</id>
     <author>
         <name>{{ site.config.author.name }}</name>
         <email>{{ site.config.author.email }}</email>

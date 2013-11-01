@@ -12,7 +12,7 @@
         <link href="/sitemap.atom" rel="alternate" title="{{ site.config.title }} (Atom)" type="application/atom+xml">
         <link href="/sitemap.rss" rel="alternate" title="{{ site.config.title }} (RSS)" type="application/rss+xml">
 
-        <link href="{{ site.config.url }}{{ page.url }}" rel="canonical">
+        <link href="{{ site.config.url }}{% if page.title %}{{ page.url }}{% endif %}" rel="canonical">
 
         {% include apple.html %}
         {% include facebook.html %}
