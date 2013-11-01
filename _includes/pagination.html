@@ -1,11 +1,23 @@
 {% if page.previous %}
     <link
-        rel="prefetch prev"
+        rel="prev"
+        href="{{ page.previous.url }}">
+    <link
+        rel="prefetch"
+        href="{{ page.previous.url }}">
+    <link
+        rel="prerender"
         href="{{ page.previous.url }}">
 {% endif %}
 
 {% if page.next %}
     <link
-        rel="prefetch next"
+        rel="next"
+        href="{{ page.next.url }}">
+    <link
+        rel="prefetch"
+        href="{{ page.next.url }}">
+    <link
+        rel="prerender"
         href="{{ page.next.url }}">
 {% endif %}
