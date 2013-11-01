@@ -3,7 +3,7 @@
 all: clean setup server
 
 clean:
-	rm -d -f -R ./_site/
+	rm -f -R ./_site/
 
 # On a Vagrant box, you'll probably want this command instead:
 #   env LC_ALL=en_US.UTF-8 bundle exec jekyll serve --drafts --future --host=0.0.0.0 --port=8080 --watch
