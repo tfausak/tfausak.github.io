@@ -1,7 +1,21 @@
-<meta content="{{ content | strip_html | strip_newlines | split: ' ' | join: ' ' | truncate: 200 }}" property="og:description">
-<meta content="{{ site.config.url }}/static/images/og-image.png" property="og:image">
-<meta content="en_US" property="og:locale">
-<meta content="{{ site.config.title }}" property="og:site_name">
-<meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.config.title }}{% endif %}" property="og:title">
-<meta content="{% if page.title %}article{% else %}website{% endif %}" property="og:type">
-<meta content="{{ site.config.url }}{{ page.url }}" property="og:url">
+<meta
+    property="og:description"
+    content="{{ content | strip_html | strip_newlines | split: ' ' | join: ' ' | truncate: 200 }}">
+<meta
+    property="og:image"
+    content="{{ site.config.url }}/static/images/og-image.png">
+<meta
+    property="og:locale"
+    content="en_US">
+<meta
+    property="og:site_name"
+    content="{{ site.config.title }}">
+<meta
+    property="og:title"
+    content="{% if page.title %}{{ page.title }}{% else %}{{ site.config.title }}{% endif %}">
+<meta
+    property="og:type"
+    content="{% if page.title %}article{% else %}website{% endif %}">
+<meta
+    property="og:url"
+    content="{{ site.config.url }}{{ page.url }}">
