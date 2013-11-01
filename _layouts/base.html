@@ -23,19 +23,7 @@
     </head>
 
     <body itemscope itemtype="http://schema.org/Blog">
-        <header class="header">
-            <div class="wrapper">
-                <h1 itemprop="name">
-                    <a href="/" itemprop="url" title="{{ site.config.title }}">
-                        {% include logo.html %}
-
-                        <span>
-                            {{ site.config.title }}
-                        </span>
-                    </a>
-                </h1>
-            </div>
-        </header>
+        {% include header.html %}
 
         <div class="content">
             <div class="wrapper">
@@ -43,31 +31,7 @@
             </div>
         </div>
 
-        <footer class="footer">
-            <div class="wrapper">
-                <ul>
-                    {% if page.previous %}
-                        <li class="prev">
-                            <a href="{{ page.previous.url }}" rel="prev" title="{{ page.previous.title }}">
-                                &#x2190;
-                            </a>
-                        </li>
-                    {% endif %}
-
-                    {% if page.next %}
-                        <li class="next">
-                            <a href="{{ page.next.url }}" rel="next" title="{{ page.next.title }}">
-                                &#x2192;
-                            </a>
-                        </li>
-                    {% endif %}
-
-                    <li class="home">
-                        {% include logo.html %}
-                    </li>
-                </ul>
-            </div>
-        </footer>
+        {% include footer.html %}
 
         <script async src="/static/scripts/all.min.js"></script>
     </body>
