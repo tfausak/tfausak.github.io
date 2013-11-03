@@ -29,20 +29,20 @@ def run(*args)
 end
 
 # Rasterize the logo as a square.
-def square(size, slug)
+def square(size, slug, background = $background)
   output = "#{$directory}/#{slug}.png"
   run('convert',
-    '-background', $background,
+    '-background', background,
     '-density', density(size),
     $input, output)
   output
 end
 
 # Rasterize the logo as a rectangle.
-def rect(width, height, slug, rotate = true)
+def rect(width, height, slug, rotate = true, background = $background)
   output = "#{$directory}/#{slug}.png"
   args = [
-    '-background', $background,
+    '-background', background,
     '-density', density([width, height].min),
     '-gravity', 'center'
   ]
@@ -56,28 +56,28 @@ def rect(width, height, slug, rotate = true)
   output
 end
 
-[57, 60, 72, 76, 114, 120, 144, 152].each do |size|
-  square(size, "apple-touch-icon-#{size}x#{size}")
-end
+# [57, 60, 72, 76, 114, 120, 144, 152].each do |size|
+#   square(size, "apple-touch-icon-#{size}x#{size}")
+# end
 [70, 150, 310].each do |size|
-  square(size, "msapplication-square#{size}x#{size}logo")
+  square(size, "msapplication-square#{size}x#{size}logo", 'none')
 end
 [144].each do |size|
-  square(size, 'msapplication-TileImage')
+  square(size, 'msapplication-TileImage', 'none')
 end
-[300].each do |size|
-  square(size, 'og-image')
-end
-[[320, 460], [640, 920], [640, 1096], [1024, 748], [768, 1004], [2048, 1496], [1536, 2008]].each do |(width, height)|
-  size = width > height ? "#{height}x#{width}" : "#{width}x#{height}"
-  rect(width, height, "apple-touch-startup-image-#{size}")
-end
+# [300].each do |size|
+#   square(size, 'og-image')
+# end
+# [[320, 460], [640, 920], [640, 1096], [1024, 748], [768, 1004], [2048, 1496], [1536, 2008]].each do |(width, height)|
+#   size = width > height ? "#{height}x#{width}" : "#{width}x#{height}"
+#   rect(width, height, "apple-touch-startup-image-#{size}")
+# end
 [[310, 150]].each do |(width, height)|
-  rect(width, height, "msapplication-wide#{width}x#{height}logo", false)
+  rect(width, height, "msapplication-wide#{width}x#{height}logo", false, 'none')
 end
 
-icons = [16, 32, 48, 256].map do |size|
-  square(size, "favicon-#{size}")
-end
-icons << "#{$directory}/favicon.ico"
-run('convert', '-colors', 4, *icons)
+# icons = [16, 32, 48, 256].map do |size|
+#   square(size, "favicon-#{size}")
+# end
+# icons << "#{$directory}/favicon.ico"
+# run('convert', '-colors', 4, *icons)
