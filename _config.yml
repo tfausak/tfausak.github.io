@@ -5,6 +5,14 @@ lsi: false
 pygments: true
 safe: true
 
+exclude:
+-   assets.rb
+-   CNAME
+-   Gemfile
+-   Gemfile.lock
+-   LICENSE.txt
+-   Makefile
+-   README.md
 permalink: pretty
 timezone: America/Chicago
 
