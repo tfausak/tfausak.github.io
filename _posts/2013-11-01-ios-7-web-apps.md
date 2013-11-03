@@ -38,7 +38,7 @@ the `apple-mobile-web-app-title` meta attribute.
 {% highlight html %}
 <title>Normal title</title>
 <meta name="apple-mobile-web-app-title"
-      context="iOS title">
+      content="iOS title">
 {% endhighlight %}
 
 Regardless of how you set the title, you should try to make it
@@ -211,7 +211,7 @@ recommend using the workaround anyway for maximum compatibility.
 
 {% highlight html %}
 <meta name="viewport"
-      context="initial-scale=1">
+      content="initial-scale=1">
 {% endhighlight %}
 
 By default, Safari resizes text on orientation change. To disable
