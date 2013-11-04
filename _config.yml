@@ -11,8 +11,9 @@ exclude:
 -   Gemfile
 -   Gemfile.lock
 -   LICENSE.txt
--   Makefile
+-   Rakefile
 -   README.md
+-   Vagrantfile
 permalink: pretty
 timezone: America/Chicago
 
