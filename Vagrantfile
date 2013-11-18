@@ -4,7 +4,8 @@ Vagrant.configure('2') do |config|
   config.vm.network :forwarded_port, guest: 4000, host: 4000
 
   config.vm.provision 'shell', inline: <<-SH
-    set -ex
+    set -e
+    set -x
 
     update-locale LC_ALL=en_US.UTF-8
 
@@ -27,13 +28,19 @@ Vagrant.configure('2') do |config|
     fi
 
     cd ruby-2.0.0-p247
-    ./configure
+    if test ! -f Makefile
+    then
+      ./configure --disable-install-doc
+    fi
     make
     make install
+    cd ..
 
-    cd /vagrant
+    echo 'gem: --no-document' > .gemrc
     gem update --system
     gem install bundler
+
+    cd /vagrant
     bundle install
   SH
 end
