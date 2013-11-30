@@ -224,8 +224,8 @@ this, add the `-webkit-text-size-adjust` CSS property.
 {% endhighlight %}
 
 [1]: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW3
-[2]: /2012/03/27/ios-web-app-icons-and-startup-images/
-[3]: /2012/09/20/iphone-5-web-app-startup-image/
+[2]: {% post_url 2012-03-27-ios-web-app-icons-and-startup-images %}
+[3]: {% post_url 2012-09-20-iphone-5-web-app-startup-image %}
 [4]: /static/pages/2013-11-01-ios-7-web-app.html
 [5]: /static/images/2013-11-01-title.png
 [6]: /static/images/2013-11-01-icons.png
