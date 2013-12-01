@@ -3,44 +3,35 @@ Vagrant.configure('2') do |config|
   config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
   config.vm.network :forwarded_port, guest: 4000, host: 4000
 
-  config.vm.provision 'shell', inline: <<-SH
-    set -e
-    set -x
-
+  config.vm.provision 'shell', inline: <<-'SHELL'
+    set -e -x
     update-locale LC_ALL=en_US.UTF-8
-
-    aptitude -y update
+    aptitude -q -y update
     aptitude -y install build-essential imagemagick yui-compressor
-
-    if test ! -f ruby-2.0.0-p247.tgz
-    then
-      wget --output-document=ruby-2.0.0-p247.tgz http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz
-    fi
-
-    if test ! -f ruby-2.0.0-p247.tar
-    then
-      zcat ruby-2.0.0-p247.tgz > ruby-2.0.0-p247.tar
-    fi
-
-    if test ! -d ruby-2.0.0-p247
-    then
-      tar --extract --file ruby-2.0.0-p247.tar
-    fi
-
-    cd ruby-2.0.0-p247
-    if test ! -f Makefile
-    then
+    if ! ruby -v | grep -F -q 2.0.0p353; then
+      test -f ruby-2.0.0-p353.tar.bz2 ||
+        wget -q cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.bz2
+      test -f ruby-2.0.0-p353.tar ||
+        bunzip2 -k -q ruby-2.0.0-p353.tar.bz2
+      test -d ruby-2.0.0-p353 ||
+        tar -x -f ruby-2.0.0-p353.tar
+      cd ruby-2.0.0-p353
       ./configure --disable-install-doc
+      make
+      make install
+      cd ..
     fi
-    make
-    make install
-    cd ..
+    gem update --no-document --system
+  SHELL
 
-    echo 'gem: --no-document' > .gemrc
-    gem update --system
+  config.vm.provision 'shell', inline: <<-'SHELL', privileged: false
+    set -e -x
+    touch .hushlogin
+    echo '{ gem: --no-document, install: --user-install }' > .gemrc
+    echo $'PATH="$(ruby -rubygems -e \'puts Gem.user_dir\')/bin:$PATH"' > .bash_profile
+    . .bash_profile
     gem install bundler
-
     cd /vagrant
     bundle install
-  SH
+  SHELL
 end
