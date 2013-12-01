@@ -29,7 +29,7 @@ cd /vagrant
 {% endhighlight %}
 
 If you don't have one already, [create an OpenShift account][6].
-Then configure `rhc` to use your account.
+Then configure `rhc` to use it.
 
 {% highlight sh %}
 rhc setup
@@ -44,7 +44,7 @@ rhc cartridge add mysql-5.1 --app piwik
 {% endhighlight %}
 
 Creating a new app clones the initial repository for you. You don't
-need it so you can just delete it.
+need it, so you can just delete it.
 
 {% highlight sh %}
 rm --force --recursive piwik
