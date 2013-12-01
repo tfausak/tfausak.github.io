@@ -1,10 +1,6 @@
 # [taylor.fausak.me][1]
 
-This is my blog. There are many like it, but this one is mine.
-
-## Setup
-
-[Vagrant][2] makes setup a breeze.
+Taylor Fausak's blog.
 
 ```sh
 git clone https://github.com/tfausak/tfausak.github.io.git
@@ -17,4 +13,3 @@ rake
 ```
 
 [1]: http://taylor.fausak.me
-[2]: http://www.vagrantup.com
