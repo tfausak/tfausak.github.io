@@ -3,28 +3,24 @@ layout: post
 title: Replace Google Analytics with Piwik on OpenShift
 ---
 
--   used GA for years
--   interested in moving off google properties
--   heard of piwik but didnt want to set up my own server
--   turns out it's not that hard
--   found a blog post that helped
--   http://blog.freedomsponsors.org/goodbye-google-analytics-hello-piwik/
+I have used Google Analytics for years. Recently I've been interested
+in moving off of Google products. I researched lots of other analytics
+providers, but didn't find any that I liked. Then I found [Piwik][1].
 
--   i made a github repository with the essentials
--   https://github.com/tfausak/piwik-openshift
--   fork it if you want
--   but it shouldnt be necessary
+Piwik is a free-as-in-speech web analytics platform. Its mission
+statement is to "liberate web analytics". I wanted to set it up as
+a free-as-in-beer replacement for Google Analytics. Thanks to
+[OpenShift][2], that's possible.
+
+To get started, clone my [piwik-openshift][3] repository.
 
 {% highlight sh %}
 git clone https://github.com/tfausak/piwik-openshift.git
 cd piwik-openshift
 {% endhighlight %}
 
--   i like vagrant
--   but these steps are optional
--   if you dont want to do them, you just need rhc (and therefore git)
--   https://www.openshift.com/developers/rhc-client-tools-install
--   http://git-scm.com
+I like sandboxing my apps with [Vagrant][4], but this step is optional.
+If you skip it, just install [`rhc`][5].
 
 {% highlight sh %}
 vagrant up
@@ -32,32 +28,32 @@ vagrant ssh
 cd /vagrant
 {% endhighlight %}
 
--   youll need to create an openshift account if you dont have one already
--   https://openshift.redhat.com/app/account/new
--   then youll have to configure rhc to use your account
+If you don't have one already, [create an OpenShift account][6].
+Then configure `rhc` to use your account.
 
 {% highlight sh %}
 rhc setup
 {% endhighlight %}
 
--   create an app
--   need php and mysql
+Next you need to create a PHP app. Piwik also requires MySQL, so
+add that cartridge to your app.
 
 {% highlight sh %}
 rhc app create piwik php-5.3
 rhc cartridge add mysql-5.1 --app piwik
 {% endhighlight %}
 
--   this clones the repo for you
--   you dont need it though
--   just delete it
+Creating a new app clones the initial repository for you. You don't
+need it so you can just delete it.
 
 {% highlight sh %}
 rm --force --recursive piwik
 {% endhighlight %}
 
--   add an rhc remote to the current directory
--   push it up to rhc
+We're going to use the current directory as the source for the app
+we just created. That means we need to add a Git remote for it.
+Then we need to push it to OpenShift, which will also deploy the
+app.
 
 {% highlight sh %}
 url=$(rhc app show piwik | awk '/Git URL/ { print $3 }')
@@ -65,8 +61,10 @@ git remote add rhc $url
 git push --force rhc master
 {% endhighlight %}
 
--   go to `http://piwik-<namespace>.rhcloud.com`
--   get mysql config from rhc
+All that's left to do is set up Piwik. Go to
+`piwik-<namespace>.rhcloud.com` and follow the instructions. When
+you get to the database setup, you'll have to ask `rhc` for the
+values.
 
 {% highlight sh %}
 hostname=$(rhc app show piwik | awk '/SSH/ { print $2 }')
@@ -74,9 +72,19 @@ command='env | grep OPENSHIFT_MYSQL_DB_'
 ssh $hostname $command
 {% endhighlight %}
 
--   OPENSHIFT_MYSQL_DB_HOST     => database server
--   OPENSHIFT_MYSQL_DB_USERNAME => login
--   OPENSHIFT_MYSQL_DB_PASSWORD => password
--   "piwik"                     => database name
+Here's the environment variables you should be looking for, along
+with which field they map to.
 
--   finish the setup and you're good to go
+-   `OPENSHIFT_MYSQL_DB_HOST`: database server
+-   `OPENSHIFT_MYSQL_DB_USERNAME`: login
+-   `OPENSHIFT_MYSQL_DB_PASSWORD`: password
+
+Finish the rest of the setup and you should be good to go! Enjoy
+your free analytics.
+
+[1]: https://piwik.org
+[2]: https://www.openshift.com
+[3]: https://github.com/tfausak/piwik-openshift
+[4]: http://www.vagrantup.com
+[5]: https://www.openshift.com/developers/rhc-client-tools-install
+[6]: https://openshift.redhat.com/app/account/new
