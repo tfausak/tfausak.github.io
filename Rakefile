@@ -9,7 +9,12 @@ task :server, [:host, :port] do |t, args|
 end
 
 desc 'Generate static assets'
-multitask assets: [:images, 'static/scripts/all.min.js', 'static/styles/all.min.css']
+multitask assets: [:images, '404.html', 'static/scripts/all.min.js', 'static/styles/all.min.css']
+
+file '404.html' do |t|
+  sh(*%w(bundle exec jekyll build))
+  sh('cp', File.join('_site', '404', 'index.html'), '404.html')
+end
 
 file 'static/scripts/all.min.js' do |t|
   sh('yui-compressor', '-o', t.name, 'static/scripts/main.js')
