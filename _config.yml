@@ -6,7 +6,6 @@ pygments: true
 safe: true
 
 exclude:
--   assets.rb
 -   CNAME
 -   Gemfile
 -   Gemfile.lock
@@ -16,13 +15,3 @@ exclude:
 -   Vagrantfile
 permalink: pretty
 timezone: America/Chicago
-
-config:
-    author:
-        email: taylor@fausak.me
-        facebook_id: 100001771158100
-        google_id: +TaylorFausak
-        name: Taylor Fausak
-        twitter_id: 204457677
-    title: taylor.fausak.me
-    url: 'http://taylor.fausak.me'

@@ -3,19 +3,19 @@
     content="{{ content | strip_html | strip_newlines | split: ' ' | join: ' ' | truncate: 200 }}">
 <meta
     property="og:image"
-    content="{{ site.config.url }}/static/images/og-image.png">
+    content="{{ site.data.config.url }}/static/images/og-image.png">
 <meta
     property="og:locale"
     content="en_US">
 <meta
     property="og:site_name"
-    content="{{ site.config.title }}">
+    content="{{ site.data.config.title }}">
 <meta
     property="og:title"
-    content="{% if page.title %}{{ page.title }}{% else %}{{ site.config.title }}{% endif %}">
+    content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.config.title }}{% endif %}">
 <meta
     property="og:type"
     content="{% if page.title %}article{% else %}website{% endif %}">
 <meta
     property="og:url"
-    content="{{ site.config.url }}{% if page.title %}{{ page.url }}{% endif %}">
+    content="{{ site.data.config.url }}{% if page.title %}{{ page.url }}{% endif %}">
