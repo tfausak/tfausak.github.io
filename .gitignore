@@ -1,3 +1,5 @@
 .vagrant/
 _site/
 static/images/favicon-*.png
+static/scripts/all.js
+static/styles/all.css

@@ -3,30 +3,87 @@ task default: :server
 desc 'Start the Jekyll server'
 task :server, [:host, :port] do |t, args|
   args.with_defaults(host: '0.0.0.0', port: '4000')
-  sh('bundle', 'exec', 'jekyll', 'serve',
-    '--drafts', '--future', '--watch',
+  sh('bundle', 'exec', 'jekyll', 'serve', '--drafts', '--future', '--watch',
     '--host', args.host, '--port', args.port)
 end
 
-desc 'Generate static assets'
-multitask assets: [:images, '404.html', 'static/scripts/all.min.js', 'static/styles/all.min.css']
+desc 'Remove assets'
+task :clean do
+  sh(*%w(rm --force --recursive
+    404.html
+    _site/
+    static/images/apple-touch-icon-114x114.png
+    static/images/apple-touch-icon-120x120.png
+    static/images/apple-touch-icon-144x144.png
+    static/images/apple-touch-icon-152x152.png
+    static/images/apple-touch-icon-57x57.png
+    static/images/apple-touch-icon-60x60.png
+    static/images/apple-touch-icon-72x72.png
+    static/images/apple-touch-icon-76x76.png
+    static/images/apple-touch-startup-image-1496x2048.png
+    static/images/apple-touch-startup-image-1536x2008.png
+    static/images/apple-touch-startup-image-320x460.png
+    static/images/apple-touch-startup-image-640x1096.png
+    static/images/apple-touch-startup-image-640x920.png
+    static/images/apple-touch-startup-image-748x1024.png
+    static/images/apple-touch-startup-image-768x1004.png
+    static/images/favicon-16.png
+    static/images/favicon-256.png
+    static/images/favicon-32.png
+    static/images/favicon-48.png
+    static/images/favicon.ico
+    static/images/msapplication-TileImage.png
+    static/images/msapplication-square150x150logo.png
+    static/images/msapplication-square310x310logo.png
+    static/images/msapplication-square70x70logo.png
+    static/images/msapplication-wide310x150logo.png
+    static/images/og-image.png
+    static/scripts/all.js
+    static/scripts/all.min.js
+    static/styles/all.css
+    static/styles/all.min.css
+  ))
+end
 
-file '404.html' do |t|
+desc 'Generate assets'
+multitask assets: [
+  '404.html',
+  'static/scripts/all.min.js',
+  'static/styles/all.min.css',
+  :images
+]
+
+file '_site/404/index.html' do
   sh(*%w(bundle exec jekyll build))
-  sh('cp', File.join('_site', '404', 'index.html'), '404.html')
 end
 
-file 'static/scripts/all.min.js' do |t|
-  sh('yui-compressor', '-o', t.name, 'static/scripts/main.js')
+file '404.html' => ['_site/404/index.html'] do |t|
+  sh('cp', t.prerequisites.first, t.name)
 end
 
-file 'static/styles/all.min.css' => ['static/styles/reset.css', 'static/styles/main.css', 'static/styles/syntax.css'] do |t|
-  sh("cat #{t.prerequisites.join(' ')} | yui-compressor --type css -o #{t.name}")
+file 'static/scripts/all.js' => [
+  'static/scripts/main.js'
+] do |t|
+  sh("cat #{t.prerequisites.join(' ')} > #{t.name}")
 end
 
-desc 'Generate rasterized images'
+file 'static/scripts/all.min.js' => ['static/scripts/all.js'] do |t|
+  sh('yui-compressor', '-o', t.name, t.prerequisites.first)
+end
+
+file 'static/styles/all.css' => [
+  'static/styles/reset.css',
+  'static/styles/main.css',
+  'static/styles/syntax.css'
+] do |t|
+  sh("cat #{t.prerequisites.join(' ')} > #{t.name}")
+end
+
+file 'static/styles/all.min.css' => ['static/styles/all.css'] do |t|
+  sh('yui-compressor', '-o', t.name, t.prerequisites.first)
+end
+
 multitask :images
-
 def image(name, width, height = width, background: '#ac4142', rotate: true)
   "static/images/#{name}.png".tap do |path|
     args = [
@@ -59,9 +116,6 @@ image('msapplication-wide310x150logo', 310, 150, background: 'none', rotate: fal
 [70, 150, 310].each do |size|
   image("msapplication-square#{size}x#{size}logo", size, background: 'none')
 end
-[16, 32, 48, 256].each do |size|
-  image("favicon-#{size}", size)
-end
 [57, 60, 72, 76, 114, 120, 144, 152].each do |size|
   image("apple-touch-icon-#{size}x#{size}", size)
 end
@@ -70,7 +124,11 @@ end
   image("apple-touch-startup-image-#{size}", width, height)
 end
 
-file 'static/images/favicon.ico' do
-  sh('convert -colors 4 static/images/favicon-*.png static/images/favicon.ico')
+favicons = []
+[16, 32, 48, 256].each do |size|
+  favicons << image("favicon-#{size}", size)
+end
+file 'static/images/favicon.ico' => favicons do |t|
+  sh("convert -colors 4 #{t.prerequisites.join(' ')} #{t.name}")
 end
 task images: ['static/images/favicon.ico']
