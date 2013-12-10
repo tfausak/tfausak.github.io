@@ -1,10 +1,13 @@
-task default: :server
+task default: [:build]
 
-desc 'Start the Jekyll server'
-task :server, [:host, :port] do |t, args|
-  args.with_defaults(host: '0.0.0.0', port: '4000')
-  sh('bundle', 'exec', 'jekyll', 'serve', '--drafts', '--future', '--watch',
-    '--host', args.host, '--port', args.port)
+desc 'Build the site'
+task :build do
+  sh(*%w(bundle exec jekyll build))
+end
+
+desc 'Serve the site'
+task :serve do
+  sh(*%w(bundle exec jekyll serve --drafts --future --watch))
 end
 
 desc 'Remove assets'
