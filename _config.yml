@@ -3,9 +3,10 @@ exclude:
 -   Gemfile
 -   Gemfile.lock
 -   LICENSE.txt
--   Rakefile
 -   README.md
+-   Rakefile
 -   Vagrantfile
+-   vendor
 permalink: pretty
 timezone: America/Chicago
 
