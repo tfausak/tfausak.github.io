@@ -2,4 +2,4 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'github-pages', '11', require: false
+gem 'github-pages', '12', require: false
