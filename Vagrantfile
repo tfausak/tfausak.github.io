@@ -25,7 +25,6 @@ Vagrant.configure('2') do |config|
       make install
       cd ..
     fi
-    gem update --no-document --system 2.1.11
   SHELL
 
   config.vm.provision :shell, inline: <<-'SHELL', privileged: false
@@ -33,7 +32,6 @@ Vagrant.configure('2') do |config|
     echo 'PATH="$(ruby -e puts\(Gem.user_dir\))/bin:$PATH"' > .bash_profile
     source .bash_profile
     echo '{ gem: --no-document, install: --user-install }' > .gemrc
-    gem install bundler
-    bundle install --gemfile=/vagrant/Gemfile
+    gem install --file=/vagrant/Gemfile
   SHELL
 end

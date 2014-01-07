@@ -2,12 +2,12 @@ task default: [:build]
 
 desc 'Build the site'
 task :build do
-  sh(*%w(bundle exec jekyll build))
+  sh(*%w(jekyll build))
 end
 
 desc 'Serve the site'
 task :serve do
-  sh(*%w(bundle exec jekyll serve --drafts --future --watch))
+  sh(*%w(jekyll serve --drafts --future --watch))
 end
 
 desc 'Remove assets'
@@ -56,9 +56,7 @@ multitask assets: [
   :images
 ]
 
-file '_site/404/index.html' do
-  sh(*%w(bundle exec jekyll build))
-end
+file '_site/404/index.html' => :build
 
 file '404.html' => ['_site/404/index.html'] do |t|
   sh('cp', t.prerequisites.first, t.name)
