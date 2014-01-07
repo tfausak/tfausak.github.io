@@ -1,3 +1,4 @@
+.bundle/
 .vagrant/
 _site/
 static/images/favicon-*.png
