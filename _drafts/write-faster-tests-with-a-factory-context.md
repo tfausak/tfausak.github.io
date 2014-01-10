@@ -6,17 +6,38 @@ title: Write Faster Tests with a Factory Context
 At [OrgSync][1], we test our Ruby code with [RSpec][2] and
 [factory_girl][3]. A while back, I noticed our tests were slowing
 down for no apparent reason. It turns out our factories were creating
-a bunch of unnecessary objects behind the scenes. For example, the
-event factory ultimately creates 19 objects. Of those, 12 are
-redundant.
+a bunch of duplicate objects behind the scenes. For example, the
+event factory creates all these objects:
 
-It's possible to combat this by specifying the associations, which
+- event
+  - organization
+    - school
+    - umbrella
+      - school
+      - group_type
+        - school
+    - group_type
+      - school
+  - event_category
+    - organization
+      - school
+      - umbrella
+        - school
+        - group_type
+          - school
+      - group_type
+        - school
+
+That's 18 things: 1 event, 1 event category, 2 organizations, 2
+umbrellas, 4 group types, and 8 schools. Of those, only 6 are needed.
+The other 12 are unnecessary duplicates.
+
+It's possible to avoid this by specifying the associations, which
 is what I did. I got fed up with manually doing that all the time
 and made a shared context. It ended up being much faster and a lot
 easier to use.
 
-Here's how I did it, with Ruby 2.1.0p0, rspec 2.14.1, and factory_girl
-4.3.0.
+Here's how, using Ruby 2.1.0p0, rspec 2.14.1, and factory_girl 4.3.0.
 
 Let's get started by writing some simple classes. We're going to
 model a Reddit-style site with users, posts, and votes. Posts are
