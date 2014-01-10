@@ -22,46 +22,36 @@ Let's get started by writing some simple classes. We're going to
 model a Reddit-style site with users, posts, and votes. Posts are
 submitted by users and users cast votes on posts.
 
-In real life these would be ActiveRecord objects. They'd have
-full-blown associations using `has_many` and `belongs_to`. But
-that's not necessary for this simple example.
-
 {% highlight ruby %}
-class User
-  attr_accessor :id
+class User < ActiveRecord::Base
+  has_many :posts
+  has_many :votes
 end
 
-class Post
-  attr_accessor :id, :user
+class Post < ActiveRecord::Base
+  belongs_to :user
+  has_many :votes
 end
 
-class Vote
-  attr_accessor :id, :post, :user
+class Vote < ActiveRecord::Base
+  belongs_to :post
+  belongs_to :user
 end
 {% endhighlight %}
 
-Next we're going to create factories for these classes. They're
-pretty simple, but we have to use the `:build` strategy on associations.
-If we didn't, factory_girl would try to save them. They won't respond
-to `save!` because they aren't ActiveRecord objects.
+Next we're going to create factories for these classes. Just like
+the classes, they're pretty simple.
 
 {% highlight ruby %}
-factory :user do
-  sequence(:id)
-end
+factory :user
 
 factory :post do
-  sequence(:id)
-  association :user,
-    strategy: :build
+  user
 end
 
 factory :vote do
-  sequence(:id)
-  association :post,
-    strategy: :build
-  association :user,
-    strategy: :build
+  post
+  user
 end
 {% endhighlight %}
 
@@ -69,8 +59,8 @@ Now we can use those factories in some tests. This particular test
 doesn't do much, but it does show that two posts will be created.
 
 {% highlight ruby %}
-let(:post) { build(:post) }
-let(:vote) { build(:vote) }
+let(:post) { create(:post) }
+let(:vote) { create(:vote) }
 
 it do
   expect(vote.post).to_not eq(post)
@@ -88,15 +78,15 @@ shared context.
 {% highlight ruby %}
 shared_context 'factories' do
   let(:user) do
-    build(:user)
+    create(:user)
   end
 
   let(:post) do
-    build(:post, user: user)
+    create(:post, user: user)
   end
 
   let(:vote) do
-    build(:vote, post: post, user: user)
+    create(:vote, post: post, user: user)
   end
 end
 {% endhighlight %}
@@ -117,7 +107,7 @@ end
 
 Let me repeat that: In this contrived example with three simple
 models, using the context created *half* as many objects. In a real
-test with real objects, that would result in a significant speedup.
+test with real models, that would result in a significant speedup.
 
 But what if we wanted to use `let!` to eagerly load some objects?
 It looks like the factory context won't let us do that. But it does
