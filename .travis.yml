@@ -1,4 +1,6 @@
 env: LC_ALL=en_US.UTF-8
-install: gem install --file ./Gemfile
+install:
+- rm Gemfile.lock
+- gem install --file ./Gemfile
 language: ruby
 rvm: 2.1.0

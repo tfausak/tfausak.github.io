@@ -35,6 +35,8 @@ Vagrant.configure('2') do |config|
     echo 'PATH="$(ruby -e puts\(Gem.user_dir\))/bin:$PATH"' > .bash_profile
     source .bash_profile
     echo '{ gem: --no-document, install: --user-install }' > .gemrc
-    gem install --file /vagrant/Gemfile
+    cd /vagrant
+    rm Gemfile.lock
+    gem install --file Gemfile
   SHELL
 end
