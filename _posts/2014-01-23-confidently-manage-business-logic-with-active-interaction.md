@@ -294,7 +294,7 @@ helps yours.
 Check out the full documentation and more about [ActiveInteraction
 on GitHub][3].
 
-[1]: http://ficate.com
+[1]: http://aaronlasseigne.com
 [2]: http://devblog.orgsync.com/confidently-manage-business-logic-activeinteraction/
 [3]: https://github.com/orgsync/active_interaction
 [4]: http://www.confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years
