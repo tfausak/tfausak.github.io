@@ -1,4 +1,7 @@
-Vagrant.require_version '>= 1.4.2'
+# Vagrant 1.4.3 <http://www.vagrantup.com/downloads.html>
+# VirtualBox 4.3.6 <https://www.virtualbox.org/wiki/Downloads>
+
+Vagrant.require_version '>= 1.4.3'
 
 Vagrant.configure('2') do |config|
   config.vm.box = 'precise64'
