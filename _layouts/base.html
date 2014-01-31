@@ -4,13 +4,13 @@
     <head>
         <meta charset="utf-8">
 
-        <title>{% if page.title %}{{ page.title }} &#xb7; {% endif %}{{ site.data.config.title }}</title>
+        <title>{% if page.title %}{{ page.title | escape }} &#xb7; {% endif %}{{ site.data.config.title | escape }}</title>
 
         <link href="/static/styles/all.min.css" rel="stylesheet">
         <link href="/static/images/favicon.ico" rel="shortcut icon">
 
-        <link href="/sitemap.atom" rel="alternate" title="{{ site.data.config.title }} (Atom)" type="application/atom+xml">
-        <link href="/sitemap.rss" rel="alternate" title="{{ site.data.config.title }} (RSS)" type="application/rss+xml">
+        <link href="/sitemap.atom" rel="alternate" title="{{ site.data.config.title | escape }} (Atom)" type="application/atom+xml">
+        <link href="/sitemap.rss" rel="alternate" title="{{ site.data.config.title | escape }} (RSS)" type="application/rss+xml">
 
         <link href="{{ site.data.config.url }}{% if page.title %}{{ page.url }}{% endif %}" rel="canonical">
 

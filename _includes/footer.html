@@ -3,7 +3,7 @@
         <ul>
             {% if page.previous %}
                 <li class="prev">
-                    <a href="{{ page.previous.url }}" rel="prev" title="{{ page.previous.title }}">
+                    <a href="{{ page.previous.url }}" rel="prev" title="{{ page.previous.title | escape }}">
                         &#x2190;
                     </a>
                 </li>
@@ -11,7 +11,7 @@
 
             {% if page.next %}
                 <li class="next">
-                    <a href="{{ page.next.url }}" rel="next" title="{{ page.next.title }}">
+                    <a href="{{ page.next.url }}" rel="next" title="{{ page.next.title | escape }}">
                         &#x2192;
                     </a>
                 </li>

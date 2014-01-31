@@ -5,23 +5,23 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>{{ site.data.config.title }}</title>
+    <title>{{ site.data.config.title | escape }}</title>
     <link href="{{ site.data.config.url }}/sitemap.atom" rel="self"/>
     <link href="{{ site.data.config.url }}"/>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
     <id>{{ site.data.config.url }}</id>
     <author>
-        <name>{{ site.data.author.name }}</name>
-        <email>{{ site.data.author.email }}</email>
+        <name>{{ site.data.author.name | escape }}</name>
+        <email>{{ site.data.author.email | escape }}</email>
     </author>
 
     {% for post in site.posts %}
         <entry>
-            <title>{{ post.title | xml_escape }}</title>
+            <title>{{ post.title | escape }}</title>
             <link href="{{ site.data.config.url }}{{ post.url }}"/>
             <updated>{{ post.date | date_to_xmlschema }}</updated>
             <id>{{ site.data.config.url }}{{ post.url }}</id>
-            <content type="html">{{ post.content | xml_escape }}</content>
+            <content type="html">{{ post.content | escape }}</content>
         </entry>
     {% endfor %}
 </feed>

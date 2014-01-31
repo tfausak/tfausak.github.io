@@ -1,10 +1,10 @@
 <header class="header">
     <div class="wrapper">
         <h1 itemprop="name">
-            <a href="/" itemprop="url" title="{{ site.data.config.title }}">
+            <a href="/" itemprop="url" title="{{ site.data.config.title | escape }}">
                 {% include logo.html %}
 
-                <span>{{ site.data.config.title }}</span>
+                <span>{{ site.data.config.title | escape }}</span>
             </a>
         </h1>
     </div>

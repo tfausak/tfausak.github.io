@@ -19,7 +19,7 @@ layout: base
         <li class="post" itemscope itemtype="http://schema.org/BlogPosting" value="{{ post.date | date:'%d' }}">
             <meta content="{{ post.date | date:'%Y-%m-%d' }}" itemprop="datePublished">
             <a href="{{ post.url }}" itemprop="url">
-                <span itemprop="name">{{ post.title }}</span>
+                <span itemprop="name">{{ post.title | escape }}</span>
             </a>
         </li>
 
