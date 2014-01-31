@@ -12,7 +12,7 @@ cd tfausak.github.io
 vagrant up
 vagrant ssh
 cd /vagrant
-bundle exec rake serve
+rake serve
 # http://localhost:4000
 ```
 
