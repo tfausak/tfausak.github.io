@@ -18,7 +18,9 @@
             {% endif %}
 
             <li class="home">
-                {% include logo.html %}
+                <a href="/" title="{{ site.data.config.title | escape }}">
+                    {% include logo.html %}
+                </a>
             </li>
         </ul>
     </div>
