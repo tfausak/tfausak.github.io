@@ -1,4 +1,4 @@
 env: LC_ALL=en_US.UTF-8
-install: bundle install
+install: gem install github-pages
 language: ruby
 rvm: 2.1.0
