@@ -1,19 +1,25 @@
 <footer class="footer">
     <div class="wrapper">
         <ul>
-            {% if page.previous %}
+            {% if page.title %}
                 <li class="prev">
-                    <a href="{{ page.previous.url }}" rel="prev" title="{{ page.previous.title | escape }}">
+                    {% if page.previous %}
+                        <a href="{{ page.previous.url }}" rel="prev" title="{{ page.previous.title | escape }}">
+                            &#x2190;
+                        </a>
+                    {% else %}
                         &#x2190;
-                    </a>
+                    {% endif %}
                 </li>
-            {% endif %}
 
-            {% if page.next %}
                 <li class="next">
-                    <a href="{{ page.next.url }}" rel="next" title="{{ page.next.title | escape }}">
+                    {% if page.next %}
+                        <a href="{{ page.next.url }}" rel="next" title="{{ page.next.title | escape }}">
+                            &#x2192;
+                        </a>
+                    {% else %}
                         &#x2192;
-                    </a>
+                    {% endif %}
                 </li>
             {% endif %}
 
