@@ -13,7 +13,6 @@ end
 desc 'Remove assets'
 task :clean do
   sh(*%w(rm --force --recursive
-    404.html
     _site/
     static/images/apple-touch-icon-114x114.png
     static/images/apple-touch-icon-120x120.png
@@ -50,17 +49,10 @@ end
 
 desc 'Generate assets'
 multitask assets: [
-  '404.html',
   'static/scripts/all.min.js',
   'static/styles/all.min.css',
   :images
 ]
-
-file '_site/404/index.html' => :build
-
-file '404.html' => ['_site/404/index.html'] do |t|
-  sh('cp', t.prerequisites.first, t.name)
-end
 
 file 'static/scripts/all.js' => [
   'static/scripts/main.js'
