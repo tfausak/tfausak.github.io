@@ -4,27 +4,13 @@ layout: base
 
 <ol class="posts" itemprop="blogPosts">
     {% for post in site.posts %}
-        {% capture this_year %}{{ post.date | date:'%Y' }}{% endcapture %}
-        {% capture this_month %}{{ post.date | date:'%B' }}{% endcapture %}
-
-        {% if this_month != last_month %}
-            <li>
-                <span class="month">{{ this_month }}</span>
-                {% if this_year != last_year %}
-                    <span class="year">{{ this_year }}</span>
-                {% endif %}
-            </li>
-        {% endif %}
-
-        <li class="post" itemscope itemtype="http://schema.org/BlogPosting" value="{{ post.date | date:'%d' }}">
-            <meta content="{{ post.date | date:'%Y-%m-%d' }}" itemprop="datePublished">
+        <li class="post" itemscope itemtype="http://schema.org/BlogPosting">
             <a href="{{ post.url }}" itemprop="url">
-                <span itemprop="name">{{ post.title | escape }}</span>
+                <strong itemprop="name">{{ post.title | escape }}</strong>
+                <time itemprop="datePublished">{{ post.date | date:'%Y-%m-%d' }}</time>
+                <span itemprop="description">{{ post.content | strip_html | replace: '"', '&#x22;' | strip_newlines | split: ' ' | join: ' ' | truncate: 200 }}</span>
             </a>
         </li>
-
-        {% assign last_year = this_year %}
-        {% assign last_month = this_month %}
     {% endfor %}
 </ol>
 

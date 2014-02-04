@@ -222,21 +222,33 @@ ul {
     list-style-type: none;
 }
 
-.posts .month {
-}
-
-.posts .year {
-    color: #b0b0b0;
-}
-
 .posts .post {
-    color: #b0b0b0;
-    list-style-type: decimal;
-    margin-left: 2.5em;
+    display: block;
+    height: 3.75em;
+    overflow-y: hidden;
+}
+
+.posts .post + .post {
+    margin-top: 1.25em;
 }
 
 .posts a {
+    display: block;
     text-decoration: none;
+}
+
+.posts strong {
+    display: block;
+}
+
+.posts time {
+    color: #b0b0b0;
+    float: right;
+}
+
+.posts span {
+    display: block;
+    margin-left: 1.25em;
 }
 
 /* Breakout */
