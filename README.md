@@ -4,7 +4,7 @@ Taylor Fausak's blog.
 
 ## Setup
 
-Install [Vagrant][2] and [VirtualBox][2].
+Install [Vagrant][2] and [VirtualBox][3].
 
 ```sh
 git clone https://github.com/tfausak/tfausak.github.io.git
