@@ -4,10 +4,10 @@
 Vagrant.require_version '>= 1.4.3'
 
 Vagrant.configure('2') do |config|
-  config.vm.box = 'precise64'
-  config.vm.box_download_checksum = '5803ee2fa7c5ded51a59f7928a2fead0'
+  config.vm.box = 'precise32'
+  config.vm.box_download_checksum = 'a4e6b7961cc5d9ea97a08a0461c82187'
   config.vm.box_download_checksum_type = 'md5'
-  config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
+  config.vm.box_url = 'http://files.vagrantup.com/precise32.box'
   config.vm.network :forwarded_port, guest: 4000, host: 4000
 
   config.vm.provision :shell, inline: <<-'SHELL'
