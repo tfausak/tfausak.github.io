@@ -37,7 +37,7 @@ Vagrant.configure('2') do |config|
     echo '{ gem: --no-document, install: --user-install }' > .gemrc
     sudo gem update --system
     cd /vagrant
-    rm Gemfile.lock
+    test -f Gemfile.lock && rm Gemfile.lock
     gem install --file Gemfile
   SHELL
 end
