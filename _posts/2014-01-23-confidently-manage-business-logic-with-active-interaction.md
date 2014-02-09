@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Confidently Manage Business Logic with ActiveInteraction
+title: Confidently Manage Business Logic with Active­Interaction
 ---
 
 *([Aaron Lasseigne][1] co-authored this post for the [OrgSync
