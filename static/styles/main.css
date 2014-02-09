@@ -72,7 +72,7 @@ blockquote {
 }
 
 code {
-    font-family: 'Menlo', monospace;
+    font-family: 'Menlo', 'Consolas', monospace;
 }
 
 em {
