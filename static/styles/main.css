@@ -81,15 +81,16 @@ em {
 }
 
 h1 {
-    font-size: 2.5em;
-    line-height: 1.2;
-    margin: 0.6em 0;
-}
-
-h2 {
     font-size: 2em;
     line-height: 1.5;
     margin: 0.75em 0;
+    word-wrap: break-word;
+}
+
+h2 {
+    font-size: 1.75em;
+    line-height: 1.7143em;
+    margin: 0.8571em 0;
 }
 
 h3 {
@@ -199,27 +200,33 @@ ul {
     margin: 0;
 }
 
+.footer li {
+    width: 1.5em;
+}
+
 .footer .prev {
     float: left;
+    text-align: left;
 }
 
 .footer .next {
     float: right;
+    text-align: right;
 }
 
-.footer .prev a,
-.footer .next a {
+.footer .home {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer a {
     display: block;
     text-decoration: none;
 }
 
-.footer .home {
-    line-height: 1;
-    text-align: center;
-}
-
 .footer .logo {
     color: #ac4142;
+    display: block;
 }
 
 /* Logo */
@@ -228,7 +235,7 @@ ul {
     display: inline-block;
     height: 0.9em;
     padding: 0.3em;
-    vertical-align: text-bottom;
+    vertical-align: middle;
     width: 0.9em;
 }
 
@@ -255,8 +262,8 @@ ul {
 /* Posts */
 
 .posts {
-    margin-left: 0;
     list-style-type: none;
+    margin-left: 0;
 }
 
 .posts .month {
@@ -279,20 +286,16 @@ ul {
 /* Breakout */
 
 .breakout {
-    min-height: 6em;
+    min-height: 4.5em;
 }
 
 .breakout img {
     float: right;
-    height: 5em;
-    margin: 0 0 0 1.5em;
+    height: 4.5em;
+    margin: 0;
     width: auto;
 }
 
-.breakout h2 {
-    margin-top: 0;
-}
-
 .breakout p {
-    margin-bottom: 0;
+    margin: 0;
 }
