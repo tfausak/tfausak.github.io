@@ -65,7 +65,8 @@ aside {
     padding: 0.75em;
 }
 
-blockquote {
+blockquote,
+pre {
     border-left: 0.25em solid #e0e0e0;
     margin: 1.5em 0;
     padding-left: 1.25em;
@@ -128,10 +129,7 @@ p {
 }
 
 pre {
-    border-left: 0.25em solid #e0e0e0;
-    margin: 1.5em 0;
     overflow: auto;
-    padding-left: 1.25em;
 }
 
 strong {
@@ -171,7 +169,7 @@ ul {
 /* Content */
 
 .content {
-    margin: 3em 0;
+    margin: 1.5em 0 3em 0;
 }
 
 .content .meta {
