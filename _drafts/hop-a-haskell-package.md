@@ -60,7 +60,6 @@ title: Hop, a Haskell package
 -   not why
 -   profiling may be necessary
 -   ghc provides it
--   TODO: actually run profiler against benchmarks
 
 ## Code Quality
 
