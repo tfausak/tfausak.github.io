@@ -1,26 +1,36 @@
 ---
 layout: post
-title: Hop, a Haskell package
+title: 'Hop: A Simple Haskell Package'
 ---
 
-<https://github.com/tfausak/hop>
+-   i'm new to haskell
+-   wanted to learn best practices
+-   especially for setting up a package
+-   or the foundation for a large codebase
 
--   wanted to create a project template of sorts
--   i'm a relative haskell newbie
--   interested in teaching myself more about it
+-   didn't find much
+-   <http://stackoverflow.com/questions/9662806/is-there-any-haskell-land-equivalent-to-the-ruby-lands-bundler-et-al-and-if-n>
+-   set out to do better
+-   <https://github.com/tfausak/hop>
 
-## Tools
+## Environment
 
--   use recent versions of everything
--   no sense in building on obsolete stuff
--   ghc 7.6 (7.8 soon!)
--   cabal 1.18 (sandboxes!)
--   development environment specifically
--   i use vagrant usually
--   not necessary thanks to cabal sandbox
--   new feature, but nicer than hsenv, capri, etc.
+-   latest versions
+-   GHC 7.6.3
+-   provided by the haskell platform
+-   smooth install experience
+-   Cabal 1.18.0.2
+-   older version provided by haskell platform
+-   update with `cabal update && cabal install cabal-install`
+-   (what a great command)
 
-## Unit Tests
+-   recently introduced cabal sandboxes are amazing
+-   <http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html>
+-   got me to stop using vagrant
+-   way better than hsenv, capri, cabal-dev, etc.
+-   give rubygems/bundler, pip/virtualenv, etc. a run for their money
+
+## Testing
 
 -   not as popular in haskell
 -   rely more on the type system
@@ -116,5 +126,6 @@ title: Hop, a Haskell package
 -   code coverage: <http://www.haskell.org/haskellwiki/Haskell_program_coverage>
 -   package development: <http://www.haskell.org/cabal/users-guide/developing-packages.html>
 -   example hspec: <https://github.com/sol/hspec-example>
--   cabal sandbox: <http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html>
--   stack overflow question in the same vein as this post: <http://stackoverflow.com/questions/9662806/is-there-any-haskell-land-equivalent-to-the-ruby-lands-bundler-et-al-and-if-n>
+-   good overview of testing: <https://github.com/kazu-yamamoto/unit-test-example/blob/master/markdown/en/tutorial.md>
+-   rundown list of best practices: <http://fvisser.nl/post/2013/may/28/towards-a-better-haskell-package.html>
+-   example cabal file: <https://github.com/snapframework/io-streams/blob/master/io-streams.cabal>
