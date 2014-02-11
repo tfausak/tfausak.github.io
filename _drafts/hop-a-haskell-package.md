@@ -86,10 +86,13 @@ title: Hop, a Haskell package
 -   missing tools like code climate, coveralls, and gemnasium
 -   hlint and friends fill in for code climate
 -   hpc fills in for coveralls
--   TODO: actually run hpc against tests
 -   no replacement for gemnasium
 -   heck, no replacement for "bundle outdated"
 -   gotta manually do "cabal list <package>" for each dependency
+
+-   unfortunately hpc is currently broken
+-   will be fixed in the next release (0.7) included in ghc 7.8
+-   <https://github.com/haskell/cabal/issues/1049>
 
 ## Library
 
