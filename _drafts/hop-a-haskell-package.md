@@ -129,3 +129,4 @@ title: 'Hop: A Simple Haskell Package'
 -   good overview of testing: <https://github.com/kazu-yamamoto/unit-test-example/blob/master/markdown/en/tutorial.md>
 -   rundown list of best practices: <http://fvisser.nl/post/2013/may/28/towards-a-better-haskell-package.html>
 -   example cabal file: <https://github.com/snapframework/io-streams/blob/master/io-streams.cabal>
+-   project template: <https://github.com/fujimura/hi>
