@@ -95,13 +95,12 @@ title: 'Haskeleton: A Haskell Project Skeleton'
 -   missing tools like code climate, coveralls, and gemnasium
 -   hlint and friends fill in for code climate
 -   hpc fills in for coveralls
+-   even got it automated with configurable threshold
 -   no replacement for gemnasium
 -   heck, no replacement for "bundle outdated"
 -   gotta manually do "cabal list <package>" for each dependency
-
--   unfortunately hpc is currently broken
--   will be fixed in the next release (0.7) included in ghc 7.8
--   <https://github.com/haskell/cabal/issues/1049>
+-   hackage fills in for rubydoc, readthedocs, etc.
+-   also added automated documentation coverage checker
 
 ## Library
 
