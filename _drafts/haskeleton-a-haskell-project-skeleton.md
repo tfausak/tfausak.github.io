@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Hop: A Simple Haskell Package'
+title: 'Haskeleton: A Haskell Project Skeleton'
 ---
 
 -   i'm new to haskell
@@ -11,7 +11,7 @@ title: 'Hop: A Simple Haskell Package'
 -   didn't find much
 -   <http://stackoverflow.com/questions/9662806/is-there-any-haskell-land-equivalent-to-the-ruby-lands-bundler-et-al-and-if-n>
 -   set out to do better
--   <https://github.com/tfausak/hop>
+-   <https://github.com/tfausak/haskeleton>
 
 ## Environment
 
