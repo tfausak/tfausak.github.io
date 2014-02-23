@@ -9,13 +9,17 @@ I can solve code katas like [exercism.io][], [H-99][], and [Project Euler][].
 Yet I don't feel comfortable developing software with it.
 Writing idiomatic, maintainable, well-tested Haskell code remains a mystery to me.
 
-Cabal provides little guidance.
-For instance, `cabal init` asks 11 questions and outputs two files with 26 lines total.
-I thought I could do better,
-and I wanted to teach myself.
-So I built [Haskeleton][], a Haskell project skeleton.
+Unfortunately, Cabal provides little guidance.
+For instance, `cabal init` asks 11 questions and outputs two files totalling 26 lines.
+In an effort to both improve on that and teach myself,
+I built [Haskeleton][], a Haskell project skeleton.
 
--   [Setup](#setup)
+Eventually I hope it will replace `cabal init`.
+But for the time being, it's just an example project you can copy.
+This post will walk you through setting up a project like Haskeleton
+and explain the decisions I made along the way.
+
+-   [Setup][]
 -   [Library](#library)
 -   [Executable](#executable)
 -   [Documentation](#documentation)
@@ -31,45 +35,77 @@ So I built [Haskeleton][], a Haskell project skeleton.
 
 ## Setup
 
--   GHC 7.6.3
--   Cabal 1.18.0.2
+There's no reason to make new software with old technology.
+To get started, make sure you have GHC 7.6.3 and Cabal 1.18.0.2.
+You can get GHC through [The Haskell Platform][]
+and the latest version of Cabal with `cabal install cabal-install`.
 
--   `cabal init`
--   doesn't really give you that much
--   spits out a cabal file (`*.cabal`)
--   and a setup file (`Setup.hs`)
+Think of a name for your project.
+I went with "husk", so replace it with your name throughout.
+Make a directory for your project to get started: `mkdir husk && cd $_`.
 
--   the generated cabal file has a lot of stuff
--   most of it is unnecessary at this point
+The only necessary file is the package description.
+Colloquially, this is "the Cabal file".
+It starts off very simple.
 
-{% highlight haskell %}
--- haskeleton.cabal
-name: haskeleton
-version: 0.0.0
-cabal-version: >= 1.18
-build-type: Simple
+    -- husk.cabal
+    name:          husk
+    version:       0.0.0
+    build-type:    Simple
+    cabal-version: >= 1.18
 
-library
-    build-depends: base == 4.*
-    default-language: Haskell2010
-{% endhighlight %}
+    library
+        build-depends:    base
+        default-language: Haskell2010
 
--   the default setup file is fine
--   but i like to be more explicit about things
+Here's a rundown of the [package properties][]:
 
-{% highlight haskell %}
--- Setup.hs
-module Setup (main) where
+-   `name`: The unique name.
+-   `version`: The version number.
+    It's a good idea to use [semantic versioning][].
+-   `build-type`: The type of build.
+    Setting this to `Simple` tells Cabal to use the default setup script.
+    Annoyingly, the default is `Custom`.
+-   `cabal-version`: The version of the Cabal specification.
+    This should be the major and minor parts of your version of Cabal.
 
-import           Distribution.Simple (defaultMain)
+And the [build information][] for the library:
 
-main :: IO ()
-main = defaultMain
-{% endhighlight %}
+-   `build-depends`: A list of needed packages.
+    Every project will depend on [`base`][], which provides the Prelude.
+-   `default-language`: The version of the Haskell language report.
+    The current state of the art is [`Haskell2010`][].
 
--   with those two files, you're ready to go
--   `cabal sandbox init`
--   `cabal install`
+Now that all the boilerplate is out of the way,
+let's build the package.
+Start by creating a sandbox,
+which sets up a private environment.
+
+    # cabal sandbox init
+    Writing a default package environment file to
+    .../husk/cabal.sandbox.config
+    Creating a new sandbox at .../husk/.cabal-sandbox
+
+Next, install the package.
+
+    # cabal install
+    Resolving dependencies...
+    Configuring husk-0.0.0...
+    Building husk-0.0.0...
+    Preprocessing library husk-0.0.0...
+    In-place registering husk-0.0.0...
+    Running Haddock for husk-0.0.0...
+    Preprocessing library husk-0.0.0...
+    haddock: No input file(s).
+    Installing library in
+    .../husk/.cabal-sandbox/lib/.../husk-0.0.0
+    Registering husk-0.0.0...
+    Installed husk-0.0.0
+
+Alright!
+The package is configured properly,
+but it doesn't produce anything.
+Let's fix that.
 
 ## Library
 
@@ -768,6 +804,13 @@ language: haskell
 -   or rolled into `cabal init`
 
 [exercism.io]: https://github.com/tfausak/exercism-solutions/tree/master/haskell
-[h99]: https://github.com/tfausak/h99
+[h-99]: https://github.com/tfausak/h99
 [project euler]: https://github.com/tfausak/project-euler/tree/master/haskell
 [haskeleton]: https://github.com/tfausak/haskeleton
+[setup]: #setup
+[the haskell platform]: http://www.haskell.org/platform/
+[package properties]: http://www.haskell.org/cabal/users-guide/developing-packages.html#package-properties
+[semantic versioning]: http://semver.org/
+[build information]: http://www.haskell.org/cabal/users-guide/developing-packages.html#build-information
+[`base`]: http://hackage.haskell.org/package/base
+[`haskell2010`]: http://www.haskell.org/onlinereport/haskell2010/
