@@ -48,15 +48,17 @@ The only necessary file is the package description.
 Colloquially, this is "the Cabal file".
 It starts off very simple.
 
-    -- husk.cabal
-    name:          husk
-    version:       0.0.0
-    build-type:    Simple
-    cabal-version: >= 1.18
+{% highlight hs %}
+-- husk.cabal
+name:          husk
+version:       0.0.0
+build-type:    Simple
+cabal-version: >= 1.18
 
-    library
-        build-depends:    base
-        default-language: Haskell2010
+library
+    build-depends:    base
+    default-language: Haskell2010
+{% endhighlight %}
 
 Here's a rundown of the [package properties][]:
 
@@ -81,26 +83,30 @@ let's build the package.
 Start by creating a sandbox,
 which sets up a private environment.
 
-    # cabal sandbox init
-    Writing a default package environment file to
-    .../husk/cabal.sandbox.config
-    Creating a new sandbox at .../husk/.cabal-sandbox
+{% highlight sh %}
+# cabal sandbox init
+Writing a default package environment file to
+.../husk/cabal.sandbox.config
+Creating a new sandbox at .../husk/.cabal-sandbox
+{% endhighlight %}
 
 Next, install the package.
 
-    # cabal install
-    Resolving dependencies...
-    Configuring husk-0.0.0...
-    Building husk-0.0.0...
-    Preprocessing library husk-0.0.0...
-    In-place registering husk-0.0.0...
-    Running Haddock for husk-0.0.0...
-    Preprocessing library husk-0.0.0...
-    haddock: No input file(s).
-    Installing library in
-    .../husk/.cabal-sandbox/lib/.../husk-0.0.0
-    Registering husk-0.0.0...
-    Installed husk-0.0.0
+{% highlight sh %}
+# cabal install
+Resolving dependencies...
+Configuring husk-0.0.0...
+Building husk-0.0.0...
+Preprocessing library husk-0.0.0...
+In-place registering husk-0.0.0...
+Running Haddock for husk-0.0.0...
+Preprocessing library husk-0.0.0...
+haddock: No input file(s).
+Installing library in
+.../husk/.cabal-sandbox/lib/.../husk-0.0.0
+Registering husk-0.0.0...
+Installed husk-0.0.0
+{% endhighlight %}
 
 Alright!
 The package is configured properly,
