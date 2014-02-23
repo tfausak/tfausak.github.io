@@ -3,9 +3,18 @@ layout: post
 title: 'Haskeleton: A Haskell Project Skeleton'
 ---
 
--   <https://github.com/tfausak/haskeleton>
+I'm new to Haskell.
+I've learned enough to feel comfortable writing programs in it.
+I can solve code katas like [exercism.io][], [H-99][], and [Project Euler][].
+Yet I don't feel comfortable developing software with it.
+Writing idiomatic, maintainable, well-tested Haskell code remains a mystery to me.
 
--   [Environment](#environment)
+Cabal provides little guidance.
+For instance, `cabal init` asks 11 questions and outputs two files with 26 lines total.
+I thought I could do better,
+and I wanted to teach myself.
+So I built [Haskeleton][], a Haskell project skeleton.
+
 -   [Setup](#setup)
 -   [Library](#library)
 -   [Executable](#executable)
@@ -20,12 +29,10 @@ title: 'Haskeleton: A Haskell Project Skeleton'
 -   [Continuous Integration](#continuous-integration)
 -   [Conclusion](#conclusion)
 
-## Environment
+## Setup
 
 -   GHC 7.6.3
 -   Cabal 1.18.0.2
-
-## Setup
 
 -   `cabal init`
 -   doesn't really give you that much
@@ -759,3 +766,8 @@ language: haskell
 -   <https://github.com/tfausak/haskeleton>
 -   hopefully in the future this will be a project template
 -   or rolled into `cabal init`
+
+[exercism.io]: https://github.com/tfausak/exercism-solutions/tree/master/haskell
+[h99]: https://github.com/tfausak/h99
+[project euler]: https://github.com/tfausak/project-euler/tree/master/haskell
+[haskeleton]: https://github.com/tfausak/haskeleton
