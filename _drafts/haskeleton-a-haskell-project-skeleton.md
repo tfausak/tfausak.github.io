@@ -20,7 +20,7 @@ This post will walk you through setting up a project like Haskeleton
 and explain the decisions I made along the way.
 
 -   [Setup][]
--   [Library](#library)
+-   [Library][]
 -   [Executable](#executable)
 -   [Documentation](#documentation)
 -   [Testing](#testing)
@@ -115,46 +115,63 @@ Let's fix that.
 
 ## Library
 
--   currently installs an empty library
--   we're going to add a file
--   it won't do much
--   but it shows all the necessary machinery
+Your library code shouldn't live at the top level.
+Create a `library` directory for it.
+In there, make a module with the same name as your package.
 
--   create a directory for your library
--   something like `source` or `src` or `library` or `lib`
--   then make a file in there with the same name as your project
--   put whatever you want in there
+For this example, it doesn't have to do anything interesting.
+So we're going to have it export a function that simply returns the unit value.
 
-{% highlight haskell %}
--- source/Haskeleton.hs
-module Haskeleton (haskeleton) where
+{% highlight hs %}
+-- library/Husk.hs
+module Husk (husk) where
 
-haskeleton :: Int -> String
-haskeleton = unwords . flip replicate "Haskeleton!"
+husk :: ()
+husk = ()
 {% endhighlight %}
 
--   now that we've got a library we need to tell cabal about it
--   two things are necessary
--   which modules do you want to expose
--   and where are they
--   so open up the cabal file and add to the library section
+Just writing the module isn't enough.
+You have to let Cabal know about it.
 
-{% highlight haskell %}
--- haskeleton.cabal
+{% highlight hs %}
+-- husk.cabal
 library
-    exposed-modules: Haskeleton
-    hs-source-dirs: source
+    hs-source-dirs: library
+    exposed-modules: Husk
 {% endhighlight %}
 
--   now you've got a library
--   install it (into the sandbox) with `cabal install`
--   then launch GHCi with `cabal repl`
+This adds some new [build information][] to the library:
+
+-   `hs-source-dirs`: List of directories to search for source files in.
+-   `exposed-modules`: List of modules exposed by the package.
+
+Now that Cabal's in the loop, you can fire up a REPL for your package.
 
 {% highlight sh %}
-$ cabal repl
-λ haskeleton 3
-"Haskeleton! Haskeleton! Haskeleton!"
+# cabal repl
+Preprocessing library husk-0.0.0...
+GHCi, version 7.6.3: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+[1 of 1] Compiling Husk             ( library/Husk.hs, interpreted )
+Ok, modules loaded: Husk.
+*Husk>
 {% endhighlight %}
+
+The modules exposed by the package are already available.
+You can play around with the functions they export.
+
+{% highlight hs %}
+*Husk> :type husk
+husk :: ()
+*Husk> husk
+()
+{% endhighlight %}
+
+That's all that's necessary to make a Cabal package.
+With only 14 lines of code,
+you've already got more than `cabal init` provides.
 
 ## Executable
 
@@ -820,3 +837,4 @@ language: haskell
 [build information]: http://www.haskell.org/cabal/users-guide/developing-packages.html#build-information
 [`base`]: http://hackage.haskell.org/package/base
 [`haskell2010`]: http://www.haskell.org/onlinereport/haskell2010/
+[library]: #library
