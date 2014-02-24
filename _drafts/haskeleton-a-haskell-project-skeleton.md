@@ -22,7 +22,7 @@ and explain the decisions I made along the way.
 -   [Setup][]
 -   [Library][]
 -   [Executable][]
--   [Documentation](#documentation)
+-   [Documentation][]
 -   [Testing](#testing)
 -   [Benchmarks](#benchmarks)
 -   [Code Quality](#code-quality)
@@ -219,41 +219,68 @@ That's all it takes to make an executable with Cabal.
 
 ## Documentation
 
--   now that you've got a library and an executable, you should document them
--   there are two things that need documentation
--   the cabal package itself
--   and the source code
+Now that you've got a library and an executable,
+you should document them.
+There are two things that need documentation:
+the package itself
+and the source of the package.
 
--   to document the cabal package, edit the cabal file
--   check out the cabal user guide for instructions
--   <http://www.haskell.org/cabal/users-guide/developing-packages.html#package-properties>
--   if you aren't distributing the package, this probably isn't necessary
+Documenting the package requires adding a few more [package properties] to the Cabal file.
+If you're not going to distribute your package on [Hackage][],
+you can probably skip this step.
 
--   to document the source, you'll need to learn haddock
--   the online documentation is good
--   <http://www.haskell.org/haddock/doc/html/markup.html>
--   let's see what our source looks like documented
-
-{% highlight haskell %}
--- | This is the top-level module documentation.
-module Haskeleton (haskeleton) where
-
-{- | This is the documentation for the 'haskeleton' function.
-
->>> haskeleton 3 -- This is some example code.
-"Haskeleton! Haskeleton! Haskeleton!" -}
-haskeleton :: Int -- ^ The number of times you want to haskeleton.
-  -> String -- ^ This is the return value, which happens to be a 'String'.
-haskeleton = unwords . flip replicate "Haskeleton!"
+{% highlight hs %}
+-- husk.cabal
+license: MIT
+copyright: 2014 Taylor Fausak <taylor@fausak.me>
+synopsis: An empty library and a useless executable.
 {% endhighlight %}
 
--   next up is building the documentation
--   haddock can automatically generate and link to the source
--   this requires an additional dependency
--   so let's add it
--   but not make everyone install it
+All of the properties are optional,
+but I'd recommend supplying at least what's listed above.
 
-{% highlight haskell %}
+To write documentation for the source,
+you'll need to learn [Haddock][].
+It's a simple markup language for annotating Haskell source.
+Here's how the library looks with comments:
+
+{% highlight hs %}
+-- library/Husk.hs
+-- | A meaningless module.
+module Husk (husk) where
+
+{- |
+    An alias for the unit value.
+
+    >>> husk
+    ()
+-}
+husk :: () -- ^ The unit type.
+husk = ()
+{% endhighlight %}
+
+Now that it's documented,
+let's create the actual HTML documentation.
+
+{% highlight sh %}
+# cabal haddock
+Running Haddock for husk-0.0.0...
+Preprocessing library husk-0.0.0...
+Haddock coverage:
+ 100% (  2 /  2) in 'Husk'
+Documentation created: dist/doc/html/husk/index.html
+Preprocessing executable 'husk' for husk-0.0.0...
+{% endhighlight %}
+
+The resulting HTML file is basically what you'd see on [Haddock][].
+But it's missing one thing:
+links to the source.
+Adding those requires an additional dependency.
+Since not everyone that installs the package will be generating its documentation,
+let's make this an optional dependency.
+
+{% highlight hs %}
+-- husk.cabal
 flag documentation
     default: False
 
@@ -262,28 +289,30 @@ library
         build-depends: hscolour == 1.20.*
 {% endhighlight %}
 
--   enabling flags through cabal is easy
--   either `-fdocumentation` or `--flags=documentation`
-
--   it can also link to stdlib documentation
--   but you need to install it
--   usually this is something like `sudo apt-get install -y haskell-platform-doc`
--   not necessary
--   if you don't do it, you'll get some warnings
--   which you can ignore
-
--   with all that out of the way
--   now you can generate docs
+Enabling flags for Cabal commands is easy.
+Add either `-fdocumentation` or `--flags=documentation`.
+Using that flag, let's regenerate the documentation.
 
 {% highlight sh %}
-$ cabal install --flags=documentation
-$ cabal configure
-$ cabal build
-$ cabal haddock --hyperlink-source
+# cabal install --flags=documentations
+# cabal configure
+# cabal haddock --hyperlink-source
+Running Haddock for husk-0.0.0...
+Running hscolour for husk-0.0.0...
+Preprocessing library husk-0.0.0...
+Preprocessing executable 'husk' for husk-0.0.0...
+Preprocessing library husk-0.0.0...
+Haddock coverage:
+ 100% (  2 /  2) in 'Husk'
+Documentation created: dist/doc/html/husk/index.html
+Preprocessing executable 'husk' for husk-0.0.0...
 {% endhighlight %}
 
--   go to them
--   `dist/doc/html/haskeleton/index.html`
+Now it should have source links.
+If you get a bunch of warnings,
+you can ignore them.
+Haddock is looking for the documentation for the standard library.
+If you want to add it, install `haskell-platform-doc`.
 
 ## Testing
 
@@ -836,3 +865,6 @@ language: haskell
 [`haskell2010`]: http://www.haskell.org/onlinereport/haskell2010/
 [library]: #library
 [executable]: #executable
+[documentation]: #documentation
+[hackage]: http://hackage.haskell.org/
+[haddock]: http://www.haskell.org/haddock/
