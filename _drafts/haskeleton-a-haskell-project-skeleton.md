@@ -21,7 +21,7 @@ and explain the decisions I made along the way.
 
 -   [Setup][]
 -   [Library][]
--   [Executable](#executable)
+-   [Executable][]
 -   [Documentation](#documentation)
 -   [Testing](#testing)
 -   [Benchmarks](#benchmarks)
@@ -136,7 +136,7 @@ You have to let Cabal know about it.
 {% highlight hs %}
 -- husk.cabal
 library
-    hs-source-dirs: library
+    hs-source-dirs:  library
     exposed-modules: Husk
 {% endhighlight %}
 
@@ -175,50 +175,47 @@ you've already got more than `cabal init` provides.
 
 ## Executable
 
--   now we want to write an executable
--   it just collects arguments and passes them off
--   it should be as simple as possible
+Now that we've got a library,
+let's provide an executable.
+Like the library, this shouldn't live at the top level.
+Create an `executable` directory for it.
 
--   you have two choices here
--   throw it in the `source` directory
--   or create a new directory for the executable
--   something like `executable` or `exec` or `binary` or `bin`
--   the only file you need in there is `Main.hs`
--   it's *not* named after your package
-
-{% highlight haskell %}
+{% highlight hs %}
 -- executable/Main.hs
 module Main (main) where
 
-import           Haskeleton         (haskeleton)
-import           System.Environment (getArgs)
+import Husk (husk)
 
 main :: IO ()
-main = do
-    args <- getArgs
-    mapM_ (putStrLn . haskeleton . read) args
+main = print husk
 {% endhighlight %}
 
--   as before, now we need to let cabal know
--   this time we're adding a new top-level section
+As before, Cabal needs to know about this.
+Create a new section at the bottom of the Cabal file.
 
-{% highlight haskell %}
-executable haskeleton
-    build-depends: base == 4.* , haskeleton
+{% highlight hs %}
+-- husk.cabal
+executable husk
+    build-depends:    base, husk
     default-language: Haskell2010
-    main-is: Main.hs
-    hs-source-dirs: executable
+    hs-source-dirs:   executable
+    main-is:          Main.hs
 {% endhighlight %}
 
--   after that, you should be able to build and run it
+The only new property is `main-is`.
+It points to the main entry point for the executable.
+After adding that, you can run it!
 
 {% highlight sh %}
-$ cabal install
-$ cabal configure
-$ cabal build
-$ cabal run haskeleton 3
-Haskeleton! Haskeleton! Haskeleton!
+# cabal run
+Preprocessing library husk-0.0.0...
+In-place registering husk-0.0.0...
+Preprocessing executable 'husk' for husk-0.0.0...
+Linking dist/build/husk/husk ...
+()
 {% endhighlight %}
+
+That's all it takes to make an executable with Cabal.
 
 ## Documentation
 
@@ -838,3 +835,4 @@ language: haskell
 [`base`]: http://hackage.haskell.org/package/base
 [`haskell2010`]: http://www.haskell.org/onlinereport/haskell2010/
 [library]: #library
+[executable]: #executable
