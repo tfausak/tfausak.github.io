@@ -25,7 +25,7 @@ and explain the decisions I made along the way.
 -   [Documentation][]
 -   [Testing][]
 -   [Benchmarks][]
--   [Code Quality](#code-quality)
+-   [Code Quality]
     -   [Test Documentation](#test-documentation)
     -   [Check Documentation Coverage](#check-documentation-coverage)
     -   [Check Code Coverage](#check-code-coverage)
@@ -491,11 +491,11 @@ Benchmark criterion: FINISH
 
 ## Code Quality
 
--   that covers everything for making a library
--   and binary
--   and making sure they're correct
--   and fast
--   i like to ensure the quality is up to par, too
+That covers the basics for making a library and an executable,
+along with tests and benchmarks for them.
+Another important part of software projects is code quality.
+This includes things like code coverage and linting.
+Focusing on quality helps you make maintainable, idiomatic software.
 
 ### Test Documentation
 
@@ -868,3 +868,4 @@ language: haskell
 [hspec]: http://hspec.github.io/
 [benchmarks]: #benchmarks
 [criterion]: http://hackage.haskell.org/package/criterion
+[code quality]: #code-quality
