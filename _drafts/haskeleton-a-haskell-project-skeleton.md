@@ -23,7 +23,7 @@ and explain the decisions I made along the way.
 -   [Library][]
 -   [Executable][]
 -   [Documentation][]
--   [Testing](#testing)
+-   [Testing][]
 -   [Benchmarks](#benchmarks)
 -   [Code Quality](#code-quality)
     -   [Test Documentation](#test-documentation)
@@ -316,30 +316,19 @@ If you want to add it, install `haskell-platform-doc`.
 
 ## Testing
 
--   two types of testing needed
--   property checks, provided by quickcheck
--   unit tests, provided by hunit
+You can write two different kinds of tests in Haskell.
+Unit tests, provided by HUnit, behave like in every other lanuage.
+You can use them to test that one plus two is three, for example.
+QuickCheck gives another kind of test: property tests.
+They check things like "the sum of even numbers is even".
 
--   instead of writing quickcheck and hunit directly we'll use hspec
--   it provides a nice wrapper around both of them
--   it also automatically discovers tests for you
--   both really great features
--   start by making a `tests` directory
--   then create a `Spec.hs`
--   this is the top-level test file
--   it finds and runs all the others
+Instead of using those libraries directly,
+we're going to use [HSpec][].
+It's got a nicer syntax and a uniform interface for both libraries.
 
-{% highlight hs %}
--- test-suite/Spec.hs
-{-# OPTIONS_GHC -F -pgmF hspec-discover #-}
-{% endhighlight %}
-
--   read about how to lay out your specs for discovery
--   <http://hspec.github.io/hspec-discover.html>
--   now we need an actual test
--   so make another file
--   name it after your library
--   plus `Spec.hs` at the end
+Create a new folder, `test-suite`, for the tests.
+We don't have much functionality to test,
+but we can write a unit test and a property test for the `husk` function.
 
 {% highlight hs %}
 -- test-suite/HuskSpec.hs
@@ -357,40 +346,39 @@ spec = do
     describe "husk" $ do
         it "returns the unit value" $ do
             husk `shouldBe` ()
+
         prop "equals the unit value" $
-            (husk ==)
+            \ x -> husk == x
 {% endhighlight %}
 
--   a lot going on in here
--   imports: the library, hspec, hunit, and quickcheck
--   probably don't need hunit and quickcheck, but you might
--   then provide a `main` so the test can be run by itself
--   finally the meat of the file, `spec`
--   two hunit tests and one quickcheck property
-
--   next up is clueing cabal in
--   add a new section
+The `main` function is only there so the test can be run by itself.
+You'll probably never do that because HSpec can automatically discover and run your tests.
+All you need is a top-level entry point with the `hspec-discover` GHC preprocessor.
 
 {% highlight hs %}
+-- test-suite/Spec.hs
+{-# OPTIONS_GHC -F -pgmF hspec-discover #-}
+{% endhighlight %}
+
+With that done, the only piece left is updating the Cabal file.
+Add a new section at the end for the test suite.
+
+{% highlight hs %}
+-- husk.cabal
 test-suite hspec
-    build-depends:
-        base
-      , husk
-      , hspec == 1.8.*
-      , HUnit
-      , QuickCheck
+    build-depends:    base, husk, hspec == 1.8.*
     default-language: Haskell2010
-    ghc-options:      -Wall -Werror
     hs-source-dirs:   test-suite
     main-is:          Spec.hs
     type:             exitcode-stdio-1.0
 {% endhighlight %}
 
--   depend on: base, lib, hspec, hunit and quickcheck
--   enable errors and make them warnings
--   point to the top-level spec
--   signal success through exit code 0
--   run the tests!
+The only new [build information][] here is `type`.
+The Cabal documentation erroneously recommends the non-existent `detailed-1.0` type.
+Ignore that and use the `exitcode-stdio-1.0` type,
+which uses the exit code to signify success or failure.
+
+After doing all that, you should be able to run the tests.
 
 {% highlight sh %}
 # cabal install --enable-tests
@@ -863,3 +851,5 @@ language: haskell
 [documentation]: #documentation
 [hackage]: http://hackage.haskell.org/
 [haddock]: http://www.haskell.org/haddock/
+[testing]: #testing
+[hspec]: http://hspec.github.io/
