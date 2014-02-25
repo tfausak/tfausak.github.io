@@ -24,7 +24,7 @@ and explain the decisions I made along the way.
 -   [Executable][]
 -   [Documentation][]
 -   [Testing][]
--   [Benchmarks](#benchmarks)
+-   [Benchmarks][]
 -   [Code Quality](#code-quality)
     -   [Test Documentation](#test-documentation)
     -   [Check Documentation Coverage](#check-documentation-coverage)
@@ -399,81 +399,94 @@ Test suite logged to: dist/test/husk-0.0.0-hspec.log
 
 ## Benchmarks
 
--   going to use criterion, which is awesome
--   it does all the annoying work for you
+Now that we've got tests to ensure our code works,
+let's write some benchmarks to make sure it's fast.
+We're going to use [Criterion][], an exceptional benchmarking library.
+It handles all the annoying setup for you
+and lets you focus on writing benchmarks.
 
--   make a new directory
--   `benchmarks` or `bench` or whatever
--   like the specs, we need a top level entry point
--   unfortunately there's no automatic discovery
--   so make `Bench.hs`
+So let's make a new directory, `benchmark`, and do just that.
 
-{% highlight haskell %}
--- benchmarks/Bench.hs
-module Main (main) where
+{% highlight hs %}
+-- benchmark/HuskBench.hs
+module HuskBench (benchmarks) where
 
-import           Criterion.Main  (bgroup, defaultMain)
-import qualified HaskeletonBench
-
-main :: IO ()
-main = defaultMain
-    [ bgroup "Haskeleton" HaskeletonBench.benchmarks
-    ]
-{% endhighlight %}
-
--   it depends on `HaskeletonBench`, which we haven't made yet
--   let's go make that
-
-{% highlight haskell %}
-module HaskeletonBench (benchmarks) where
-
-import           Criterion.Main  (bench, nf)
-import           Criterion.Types (Benchmark)
-import           Haskeleton      (haskeleton)
+import Criterion
+import Husk (husk)
 
 benchmarks :: [Benchmark]
 benchmarks =
-    [ bench "haskeleton 0" (nf haskeleton 0)
-    , bench "haskeleton 3" (nf haskeleton 3)
+    [ bench "husk" $ nf (\ _ -> husk) ()
     ]
 {% endhighlight %}
 
--   pretty straightforward
--   check out the docs
--   <http://hackage.haskell.org/package/criterion>
--   only weirdness is WHNF/NF
--   but that's haskell
--   not benchmarks in particular
+The only tricky part of this is `nf`.
+It fully evaluates the result of calling the function with the given value.
+This is necessary since Haskell is lazy.
+If you didn't do it, only a part of the result might get evaluated.
+Then your benchmark wouldn't be accurate.
 
--   should be getting used to this by now
--   gotta tell cabal what's up
+Now that we have a benchmark, we need a runner.
+Unlike HSpec, Criterion doesn't auto-discover benchmarks.
+We have to manually set it up.
 
-{% highlight haskell %}
-benchmark benchmarks
-    build-depends:
-        base == 4.*
-      , criterion == 0.6.*
-      , haskeleton
-    default-language:
-        Haskell2010
-    hs-source-dirs:
-        benchmarks
-    main-is:
-        Bench.hs
-    type:
-        exitcode-stdio-1.0
+{% highlight hs %}
+-- benchmark/Bench.hs
+module Main (main) where
+
+import Criterion.Main
+import qualified HuskBench
+
+main :: IO ()
+main = defaultMain
+    [ bgroup "Husk" HuskBench.benchmarks
+    ]
 {% endhighlight %}
 
--   now able to run benchmarks
+We need to add a new section to the Cabal file for the benchmarks.
+
+{% highlight hs %}
+benchmark criterion
+    build-depends:    base, husk, criterion == 0.8.*
+    default-language: Haskell2010
+    hs-source-dirs:   benchmark
+    main-is:          Bench.hs
+    type:             exitcode-stdio-1.0
+{% endhighlight %}
+
+With that in place, we can now run the benchmarks.
 
 {% highlight sh %}
-$ cabal install --enable-benchmarks
-$ cabal configure --enable-benchmarks
-$ cabal build
-$ cabal bench
-benchmarking Haskeleton/haskeleton 0
-mean: 23.41356 ns, lb 23.40300 ns, ub 23.42692 ns, ci 0.950
-std dev: 60.52601 ps, lb 48.55063 ps, ub 89.74390 ps, ci 0.950
+# cabal install --enable-benchmarks
+# cabal bench
+Building husk-0.0.0...
+Preprocessing library husk-0.0.0...
+In-place registering husk-0.0.0...
+Preprocessing executable 'husk' for husk-0.0.0...
+Linking dist/build/husk/husk ...
+Preprocessing benchmark 'criterion' for husk-0.0.0...
+Linking dist/build/criterion/criterion ...
+Running 1 benchmarks...
+Benchmark criterion: RUNNING...
+warming up
+estimating clock resolution...
+mean is 2.904699 us (320001 iterations)
+found 5207 outliers among 319999 samples (1.6%)
+  2992 (0.9%) high severe
+estimating cost of a clock call...
+mean is 1.874305 us (17 iterations)
+found 2 outliers among 17 samples (11.8%)
+  2 (11.8%) high mild
+
+benchmarking Husk/husk
+mean: 12.31838 ns, lb 11.96851 ns, ub 12.88492 ns, ci 0.950
+std dev: 2.235611 ns, lb 1.542356 ns, ub 3.186614 ns, ci 0.950
+found 15 outliers among 100 samples (15.0%)
+  5 (5.0%) high mild
+  10 (10.0%) high severe
+variance introduced by outliers: 92.590%
+variance is severely inflated by outliers
+Benchmark criterion: FINISH
 {% endhighlight %}
 
 ## Code Quality
@@ -853,3 +866,5 @@ language: haskell
 [haddock]: http://www.haskell.org/haddock/
 [testing]: #testing
 [hspec]: http://hspec.github.io/
+[benchmarks]: #benchmarks
+[criterion]: http://hackage.haskell.org/package/criterion
