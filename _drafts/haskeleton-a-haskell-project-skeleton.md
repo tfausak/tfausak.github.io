@@ -231,9 +231,9 @@ you can probably skip this step.
 
 {% highlight hs %}
 -- husk.cabal
-license: MIT
+license:   MIT
 copyright: 2014 Taylor Fausak <taylor@fausak.me>
-synopsis: An empty library and a useless executable.
+synopsis:  An example package.
 {% endhighlight %}
 
 All of the properties are optional,
@@ -246,7 +246,7 @@ Here's how the library looks with comments:
 
 {% highlight hs %}
 -- library/Husk.hs
--- | A meaningless module.
+-- | An example module.
 module Husk (husk) where
 
 {- |
@@ -294,7 +294,7 @@ Add either `-fdocumentation` or `--flags=documentation`.
 Using that flag, let's regenerate the documentation.
 
 {% highlight sh %}
-# cabal install --flags=documentations
+# cabal install --flags=documentation
 # cabal configure
 # cabal haddock --hyperlink-source
 Running Haddock for husk-0.0.0...
