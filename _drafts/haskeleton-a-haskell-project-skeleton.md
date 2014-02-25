@@ -329,8 +329,8 @@ If you want to add it, install `haskell-platform-doc`.
 -   this is the top-level test file
 -   it finds and runs all the others
 
-{% highlight haskell %}
--- tests/Spec.hs
+{% highlight hs %}
+-- test-suite/Spec.hs
 {-# OPTIONS_GHC -F -pgmF hspec-discover #-}
 {% endhighlight %}
 
@@ -341,30 +341,24 @@ If you want to add it, install `haskell-platform-doc`.
 -   name it after your library
 -   plus `Spec.hs` at the end
 
-{% highlight haskell %}
--- tests/HaskeletonSpec.hs
-module HaskeletonSpec (main, spec) where
+{% highlight hs %}
+-- test-suite/HuskSpec.hs
+module HuskSpec (main, spec) where
 
-import           Haskeleton            (haskeleton)
-import           Test.Hspec            (Spec, describe, hspec, it, shouldBe)
-import           Test.Hspec.QuickCheck (prop)
-import           Test.HUnit            ()
-import           Test.QuickCheck       ()
+import Husk (husk)
+import Test.Hspec
+import Test.Hspec.QuickCheck
 
 main :: IO ()
 main = hspec spec
 
 spec :: Spec
 spec = do
-    describe "haskeleton" $ do
-        it "returns an empty string" $ do
-            haskeleton 0 `shouldBe` ""
-
-        it "returns the right number of haskeletons" $ do
-            haskeleton 3 `shouldBe` "Haskeleton! Haskeleton! Haskeleton!"
-
-        prop "is null for integers less than one" $
-            \ n -> if n < 1 then null (haskeleton n) else not (null (haskeleton n))
+    describe "husk" $ do
+        it "returns the unit value" $ do
+            husk `shouldBe` ()
+        prop "equals the unit value" $
+            (husk ==)
 {% endhighlight %}
 
 -   a lot going on in here
@@ -377,25 +371,19 @@ spec = do
 -   next up is clueing cabal in
 -   add a new section
 
-{% highlight haskell %}
+{% highlight hs %}
 test-suite hspec
     build-depends:
-        base == 4.*
-      , haskeleton
+        base
+      , husk
       , hspec == 1.8.*
-      , HUnit == 1.2.*
-      , QuickCheck == 2.6.*
-    default-language:
-        Haskell2010
-    ghc-options:
-        -Wall
-        -Werror
-    hs-source-dirs:
-        tests
-    main-is:
-        Spec.hs
-    type:
-        exitcode-stdio-1.0
+      , HUnit
+      , QuickCheck
+    default-language: Haskell2010
+    ghc-options:      -Wall -Werror
+    hs-source-dirs:   test-suite
+    main-is:          Spec.hs
+    type:             exitcode-stdio-1.0
 {% endhighlight %}
 
 -   depend on: base, lib, hspec, hunit and quickcheck
@@ -405,13 +393,20 @@ test-suite hspec
 -   run the tests!
 
 {% highlight sh %}
-$ cabal install --enable-tests
-$ cabal configure --enable-tests
-$ cabal build
-$ cabal test
+# cabal install --enable-tests
+# cabal test
+Building husk-0.0.0...
+Preprocessing library husk-0.0.0...
+In-place registering husk-0.0.0...
+Preprocessing executable 'husk' for husk-0.0.0...
+Linking dist/build/husk/husk ...
+Preprocessing test suite 'hspec' for husk-0.0.0...
+Linking dist/build/hspec/hspec ...
+Running 1 test suites...
 Test suite hspec: RUNNING...
 Test suite hspec: PASS
-Test suite logged to: dist/test/haskeleton-0.0.0-hspec.log
+Test suite logged to: dist/test/husk-0.0.0-hspec.log
+1 of 1 test suites (1 of 1 test cases) passed.
 {% endhighlight %}
 
 ## Benchmarks
