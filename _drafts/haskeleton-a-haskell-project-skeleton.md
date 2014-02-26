@@ -26,8 +26,8 @@ and explain the decisions I made along the way.
 -   [Testing][]
 -   [Benchmarks][]
 -   [Code Quality]
-    -   [Test Documentation](#test-documentation)
-    -   [Check Documentation Coverage](#check-documentation-coverage)
+    -   [Test Documentation][]
+    -   [Check Documentation Coverage][]
     -   [Check Code Coverage](#check-code-coverage)
     -   [Lint Code](#lint-code)
 -   [Continuous Integration](#continuous-integration)
@@ -563,41 +563,35 @@ Now we know the examples in our documentation are correct.
 
 ### Check Documentation Coverage
 
--   in addition to making sure the examples are correct
--   we should make sure everything is documented
--   there's no turn key solution for this
--   but it's easy enough to make one
--   make a new test file, `Haddock.hs`
--   it's going to run haddock against all the source files
--   and parse the output to check coverage
+In addition to checking our documentation for correctness,
+we should make sure that everything is documented.
+Unfortunately there's no turnkey solution for this.
+Making one isn't too hard since Haddock outputs coverage information already.
+We just need a script for running it and parsing the results.
+So create a new test suite for that.
 
-{% highlight haskell %}
--- tests/Haddock.hs
+{% highlight hs %}
+-- test-suite/Haddock.hs
 module Main (main) where
 
-import           Data.List      (genericLength)
-import           Data.Maybe     (catMaybes)
-import           System.Exit    (exitFailure, exitSuccess)
-import           System.Process (readProcess)
-import           Text.Regex     (matchRegex, mkRegex)
-
-arguments :: [String]
-arguments =
-    [ "haddock"
-    ]
-
-average :: (Fractional a, Real b) => [b] -> a
-average xs = realToFrac (sum xs) / genericLength xs
+import Data.List (genericLength)
+import Data.Maybe (catMaybes)
+import System.Exit (exitFailure, exitSuccess)
+import System.Process (readProcess)
+import Text.Regex (matchRegex, mkRegex)
 
 expected :: Fractional a => a
 expected = 90
 
 main :: IO ()
 main = do
-    output <- readProcess "cabal" arguments ""
+    output <- readProcess "cabal" ["haddock"] ""
     if average (match output) >= expected
         then exitSuccess
         else putStr output >> exitFailure
+
+average :: (Fractional a, Real b) => [b] -> a
+average xs = realToFrac (sum xs) / genericLength xs
 
 match :: String -> [Int]
 match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
@@ -605,36 +599,50 @@ match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
     pattern = mkRegex "^ *([0-9]*)% "
 {% endhighlight %}
 
--   tune the threshold by changing `expected`
--   don't have to modify this as you make new files
--   still gotta loop in cabal
+This is the most complex code so far.
+Matching regular expressions in Haskell is annoying.
+But it does what we want
+and the only part that might change is the `expected` value.
 
-{% highlight haskell %}
+To make this a bona fide test suite, we need to tell Cabal.
+
+{% highlight hs %}
+-- husk.cabal
 test-suite haddock
-    build-depends:
-        base == 4.*
-      , process == 1.1.*
-      , regex-compat == 0.95.*
-    default-language:
-        Haskell2010
-    hs-source-dirs:
-        tests
-    main-is:
-        Haddock.hs
-    type:
-        exitcode-stdio-1.0
+    build-depends:    base, process == 1.1.*, regex-compat == 0.95.*
+    default-language: Haskell2010
+    hs-source-dirs:   test-suite
+    main-is:          Haddock.hs
+    type:             exitcode-stdio-1.0
 {% endhighlight %}
 
--   run it with the rest of the suite
+Finally we can run it.
 
 {% highlight sh %}
-$ cabal install --enable-tests --only-dependencies
-$ cabal configure --enable-tests
-$ cabal build
-$ cabal test
+# cabal install --enable-tests
+# cabal test
+Building husk-0.0.0...
+Preprocessing library husk-0.0.0...
+In-place registering husk-0.0.0...
+Preprocessing executable 'husk' for husk-0.0.0...
+Linking dist/build/husk/husk ...
+Preprocessing test suite 'hspec' for husk-0.0.0...
+Linking dist/build/hspec/hspec ...
+Preprocessing test suite 'doctest' for husk-0.0.0...
+Preprocessing test suite 'haddock' for husk-0.0.0...
+Preprocessing benchmark 'criterion' for husk-0.0.0...
+Linking dist/build/criterion/criterion ...
+Running 3 test suites...
+Test suite hspec: RUNNING...
+Test suite hspec: PASS
+Test suite logged to: dist/test/husk-0.0.0-hspec.log
+Test suite doctest: RUNNING...
+Test suite doctest: PASS
+Test suite logged to: dist/test/husk-0.0.0-doctest.log
 Test suite haddock: RUNNING...
 Test suite haddock: PASS
-Test suite logged to: dist/test/haskeleton-0.0.0-haddock.log
+Test suite logged to: dist/test/husk-0.0.0-haddock.log
+3 of 3 test suites (3 of 3 test cases) passed.
 {% endhighlight %}
 
 ### Check Code Coverage
@@ -876,4 +884,6 @@ language: haskell
 [benchmarks]: #benchmarks
 [criterion]: http://hackage.haskell.org/package/criterion
 [code quality]: #code-quality
+[test documentation]: #test-documentation
 [`doctest`]: http://hackage.haskell.org/package/doctest
+[check documentation coverage]: #check-documentation-coverage
