@@ -499,60 +499,67 @@ Focusing on quality helps you make maintainable, idiomatic software.
 
 ### Test Documentation
 
--   our documentation had some example code in it
--   we should make sure that those examples are correct
--   if they're not, our documentation is wrong
--   that should be a build error
--   fortunately, thanks to the doctest package, it can be
+Before we get to all that,
+there's one more thing that needs testing.
+When we wrote our documentation,
+we included some example code.
+We should test that code to make sure it's correct.
+Incorrect examples in documentation is frustrating.
 
--   make a new test file, `DocTest.hs`
--   all it does it run doctest against your source files
+Thanks to [`doctest`][], testing documentation is a cinch.
+We just need to write a new test suite.
 
-{% highlight haskell %}
--- tests/DocTest.hs
+{% highlight hs %}
+-- test-suite/DocTest.hs
 module Main (main) where
 
-import           Test.DocTest (doctest)
-
-arguments :: [String]
-arguments =
-    [ "library/Haskeleton.hs"
-    ]
+import System.FilePath.Glob
+import Test.DocTest
 
 main :: IO ()
-main = doctest arguments
+main = glob "library/**/*.hs" >>= doctest
 {% endhighlight %}
 
--   you'll have to manually add source files to it
--   something like hspec-discover would be nice
--   you guessed it, gotta tell cabal
+This uses globbing to avoid listing all the source files.
+That means you shouldn't ever have to modify it.
 
-{% highlight haskell %}
+Next, create a new section in the Cabal file.
+
+{% highlight hs %}
+-- husk.cabal
 test-suite doctest
-    build-depends:
-        base == 4.*
-      , doctest == 0.9.*
-    default-language:
-        Haskell2010
-    hs-source-dirs:
-        tests
-    main-is:
-        DocTest.hs
-    type:
-        exitcode-stdio-1.0
+    build-depends:    base, doctest == 0.9.*, Glob == 0.7.*
+    default-language: Haskell2010
+    hs-source-dirs:   test-suite
+    main-is:          DocTest.hs
+    type:             exitcode-stdio-1.0
 {% endhighlight %}
 
--   run it same as the other tests
+You can now run it along with the other test suites.
 
 {% highlight sh %}
-$ cabal install --enable-tests --only-dependencies
-$ cabal configure --enable-tests
-$ cabal build
-$ cabal test
+# cabal install --enable-tests
+# cabal test
+Building husk-0.0.0...
+Preprocessing library husk-0.0.0...
+In-place registering husk-0.0.0...
+Preprocessing executable 'husk' for husk-0.0.0...
+Linking dist/build/husk/husk ...
+Preprocessing test suite 'hspec' for husk-0.0.0...
+Linking dist/build/hspec/hspec ...
+Preprocessing test suite 'doctest' for husk-0.0.0...
+Running 2 test suites...
+Test suite hspec: RUNNING...
+Test suite hspec: PASS
+Test suite logged to: dist/test/husk-0.0.0-hspec.log
 Test suite doctest: RUNNING...
 Test suite doctest: PASS
-Test suite logged to: dist/test/haskeleton-0.0.0-doctest.log
+Test suite logged to: dist/test/husk-0.0.0-doctest.log
+2 of 2 test suites (2 of 2 test cases) passed.
 {% endhighlight %}
+
+Sweet!
+Now we know the examples in our documentation are correct.
 
 ### Check Documentation Coverage
 
@@ -869,3 +876,4 @@ language: haskell
 [benchmarks]: #benchmarks
 [criterion]: http://hackage.haskell.org/package/criterion
 [code quality]: #code-quality
+[`doctest`]: http://hackage.haskell.org/package/doctest
