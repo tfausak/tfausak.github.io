@@ -29,9 +29,9 @@ and explain the decisions I made along the way.
     -   [Test Documentation][]
     -   [Check Documentation Coverage][]
     -   [Check Code Coverage][]
-    -   [Lint Code](#lint-code)
--   [Continuous Integration](#continuous-integration)
--   [Conclusion](#conclusion)
+    -   [Lint Code][]
+-   [Continuous Integration][]
+-   [Notes][]
 
 ## Setup
 
@@ -869,7 +869,17 @@ language: haskell
 Now every time you push to GitHub, Travis will run your tests.
 You'll get an email if they aren't green.
 
-## Conclusion
+## Notes
+
+This turned out to be much bigger than I anticipated.
+This post is easily three time as long as any other post I've written.
+And I had to leave some stuff out!
+For more details, check out [Haskeleton][].
+Hopefully some day it will make this post obsolete.
+
+In the meantime,
+[email me][] if you have any questions.
+I'm happy to help!
 
 -   so much more code than i expected
 -   a lot to it
@@ -904,5 +914,9 @@ You'll get an email if they aren't green.
 [check documentation coverage]: #check-documentation-coverage
 [check code coverage]: #check-code-coverage
 [hpc]: http://www.haskell.org/haskellwiki/Haskell_program_coverage
+[lint code]: #lint-code
 [hlint]: http://community.haskell.org/~ndm/hlint/
 [travis ci]: https://travis-ci.org/
+[continuous-integration]: #continuous-integration
+[notes]: #notes
+[email me]: mailto:taylor+honeypot@fausak.me
