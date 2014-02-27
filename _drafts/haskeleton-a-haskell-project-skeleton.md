@@ -38,17 +38,24 @@ and explain the decisions I made along the way.
 ## Setup
 
 There's no reason to make new software with old technology.
-To get started, make sure you have GHC 7.6.3 and Cabal 1.18.0.2.
+To get started, make sure you have GHC 7.6.3 and Cabal 1.18.0.2 installed.
 You can get GHC through [The Haskell Platform][]
 and the latest version of Cabal with `cabal install cabal-install`.
 
-Think of a name for your project.
-I went with "husk", so replace it with your name throughout.
-Make a directory for your project to get started: `mkdir husk && cd $_`.
+Now for the hardest part:
+thinking of a name for your package.
+I went with "husk".
+(If you're following along, replace that with your package's name throughout.)
+Make a directory for your package to get started.
 
-The only necessary file is the package description.
-Colloquially, this is "the Cabal file".
-It starts off very simple.
+{% highlight sh %}
+# mkdir husk
+# cd husk
+{% endhighlight %}
+
+You only need one file to make a package: a Cabal file.
+It describes the package and tells Cabal how to build it.
+It starts off pretty simple.
 
 {% highlight hs %}
 -- husk.cabal
@@ -61,34 +68,35 @@ library
     default-language: Haskell2010
 {% endhighlight %}
 
-Here's a rundown of the [package properties][]:
+The syntax is mix between Haskell and YAML.
+The [package properties][] at the top describe the package as a whole.
+In the library section, the [build information][] declares how to build the library.
 
+-   `name`: The package's name.
+-   `version`: The package's version number.
+    I recommend using [semantic versioning][].
 -   `build-type`: The type of build.
-    Setting this to `Simple` tells Cabal to use the default setup script.
-    Annoyingly, the default is `Custom`.
--   `cabal-version`: The version of the Cabal specification.
-    This should be the major and minor parts of your version of Cabal.
--   `name`: The unique name.
--   `version`: The version number.
-    It's a good idea to use [semantic versioning][].
-
-And the [build information][] for the library:
-
+    By default, this is `Custom`.
+    Setting it to `Simple` uses the default setup script.
+-   `cabal-version`: Cabal's version number.
+    Use the major and minor parts of the version of Cabal used to build the package.
 -   `default-language`: The version of the Haskell language report.
     The current state of the art is [`Haskell2010`][].
 
-Now that all the boilerplate is out of the way,
-let's build the package.
-Start by creating a sandbox,
-which sets up a private environment.
+With all the boilerplate out of the way,
+we can build the package.
+Before we do,
+let's create a sandbox.
+It sets up a private environment separate from the rest of your system.
 
 {% highlight sh %}
 # cabal sandbox init
-Writing a default package environment file to .../husk/cabal.sandbox.config
+Writing a default package environment file to
+.../husk/cabal.sandbox.config
 Creating a new sandbox at .../husk/.cabal-sandbox
 {% endhighlight %}
 
-Next, install the package.
+Now let's install the package into the sandbox.
 
 {% highlight sh %}
 # cabal install
@@ -102,9 +110,9 @@ Registering husk-0.0.0...
 Installed husk-0.0.0
 {% endhighlight %}
 
-Alright!
-The package is configured properly,
-but it doesn't produce anything.
+Alright, it worked!
+Six lines of code made a valid Cabal package.
+It doesn't do anything yet, though.
 Let's fix that.
 
 ## Library
