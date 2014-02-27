@@ -762,28 +762,23 @@ Everything works fine in spite of it.
 
 ### Lint Code
 
--   one last test suite to write
--   enforce code conventions with hlint
--   <http://community.haskell.org/~ndm/hlint/>
--   hlint shouldn't be applied blindly
--   but we can disable it inline with annotations
--   so it makes for a good test
+You might think we've got enough tests,
+but there's still one last suite to write.
+It's going to enforce code conventions with [HLint][].
 
-{% highlight haskell %}
--- tests/HLint.hs
+{% highlight hs %}
+-- test-suite/HLint.hs
 module Main (main) where
 
-import           Language.Haskell.HLint (hlint)
-import           System.Exit            (exitFailure, exitSuccess)
+import Language.Haskell.HLint (hlint)
+import System.Exit (exitFailure, exitSuccess)
 
 arguments :: [String]
 arguments =
-    [ "--color"
-    , "--hint=HLint.hs"
-    , "benchmarks"
+    [ "benchmark"
     , "executable"
     , "library"
-    , "tests"
+    , "test-suite"
     ]
 
 main :: IO ()
@@ -792,49 +787,67 @@ main = do
     if null hints then exitSuccess else exitFailure
 {% endhighlight %}
 
--   hlint recursively walks the directories
--   so you don't have to modify this
--   let cabal know it exists
+Thanks to HLint's excellent inteface,
+there's nothing too interesting going on here.
+Let's tell Cabal about it.
 
-{% highlight haskell %}
+{% highlight hs %}
+-- husk.cabal
 test-suite hlint
-    build-depends:
-        base == 4.*
-      , hlint == 1.8.*
-    default-language:
-        Haskell2010
-    hs-source-dirs:
-        tests
-    main-is:
-        HLint.hs
-    type:
-        exitcode-stdio-1.0
+    build-depends:    base, hlint == 1.8.*
+    default-language: Haskell2010
+    hs-source-dirs:   test-suite
+    main-is:          HLint.hs
+    type:             exitcode-stdio-1.0
 {% endhighlight %}
 
--   run it
+All that's left to do now is run it!
 
 {% highlight sh %}
-$ cabal install --enable-tests --only-dependencies
-$ cabal configure --enable-tests
-$ cabal build
-$ cabal test
+# cabal install --enable-tests
+# cabal test
+Building husk-0.0.0...
+Preprocessing library husk-0.0.0...
+In-place registering husk-0.0.0...
+Preprocessing executable 'husk' for husk-0.0.0...
+Linking dist/build/husk/husk ...
+Preprocessing test suite 'hspec' for husk-0.0.0...
+Preprocessing test suite 'doctest' for husk-0.0.0...
+Preprocessing test suite 'haddock' for husk-0.0.0...
+Preprocessing test suite 'hpc' for husk-0.0.0...
+Preprocessing test suite 'hlint' for husk-0.0.0...
+Preprocessing benchmark 'criterion' for husk-0.0.0...
+Linking dist/build/criterion/criterion ...
+Running 5 test suites...
+Test suite hspec: RUNNING...
+Finished in 0.0070 seconds
+2 examples, 0 failures
+Test suite hspec: PASS
+Test suite logged to: dist/test/husk-0.0.0-hspec.log
+Warning: Your version of HPC (0.6) does not properly handle multiple search
+paths. Coverage report generation may fail unexpectedly. These issues are
+addressed in version 0.7 or later (GHC 7.8 or later). The following search
+paths have been abandoned: ["dist/hpc/mix/husk-0.0.0"]
+Writing: hpc_index.html
+Writing: hpc_index_fun.html
+Writing: hpc_index_alt.html
+Writing: hpc_index_exp.html
+Test coverage report written to dist/hpc/html/hspec/hpc_index.html
+Test suite doctest: RUNNING...
+Examples: 1  Tried: 1  Errors: 0  Failures: 0
+Test suite doctest: PASS
+Test suite logged to: dist/test/husk-0.0.0-doctest.log
+Test suite haddock: RUNNING...
+Test suite haddock: PASS
+Test suite logged to: dist/test/husk-0.0.0-haddock.log
+Test suite hpc: RUNNING...
+Test suite hpc: PASS
+Test suite logged to: dist/test/husk-0.0.0-hpc.log
 Test suite hlint: RUNNING...
+No suggestions (2 ignored)
 Test suite hlint: PASS
-Test suite logged to: dist/test/haskeleton-0.0.0-hlint.log
-{% endhighlight %}
-
--   you can configure this at the project level
--   make `HLint.hs` in the root directory
-
-{% highlight haskell %}
--- HLint.hs
-{-# LANGUAGE PackageImports #-}
-
-module HLint () where
-
-import           "hint" HLint.Default
-import           "hint" HLint.Dollar
-import           "hint" HLint.Generalise
+Test suite logged to: dist/test/husk-0.0.0-hlint.log
+5 of 5 test suites (5 of 5 test cases) passed.
 {% endhighlight %}
 
 ## Continuous Integration
@@ -885,3 +898,4 @@ language: haskell
 [check documentation coverage]: #check-documentation-coverage
 [check code coverage]: #check-code-coverage
 [hpc]: http://www.haskell.org/haskellwiki/Haskell_program_coverage
+[hlint]: http://community.haskell.org/~ndm/hlint/
