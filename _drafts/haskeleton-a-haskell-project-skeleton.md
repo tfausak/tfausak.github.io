@@ -28,7 +28,7 @@ and explain the decisions I made along the way.
 -   [Code Quality]
     -   [Test Documentation][]
     -   [Check Documentation Coverage][]
-    -   [Check Code Coverage](#check-code-coverage)
+    -   [Check Code Coverage][]
     -   [Lint Code](#lint-code)
 -   [Continuous Integration](#continuous-integration)
 -   [Conclusion](#conclusion)
@@ -647,62 +647,49 @@ Test suite logged to: dist/test/husk-0.0.0-haddock.log
 
 ### Check Code Coverage
 
--   we're checking percent of documentation coverage
--   we should also be checking how much of our code is covered by our tests
--   we can measure it in pretty much the same way
--   we have to set up HPC, GHC's built in profiler
--   modify the `hspec` test-suite in the cabal file
+We know how much of our code is documented,
+but we don't know how much of it is tested.
+Let's fix that by modifying our `hspec` test suite to use [HPC][].
 
-{% highlight haskell %}
+{% highlight hs %}
+-- husk.cabal
 test-suite hspec
-    ghc-options:
-        -fhpc
-    hs-source-dirs:
-        library
-        tests
-    other-modules:
-        Haskeleton
-        HaskeletonSpec
+    hs-source-dirs: library test-suite
+    ghc-options:    -fhpc
+    other-modules:  Husk, HuskSpec
     -- ...
 {% endhighlight %}
 
--   tell GHC to enable HPC with `-fhpc`
--   then include the source directories
--   otherwise hpc won't know what we're talking about
--   similarly, include the library and specs
--   this sucks because the tests auto discover but the coverage doesnt
+What we're doing here is telling GHC to enable HPC.
+We also have to add all the source and test files to `other-modules` so HPC can analyze them.
+This is kind of annoying, especially since HSpec automatically discovers our tests.
+But it's not too bad because if you forget a file, HPC will yell at you and your test will fail.
 
--   next up we need to create a new test case, `HPC.hs`
+Before it can fail, though, we actually need to write it.
+This new test suite looks a lot like the last one.
 
-{% highlight haskell %}
--- tests/HPC.hs
+{% highlight hs %}
+-- test-suite/HPC.hs
 module Main (main) where
 
-import           Data.List      (genericLength)
-import           Data.Maybe     (catMaybes)
-import           System.Exit    (exitFailure, exitSuccess)
-import           System.Process (readProcess)
-import           Text.Regex     (matchRegex, mkRegex)
-
-arguments :: [String]
-arguments =
-    [ "report"
-    , "--include=Haskeleton"
-    , "dist/hpc/tix/hspec/hspec.tix"
-    ]
-
-average :: (Fractional a, Real b) => [b] -> a
-average xs = realToFrac (sum xs) / genericLength xs
+import Data.List (genericLength)
+import Data.Maybe (catMaybes)
+import System.Exit (exitFailure, exitSuccess)
+import System.Process (readProcess)
+import Text.Regex (matchRegex, mkRegex)
 
 expected :: Fractional a => a
 expected = 90
 
 main :: IO ()
 main = do
-    output <- readProcess "hpc" arguments ""
+    output <- readProcess "cabal" ["report", "dist/hpc/tix/hspec/hspec.tix"] ""
     if average (match output) >= expected
         then exitSuccess
         else putStr output >> exitFailure
+
+average :: (Fractional a, Real b) => [b] -> a
+average xs = realToFrac (sum xs) / genericLength xs
 
 match :: String -> [Int]
 match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
@@ -710,59 +697,68 @@ match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
     pattern = mkRegex "^ *([0-9]*)% "
 {% endhighlight %}
 
--   it's like 90% the same as the haddock test
--   like the cabal file, you'll have to update this with new sources
--   use `--include=Something`
+Just like the last one, we have to add it to the Cabal file.
 
--   back to the cabal file
--   add another test suite
--   this *must* come after hspec
--   otherwise it either wont have any data
--   or it'll be run against the last iteration's data
-
-{% highlight haskell %}
+{% highlight hs %}
+-- husk.cabal
 test-suite hpc
-    build-depends:
-        base == 4.*
-      , process == 1.1.*
-      , regex-compat == 0.95.*
-    default-language:
-        Haskell2010
-    hs-source-dirs:
-        tests
-    main-is:
-        HPC.hs
-    type:
-        exitcode-stdio-1.0
+    build-depends:    base, process == 1.1.*, regex-compat == 0.95.*
+    default-language: Haskell2010
+    hs-source-dirs:   test-suite
+    main-is:          HPC.hs
+    type:             exitcode-stdio-1.0
 {% endhighlight %}
 
--   run the test suite
+Typically the order of things in the Cabal file doesn't matter.
+However, it runs the test suites in order of appearance.
+Since this test uses the output of the HSpec suite,
+make sure it comes after that one.
+If it doesn't, it'll either be run with old data or no data.
 
 {% highlight sh %}
-$ cabal install --enable-tests --only-dependencies
-$ cabal configure --enable-tests
-$ cabal build
-$ cabal test
+# cabal install --enable-tests
+# cabal test
+Building husk-0.0.0...
+Preprocessing library husk-0.0.0...
+In-place registering husk-0.0.0...
+Preprocessing executable 'husk' for husk-0.0.0...
+Linking dist/build/husk/husk ...
+Preprocessing test suite 'hspec' for husk-0.0.0...
+Preprocessing test suite 'doctest' for husk-0.0.0...
+Preprocessing test suite 'haddock' for husk-0.0.0...
+Preprocessing test suite 'hpc' for husk-0.0.0...
+Preprocessing benchmark 'criterion' for husk-0.0.0...
+Linking dist/build/criterion/criterion ...
+Running 4 test suites...
+Test suite hspec: RUNNING...
+Finished in 0.0279 seconds
+2 examples, 0 failures
+Test suite hspec: PASS
+Test suite logged to: dist/test/husk-0.0.0-hspec.log
+Warning: Your version of HPC (0.6) does not properly handle multiple search
+paths. Coverage report generation may fail unexpectedly. These issues are
+addressed in version 0.7 or later (GHC 7.8 or later). The following search
+paths have been abandoned: ["dist/hpc/mix/husk-0.0.0"]
+Writing: hpc_index.html
+Writing: hpc_index_fun.html
+Writing: hpc_index_alt.html
+Writing: hpc_index_exp.html
+Test coverage report written to dist/hpc/html/hspec/hpc_index.html
+Test suite doctest: RUNNING...
+Examples: 1  Tried: 1  Errors: 0  Failures: 0
+Test suite doctest: PASS
+Test suite logged to: dist/test/husk-0.0.0-doctest.log
+Test suite haddock: RUNNING...
+Test suite haddock: PASS
+Test suite logged to: dist/test/husk-0.0.0-haddock.log
 Test suite hpc: RUNNING...
 Test suite hpc: PASS
-Test suite logged to: dist/test/haskeleton-0.0.0-hpc.log
+Test suite logged to: dist/test/husk-0.0.0-hpc.log
+4 of 4 test suites (4 of 4 test cases) passed.
 {% endhighlight %}
 
--   check out the coverage yourself
-
-{% highlight sh %}
-$ hpc report --include=Haskeleton dist/hpc/tix/hspec/hspec.tix
-100% expressions used (5/5)
-100% boolean coverage (0/0)
-     100% guards (0/0)
-     100% 'if' conditions (0/0)
-     100% qualifiers (0/0)
-100% alternatives used (0/0)
-100% local declarations used (0/0)
-100% top-level declarations used (1/1)
-$ hpc markup --destdir=tmp --include=Haskeleton dist/hpc/tix/hspec/hspec.tix
-# => tmp/hpc_index.html
-{% endhighlight %}
+You can ignore HPC's warning about search paths.
+Everything works fine in spite of it.
 
 ### Lint Code
 
@@ -887,3 +883,5 @@ language: haskell
 [test documentation]: #test-documentation
 [`doctest`]: http://hackage.haskell.org/package/doctest
 [check documentation coverage]: #check-documentation-coverage
+[check code coverage]: #check-code-coverage
+[hpc]: http://www.haskell.org/haskellwiki/Haskell_program_coverage
