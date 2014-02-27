@@ -9,13 +9,15 @@ I can solve code katas like [exercism.io][], [H-99][], and [Project Euler][].
 Yet I don't feel comfortable developing software with it.
 Writing idiomatic, maintainable, well-tested Haskell code remains a mystery to me.
 
-Unfortunately, Cabal provides little guidance.
-For instance, `cabal init` asks 11 questions and outputs two files totalling 26 lines.
-In an effort to both improve on that and teach myself,
+Cabal, the Haskell build tool, provides little guidance.
+For instance, `cabal init` asks 11 questions and outputs two files totaling 26 lines.
+That's not the best metric,
+but it shows that you aren't getting much out of it.
+To both improve on that and educate myself,
 I built [Haskeleton][], a Haskell project skeleton.
 
-Eventually I hope it will replace `cabal init`.
-But for the time being, it's just an example project you can copy.
+I hope it replaces `cabal init` someday.
+For the time being, it's just an example project.
 This post will walk you through setting up a project like Haskeleton
 and explain the decisions I made along the way.
 
