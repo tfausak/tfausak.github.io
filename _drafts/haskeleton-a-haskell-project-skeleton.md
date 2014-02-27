@@ -23,13 +23,13 @@ and explain the decisions I made along the way.
 -   [Library][]
 -   [Executable][]
 -   [Documentation][]
--   [Testing][]
+-   [Tests][]
 -   [Benchmarks][]
 -   [Code Quality][]
-    -   [Test Documentation][]
-    -   [Check Documentation Coverage][]
-    -   [Check Code Coverage][]
-    -   [Lint Code][]
+    -   [Documentation Tests][]
+    -   [Documentation Coverage][]
+    -   [Test Coverage][]
+    -   [Static Analysis][]
 -   [Continuous Integration][]
 -   [Notes][]
 
@@ -133,7 +133,7 @@ library
     build-depends:   base
 {% endhighlight %}
 
-This adds some new [build information][] to the library:
+This adds some new build information to the library:
 
 -   `exposed-modules`: List of modules exposed by the package.
 -   `hs-source-dirs`: List of directories to search for source files in.
@@ -208,7 +208,7 @@ There are two things that need documentation:
 the package itself
 and the source of the package.
 
-Documenting the package requires adding a few more [package properties] to the Cabal file.
+Documenting the package requires adding a few more package properties to the Cabal file.
 If you're not going to distribute your package on [Hackage][],
 you can probably skip this step.
 
@@ -254,7 +254,7 @@ Haddock coverage:
 Documentation created: dist/doc/html/husk/index.html
 {% endhighlight %}
 
-The resulting HTML file is basically what you'd see on [Haddock][].
+The resulting HTML file is basically what you'd see on Hackage.
 But it's missing one thing:
 links to the source.
 Adding those requires an additional dependency.
@@ -292,7 +292,7 @@ you can ignore them.
 Haddock is looking for the documentation for the standard library.
 If you want to add it, install `haskell-platform-doc`.
 
-## Testing
+## Tests
 
 You can write two different kinds of tests in Haskell.
 Unit tests, provided by HUnit, behave like in every other lanuage.
@@ -347,7 +347,7 @@ test-suite hspec
     type:             exitcode-stdio-1.0
 {% endhighlight %}
 
-The only new [build information][] here is `type`.
+The only new build information here is `type`.
 The Cabal documentation erroneously recommends the non-existent `detailed-1.0` type.
 Ignore that and use the `exitcode-stdio-1.0` type,
 which uses the exit code to signify success or failure.
@@ -444,7 +444,7 @@ Another important part of software projects is code quality.
 This includes things like code coverage and linting.
 Focusing on quality helps you make maintainable, idiomatic software.
 
-### Test Documentation
+### Documentation Tests
 
 Before we get to all that,
 there's one more thing that needs testing.
@@ -499,7 +499,7 @@ Test suite logged to: dist/test/husk-0.0.0-doctest.log
 Sweet!
 Now we know the examples in our documentation are correct.
 
-### Check Documentation Coverage
+### Documentation Coverage
 
 In addition to checking our documentation for correctness,
 we should make sure that everything is documented.
@@ -564,7 +564,7 @@ Test suite haddock: PASS
 Test suite logged to: dist/test/husk-0.0.0-haddock.log
 {% endhighlight %}
 
-### Check Code Coverage
+### Test Coverage
 
 We know how much of our code is documented,
 but we don't know how much of it is tested.
@@ -656,7 +656,7 @@ Test suite logged to: dist/test/husk-0.0.0-hpc.log
 You can ignore HPC's warning about search paths.
 Everything works fine in spite of it.
 
-### Lint Code
+### Static Analysis
 
 You might think we've got enough tests,
 but there's still one last suite to write.
@@ -699,7 +699,9 @@ test-suite hlint
 
 {% highlight hs %}
 -- test-suite/HuskSpec.hs
-{-# ANN module "HLint: ignore Redundant do" #-}
+{-# ANN spec "HLint: ignore Redundant do" #-}
+spec :: Spec
+spec = ...
 {% endhighlight %}
 
 All that's left to do now is run it!
@@ -759,17 +761,17 @@ I'm happy to help!
 [documentation]: #documentation
 [hackage]: http://hackage.haskell.org/
 [haddock]: http://www.haskell.org/haddock/
-[testing]: #testing
+[tests]: #tests
 [hspec]: http://hspec.github.io/
 [benchmarks]: #benchmarks
 [criterion]: http://hackage.haskell.org/package/criterion
 [code quality]: #code-quality
-[test documentation]: #test-documentation
+[documentation tests]: #documentation-tests
 [`doctest`]: http://hackage.haskell.org/package/doctest
-[check documentation coverage]: #check-documentation-coverage
-[check code coverage]: #check-code-coverage
+[documentation coverage]: #documentation-coverage
+[test coverage]: #test-coverage
 [hpc]: http://www.haskell.org/haskellwiki/Haskell_program_coverage
-[lint code]: #lint-code
+[static analysis]: #static-analysis
 [hlint]: http://community.haskell.org/~ndm/hlint/
 [travis ci]: https://travis-ci.org/
 [continuous integration]: #continuous-integration
