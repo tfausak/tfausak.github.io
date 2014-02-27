@@ -852,16 +852,22 @@ Test suite logged to: dist/test/husk-0.0.0-hlint.log
 
 ## Continuous Integration
 
--   all of this testing and code quality is no good if we don't run them
--   travis ci makes continuous integration a cinch
--   just add a `.travis.yml` file
--   and hook up your github project
--   <http://docs.travis-ci.com/user/getting-started/>
+We've got all these tests now.
+They don't do us any good if nobody ever runs them.
+Since it's all too easy to forget to run the tests when you're developing,
+let's make a computer do it!
 
-{% highlight yaml %}
+[Travis CI][] makes continuous integration a cinch.
+Assuming your code is on GitHub,
+all you have to do is make one file and add one line to it.
+
+{% highlight yml %}
 # .travis.yml
 language: haskell
 {% endhighlight %}
+
+Now every time you push to GitHub, Travis will run your tests.
+You'll get an email if they aren't green.
 
 ## Conclusion
 
@@ -899,3 +905,4 @@ language: haskell
 [check code coverage]: #check-code-coverage
 [hpc]: http://www.haskell.org/haskellwiki/Haskell_program_coverage
 [hlint]: http://community.haskell.org/~ndm/hlint/
+[travis ci]: https://travis-ci.org/
