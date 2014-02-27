@@ -50,33 +50,30 @@ It starts off very simple.
 
 {% highlight hs %}
 -- husk.cabal
-name:          husk
-version:       0.0.0
 build-type:    Simple
 cabal-version: >= 1.18
+name:          husk
+version:       0.0.0
 
 library
-    build-depends:    base
-    default-language: Haskell2010
+    build-depends: base
 {% endhighlight %}
 
 Here's a rundown of the [package properties][]:
 
--   `name`: The unique name.
--   `version`: The version number.
-    It's a good idea to use [semantic versioning][].
 -   `build-type`: The type of build.
     Setting this to `Simple` tells Cabal to use the default setup script.
     Annoyingly, the default is `Custom`.
 -   `cabal-version`: The version of the Cabal specification.
     This should be the major and minor parts of your version of Cabal.
+-   `name`: The unique name.
+-   `version`: The version number.
+    It's a good idea to use [semantic versioning][].
 
 And the [build information][] for the library:
 
 -   `build-depends`: A list of needed packages.
     Every project will depend on [`base`][], which provides the Prelude.
--   `default-language`: The version of the Haskell language report.
-    The current state of the art is [`Haskell2010`][].
 
 Now that all the boilerplate is out of the way,
 let's build the package.
@@ -85,9 +82,8 @@ which sets up a private environment.
 
 {% highlight sh %}
 # cabal sandbox init
-Writing a default package environment file to
-.../husk/cabal.sandbox.config
-Creating a new sandbox at .../husk/.cabal-sandbox
+Writing a default package environment file to .../husk/cabal.sandbox.config
+Creating a new sandbox at /home/vagrant/husk/.cabal-sandbox
 {% endhighlight %}
 
 Next, install the package.
@@ -99,11 +95,8 @@ Configuring husk-0.0.0...
 Building husk-0.0.0...
 Preprocessing library husk-0.0.0...
 In-place registering husk-0.0.0...
-Running Haddock for husk-0.0.0...
-Preprocessing library husk-0.0.0...
-haddock: No input file(s).
 Installing library in
-.../husk/.cabal-sandbox/lib/.../husk-0.0.0
+.../husk/.cabal-sandbox/lib/x86_64-linux-ghc-7.6.3/husk-0.0.0
 Registering husk-0.0.0...
 Installed husk-0.0.0
 {% endhighlight %}
@@ -136,14 +129,17 @@ You have to let Cabal know about it.
 {% highlight hs %}
 -- husk.cabal
 library
-    hs-source-dirs:  library
+    build-depends:   base
     exposed-modules: Husk
+    hs-source-dirs:  library
 {% endhighlight %}
 
 This adds some new [build information][] to the library:
 
 -   `hs-source-dirs`: List of directories to search for source files in.
 -   `exposed-modules`: List of modules exposed by the package.
+-   `default-language`: The version of the Haskell language report.
+    The current state of the art is [`Haskell2010`][].
 
 Now that Cabal's in the loop, you can fire up a REPL for your package.
 
@@ -231,8 +227,8 @@ you can probably skip this step.
 
 {% highlight hs %}
 -- husk.cabal
+copyright: 2014 Taylor Fausak
 license:   MIT
-copyright: 2014 Taylor Fausak <taylor@fausak.me>
 synopsis:  An example package.
 {% endhighlight %}
 
@@ -269,7 +265,6 @@ Preprocessing library husk-0.0.0...
 Haddock coverage:
  100% (  2 /  2) in 'Husk'
 Documentation created: dist/doc/html/husk/index.html
-Preprocessing executable 'husk' for husk-0.0.0...
 {% endhighlight %}
 
 The resulting HTML file is basically what you'd see on [Haddock][].
@@ -295,17 +290,13 @@ Using that flag, let's regenerate the documentation.
 
 {% highlight sh %}
 # cabal install --flags=documentation
-# cabal configure
 # cabal haddock --hyperlink-source
 Running Haddock for husk-0.0.0...
 Running hscolour for husk-0.0.0...
 Preprocessing library husk-0.0.0...
-Preprocessing executable 'husk' for husk-0.0.0...
-Preprocessing library husk-0.0.0...
 Haddock coverage:
  100% (  2 /  2) in 'Husk'
 Documentation created: dist/doc/html/husk/index.html
-Preprocessing executable 'husk' for husk-0.0.0...
 {% endhighlight %}
 
 Now it should have source links.
@@ -332,14 +323,11 @@ but we can write a unit test and a property test for the `husk` function.
 
 {% highlight hs %}
 -- test-suite/HuskSpec.hs
-module HuskSpec (main, spec) where
+module HuskSpec (spec) where
 
 import Husk (husk)
 import Test.Hspec
 import Test.Hspec.QuickCheck
-
-main :: IO ()
-main = hspec spec
 
 spec :: Spec
 spec = do
@@ -351,8 +339,7 @@ spec = do
             \ x -> husk == x
 {% endhighlight %}
 
-The `main` function is only there so the test can be run by itself.
-You'll probably never do that because HSpec can automatically discover and run your tests.
+HSpec can automatically discover and run your tests.
 All you need is a top-level entry point with the `hspec-discover` GHC preprocessor.
 
 {% highlight hs %}
@@ -383,13 +370,6 @@ After doing all that, you should be able to run the tests.
 {% highlight sh %}
 # cabal install --enable-tests
 # cabal test
-Building husk-0.0.0...
-Preprocessing library husk-0.0.0...
-In-place registering husk-0.0.0...
-Preprocessing executable 'husk' for husk-0.0.0...
-Linking dist/build/husk/husk ...
-Preprocessing test suite 'hspec' for husk-0.0.0...
-Linking dist/build/hspec/hspec ...
 Running 1 test suites...
 Test suite hspec: RUNNING...
 Test suite hspec: PASS
@@ -411,12 +391,12 @@ So let's make a new directory, `benchmark`, and do just that.
 -- benchmark/HuskBench.hs
 module HuskBench (benchmarks) where
 
-import Criterion
+import Criterion (Benchmark, bench, nf)
 import Husk (husk)
 
 benchmarks :: [Benchmark]
 benchmarks =
-    [ bench "husk" $ nf (\ _ -> husk) ()
+    [ bench "husk" $ nf (const husk) ()
     ]
 {% endhighlight %}
 
@@ -434,7 +414,7 @@ We have to manually set it up.
 -- benchmark/Bench.hs
 module Main (main) where
 
-import Criterion.Main
+import Criterion.Main (bgroup, defaultMain)
 import qualified HuskBench
 
 main :: IO ()
@@ -447,7 +427,7 @@ We need to add a new section to the Cabal file for the benchmarks.
 
 {% highlight hs %}
 benchmark criterion
-    build-depends:    base, husk, criterion == 0.8.*
+    build-depends:    base, husk, criterion == 0.6.*
     default-language: Haskell2010
     hs-source-dirs:   benchmark
     main-is:          Bench.hs
@@ -459,32 +439,15 @@ With that in place, we can now run the benchmarks.
 {% highlight sh %}
 # cabal install --enable-benchmarks
 # cabal bench
-Building husk-0.0.0...
-Preprocessing library husk-0.0.0...
-In-place registering husk-0.0.0...
-Preprocessing executable 'husk' for husk-0.0.0...
-Linking dist/build/husk/husk ...
-Preprocessing benchmark 'criterion' for husk-0.0.0...
-Linking dist/build/criterion/criterion ...
 Running 1 benchmarks...
 Benchmark criterion: RUNNING...
-warming up
-estimating clock resolution...
-mean is 2.904699 us (320001 iterations)
-found 5207 outliers among 319999 samples (1.6%)
-  2992 (0.9%) high severe
-estimating cost of a clock call...
-mean is 1.874305 us (17 iterations)
-found 2 outliers among 17 samples (11.8%)
-  2 (11.8%) high mild
-
 benchmarking Husk/husk
-mean: 12.31838 ns, lb 11.96851 ns, ub 12.88492 ns, ci 0.950
-std dev: 2.235611 ns, lb 1.542356 ns, ub 3.186614 ns, ci 0.950
-found 15 outliers among 100 samples (15.0%)
-  5 (5.0%) high mild
-  10 (10.0%) high severe
-variance introduced by outliers: 92.590%
+mean: 12.15392 ns, lb 11.89230 ns, ub 12.49891 ns, ci 0.950
+std dev: 1.529236 ns, lb 1.229199 ns, ub 1.884049 ns, ci 0.950
+found 17 outliers among 100 samples (17.0%)
+  6 (6.0%) high mild
+  11 (11.0%) high severe
+variance introduced by outliers: 86.253%
 variance is severely inflated by outliers
 Benchmark criterion: FINISH
 {% endhighlight %}
@@ -513,8 +476,8 @@ We just need to write a new test suite.
 -- test-suite/DocTest.hs
 module Main (main) where
 
-import System.FilePath.Glob
-import Test.DocTest
+import System.FilePath.Glob (glob)
+import Test.DocTest (doctest)
 
 main :: IO ()
 main = glob "library/**/*.hs" >>= doctest
@@ -540,22 +503,9 @@ You can now run it along with the other test suites.
 {% highlight sh %}
 # cabal install --enable-tests
 # cabal test
-Building husk-0.0.0...
-Preprocessing library husk-0.0.0...
-In-place registering husk-0.0.0...
-Preprocessing executable 'husk' for husk-0.0.0...
-Linking dist/build/husk/husk ...
-Preprocessing test suite 'hspec' for husk-0.0.0...
-Linking dist/build/hspec/hspec ...
-Preprocessing test suite 'doctest' for husk-0.0.0...
-Running 2 test suites...
-Test suite hspec: RUNNING...
-Test suite hspec: PASS
-Test suite logged to: dist/test/husk-0.0.0-hspec.log
 Test suite doctest: RUNNING...
 Test suite doctest: PASS
 Test suite logged to: dist/test/husk-0.0.0-doctest.log
-2 of 2 test suites (2 of 2 test cases) passed.
 {% endhighlight %}
 
 Sweet!
@@ -580,6 +530,9 @@ import System.Exit (exitFailure, exitSuccess)
 import System.Process (readProcess)
 import Text.Regex (matchRegex, mkRegex)
 
+average :: (Fractional a, Real b) => [b] -> a
+average xs = realToFrac (sum xs) / genericLength xs
+
 expected :: Fractional a => a
 expected = 90
 
@@ -589,9 +542,6 @@ main = do
     if average (match output) >= expected
         then exitSuccess
         else putStr output >> exitFailure
-
-average :: (Fractional a, Real b) => [b] -> a
-average xs = realToFrac (sum xs) / genericLength xs
 
 match :: String -> [Int]
 match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
@@ -621,28 +571,9 @@ Finally we can run it.
 {% highlight sh %}
 # cabal install --enable-tests
 # cabal test
-Building husk-0.0.0...
-Preprocessing library husk-0.0.0...
-In-place registering husk-0.0.0...
-Preprocessing executable 'husk' for husk-0.0.0...
-Linking dist/build/husk/husk ...
-Preprocessing test suite 'hspec' for husk-0.0.0...
-Linking dist/build/hspec/hspec ...
-Preprocessing test suite 'doctest' for husk-0.0.0...
-Preprocessing test suite 'haddock' for husk-0.0.0...
-Preprocessing benchmark 'criterion' for husk-0.0.0...
-Linking dist/build/criterion/criterion ...
-Running 3 test suites...
-Test suite hspec: RUNNING...
-Test suite hspec: PASS
-Test suite logged to: dist/test/husk-0.0.0-hspec.log
-Test suite doctest: RUNNING...
-Test suite doctest: PASS
-Test suite logged to: dist/test/husk-0.0.0-doctest.log
 Test suite haddock: RUNNING...
 Test suite haddock: PASS
 Test suite logged to: dist/test/husk-0.0.0-haddock.log
-3 of 3 test suites (3 of 3 test cases) passed.
 {% endhighlight %}
 
 ### Check Code Coverage
@@ -654,10 +585,9 @@ Let's fix that by modifying our `hspec` test suite to use [HPC][].
 {% highlight hs %}
 -- husk.cabal
 test-suite hspec
-    hs-source-dirs: library test-suite
     ghc-options:    -fhpc
+    hs-source-dirs: library test-suite
     other-modules:  Husk, HuskSpec
-    -- ...
 {% endhighlight %}
 
 What we're doing here is telling GHC to enable HPC.
@@ -718,18 +648,6 @@ If it doesn't, it'll either be run with old data or no data.
 {% highlight sh %}
 # cabal install --enable-tests
 # cabal test
-Building husk-0.0.0...
-Preprocessing library husk-0.0.0...
-In-place registering husk-0.0.0...
-Preprocessing executable 'husk' for husk-0.0.0...
-Linking dist/build/husk/husk ...
-Preprocessing test suite 'hspec' for husk-0.0.0...
-Preprocessing test suite 'doctest' for husk-0.0.0...
-Preprocessing test suite 'haddock' for husk-0.0.0...
-Preprocessing test suite 'hpc' for husk-0.0.0...
-Preprocessing benchmark 'criterion' for husk-0.0.0...
-Linking dist/build/criterion/criterion ...
-Running 4 test suites...
 Test suite hspec: RUNNING...
 Finished in 0.0279 seconds
 2 examples, 0 failures
@@ -744,13 +662,6 @@ Writing: hpc_index_fun.html
 Writing: hpc_index_alt.html
 Writing: hpc_index_exp.html
 Test coverage report written to dist/hpc/html/hspec/hpc_index.html
-Test suite doctest: RUNNING...
-Examples: 1  Tried: 1  Errors: 0  Failures: 0
-Test suite doctest: PASS
-Test suite logged to: dist/test/husk-0.0.0-doctest.log
-Test suite haddock: RUNNING...
-Test suite haddock: PASS
-Test suite logged to: dist/test/husk-0.0.0-haddock.log
 Test suite hpc: RUNNING...
 Test suite hpc: PASS
 Test suite logged to: dist/test/husk-0.0.0-hpc.log
@@ -806,48 +717,10 @@ All that's left to do now is run it!
 {% highlight sh %}
 # cabal install --enable-tests
 # cabal test
-Building husk-0.0.0...
-Preprocessing library husk-0.0.0...
-In-place registering husk-0.0.0...
-Preprocessing executable 'husk' for husk-0.0.0...
-Linking dist/build/husk/husk ...
-Preprocessing test suite 'hspec' for husk-0.0.0...
-Preprocessing test suite 'doctest' for husk-0.0.0...
-Preprocessing test suite 'haddock' for husk-0.0.0...
-Preprocessing test suite 'hpc' for husk-0.0.0...
-Preprocessing test suite 'hlint' for husk-0.0.0...
-Preprocessing benchmark 'criterion' for husk-0.0.0...
-Linking dist/build/criterion/criterion ...
-Running 5 test suites...
-Test suite hspec: RUNNING...
-Finished in 0.0070 seconds
-2 examples, 0 failures
-Test suite hspec: PASS
-Test suite logged to: dist/test/husk-0.0.0-hspec.log
-Warning: Your version of HPC (0.6) does not properly handle multiple search
-paths. Coverage report generation may fail unexpectedly. These issues are
-addressed in version 0.7 or later (GHC 7.8 or later). The following search
-paths have been abandoned: ["dist/hpc/mix/husk-0.0.0"]
-Writing: hpc_index.html
-Writing: hpc_index_fun.html
-Writing: hpc_index_alt.html
-Writing: hpc_index_exp.html
-Test coverage report written to dist/hpc/html/hspec/hpc_index.html
-Test suite doctest: RUNNING...
-Examples: 1  Tried: 1  Errors: 0  Failures: 0
-Test suite doctest: PASS
-Test suite logged to: dist/test/husk-0.0.0-doctest.log
-Test suite haddock: RUNNING...
-Test suite haddock: PASS
-Test suite logged to: dist/test/husk-0.0.0-haddock.log
-Test suite hpc: RUNNING...
-Test suite hpc: PASS
-Test suite logged to: dist/test/husk-0.0.0-hpc.log
 Test suite hlint: RUNNING...
 No suggestions (2 ignored)
 Test suite hlint: PASS
 Test suite logged to: dist/test/husk-0.0.0-hlint.log
-5 of 5 test suites (5 of 5 test cases) passed.
 {% endhighlight %}
 
 ## Continuous Integration
@@ -880,13 +753,6 @@ Hopefully some day it will make this post obsolete.
 In the meantime,
 [email me][] if you have any questions.
 I'm happy to help!
-
--   so much more code than i expected
--   a lot to it
--   check out the whole source
--   <https://github.com/tfausak/haskeleton>
--   hopefully in the future this will be a project template
--   or rolled into `cabal init`
 
 [exercism.io]: https://github.com/tfausak/exercism-solutions/tree/master/haskell
 [h-99]: https://github.com/tfausak/h99
