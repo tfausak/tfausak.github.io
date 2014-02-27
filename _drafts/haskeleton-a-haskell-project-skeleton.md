@@ -25,7 +25,7 @@ and explain the decisions I made along the way.
 -   [Documentation][]
 -   [Testing][]
 -   [Benchmarks][]
--   [Code Quality]
+-   [Code Quality][]
     -   [Test Documentation][]
     -   [Check Documentation Coverage][]
     -   [Check Code Coverage][]
@@ -861,7 +861,7 @@ let's make a computer do it!
 Assuming your code is on GitHub,
 all you have to do is make one file and add one line to it.
 
-{% highlight yml %}
+{% highlight yaml %}
 # .travis.yml
 language: haskell
 {% endhighlight %}
@@ -917,6 +917,6 @@ I'm happy to help!
 [lint code]: #lint-code
 [hlint]: http://community.haskell.org/~ndm/hlint/
 [travis ci]: https://travis-ci.org/
-[continuous-integration]: #continuous-integration
+[continuous integration]: #continuous-integration
 [notes]: #notes
 [email me]: mailto:taylor+honeypot@fausak.me
