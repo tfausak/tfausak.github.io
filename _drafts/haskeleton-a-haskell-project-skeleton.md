@@ -50,13 +50,13 @@ It starts off very simple.
 
 {% highlight hs %}
 -- husk.cabal
-build-type:    Simple
-cabal-version: >= 1.18
 name:          husk
 version:       0.0.0
+build-type:    Simple
+cabal-version: >= 1.18
 
 library
-    build-depends: base
+    default-language: Haskell2010
 {% endhighlight %}
 
 Here's a rundown of the [package properties][]:
@@ -72,8 +72,8 @@ Here's a rundown of the [package properties][]:
 
 And the [build information][] for the library:
 
--   `build-depends`: A list of needed packages.
-    Every project will depend on [`base`][], which provides the Prelude.
+-   `default-language`: The version of the Haskell language report.
+    The current state of the art is [`Haskell2010`][].
 
 Now that all the boilerplate is out of the way,
 let's build the package.
@@ -83,7 +83,7 @@ which sets up a private environment.
 {% highlight sh %}
 # cabal sandbox init
 Writing a default package environment file to .../husk/cabal.sandbox.config
-Creating a new sandbox at /home/vagrant/husk/.cabal-sandbox
+Creating a new sandbox at .../husk/.cabal-sandbox
 {% endhighlight %}
 
 Next, install the package.
@@ -95,8 +95,7 @@ Configuring husk-0.0.0...
 Building husk-0.0.0...
 Preprocessing library husk-0.0.0...
 In-place registering husk-0.0.0...
-Installing library in
-.../husk/.cabal-sandbox/lib/x86_64-linux-ghc-7.6.3/husk-0.0.0
+Installing library in .../husk-0.0.0
 Registering husk-0.0.0...
 Installed husk-0.0.0
 {% endhighlight %}
@@ -129,38 +128,26 @@ You have to let Cabal know about it.
 {% highlight hs %}
 -- husk.cabal
 library
-    build-depends:   base
     exposed-modules: Husk
     hs-source-dirs:  library
+    build-depends:   base
 {% endhighlight %}
 
 This adds some new [build information][] to the library:
 
--   `hs-source-dirs`: List of directories to search for source files in.
 -   `exposed-modules`: List of modules exposed by the package.
--   `default-language`: The version of the Haskell language report.
-    The current state of the art is [`Haskell2010`][].
+-   `hs-source-dirs`: List of directories to search for source files in.
+-   `build-depends`: A list of needed packages.
+    Every project will depend on [`base`][], which provides the Prelude.
 
 Now that Cabal's in the loop, you can fire up a REPL for your package.
-
-{% highlight sh %}
-# cabal repl
-Preprocessing library husk-0.0.0...
-GHCi, version 7.6.3: http://www.haskell.org/ghc/  :? for help
-Loading package ghc-prim ... linking ... done.
-Loading package integer-gmp ... linking ... done.
-Loading package base ... linking ... done.
-[1 of 1] Compiling Husk             ( library/Husk.hs, interpreted )
-Ok, modules loaded: Husk.
-*Husk>
-{% endhighlight %}
-
 The modules exposed by the package are already available.
 You can play around with the functions they export.
 
-{% highlight hs %}
-*Husk> :type husk
-husk :: ()
+{% highlight sh %}
+# cabal repl
+*Husk> :type Husk.husk
+Husk.husk :: ()
 *Husk> husk
 ()
 {% endhighlight %}
@@ -192,10 +179,10 @@ Create a new section at the bottom of the Cabal file.
 {% highlight hs %}
 -- husk.cabal
 executable husk
-    build-depends:    base, husk
     default-language: Haskell2010
-    hs-source-dirs:   executable
     main-is:          Main.hs
+    hs-source-dirs:   executable
+    build-depends:    base, husk
 {% endhighlight %}
 
 The only new property is `main-is`.
@@ -353,10 +340,10 @@ Add a new section at the end for the test suite.
 {% highlight hs %}
 -- husk.cabal
 test-suite hspec
-    build-depends:    base, husk, hspec == 1.8.*
     default-language: Haskell2010
-    hs-source-dirs:   test-suite
     main-is:          Spec.hs
+    hs-source-dirs:   test-suite
+    build-depends:    base, husk, hspec == 1.8.*
     type:             exitcode-stdio-1.0
 {% endhighlight %}
 
@@ -370,11 +357,9 @@ After doing all that, you should be able to run the tests.
 {% highlight sh %}
 # cabal install --enable-tests
 # cabal test
-Running 1 test suites...
 Test suite hspec: RUNNING...
 Test suite hspec: PASS
 Test suite logged to: dist/test/husk-0.0.0-hspec.log
-1 of 1 test suites (1 of 1 test cases) passed.
 {% endhighlight %}
 
 ## Benchmarks
@@ -396,7 +381,7 @@ import Husk (husk)
 
 benchmarks :: [Benchmark]
 benchmarks =
-    [ bench "husk" $ nf (const husk) ()
+    [ bench "husk" (nf (const husk) ())
     ]
 {% endhighlight %}
 
@@ -427,10 +412,10 @@ We need to add a new section to the Cabal file for the benchmarks.
 
 {% highlight hs %}
 benchmark criterion
-    build-depends:    base, husk, criterion == 0.6.*
     default-language: Haskell2010
-    hs-source-dirs:   benchmark
     main-is:          Bench.hs
+    hs-source-dirs:   benchmark
+    build-depends:    base, husk, criterion == 0.6.*
     type:             exitcode-stdio-1.0
 {% endhighlight %}
 
@@ -439,7 +424,6 @@ With that in place, we can now run the benchmarks.
 {% highlight sh %}
 # cabal install --enable-benchmarks
 # cabal bench
-Running 1 benchmarks...
 Benchmark criterion: RUNNING...
 benchmarking Husk/husk
 mean: 12.15392 ns, lb 11.89230 ns, ub 12.49891 ns, ci 0.950
@@ -491,10 +475,10 @@ Next, create a new section in the Cabal file.
 {% highlight hs %}
 -- husk.cabal
 test-suite doctest
-    build-depends:    base, doctest == 0.9.*, Glob == 0.7.*
     default-language: Haskell2010
-    hs-source-dirs:   test-suite
     main-is:          DocTest.hs
+    hs-source-dirs:   test-suite
+    build-depends:    base, doctest == 0.9.*, Glob == 0.7.*
     type:             exitcode-stdio-1.0
 {% endhighlight %}
 
@@ -507,6 +491,10 @@ Test suite doctest: RUNNING...
 Test suite doctest: PASS
 Test suite logged to: dist/test/husk-0.0.0-doctest.log
 {% endhighlight %}
+
+- `--reorder-goals`
+- `--max-backjumps=-1`
+- `--force-reinstalls`
 
 Sweet!
 Now we know the examples in our documentation are correct.
@@ -585,8 +573,8 @@ Let's fix that by modifying our `hspec` test suite to use [HPC][].
 {% highlight hs %}
 -- husk.cabal
 test-suite hspec
+    hs-source-dirs: test-suite library
     ghc-options:    -fhpc
-    hs-source-dirs: library test-suite
     other-modules:  Husk, HuskSpec
 {% endhighlight %}
 
@@ -608,18 +596,18 @@ import System.Exit (exitFailure, exitSuccess)
 import System.Process (readProcess)
 import Text.Regex (matchRegex, mkRegex)
 
+average :: (Fractional a, Real b) => [b] -> a
+average xs = realToFrac (sum xs) / genericLength xs
+
 expected :: Fractional a => a
 expected = 90
 
 main :: IO ()
 main = do
-    output <- readProcess "cabal" ["report", "dist/hpc/tix/hspec/hspec.tix"] ""
+    output <- readProcess "hpc" ["report", "dist/hpc/tix/hspec/hspec.tix"] ""
     if average (match output) >= expected
         then exitSuccess
         else putStr output >> exitFailure
-
-average :: (Fractional a, Real b) => [b] -> a
-average xs = realToFrac (sum xs) / genericLength xs
 
 match :: String -> [Int]
 match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
@@ -632,10 +620,10 @@ Just like the last one, we have to add it to the Cabal file.
 {% highlight hs %}
 -- husk.cabal
 test-suite hpc
-    build-depends:    base, process == 1.1.*, regex-compat == 0.95.*
     default-language: Haskell2010
-    hs-source-dirs:   test-suite
     main-is:          HPC.hs
+    hs-source-dirs:   test-suite
+    build-depends:    base, process == 1.1.*, regex-compat == 0.95.*
     type:             exitcode-stdio-1.0
 {% endhighlight %}
 
@@ -649,8 +637,6 @@ If it doesn't, it'll either be run with old data or no data.
 # cabal install --enable-tests
 # cabal test
 Test suite hspec: RUNNING...
-Finished in 0.0279 seconds
-2 examples, 0 failures
 Test suite hspec: PASS
 Test suite logged to: dist/test/husk-0.0.0-hspec.log
 Warning: Your version of HPC (0.6) does not properly handle multiple search
@@ -665,7 +651,6 @@ Test coverage report written to dist/hpc/html/hspec/hpc_index.html
 Test suite hpc: RUNNING...
 Test suite hpc: PASS
 Test suite logged to: dist/test/husk-0.0.0-hpc.log
-4 of 4 test suites (4 of 4 test cases) passed.
 {% endhighlight %}
 
 You can ignore HPC's warning about search paths.
@@ -705,11 +690,16 @@ Let's tell Cabal about it.
 {% highlight hs %}
 -- husk.cabal
 test-suite hlint
-    build-depends:    base, hlint == 1.8.*
     default-language: Haskell2010
-    hs-source-dirs:   test-suite
     main-is:          HLint.hs
+    hs-source-dirs:   test-suite
+    build-depends:    base, hlint == 1.8.*
     type:             exitcode-stdio-1.0
+{% endhighlight %}
+
+{% highlight hs %}
+-- test-suite/HuskSpec.hs
+{-# ANN module "HLint: ignore Redundant do" #-}
 {% endhighlight %}
 
 All that's left to do now is run it!
@@ -718,7 +708,6 @@ All that's left to do now is run it!
 # cabal install --enable-tests
 # cabal test
 Test suite hlint: RUNNING...
-No suggestions (2 ignored)
 Test suite hlint: PASS
 Test suite logged to: dist/test/husk-0.0.0-hlint.log
 {% endhighlight %}
