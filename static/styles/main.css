@@ -225,6 +225,30 @@ ul {
     display: block;
 }
 
+.external {
+    line-height: 0;
+    list-style-type: none;
+    margin: 1.5em 0 0 0;
+    text-align: center;
+}
+
+.external li {
+    display: inline-block;
+}
+
+.external a {
+    display: block;
+    margin: 0 0.75em;
+}
+
+.external img {
+    background: none;
+    height: 3em;
+    margin: 0;
+    outline: none;
+    width: auto;
+}
+
 /* Logo */
 
 .logo {
