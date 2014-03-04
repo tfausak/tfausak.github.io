@@ -689,6 +689,19 @@ will make this post obsolete.
 
 In the meantime, [email me][32] if you have any questions. I'm happy to help!
 
+I used a number of invaluable resources while writing this post, including:
+
+-   The [Haskell wiki][33]. It contains a staggering amount of useful
+    information and links. Sometimes the information is out of date, but it's
+    helpful nonetheless.
+-   Sebastiaan Visser's post, ["Towards a better Haskell package"][34]. It
+    provides reasoned arguments for a number of subjective points about package
+    development.
+-   Kazu Yamamoto's [unit testing guide][35]. It helped me wrap my head around
+    HUnit, QuickCheck, HSpec, and DocTest.
+-   [hi][36], a Haskell package generator by Fujimura Daisuke. Haskeleton could
+    end up as a template for this excellent utility.
+
 [1]: https://github.com/tfausak/exercism-solutions/tree/master/haskell
 [2]: https://github.com/tfausak/h99
 [3]: https://github.com/tfausak/project-euler/tree/master/haskell
@@ -721,3 +734,7 @@ In the meantime, [email me][32] if you have any questions. I'm happy to help!
 [30]: http://community.haskell.org/~ndm/hlint/
 [31]: https://travis-ci.org
 [32]: mailto:taylor+honeypot@fausak.me
+[33]: http://www.haskell.org/haskellwiki/Category:Haskell
+[34]: http://fvisser.nl/post/2013/may/28/towards-a-better-haskell-package.html
+[35]: https://github.com/kazu-yamamoto/unit-test-example/blob/master/markdown/en/tutorial.md
+[36]: https://github.com/fujimura/hi
