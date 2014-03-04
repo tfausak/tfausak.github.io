@@ -3,23 +3,20 @@ layout: post
 title: 'Haskeleton: A Haskell Project Skeleton'
 ---
 
-I'm new to Haskell.
-I've learned enough to feel comfortable writing programs in it.
-I can solve code katas like [exercism.io][1], [H-99][2], and [Project Euler][3].
-Yet I don't feel comfortable developing software with it.
-Writing idiomatic, maintainable, well-tested Haskell code remains a mystery to me.
+I'm new to Haskell. I've learned enough to feel comfortable writing programs in
+it. I can solve code katas like [exercism.io][1], [H-99][2], and [Project
+Euler][3]. Yet I don't feel comfortable developing software with it. Writing
+idiomatic, maintainable, well-tested Haskell code remains a mystery to me.
 
-Cabal, the Haskell build tool, provides little guidance.
-For instance, `cabal init` asks 11 questions and outputs two files totaling 26 lines.
-That's not the best metric,
-but it shows that you aren't getting much out of it.
-To both improve on that and educate myself,
-I built [Haskeleton][4], a Haskell project skeleton.
+Cabal, the Haskell build tool, provides little guidance. For instance, `cabal
+init` asks 11 questions and outputs two files totaling 26 lines. That's not the
+best metric, but it shows that you aren't getting much out of it. To both
+improve on that and educate myself, I built [Haskeleton][4], a Haskell project
+skeleton.
 
-I hope it replaces `cabal init` someday.
-For the time being, it's just an example project.
-This post will walk you through setting up a project like Haskeleton
-and explain the decisions I made along the way.
+I hope it replaces `cabal init` someday. For the time being, it's just an
+example project. This post will walk you through setting up a project like
+Haskeleton and explain the decisions I made along the way.
 
 -   [Setup][5]
 -   [Library][6]
@@ -37,25 +34,22 @@ and explain the decisions I made along the way.
 
 ## Setup
 
-There's no reason to make new software with old technology.
-To get started, make sure you have GHC 7.6.3 and Cabal 1.18.0.2 installed.
-You can get GHC through [The Haskell Platform][18]
-and the latest version of Cabal with `cabal install cabal-install`.
+There's no reason to make new software with old technology. To get started,
+make sure you have GHC 7.6.3 and Cabal 1.18.0.2 installed. You can get GHC
+through [The Haskell Platform][18] and the latest version of Cabal with `cabal
+install cabal-install`.
 
-Now for the hardest part:
-thinking of a name for your package.
-I went with "husk".
-(If you're following along, replace that with your package's name throughout.)
-Make a directory for your package to get started.
+Now for the hardest part: thinking of a name for your package. I went with
+"husk". (If you're following along, replace that with your package's name
+throughout.) Make a directory for your package to get started.
 
 {% highlight sh %}
 # mkdir husk
 # cd husk
 {% endhighlight %}
 
-You only need one file to make a package: a Cabal file.
-It describes the package and tells Cabal how to build it.
-It starts off pretty simple.
+You only need one file to make a package: a Cabal file. It describes the
+package and tells Cabal how to build it. It starts off pretty simple.
 
 {% highlight hs %}
 -- husk.cabal
@@ -68,28 +62,23 @@ library
     default-language: Haskell2010
 {% endhighlight %}
 
-The syntax is mix between Haskell and YAML.
-The [package properties][19] at the top describe the package as a whole.
-In the library section, the [build information][20] declares how to build the library.
-Here's what they all mean.
+The syntax is mix between Haskell and YAML. The [package properties][19] at the
+top describe the package as a whole. In the library section, the [build
+information][20] declares how to build the library. Here's what they all mean.
 
--   `name`: The package's name.
-    This should be unique on [Hackage][21].
--   `version`: The package's version number.
-    I recommend using [semantic versioning][22].
--   `build-type`: The type of build.
-    Cabal provides a setup script if this is set to `Simple`.
-    For some reason the default is `Custom`.
--   `cabal-version`: Cabal's version number.
-    Use the major and minor parts of the version of Cabal used to build the package.
--   `default-language`: The version of the Haskell language report.
-    The current state of the art is [`Haskell2010`][23].
+-   `name`: The package's name. This should be unique on [Hackage][21].
+-   `version`: The package's version number. I recommend using [semantic
+    versioning][22].
+-   `build-type`: The type of build. Cabal provides a setup script if this is
+    set to `Simple`. For some reason the default is `Custom`.
+-   `cabal-version`: Cabal's version number. Use the major and minor parts of
+    the version of Cabal used to build the package.
+-   `default-language`: The version of the Haskell language report. The current
+    state of the art is [`Haskell2010`][23].
 
-With all the boilerplate out of the way,
-we can build the package.
-Before we do,
-let's create a sandbox.
-It sets up a private environment separate from the rest of your system.
+With all the boilerplate out of the way, we can build the package. Before we
+do, let's create a sandbox. It sets up a private environment separate from the
+rest of your system.
 
 {% highlight sh %}
 # cabal sandbox init
@@ -112,18 +101,15 @@ Registering husk-0.0.0...
 Installed husk-0.0.0
 {% endhighlight %}
 
-Alright, it worked!
-Six lines of code made a valid Cabal package.
-It doesn't do anything yet, though.
-Let's fix that.
+Alright, it worked! Six lines of code made a valid Cabal package. It doesn't do
+anything yet, though. Let's fix that.
 
 ## Library
 
-Your library code shouldn't live at the top level.
-Create a `library` directory for it.
-In there, make a file with the same name as your package.
-For this example, it doesn't have to do anything interesting.
-We're going to make it export a function that returns the unit value.
+Your library code shouldn't live at the top level. Create a `library` directory
+for it. In there, make a file with the same name as your package. For this
+example, it doesn't have to do anything interesting. We're going to make it
+export a function that returns the unit value.
 
 {% highlight hs %}
 -- library/Husk.hs
@@ -133,8 +119,7 @@ husk :: ()
 husk = ()
 {% endhighlight %}
 
-Just writing the module isn't enough.
-You have to let Cabal know about it.
+Just writing the module isn't enough. You have to let Cabal know about it.
 
 {% highlight hs %}
 -- husk.cabal
@@ -148,12 +133,12 @@ This adds some new build information to the library:
 
 -   `exposed-modules`: List of modules exposed by the package.
 -   `hs-source-dirs`: List of directories to search for source files in.
--   `build-depends`: A list of needed packages.
-    Every project will depend on [`base`][24], which provides the Prelude.
+-   `build-depends`: A list of needed packages. Every project will depend on
+    [`base`][24], which provides the Prelude.
 
-Now that Cabal's in the loop, you can fire up a REPL for your package.
-The modules exposed by the package are already available.
-You can play around with the functions they export.
+Now that Cabal's in the loop, you can fire up a REPL for your package. The
+modules exposed by the package are already available. You can play around with
+the functions they export.
 
 {% highlight sh %}
 # cabal repl
@@ -163,17 +148,14 @@ Husk.husk :: ()
 ()
 {% endhighlight %}
 
-Now we've got a Cabal package with a library,
-which is more than `cabal init` provides.
-And we did it with less code!
+Now we've got a Cabal package with a library, which is more than `cabal init`
+provides. And we did it with less code!
 
 ## Executable
 
-Let's provide an executable that uses the library.
-It shouldn't live at the top level either,
-so create an `executable` directory for it.
-Unlike the library, don't name this after your package.
-Just call is `Main.hs` instead.
+Let's provide an executable that uses the library. It shouldn't live at the top
+level either, so create an `executable` directory for it. Unlike the library,
+don't name this after your package. Just call is `Main.hs` instead.
 
 {% highlight hs %}
 -- executable/Main.hs
@@ -185,8 +167,8 @@ main :: IO ()
 main = print husk
 {% endhighlight %}
 
-As before, Cabal needs to know about this.
-Create a new section at the bottom of the Cabal file.
+As before, Cabal needs to know about this. Create a new section at the bottom
+of the Cabal file.
 
 {% highlight hs %}
 -- husk.cabal
@@ -197,9 +179,8 @@ executable husk
     main-is:          Main.hs
 {% endhighlight %}
 
-The only new property is `main-is`.
-It points to the main entry point for the executable.
-After adding that, you can run it!
+The only new property is `main-is`. It points to the main entry point for the
+executable. After adding that, you can run it!
 
 {% highlight sh %}
 # cabal run
@@ -214,15 +195,13 @@ That's all it takes to make an executable with Cabal.
 
 ## Documentation
 
-Now that you've got a library and an executable,
-you should document them.
-There are two things that need documentation:
-the package itself
-and the source of the package.
+Now that you've got a library and an executable, you should document them.
+There are two things that need documentation: the package itself and the source
+of the package.
 
-Documenting the package requires adding a few more package properties to the Cabal file.
-If you're not going to distribute your package on Hackage,
-you can skip this step.
+Documenting the package requires adding a few more package properties to the
+Cabal file. If you're not going to distribute your package on Hackage, you can
+skip this step.
 
 {% highlight hs %}
 -- husk.cabal
@@ -231,10 +210,9 @@ license:   MIT
 synopsis:  An example package.
 {% endhighlight %}
 
-To write documentation for the source,
-you'll need to learn [Haddock][25].
-It's a simple markup language for annotating Haskell source.
-Here's how the library looks with comments:
+To write documentation for the source, you'll need to learn [Haddock][25]. It's
+a simple markup language for annotating Haskell source. Here's how the library
+looks with comments:
 
 {% highlight hs %}
 -- library/Husk.hs
@@ -251,8 +229,7 @@ husk :: () -- ^ The unit type.
 husk = ()
 {% endhighlight %}
 
-Now that it's documented,
-let's generate the HTML documentation.
+Now that it's documented, let's generate the HTML documentation.
 
 {% highlight sh %}
 # cabal haddock
@@ -263,11 +240,8 @@ Haddock coverage:
 Documentation created: dist/doc/html/husk/index.html
 {% endhighlight %}
 
-The output is like what you'd see on Hackage.
-It's missing one thing:
-links to the source.
-Adding those requires another dependency.
-It should be optional.
+The output is like what you'd see on Hackage. It's missing one thing: links to
+the source. Adding those requires another dependency. It should be optional.
 Not everyone who installs the package will generate its documentation.
 
 {% highlight hs %}
@@ -280,9 +254,8 @@ library
         build-depends: hscolour == 1.20.*
 {% endhighlight %}
 
-Enabling flags for Cabal commands is easy.
-Add either `-fdocumentation` or `--flags=documentation`.
-Using that flag, let's regenerate the documentation.
+Enabling flags for Cabal commands is easy. Add either `-fdocumentation` or
+`--flags=documentation`. Using that flag, let's regenerate the documentation.
 
 {% highlight sh %}
 # cabal install --flags=documentation
@@ -295,35 +268,30 @@ Haddock coverage:
 Documentation created: dist/doc/html/husk/index.html
 {% endhighlight %}
 
-Now it should have source links.
-If you get a bunch of warnings,
-you can ignore them.
-Haddock is looking for the documentation for the standard library.
-If you want to add it, install `haskell-platform-doc`.
+Now it should have source links. If you get a bunch of warnings, you can ignore
+them. Haddock is looking for the documentation for the standard library. If you
+want to add it, install `haskell-platform-doc`.
 
 ## Tests
 
-You can write two different kinds of tests in Haskell.
-Unit tests, provided by HUnit, behave like in every other language.
-You can use them to test that one plus two is three, for example.
-QuickCheck gives another kind: property tests.
+You can write two different kinds of tests in Haskell. Unit tests, provided by
+HUnit, behave like in every other language. You can use them to test that one
+plus two is three, for example. QuickCheck gives another kind: property tests.
 They check properties like "the sum of even numbers is even".
 
-We're going to use [HSpec][26] instead of those libraries.
-It has a nicer syntax and a uniform interface for both.
-Create a `test-suite` folder for the tests.
-In there, create `Spec.hs`, the top-level entry point.
-HSpec discovers and runs your tests using the `hspec-discover` GHC preprocessor.
+We're going to use [HSpec][26] instead of those libraries. It has a nicer
+syntax and a uniform interface for both. Create a `test-suite` folder for the
+tests. In there, create `Spec.hs`, the top-level entry point. HSpec discovers
+and runs your tests using the `hspec-discover` GHC preprocessor.
 
 {% highlight hs %}
 -- test-suite/Spec.hs
 {-# OPTIONS_GHC -F -pgmF hspec-discover #-}
 {% endhighlight %}
 
-It assumes you laid your tests out in the format it expects,
-so create a spec file for your library.
-We don't have much functionality to test,
-but we can write a unit test and a property test for the `husk` function.
+It assumes you laid your tests out in the format it expects, so create a spec
+file for your library. We don't have much functionality to test, but we can
+write a unit test and a property test for the `husk` function.
 
 {% highlight hs %}
 -- test-suite/HuskSpec.hs
@@ -343,8 +311,8 @@ spec = do
             \ x -> husk == x
 {% endhighlight %}
 
-With that done, the only piece left is updating the Cabal file.
-Add a new section at the end for the test suite.
+With that done, the only piece left is updating the Cabal file. Add a new
+section at the end for the test suite.
 
 {% highlight hs %}
 -- husk.cabal
@@ -356,10 +324,9 @@ test-suite hspec
     type:             exitcode-stdio-1.0
 {% endhighlight %}
 
-The only new build information here is `type`.
-The Cabal documentation recommends the non-existent `detailed-1.0` type.
-Ignore that and use `exitcode-stdio-1.0`,
-which uses the exit code to signify success or failure.
+The only new build information here is `type`. The Cabal documentation
+recommends the non-existent `detailed-1.0` type. Ignore that and use `exitcode-
+stdio-1.0`, which uses the exit code to signify success or failure.
 
 After doing all that, you should be able to run the tests.
 
@@ -373,11 +340,10 @@ Test suite logged to: dist/test/husk-0.0.0-hspec.log
 
 ## Benchmarks
 
-Now that we've got tests to ensure our code works,
-let's write some benchmarks to make sure it's fast.
-We're going to use [Criterion][27], an exceptional benchmarking library.
-It handles all the annoying setup for you
-and lets you focus on writing benchmarks.
+Now that we've got tests to ensure our code works, let's write some benchmarks
+to make sure it's fast. We're going to use [Criterion][27], an exceptional
+benchmarking library. It handles all the annoying setup for you and lets you
+focus on writing benchmarks.
 
 So let's make a new directory, `benchmark`, and do just that.
 
@@ -394,15 +360,13 @@ benchmarks =
     ]
 {% endhighlight %}
 
-The only tricky part of this is `nf`.
-It evaluates the result of calling the function with the given value.
-This is necessary since Haskell is lazy.
-If you didn't do it, only a part of the result might get evaluated.
-Then your benchmark wouldn't be accurate.
+The only tricky part of this is `nf`. It evaluates the result of calling the
+function with the given value. This is necessary since Haskell is lazy. If you
+didn't do it, only a part of the result might get evaluated. Then your
+benchmark wouldn't be accurate.
 
-Now that we have a benchmark, we need a runner.
-Unlike HSpec, Criterion doesn't auto-discover benchmarks.
-We have to wire it up.
+Now that we have a benchmark, we need a runner. Unlike HSpec, Criterion doesn't
+auto-discover benchmarks. We have to wire it up.
 
 {% highlight hs %}
 -- benchmark/Bench.hs
@@ -447,23 +411,20 @@ Benchmark criterion: FINISH
 
 ## Code Quality
 
-That covers the basics for making a library and an executable,
-along with tests and benchmarks for them.
-Another important part of software projects is code quality.
-This includes things like code coverage and linting.
-Focusing on quality helps you make maintainable, idiomatic software.
+That covers the basics for making a library and an executable, along with tests
+and benchmarks for them. Another important part of software projects is code
+quality. This includes things like code coverage and linting. Focusing on
+quality helps you make maintainable, idiomatic software.
 
 ### Documentation Tests
 
-Before we get to all that,
-there's one more thing that needs testing.
-When we wrote our documentation,
-we included some example code.
-We should test that code to make sure it's correct.
-Incorrect examples in documentation are frustrating.
+Before we get to all that, there's one more thing that needs testing. When we
+wrote our documentation, we included some example code. We should test that
+code to make sure it's correct. Incorrect examples in documentation are
+frustrating.
 
-Thanks to [`doctest`][28], testing documentation is a cinch.
-We just need to write a new test suite.
+Thanks to [`doctest`][28], testing documentation is a cinch. We just need to
+write a new test suite.
 
 {% highlight hs %}
 -- test-suite/DocTest.hs
@@ -476,8 +437,8 @@ main :: IO ()
 main = glob "library/**/*.hs" >>= doctest
 {% endhighlight %}
 
-This uses globbing to avoid listing all the source files.
-That means you shouldn't ever have to change it.
+This uses globbing to avoid listing all the source files. That means you
+shouldn't ever have to change it.
 
 Next, create a new section in the Cabal file.
 
@@ -503,12 +464,11 @@ Test suite logged to: dist/test/husk-0.0.0-doctest.log
 
 ### Documentation Coverage
 
-After checking our documentation for correctness,
-we should make sure that we documented everything.
-Unfortunately there's no turnkey solution for this.
+After checking our documentation for correctness, we should make sure that we
+documented everything. Unfortunately there's no turnkey solution for this.
 Making one isn't too hard since Haddock outputs coverage information already.
-We just need a script for running it and parsing the results.
-So create a new test suite for that.
+We just need a script for running it and parsing the results. So create a new
+test suite for that.
 
 {% highlight hs %}
 -- test-suite/Haddock.hs
@@ -539,10 +499,9 @@ match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
     pattern = mkRegex "^ *([0-9]*)% "
 {% endhighlight %}
 
-This is the most complex code so far.
-Matching regular expressions in Haskell is annoying.
-But it does what we want
-and the only part that might change is the `expected` value.
+This is the most complex code so far. Matching regular expressions in Haskell
+is annoying. But it does what we want and the only part that might change is
+the `expected` value.
 
 To make this a bona fide test suite, we need to tell Cabal.
 
@@ -568,9 +527,8 @@ Test suite logged to: dist/test/husk-0.0.0-haddock.log
 
 ### Test Coverage
 
-We know how much of our code we documented,
-but we don't know how much of it we tested.
-Let's fix that by modifying our `hspec` test suite to use [HPC][29].
+We know how much of our code we documented, but we don't know how much of it we
+tested. Let's fix that by modifying our `hspec` test suite to use [HPC][29].
 
 {% highlight hs %}
 -- husk.cabal
@@ -580,13 +538,13 @@ test-suite hspec
     other-modules:  Husk, HuskSpec
 {% endhighlight %}
 
-What we're doing here is telling GHC to enable HPC.
-We also have to add all the source and test files to `other-modules` so HPC can analyze them.
-This is kind of annoying, especially since HSpec discovers our tests.
-But it's not too bad because if you forget a file, HPC will yell at you and your test will fail.
+What we're doing here is telling GHC to enable HPC. We also have to add all the
+source and test files to `other-modules` so HPC can analyze them. This is kind
+of annoying, especially since HSpec discovers our tests. But it's not too bad
+because if you forget a file, HPC will yell at you and your test will fail.
 
-Before it can fail, though, we need to write it.
-This new test suite looks a lot like the last one.
+Before it can fail, though, we need to write it. This new test suite looks a
+lot like the last one.
 
 {% highlight hs %}
 -- test-suite/HPC.hs
@@ -629,11 +587,10 @@ test-suite hpc
     type:             exitcode-stdio-1.0
 {% endhighlight %}
 
-The order of things in the Cabal file doesn't matter.
-But it runs the test suites in order of appearance.
-Since this test uses the output of the HSpec suite,
-make sure it comes after that one.
-If it doesn't, it'll either run with old data or no data.
+The order of things in the Cabal file doesn't matter. But it runs the test
+suites in order of appearance. Since this test uses the output of the HSpec
+suite, make sure it comes after that one. If it doesn't, it'll either run with
+old data or no data.
 
 {% highlight sh %}
 # cabal install --enable-tests
@@ -655,14 +612,13 @@ Test suite hpc: PASS
 Test suite logged to: dist/test/husk-0.0.0-hpc.log
 {% endhighlight %}
 
-You can ignore HPC's warning about search paths.
-Everything works fine in spite of it.
+You can ignore HPC's warning about search paths. Everything works fine in spite
+of it.
 
 ### Static Analysis
 
-You might think we've got enough tests,
-but there's still one last suite to write.
-It's going to enforce code conventions with [HLint][30].
+You might think we've got enough tests, but there's still one last suite to
+write. It's going to enforce code conventions with [HLint][30].
 
 {% highlight hs %}
 -- test-suite/HLint.hs
@@ -685,9 +641,8 @@ main = do
     if null hints then exitSuccess else exitFailure
 {% endhighlight %}
 
-Thanks to HLint's excellent interface,
-there's nothing too interesting going on here.
-Let's tell Cabal about it.
+Thanks to HLint's excellent interface, there's nothing too interesting going on
+here. Let's tell Cabal about it.
 
 {% highlight hs %}
 -- husk.cabal
@@ -711,33 +666,28 @@ Test suite logged to: dist/test/husk-0.0.0-hlint.log
 
 ## Continuous Integration
 
-We've got all these tests now.
-They don't do us any good if nobody ever runs them.
-Since it's all too easy to forget to run the tests when you're developing,
-let's make a computer do it!
+We've got all these tests now. They don't do us any good if nobody ever runs
+them. Since it's all too easy to forget to run the tests when you're
+developing, let's make a computer do it!
 
-[Travis CI][31] makes continuous integration a cinch.
-Assuming your code is on GitHub,
-all you have to do is make one file and add one line to it.
+[Travis CI]31] makes continuous integration a cinch. Assuming your code is on
+[GitHub, all you have to do is make one file and add one line to it.
 
 {% highlight yaml %}
 # .travis.yml
 language: haskell
 {% endhighlight %}
 
-Now every time you push to GitHub, Travis will run your tests.
-You'll get an email if they aren't green.
+Now every time you push to GitHub, Travis will run your tests. You'll get an
+email if they aren't green.
 
 ## Notes
 
-This turned out to be much bigger than I anticipated.
-And I had to leave some stuff out!
-For more details, check out [Haskeleton][4].
-Hopefully some day it will make this post obsolete.
+This turned out to be much bigger than I anticipated. And I had to leave some
+stuff out! For more details, check out [Haskeleton][4]. Hopefully some day it
+will make this post obsolete.
 
-In the meantime,
-[email me][32] if you have any questions.
-I'm happy to help!
+In the meantime, [email me][32] if you have any questions. I'm happy to help!
 
 [1]: https://github.com/tfausak/exercism-solutions/tree/master/haskell
 [2]: https://github.com/tfausak/h99
