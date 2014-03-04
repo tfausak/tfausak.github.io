@@ -6,7 +6,7 @@ title: 'Haskeleton: A Haskell Project Skeleton'
 I'm new to Haskell. I've learned enough to feel comfortable writing programs in
 it. I can solve code katas like [exercism.io][1], [H-99][2], and [Project
 Euler][3]. Yet I don't feel comfortable developing software with it. Writing
-idiomatic, maintainable, well-tested Haskell code remains a mystery to me.
+idiomatic, maintainable and well-tested Haskell code remains a mystery to me.
 
 Cabal, the Haskell build tool, provides little guidance. For instance, `cabal
 init` asks 11 questions and outputs two files totaling 26 lines. That's not the
@@ -274,10 +274,22 @@ want to add it, install `haskell-platform-doc`.
 
 ## Tests
 
-You can write two different kinds of tests in Haskell. Unit tests, provided by
-HUnit, behave like in every other language. You can use them to test that one
-plus two is three, for example. QuickCheck gives another kind: property tests.
-They check properties like "the sum of even numbers is even".
+You can test Haskell code in two different ways:
+
+-   Unit tests using HUnit. Use these to test the behavior of your code. For
+    example, you could test that `+` returns `3` when given `1` and `2`.
+
+    {% highlight hs %}
+    TestCase (assertEqual "1 + 2 = 3" 3 (1 + 2))
+    {% endhighlight %}
+
+-   Property tests using QuickCheck. Use these to test the properties of your
+    code. For example, you could test that `+` always returns an even number
+    when given even arguments.
+
+    {% highlight hs %}
+    quickCheck (\ x y -> even ((2 * x) + (2 * y)))
+    {% endhighlight %}
 
 We're going to use [HSpec][26] instead of those libraries. It has a nicer
 syntax and a uniform interface for both. Create a `test-suite` folder for the
@@ -342,8 +354,8 @@ Test suite logged to: dist/test/husk-0.0.0-hspec.log
 
 Now that we've got tests to ensure our code works, let's write some benchmarks
 to make sure it's fast. We're going to use [Criterion][27], an exceptional
-benchmarking library. It handles all the annoying setup for you and lets you
-focus on writing benchmarks.
+benchmarking library. It handles all the setup for you and lets you focus on
+writing benchmarks.
 
 So let's make a new directory, `benchmark`, and do just that.
 
@@ -414,7 +426,7 @@ Benchmark criterion: FINISH
 That covers the basics for making a library and an executable, along with tests
 and benchmarks for them. Another important part of software projects is code
 quality. This includes things like code coverage and linting. Focusing on
-quality helps you make maintainable, idiomatic software.
+quality helps you make maintainable and idiomatic software.
 
 ### Documentation Tests
 
@@ -500,8 +512,8 @@ match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
 {% endhighlight %}
 
 This is the most complex code so far. Matching regular expressions in Haskell
-is annoying. But it does what we want and the only part that might change is
-the `expected` value.
+isn't as easy as in scripting languages like Perl. But this code does what we
+want and the only part that might change is the `expected` value.
 
 To make this a bona fide test suite, we need to tell Cabal.
 
