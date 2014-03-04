@@ -189,40 +189,64 @@ ul {
     margin: 3em 0;
 }
 
-.footer ul {
+.internal {
     font-size: 3em;
     line-height: 1.5;
     list-style-type: none;
     margin: 0;
 }
 
-.footer li {
+.internal li {
     width: 1.5em;
 }
 
-.footer .prev {
+.internal .prev {
     float: left;
     text-align: left;
 }
 
-.footer .next {
+.internal .next {
     float: right;
     text-align: right;
 }
 
-.footer .home {
+.internal .home {
     margin: 0 auto;
     text-align: center;
 }
 
-.footer a {
+.internal a {
     display: block;
     text-decoration: none;
 }
 
-.footer .logo {
+.internal .logo {
     color: #ac4142;
     display: block;
+}
+
+.external {
+    line-height: 0;
+    list-style-type: none;
+    margin: 1.5em 0 0 0;
+    text-align: center;
+}
+
+.external li {
+    display: inline-block;
+}
+
+.external a {
+    display: block;
+    margin: 0 0.75em;
+}
+
+.external img {
+    background: none;
+    height: 3em;
+    margin: 0;
+    outline: none;
+    width: auto;
 }
 
 /* Logo */
