@@ -5,7 +5,7 @@ title: 'Haskeleton: A Haskell Project Skeleton'
 
 I'm new to Haskell.
 I've learned enough to feel comfortable writing programs in it.
-I can solve code katas like [exercism.io][], [H-99][], and [Project Euler][].
+I can solve code katas like [exercism.io][1], [H-99][2], and [Project Euler][3].
 Yet I don't feel comfortable developing software with it.
 Writing idiomatic, maintainable, well-tested Haskell code remains a mystery to me.
 
@@ -14,32 +14,32 @@ For instance, `cabal init` asks 11 questions and outputs two files totaling 26 l
 That's not the best metric,
 but it shows that you aren't getting much out of it.
 To both improve on that and educate myself,
-I built [Haskeleton][], a Haskell project skeleton.
+I built [Haskeleton][4], a Haskell project skeleton.
 
 I hope it replaces `cabal init` someday.
 For the time being, it's just an example project.
 This post will walk you through setting up a project like Haskeleton
 and explain the decisions I made along the way.
 
--   [Setup][]
--   [Library][]
--   [Executable][]
--   [Documentation][]
--   [Tests][]
--   [Benchmarks][]
--   [Code Quality][]
-    -   [Documentation Tests][]
-    -   [Documentation Coverage][]
-    -   [Test Coverage][]
-    -   [Static Analysis][]
--   [Continuous Integration][]
--   [Notes][]
+-   [Setup][5]
+-   [Library][6]
+-   [Executable][7]
+-   [Documentation][8]
+-   [Tests][9]
+-   [Benchmarks][10]
+-   [Code Quality][11]
+    -   [Documentation Tests][12]
+    -   [Documentation Coverage][13]
+    -   [Test Coverage][14]
+    -   [Static Analysis][15]
+-   [Continuous Integration][16]
+-   [Notes][17]
 
 ## Setup
 
 There's no reason to make new software with old technology.
 To get started, make sure you have GHC 7.6.3 and Cabal 1.18.0.2 installed.
-You can get GHC through [The Haskell Platform][]
+You can get GHC through [The Haskell Platform][18]
 and the latest version of Cabal with `cabal install cabal-install`.
 
 Now for the hardest part:
@@ -69,21 +69,21 @@ library
 {% endhighlight %}
 
 The syntax is mix between Haskell and YAML.
-The [package properties][] at the top describe the package as a whole.
-In the library section, the [build information][] declares how to build the library.
+The [package properties][19] at the top describe the package as a whole.
+In the library section, the [build information][20] declares how to build the library.
 Here's what they all mean.
 
 -   `name`: The package's name.
-    This should be unique on [Hackage][].
+    This should be unique on [Hackage][21].
 -   `version`: The package's version number.
-    I recommend using [semantic versioning][].
+    I recommend using [semantic versioning][22].
 -   `build-type`: The type of build.
     Cabal provides a setup script if this is set to `Simple`.
     For some reason the default is `Custom`.
 -   `cabal-version`: Cabal's version number.
     Use the major and minor parts of the version of Cabal used to build the package.
 -   `default-language`: The version of the Haskell language report.
-    The current state of the art is [`Haskell2010`][].
+    The current state of the art is [`Haskell2010`][23].
 
 With all the boilerplate out of the way,
 we can build the package.
@@ -149,7 +149,7 @@ This adds some new build information to the library:
 -   `exposed-modules`: List of modules exposed by the package.
 -   `hs-source-dirs`: List of directories to search for source files in.
 -   `build-depends`: A list of needed packages.
-    Every project will depend on [`base`][], which provides the Prelude.
+    Every project will depend on [`base`][24], which provides the Prelude.
 
 Now that Cabal's in the loop, you can fire up a REPL for your package.
 The modules exposed by the package are already available.
@@ -232,7 +232,7 @@ synopsis:  An example package.
 {% endhighlight %}
 
 To write documentation for the source,
-you'll need to learn [Haddock][].
+you'll need to learn [Haddock][25].
 It's a simple markup language for annotating Haskell source.
 Here's how the library looks with comments:
 
@@ -309,7 +309,7 @@ You can use them to test that one plus two is three, for example.
 QuickCheck gives another kind: property tests.
 They check properties like "the sum of even numbers is even".
 
-We're going to use [HSpec][] instead of those libraries.
+We're going to use [HSpec][26] instead of those libraries.
 It has a nicer syntax and a uniform interface for both.
 Create a `test-suite` folder for the tests.
 In there, create `Spec.hs`, the top-level entry point.
@@ -375,7 +375,7 @@ Test suite logged to: dist/test/husk-0.0.0-hspec.log
 
 Now that we've got tests to ensure our code works,
 let's write some benchmarks to make sure it's fast.
-We're going to use [Criterion][], an exceptional benchmarking library.
+We're going to use [Criterion][27], an exceptional benchmarking library.
 It handles all the annoying setup for you
 and lets you focus on writing benchmarks.
 
@@ -462,7 +462,7 @@ we included some example code.
 We should test that code to make sure it's correct.
 Incorrect examples in documentation are frustrating.
 
-Thanks to [`doctest`][], testing documentation is a cinch.
+Thanks to [`doctest`][28], testing documentation is a cinch.
 We just need to write a new test suite.
 
 {% highlight hs %}
@@ -570,7 +570,7 @@ Test suite logged to: dist/test/husk-0.0.0-haddock.log
 
 We know how much of our code we documented,
 but we don't know how much of it we tested.
-Let's fix that by modifying our `hspec` test suite to use [HPC][].
+Let's fix that by modifying our `hspec` test suite to use [HPC][29].
 
 {% highlight hs %}
 -- husk.cabal
@@ -662,7 +662,7 @@ Everything works fine in spite of it.
 
 You might think we've got enough tests,
 but there's still one last suite to write.
-It's going to enforce code conventions with [HLint][].
+It's going to enforce code conventions with [HLint][30].
 
 {% highlight hs %}
 -- test-suite/HLint.hs
@@ -716,7 +716,7 @@ They don't do us any good if nobody ever runs them.
 Since it's all too easy to forget to run the tests when you're developing,
 let's make a computer do it!
 
-[Travis CI][] makes continuous integration a cinch.
+[Travis CI][31] makes continuous integration a cinch.
 Assuming your code is on GitHub,
 all you have to do is make one file and add one line to it.
 
@@ -732,42 +732,42 @@ You'll get an email if they aren't green.
 
 This turned out to be much bigger than I anticipated.
 And I had to leave some stuff out!
-For more details, check out [Haskeleton][].
+For more details, check out [Haskeleton][4].
 Hopefully some day it will make this post obsolete.
 
 In the meantime,
-[email me][] if you have any questions.
+[email me][32] if you have any questions.
 I'm happy to help!
 
-[exercism.io]: https://github.com/tfausak/exercism-solutions/tree/master/haskell
-[h-99]: https://github.com/tfausak/h99
-[project euler]: https://github.com/tfausak/project-euler/tree/master/haskell
-[haskeleton]: https://github.com/tfausak/haskeleton
-[setup]: #setup
-[the haskell platform]: http://www.haskell.org/platform/
-[package properties]: http://www.haskell.org/cabal/users-guide/developing-packages.html#package-properties
-[semantic versioning]: http://semver.org/
-[build information]: http://www.haskell.org/cabal/users-guide/developing-packages.html#build-information
-[`base`]: http://hackage.haskell.org/package/base
-[`haskell2010`]: http://www.haskell.org/onlinereport/haskell2010/
-[library]: #library
-[executable]: #executable
-[documentation]: #documentation
-[hackage]: http://hackage.haskell.org/
-[haddock]: http://www.haskell.org/haddock/
-[tests]: #tests
-[hspec]: http://hspec.github.io/
-[benchmarks]: #benchmarks
-[criterion]: http://hackage.haskell.org/package/criterion
-[code quality]: #code-quality
-[documentation tests]: #documentation-tests
-[`doctest`]: http://hackage.haskell.org/package/doctest
-[documentation coverage]: #documentation-coverage
-[test coverage]: #test-coverage
-[hpc]: http://www.haskell.org/haskellwiki/Haskell_program_coverage
-[static analysis]: #static-analysis
-[hlint]: http://community.haskell.org/~ndm/hlint/
-[travis ci]: https://travis-ci.org/
-[continuous integration]: #continuous-integration
-[notes]: #notes
-[email me]: mailto:taylor+honeypot@fausak.me
+[1]: https://github.com/tfausak/exercism-solutions/tree/master/haskell
+[2]: https://github.com/tfausak/h99
+[3]: https://github.com/tfausak/project-euler/tree/master/haskell
+[4]: https://github.com/tfausak/haskeleton
+[5]: #setup
+[6]: #library
+[7]: #executable
+[8]: #documentation
+[9]: #tests
+[10]: #benchmarks
+[11]: #code-quality
+[12]: #documentation-tests
+[13]: #documentation-coverage
+[14]: #test-coverage
+[15]: #static-analysis
+[16]: #continuous-integration
+[17]: #notes
+[18]: http://www.haskell.org/platform/
+[19]: http://www.haskell.org/cabal/users-guide/developing-packages.html#package-properties
+[20]: http://www.haskell.org/cabal/users-guide/developing-packages.html#build-information
+[21]: http://hackage.haskell.org
+[22]: http://semver.org
+[23]: http://www.haskell.org/onlinereport/haskell2010/
+[24]: http://hackage.haskell.org/package/base
+[25]: http://www.haskell.org/haddock/
+[26]: http://hspec.github.io
+[27]: http://hackage.haskell.org/package/criterion
+[28]: http://hackage.haskell.org/package/doctest
+[29]: http://www.haskell.org/haskellwiki/Haskell_program_coverage
+[30]: http://community.haskell.org/~ndm/hlint/
+[31]: https://travis-ci.org
+[32]: mailto:taylor+honeypot@fausak.me
