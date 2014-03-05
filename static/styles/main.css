@@ -189,64 +189,49 @@ ul {
     margin: 3em 0;
 }
 
-.internal {
+.footer ul {
     font-size: 3em;
     line-height: 1.5;
     list-style-type: none;
     margin: 0;
 }
 
-.internal li {
+.footer li {
     width: 1.5em;
 }
 
-.internal .prev {
+.footer .prev {
     float: left;
     text-align: left;
 }
 
-.internal .next {
+.footer .next {
     float: right;
     text-align: right;
 }
 
-.internal .home {
+.footer .home {
     margin: 0 auto;
     text-align: center;
 }
 
-.internal a {
+.footer ul a {
     display: block;
     text-decoration: none;
 }
 
-.internal .logo {
+.footer .logo {
     color: #ac4142;
     display: block;
 }
 
-.external {
-    line-height: 0;
-    list-style-type: none;
-    margin: 1.5em 0 0 0;
+.footer p {
     text-align: center;
 }
 
-.external li {
-    display: inline-block;
-}
-
-.external a {
-    display: block;
-    margin: 0 0.75em;
-}
-
-.external img {
-    background: none;
-    height: 3em;
-    margin: 0;
-    outline: none;
-    width: auto;
+.footer p a {
+    color: inherit;
+    text-decoration: none;
 }
 
 /* Logo */
