@@ -276,20 +276,20 @@ want to add it, install `haskell-platform-doc`.
 
 You can test Haskell code in two different ways:
 
--   Unit tests using HUnit. Use these to test the behavior of your code. For
-    example, you could test that `+` returns `3` when given `1` and `2`.
+Unit tests using HUnit. Use these to test the behavior of your code. For
+example, you could test that `+` returns `3` when given `1` and `2`.
 
-    {% highlight hs %}
-    TestCase (assertEqual "1 + 2 = 3" 3 (1 + 2))
-    {% endhighlight %}
+{% highlight hs %}
+TestCase (assertEqual "1 + 2 = 3" 3 (1 + 2))
+{% endhighlight %}
 
--   Property tests using QuickCheck. Use these to test the properties of your
-    code. For example, you could test that `+` always returns an even number
-    when given even arguments.
+Property tests using QuickCheck. Use these to test the properties of your code.
+For example, you could test that `+` always returns an even number when given
+even arguments.
 
-    {% highlight hs %}
-    quickCheck (\ x y -> even ((2 * x) + (2 * y)))
-    {% endhighlight %}
+{% highlight hs %}
+quickCheck (\ x y -> even ((2 * x) + (2 * y)))
+{% endhighlight %}
 
 We're going to use [HSpec][26] instead of those libraries. It has a nicer
 syntax and a uniform interface for both. Create a `test-suite` folder for the
