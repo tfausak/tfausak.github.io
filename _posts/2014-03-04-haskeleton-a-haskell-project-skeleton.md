@@ -18,6 +18,8 @@ I hope it replaces `cabal init` someday. For the time being, it's just an
 example project. This post will walk you through setting up a project like
 Haskeleton and explain the decisions I made along the way.
 
+<aside>Update: Haskeleton has been implemented as a template for <a href="https://github.com/fujimura/hi">hi</a>.</aside>
+
 -   [Setup][5]
 -   [Library][6]
 -   [Executable][7]
