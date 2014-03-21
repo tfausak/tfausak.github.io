@@ -684,7 +684,7 @@ We've got all these tests now. They don't do us any good if nobody ever runs
 them. Since it's all too easy to forget to run the tests when you're
 developing, let's make a computer do it!
 
-[Travis CI]31] makes continuous integration a cinch. Assuming your code is on
+[Travis CI][31] makes continuous integration a cinch. Assuming your code is on
 [GitHub, all you have to do is make one file and add one line to it.
 
 {% highlight yaml %}
