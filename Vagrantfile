@@ -1,28 +1,26 @@
-# Vagrant 1.4.3 <http://www.vagrantup.com/downloads.html>
-# VirtualBox 4.3.6 <https://www.virtualbox.org/wiki/Downloads>
+# Vagrant 1.5.4 <http://www.vagrantup.com/downloads.html>
+# VirtualBox 4.3.10 <https://www.virtualbox.org/wiki/Downloads>
 
-Vagrant.require_version '>= 1.4.3'
+Vagrant.require_version '~> 1.5'
 
 Vagrant.configure('2') do |config|
-  config.vm.box = 'precise32'
-  config.vm.box_download_checksum = 'a4e6b7961cc5d9ea97a08a0461c82187'
-  config.vm.box_download_checksum_type = 'md5'
-  config.vm.box_url = 'http://files.vagrantup.com/precise32.box'
+  config.vm.box = 'chef/ubuntu-13.10'
+  config.vm.box_version = '~> 1.0'
   config.vm.network :forwarded_port, guest: 4000, host: 4000
 
   config.vm.provision :shell, inline: <<-'SHELL'
     set -e -x
     update-locale LC_ALL=en_US.UTF-8
-    aptitude -q -y update
-    aptitude -y install make imagemagick yui-compressor
-    if ! ruby -v | grep -F -q 2.1.0p0; then
-      test -f ruby-2.1.0.tar.bz2 ||
-        wget -q cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.0.tar.bz2
-      test -f ruby-2.1.0.tar ||
-        bunzip2 -k -q ruby-2.1.0.tar.bz2
-      test -d ruby-2.1.0 ||
-        tar -x -f ruby-2.1.0.tar
-      cd ruby-2.1.0
+    apt-get update
+    apt-get install --assume-yes imagemagick make yui-compressor
+    if ! ruby -v | grep -F 2.1.1p76; then
+      test -f ruby-2.1.1.tar.bz2 ||
+        wget cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.1.tar.bz2
+      test -f ruby-2.1.1.tar ||
+        bunzip2 -k ruby-2.1.1.tar.bz2
+      test -d ruby-2.1.1 ||
+        tar --extract --file ruby-2.1.1.tar
+      cd ruby-2.1.1
       ./configure --disable-install-doc
       make
       make install
@@ -36,8 +34,8 @@ Vagrant.configure('2') do |config|
     source .bash_profile
     echo '{ gem: --no-document, install: --user-install }' > .gemrc
     sudo gem update --system
+    gem install bundler
     cd /vagrant
-    test -f Gemfile.lock && rm Gemfile.lock
-    gem install --file Gemfile
+    bundle install
   SHELL
 end
