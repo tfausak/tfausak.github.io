@@ -3,147 +3,218 @@ layout: post
 title: Cloning 2048 in Haskell
 ---
 
-I wrote a clone of 2048 in Haskell.
-It's called hs2048 and it's on Hackage.
+![A screenshot of hs2048][]
+
+I wrote a clone of [2048][] in Haskell.
+It's called [hs2048][] and it's on Hackage.
 I had fun doing it and want to share what I learned along the way.
-So let's get started!
 
-The most basic part of the game is the tiles.
-Each tile is either empty or has a number.
-That sounds like a perfect fit for a `Maybe` type.
+We're going to start with the types,
+then implement the core functionality,
+and finally write some helpers to make things easier.
+Let's get started!
 
-``` hs
+## Types
+
+The most basic part of the game is a tile.
+It can be empty or have a number in it.
+That sounds like a perfect fit for the `Maybe` type.
+
+{% highlight hs %}
 type Tile = Maybe Int
-```
+{% endhighlight %}
 
-There's no need for a full-blown type.
-A type synonym will do the job.
-We can also get away with using `Int`s instead of `Integer`s.
-They work for values up to 2^29-1, which is more than twice as much as we need.
-
-The next most basic component is a row or column of tiles.
-The only difference between them is their orientation.
-That means we can represent them as the same type.
-Let's call it a `Vector`.
+Up next are rows and columns.
+They're fundamentally the same,
+so let's represent them with the same type.
 It's nothing more than a list of tiles.
 
-``` hs
+{% highlight hs %}
 type Vector = [Tile]
-```
+{% endhighlight %}
 
-The last thing we'll need a type for is the board itself.
-It's just a list of vectors.
-So let's make another type synonym.
+Last up is the whole board.
+It's nothing more than a list of vectors.
 
-``` hs
+{% highlight hs %}
 type Board = [Vector]
-```
+{% endhighlight %}
 
-Alright!
-With three lines of code we've got all the types covered.
-Let's move on to the behavior.
+By convention, we'll consider it to be row-major.
+That means the vectors represent rows.
+Therefore the top left tile is the first element in the first vector.
 
-The obvious starting point is moving the board.
-Each row or column can be considered individually.
-So let's write a function that takes a vector and returns it moved to the left.
-We'll get around to moving in the other directions soon.
+## Logic
 
-``` hs
+You can move in any of the cardinal directions.
+Each direction follows the same rules,
+so we'll implement one direction and generalize later.
+Furthermore, the rows (or columns) don't interact with each other when you move.
+That means we can write the logic for a single vector.
+After we've done that,
+we can apply it to the whole board.
+
+Let's start with the type signature.
+We'll take a vector and return the vector moved toward the left.
+
+{% highlight hs %}
 shift :: Vector -> Vector
-```
+{% endhighlight %}
 
-A simple enough type signature.
-We're off to a good start.
+We're going to build this function up piece by piece.
+Each step isn't going to type check,
+but that's ok.
 
-How does movement work in the game?
-All the non-empty tiles move to the left.
-This is the same as removing the `Nothing`s from the list.
+The first thing we want to do is remove all the blank tiles.
+This effectively slides all the tiles to the left.
 
-``` hs
-import Data.Maybe
+{% highlight hs %}
+import Data.Maybe (catMaybes)
 -- catMaybes :: [Maybe a] -> [a]
 shift v = catMaybes v
-```
+-- shift [Nothing, Nothing, Nothing, Just 2] =
+--   [Just 2]
+{% endhighlight %}
 
-Now our vector has no `Nothing`s in it.
-The next step of the move is combining like tiles.
-Specifically, the first two like tiles of any run of similar tiles are added together.
-That means `2 2 2 2` gives you `4 2 2` and `2 2 4 4` gives you `4 8`.
+After that, we need to group up all the similar tiles.
+This makes it easy to combine them in the next step.
 
-This step can be broken in two.
-First let's group like tiles together.
-
-``` hs
-import Data.List
+{% highlight hs %}
+import Data.List (group)
 -- group :: Eq a => [a] -> [[a]]
 shift v = group (catMaybes v)
-```
+-- shift [Just 2, Just 2, Just 4, Just 4] =
+--   [[2, 2], [4, 4]]
+{% endhighlight %}
 
-We've transformed our vector into a list of lists of tiles.
-The values of the tiles in each sub-list are the same.
-For example, `[2, 2, 4, 4]` becomes `[[2, 2], [4, 4]]`.
+Now that all the like tiles are together,
+we need to add the first two tiles of each group.
+Let's write a little function to help us out here.
 
-Let's write a helper function that takes a list like that and adds the first two elements together if they exist.
-
-``` hs
-add :: Num a => [a] -> [a]
+{% highlight hs %}
+add :: [Int] -> [Int]
 add (x : y : rest) = x + y : rest
-add xs = xs
-```
+add ts = ts
+-- add [2, 2, 2, 2] = [4, 2, 2]
+{% endhighlight %}
 
-Let's use that in our `shift` function.
+Now let's apply that function to our grouped tiles.
 
-``` hs
+{% highlight hs %}
 shift v = map add (group (catMaybes v))
-```
+-- shift [Just 2, Just 2, Just 4, Just 4] =
+--   [[4], [8]]
+{% endhighlight %}
 
-Not too bad!
-Believe it or not, the hard part is done.
-We still have two things left to do, though.
-We need to transform this into the right type.
-Right now we have `[[a]]` and we want `[Tile]`.
-After that we'll need to pad the vector out with the right number of tiles.
+Not bad, but we ended up with a list of lists.
+We only want a list.
+Thankfully, `concat` is all it takes to fix that.
 
-First let's get rid of a level of nesting by concatenating our lists together.
+{% highlight hs %}
+shift v = concat (map add (group (catMaybes v)))
+-- shift [Just 2, Just 2, Just 4, Just 4] =
+--   [4, 8]
+{% endhighlight %}
 
-``` hs
-shift v = concatMap add (group (catMaybes v))
-```
+We can do a little better, though.
+`concatMap` does both in one step while being a little more idiomatic.
+([HLint][] will let you know when you should use it.)
 
-Now that we've got a list of `Int`s, we can transform them back into `Tile`s.
-Remember that `Tile` is just a synonym for `Maybe Int`.
+{% highlight hs %}
+shift v = concatMap add (group (catMaybes v)))
+-- shift [Just 2, Just 2, Just 4, Just 4] =
+--   [4, 8]
+{% endhighlight %}
 
-``` hs
-shift v = map Just (concatMap add (group (catMaybes v)))
-```
+We're one step away from type checking!
+We need to turn our list of integers into a list of tiles.
+We can do that by wrapping each one in `Just`.
 
-Sweet!
-Now we've got our list of tiles.
-The only problem is it's the wrong length.
-If we started with `2 2 4 4`, we ended up with `4 8`.
-We're two short!
+{% highlight hs %}
+shift v = map Just (concatMap add (group (catMaybes v))))
+-- shift [Just 2, Just 2, Just 4, Just 4] =
+--   [Just 4, Just 8]
+{% endhighlight %}
 
-We can fix that by padding the vector with `Nothing`.
-The length we need is the length of our input.
-Let's define a helper function for this.
-It takes a list, an element, and a length.
-It returns a new list of the specified length, padded with the given element.
+Even though our function type checks now,
+it still isn't right.
+The output vector isn't the same length as the input vector.
+We need to pad it with `Nothing`.
 
-``` hs
+Let's write another little function to help us out.
+It should take a list, an element, and a length.
+Then it should return the list padded to the length with the element.
+
+{% highlight hs %}
 pad :: [a] -> a -> Int -> [a]
 pad xs x n = take n (xs ++ repeat x)
-```
+-- pad [Just 4, Just 8] Nothing 4 =
+--   [Just 4, Just 8, Nothing, Nothing]
+{% endhighlight %}
 
-Now let's use this function to get our vector to the right length.
+Armed with that, we can finish our function.
+Let's take our output list and pad it to get our output vector.
 
-``` hs
-shift v = pad v' Nothing (length v)
+{% highlight hs %}
+shift v = pad
+    (map Just (concatMap add (group (catMaybes v)))))
+    Nothing
+    (length v)
+-- shift [Just 2, Just 2, Just 4, Just 4] =
+--   [Just 4, Just 8, Nothing, Nothing]
+{% endhighlight %}
+
+That does the trick, but it is ugly.
+We can make it a lot cleaner by pulling out the list we're padding.
+
+{% highlight hs %}
+shift v = pad ts Nothing (length v)
   where
-    v' = map Just (concatMap add (group (catMaybes v)))
-```
+    ts = map Just (concatMap add (group (catMaybes v)))
+-- shift [Just 2, Just 2, Just 4, Just 4] =
+--   [Just 4, Just 8, Nothing, Nothing]
+{% endhighlight %}
 
-And we're done!
-Another nine lines of code was all it took for the core game logic.
+That's all there is to the game logic!
+Everything else sits on top of that to make things easier.
 
-- moving in other directions
-- score
+## Helpers
+
+Moving one vector at a time isn't too useful.
+We want to move the whole board at once.
+Since the board is a list of vectors,
+we can map our function over it.
+
+{% highlight hs %}
+shift' :: Board -> Board
+shift' = map shift
+-- shift' [[Just 2, Just 2], [Just 4, Just 4]] =
+--   [[Just 2, Nothing], [Just 4, Nothing]]
+{% endhighlight %}
+
+So now we can move the board left.
+What about the other directions?
+They can be handled by rotating the board, moving it, then rotating it back.
+Let's write another little function to rotate the board.
+
+{% highlight hs %}
+import Data.List (transpose)
+-- transpose :: [[a]] -> [[a]]
+rotate :: Board -> Board
+rotate = map reverse . transpose
+-- rotate [[Nothing, Just 2], [Just 4, Just 8]] =
+--   [[Just 4, Nothing], [Just 8, Just 2]]
+{% endhighlight %}
+
+It happens to rotate the board clockwise.
+If we want to move down, we have to rotate, then shift, then undo the rotation by rotating three times.
+That's tedious and annoying, though.
+If you want to see the next step,
+check out [the source][] on GitHub.
+It's got all that and more.
+
+[a screenshot of hs2048]: /static/images/2014-04-27-hs2048.png
+[2048]: https://github.com/gabrielecirulli/2048
+[hs2048]: http://hackage.haskell.org/package/hs2048
+[the source]: https://github.com/tfausak/hs2048
+[hlint]: http://community.haskell.org/~ndm/hlint/
