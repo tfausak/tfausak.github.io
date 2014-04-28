@@ -24,32 +24,32 @@ Up next are rows and columns. They're fundamentally the same, so let's
 represent them with the same type. It's nothing more than a list of tiles.
 
 {% highlight hs %}
-type Vector = [Tile]
+type Line = [Tile]
 {% endhighlight %}
 
-Last up is the whole board. It's nothing more than a list of vectors.
+Last up is the whole board. It's nothing more than a list of lines.
 
 {% highlight hs %}
-type Board = [Vector]
+type Board = [Line]
 {% endhighlight %}
 
-By convention, we'll consider it to be row-major. That means the vectors
+By convention, we'll consider it to be row-major. That means the lines
 represent rows. Therefore the top left tile is the first element in the first
-vector.
+line.
 
 ## Logic
 
 You can move in any of the cardinal directions. Each direction follows the same
 rules, so we'll implement one direction and generalize later. Furthermore, the
 rows (or columns) don't interact with each other when you move. That means we
-can write the logic for a single vector. After we've done that, we can apply it
+can write the logic for a single line. After we've done that, we can apply it
 to the whole board.
 
-Let's start with the type signature. We'll take a vector and return the vector
+Let's start with the type signature. We'll take a line and return the line
 moved toward the left.
 
 {% highlight hs %}
-shift :: Vector -> Vector
+shift :: Line -> Line
 {% endhighlight %}
 
 We're going to build this function up piece by piece. Each step isn't going to
@@ -123,9 +123,8 @@ shift v = map Just (concatMap add (group (catMaybes v))))
 --   [Just 4, Just 8]
 {% endhighlight %}
 
-Even though our function type checks now, it still isn't right. The output
-vector isn't the same length as the input vector. We need to pad it with
-`Nothing`.
+Even though our function type checks now, it still isn't right. The output line
+isn't the same length as the input line. We need to pad it with `Nothing`.
 
 Let's write another little function to help us out. It should take a list, an
 element, and a length. Then it should return the list padded to the length with
@@ -139,7 +138,7 @@ pad xs x n = take n (xs ++ repeat x)
 {% endhighlight %}
 
 Armed with that, we can finish our function. Let's take our output list and pad
-it to get our output vector.
+it to get our output line.
 
 {% highlight hs %}
 shift v = pad
@@ -166,8 +165,8 @@ make things easier.
 
 ## Helpers
 
-Moving one vector at a time isn't too useful. We want to move the whole board
-at once. Since the board is a list of vectors, we can map our function over it.
+Moving one line at a time isn't too useful. We want to move the whole board at
+once. Since the board is a list of lines, we can map our function over it.
 
 {% highlight hs %}
 shift' :: Board -> Board
