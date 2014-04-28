@@ -34,7 +34,7 @@ type Board = [Line]
 {% endhighlight %}
 
 By convention, we'll consider it to be row-major. That means the lines
-represent rows. Therefore the top left tile is the first element in the first
+represent rows. Therefore the bottom left tile is the first element in the last
 line.
 
 ## Logic
