@@ -3,7 +3,74 @@ layout: post
 title: Ruby Classes
 ---
 
-<https://github.com/orgsync/active_interaction/issues/179>
+Last week, I encountered an interesting problem in Ruby.
+[The issue][] boils down to this:
+How do you know if an object is an instance of a class?
+
+[the issue]: https://github.com/orgsync/active_interaction/issues/179
+
+I had to ask this question because I help maintain [ActiveInteraction][],
+a [command pattern][] library.
+It provides a way to describe an input that must be a certain class.
+For instance, if an interaction needs a `User`, it could say:
+
+[activeinteraction]: https://github.com/orgsync/active_interaction
+[command pattern]: http://en.wikipedia.org/wiki/Command_pattern
+
+``` rb
+model :someone,
+  class: User
+```
+
+During execution, it's guaranteed that `someone` is a `User`.
+Behind the scenes, ActiveInteraction validates that using a `case` statement.
+It basically looks like this:
+
+``` rb
+case someone
+when User
+  # It's valid.
+else
+  # It's invalid.
+end
+```
+
+Turns out that's not sufficient for determining if an object is an instance of a class.
+In particular, test mocks pretend to be something they're not by overriding the `is_a?` method.
+Desugaring the `case` statement reveals why it fails.
+
+``` rb
+if User === someone
+  # It's valid.
+else
+  # It's invalid.
+end
+```
+
+Instead of asking the object if it is an instance of the class,
+it asks the class if the object is an instance of itself.
+Since the test mock doesn't monkey patch the class it's mocking,
+the only way around this is to check both ways.
+
+``` rb
+if User === someone || someone.is_a?(User)
+  # It's valid.
+else
+  # It's invalid.
+end
+```
+
+This is [the fix][] I used in ActiveInteraction.
+It piqued my curiosity, though.
+I wondered if there were other ways to do this.
+It turns out that there are.
+A lot of them, in fact.
+And they can all be broken.
+
+[the fix]: https://github.com/orgsync/active_interaction/pull/180
+
+I'm going to show you all of them
+and how to break each of them with a single line of code.
 
 ## Class
 
