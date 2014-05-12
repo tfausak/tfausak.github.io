@@ -7,15 +7,10 @@ Last week, I encountered an interesting problem in Ruby.
 [The issue][] boils down to this:
 How do you know if an object is an instance of a class?
 
-[the issue]: https://github.com/orgsync/active_interaction/issues/179
-
 I had to ask this question because I help maintain [ActiveInteraction][],
 a [command pattern][] library.
 It provides a way to describe an input that must be a certain class.
 For instance, if an interaction needs a `User`, it could say:
-
-[activeinteraction]: https://github.com/orgsync/active_interaction
-[command pattern]: http://en.wikipedia.org/wiki/Command_pattern
 
 ``` rb
 model :someone,
@@ -36,7 +31,7 @@ end
 ```
 
 Turns out that's not sufficient for determining if an object is an instance of a class.
-In particular, test mocks pretend to be something they're not by overriding the `is_a?` method.
+In particular, test mocks pretend to be something they're not by overriding `#is_a?`.
 Desugaring the `case` statement reveals why it fails.
 
 ``` rb
@@ -53,24 +48,26 @@ Since the test mock doesn't monkey patch the class it's mocking,
 the only way around this is to check both ways.
 
 ``` rb
-if User === someone || someone.is_a?(User)
-  # It's valid.
+if User === someone
+  # It's valid because the class says so.
+elsif someone.is_a?(User)
+  # It's valid because the object says so.
 else
   # It's invalid.
 end
 ```
 
-This is [the fix][] I used in ActiveInteraction.
-It piqued my curiosity, though.
+While developing [a fix][] for ActiveInteraction,
 I wondered if there were other ways to do this.
-It turns out that there are.
-A lot of them, in fact.
-And they can all be broken.
+After doing some research,
+I discovered that there are nearly 20 different ways to see if an object is an instance of a class in Ruby.
+Each one of them can be broken with a single line of code.
 
-[the fix]: https://github.com/orgsync/active_interaction/pull/180
-
-I'm going to show you all of them
-and how to break each of them with a single line of code.
+I've compiled a list of all the different methods,
+along with how to break them.
+A word of warning, though:
+If you're using anything other than `.===` and `#is_a?` (or `#kind_of?`),
+you're probably doing it wrong.
 
 ## Class
 
@@ -344,3 +341,8 @@ Does `klass` include `other`?
     klass.included_modules.include?(other)
     # => false
     ```
+
+[the issue]: https://github.com/orgsync/active_interaction/issues/179
+[activeinteraction]: https://github.com/orgsync/active_interaction
+[command pattern]: http://en.wikipedia.org/wiki/Command_pattern
+[a fix]: https://github.com/orgsync/active_interaction/pull/180
