@@ -71,24 +71,55 @@ you're probably doing it wrong.
 
 ## Class
 
+Let's say you have a class and an instance of that class.
+In particular, you have this code:
+
 ``` rb
 klass = Class.new
 object = klass.new
 ```
 
+You have one simple question to answer:
 Is `object` an instance of `klass`?
 
-1.  Typically you would use a `case` statement.
-    That desugars into an `if` statement using the case equality operator.
-    We're only interested in the result of the conditional.
+1.  If you're like me, your first attempt would be to use a `case` statement.
+    Let's look only at the conditional part of the desugared statement.
 
     ``` rb
     klass === object
     # => true
+    ```
+
+    How can we make this return `false`?
+    We need to override `.===`.
+    Usually you would do that like this:
+
+    ``` rb
+    class Example
+      class << self
+        def ===(other)
+          false
+        end
+      end
+    end
+    ```
+
+    But `klass` is anonymous, so let's use `.class_exec` instead.
+
+    ``` rb
     klass.class_exec { def self.===(*) false end }
+    ```
+
+    Now let's try that conditional again.
+    It should return `false` this time.
+
+    ``` rb
     klass === object
     # => false
     ```
+
+    Excellent.
+    We broke the most idiomatic way to check if an object is an instance of a class in Ruby.
 
 2.  We can swap the receiver and the argument.
     Instead of asking the class about some object,
