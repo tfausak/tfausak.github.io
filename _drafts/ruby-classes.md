@@ -3,8 +3,8 @@ layout: post
 title: Ruby Classes
 ---
 
-Last week, I encountered an interesting problem in Ruby.
-[The issue][] boils down to this:
+Last week, I encountered [an interesting issue][] in Ruby.
+It boils down to this:
 How do you know if an object is an instance of a class?
 
 I had to ask this question because I help maintain [ActiveInteraction][],
@@ -17,9 +17,9 @@ model :someone,
   class: User
 ```
 
-During execution, it's guaranteed that `someone` is a `User`.
+During execution, it's guaranteed that `someone` is in fact a `User`.
 Behind the scenes, ActiveInteraction validates that using a `case` statement.
-It basically looks like this:
+In this case, it would look like this:
 
 ``` rb
 case someone
@@ -30,8 +30,8 @@ else
 end
 ```
 
-Turns out that's not sufficient for determining if an object is an instance of a class.
-In particular, test mocks pretend to be something they're not by overriding `#is_a?`.
+Turns out that's not enough for determining if an object is an instance of a class.
+In particular, test mocks pretend to be something they're not by overriding the `#is_a?` method.
 Desugaring the `case` statement reveals why it fails.
 
 ``` rb
@@ -59,15 +59,15 @@ end
 
 While developing [a fix][] for ActiveInteraction,
 I wondered if there were other ways to do this.
-After doing some research,
-I discovered that there are nearly 20 different ways to see if an object is an instance of a class in Ruby.
-Each one of them can be broken with a single line of code.
+I did some research and discovered that
+there are at least 18 different ways to see if an object is an instance of a class in Ruby.
+And a single line of code can break each of them.
 
 I've compiled a list of all the different methods,
 along with how to break them.
 A word of warning, though:
 If you're using anything other than `.===` and `#is_a?` (or `#kind_of?`),
-you're probably doing it wrong.
+you're doing it wrong.
 
 ## Class
 
@@ -373,7 +373,7 @@ Does `klass` include `other`?
     # => false
     ```
 
-[the issue]: https://github.com/orgsync/active_interaction/issues/179
+[an interesting issue]: https://github.com/orgsync/active_interaction/issues/179
 [activeinteraction]: https://github.com/orgsync/active_interaction
 [command pattern]: http://en.wikipedia.org/wiki/Command_pattern
 [a fix]: https://github.com/orgsync/active_interaction/pull/180
