@@ -19,7 +19,7 @@ model :someone,
 
 During execution, it's guaranteed that `someone` is in fact a `User`.
 Behind the scenes, ActiveInteraction validates that using a `case` statement.
-In this case, it would look like this:
+In this instance, it would look like:
 
 ``` rb
 case someone
@@ -45,13 +45,13 @@ end
 Instead of asking the object if it is an instance of the class,
 it asks the class if the object is an instance of itself.
 Since the test mock doesn't monkey patch the class it's mocking,
-the only way around this is to check both ways.
+the only way around this is to ask both questions.
 
 ``` rb
 if User === someone
-  # It's valid because the class says so.
+  # It's valid according to the class.
 elsif someone.is_a?(User)
-  # It's valid because the object says so.
+  # It's valid according to the object.
 else
   # It's invalid.
 end
@@ -65,8 +65,8 @@ And a single line of code can break each of them.
 
 I've compiled a list of all the different methods,
 along with how to break them.
-A word of warning, though:
-If you're using anything other than `.===` and `#is_a?` (or `#kind_of?`),
+A word of warning though:
+If you're using anything other than `.===` and `#is_a?`,
 you're doing it wrong.
 
 ## Class
@@ -91,9 +91,9 @@ Is `object` an instance of `klass`?
     # => true
     ```
 
-    Now how can we break this?
+    How can we break this?
     We need to override the `.===` method to return something falsey.
-    Usually you would do that like this:
+    You would usually do that like this:
 
     ``` rb
     class Example
@@ -105,22 +105,21 @@ Is `object` an instance of `klass`?
     end
     ```
 
-    We can't do that because `klass` is anonymous.
-    Let's use `.class_exec` instead.
+    Unfortunately we can't do that because `klass` is anonymous.
+    So let's use `.class_exec` instead.
 
     ``` rb
     klass.class_exec { def self.===(*) false end }
     ```
 
-    Let's take another look at that conditional.
-    It should return `false` now.
+    Reevaluating the conditional shows that it returns `false` after this change.
 
     ``` rb
     klass === object
     # => false
     ```
 
-    Excellent!
+    Alright!
     We broke the most idiomatic way to check if an object is an instance of a class in Ruby.
 
 2.  We can swap the receiver and the argument.
