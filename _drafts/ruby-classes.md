@@ -355,6 +355,8 @@ Is `klass` a subclass of `other`?
     # => false
     ```
 
+Plus `.<=`, `.<=>`, and `.ancestors`.
+
 ## Superclass
 
 ``` rb
@@ -373,6 +375,8 @@ Is `klass` a superclass of `other`?
     klass > other
     # => false
     ```
+
+Plus `.>=` and `.<=>`.
 
 ## Module
 
@@ -402,6 +406,8 @@ Does `klass` include `other`?
     klass.included_modules.include?(other)
     # => false
     ```
+
+Plus `.<=`, `.<=>`, and `.ancestors`.
 
 [an interesting issue]: https://github.com/orgsync/active_interaction/issues/179
 [activeinteraction]: https://github.com/orgsync/active_interaction
