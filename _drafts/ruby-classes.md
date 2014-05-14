@@ -163,8 +163,12 @@ Is `object` an instance of `klass`?
     we've essentially broken class comparison in Ruby.
     It would be reasonable for a program to conclude that `object` was not an instance of `klass`.
 
-3.  There are two ways to do this.
-    They aren't aliased.
+3.  But let's be unreasonable.
+    Let's not stop until it's impossible.
+
+    You might be surprised to learn that `#is_a?` and `#kind_of?` aren't aliases.
+    So even though we've broken the former, the latter still works.
+    Let's break `#kind_of?` too.
 
     ``` rb
     object.kind_of?(klass)
