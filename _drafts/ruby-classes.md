@@ -283,50 +283,50 @@ Is `object` an instance of `klass`?
 14. You can also look through the family tree.
 
     ``` rb
-    klass.ancestors.include?(instance.class)
+    klass.ancestors.include?(object.class)
     # => true
     klass.class_exec { def self.ancestors; [] end }
-    klass.ancestors.include?(instance.class)
+    klass.ancestors.include?(object.class)
     # => false
     ```
 
 15. How about some string comparisons?
 
     ``` rb
-    klass.name == instance.class.name
+    klass.name == object.class.name
     # => true
     klass.class_exec { def self.name; ('A'..'Z').to_a.sample end }
-    klass.name == instance.class.name
+    klass.name == object.class.name
     # => false
     ```
 
 16. It would just be silly if these were aliased.
 
     ``` rb
-    klass.to_s == instance.class.to_s
+    klass.to_s == object.class.to_s
     # => true
     klass.class_exec { def self.to_s; ('A'..'Z').to_a.sample end }
-    klass.to_s == instance.class.to_s
+    klass.to_s == object.class.to_s
     # => false
     ```
 
 17. Yet another way to do the same thing.
 
     ``` rb
-    klass.inspect == instance.class.inspect
+    klass.inspect == object.class.inspect
     # => true
     klass.class_exec { def self.inspect; ('A'..'Z').to_a.sample end }
-    klass.inspect == instance.class.inspect
+    klass.inspect == object.class.inspect
     # => false
     ```
 
 18. Finally, you can pre-empt most of these by returning a new class every time.
 
     ``` rb
-    instance.class == instance.class
+    object.class == object.class
     # => true
-    klass.class_exec { def self.class; Class.new end }
-    instance.class == instance.class
+    klass.class_exec { def class; Class.new end }
+    object.class == object.class
     # => false
     ```
 
