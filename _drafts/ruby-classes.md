@@ -122,17 +122,46 @@ Is `object` an instance of `klass`?
     Alright!
     We broke the most idiomatic way to check if an object is an instance of a class in Ruby.
 
-2.  We can swap the receiver and the argument.
-    Instead of asking the class about some object,
-    we can ask the object about some class.
+2.  Without a `case` statement,
+    the next best thing is `#is_a?`.
 
     ``` rb
     object.is_a?(klass)
     # => true
+    ```
+
+    To break this,
+    we need to override the `#is_a?` method to return something falsey.
+    Under normal circumstances,
+    you could do this:
+
+    ``` rb
+    class Example
+      def is_a?(klass)
+        false
+      end
+    end
+    ```
+
+    Since `klass` is anonymous,
+    we'll have to use `.class_exec` again.
+
+    ``` rb
     klass.class_exec { def is_a?(*) false end }
+    ```
+
+    Now let's check the return value of the conditional.
+
+    ``` rb
     object.is_a?(klass)
     # => false
     ```
+
+    Great!
+    It returns `false`.
+    With that,
+    we've essentially broken class comparison in Ruby.
+    It would be reasonable for a program to conclude that `object` was not an instance of `klass`.
 
 3.  There are two ways to do this.
     They aren't aliased.
