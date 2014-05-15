@@ -168,7 +168,7 @@ Is `object` an instance of `klass`?
 
     You might be surprised to learn that `#is_a?` and `#kind_of?` aren't aliases.
     So even though we've broken the former, the latter still works.
-    Let's break `#kind_of?` too.
+    Let's fix that by breaking `#kind_of?` too.
 
     ``` rb
     object.kind_of?(klass)
@@ -178,109 +178,7 @@ Is `object` an instance of `klass`?
     # => false
     ```
 
-4.  You can ask a more specific question about the object too.
-
-    ``` rb
-    object.instance_of?(klass)
-    # => true
-    klass.class_exec { def instance_of?(*) false end }
-    object.instance_of?(klass)
-    # => false
-    ```
-
-5.  This is more or less equivalent to the last one.
-    Compare the classes themselves for equality.
-
-    ``` rb
-    klass == object.class
-    # => true
-    klass.class_exec { def self.==(*) false end }
-    klass == object.class
-    # => false
-    ```
-
-6.  Or the other kind of equality.
-
-    ``` rb
-    klass.eql?(object.class)
-    # => true
-    klass.class_exec { def self.eql?(*) false end }
-    klass.eql?(object.class)
-    # => false
-    ```
-
-7.  Or the *other* kind of equality.
-
-    ``` rb
-    klass.equal?(object.class)
-    # => true
-    klass.class_exec { def self.equal?(*) false end }
-    klass.equal?(object.class)
-    # => false
-    ```
-
-8.  Checking if things are not equal is totally different than checking if they're equal.
-
-    ``` rb
-    klass != object.class
-    # => false
-    klass.class_exec { def self.!=(*) true end }
-    klass != object.class
-    # => true
-    ```
-
-9.  Inequalities can come in handy here.
-
-    ``` rb
-    klass <= object.class
-    # => true
-    klass.class_exec { def self.<=(*) false end }
-    klass <= object.class
-    # => false
-    ```
-
-10. The other way too.
-
-    ``` rb
-    klass >= object.class
-    # => true
-    klass.class_exec { def self.>=(*) false end }
-    klass >= object.class
-    # => false
-    ```
-
-11. Annoyingly, `Class` doesn't implement `Comparable`.
-    That doesn't stop it from responding to `.<=>`, though.
-
-    ``` rb
-    klass <=> object.class
-    # => 0
-    klass.class_exec { def self.<=>(*) nil end }
-    klass <=> object.class
-    # => nil
-    ```
-
-12. You can manually check for object equality.
-
-    ``` rb
-    klass.object_id == object.class.object_id
-    # => true
-    klass.class_exec { def self.object_id; rand(26) end }
-    klass.object_id == object.class.object_id
-    # => false
-    ```
-
-13. Of course, there's another way to do that too.
-
-    ``` rb
-    klass.__id__ == object.class.__id__
-    # => true
-    klass.class_exec { def self.__id__; rand(26) end }
-    klass.__id__ == object.class.__id__
-    # => false
-    ```
-
-14. You can also look through the family tree.
+4. We can make a similar check by looking through the family tree.
 
     ``` rb
     klass.ancestors.include?(object.class)
@@ -290,7 +188,115 @@ Is `object` an instance of `klass`?
     # => false
     ```
 
-15. How about some string comparisons?
+5.  All the methods we've tried so far would work for subclasses and modules.
+    A more specific method, `#instance_of?`, only works for exact instances.
+
+    ``` rb
+    object.instance_of?(klass)
+    # => true
+    klass.class_exec { def instance_of?(*) false end }
+    object.instance_of?(klass)
+    # => false
+    ```
+
+6.  We can also manually check the instance's class for equality using `.==`.
+
+    ``` rb
+    klass == object.class
+    # => true
+    klass.class_exec { def self.==(*) false end }
+    klass == object.class
+    # => false
+    ```
+
+7.  Or we can use `.eql?` for stricter equality.
+
+    ``` rb
+    klass.eql?(object.class)
+    # => true
+    klass.class_exec { def self.eql?(*) false end }
+    klass.eql?(object.class)
+    # => false
+    ```
+
+8.  Or we can use `.equal?` for even stricter equality.
+
+    ``` rb
+    klass.equal?(object.class)
+    # => true
+    klass.class_exec { def self.equal?(*) false end }
+    klass.equal?(object.class)
+    # => false
+    ```
+
+9.  Even though we broke the helper methods,
+    we can manually check object equality though `.object_id`.
+
+    ``` rb
+    klass.object_id == object.class.object_id
+    # => true
+    klass.class_exec { def self.object_id; rand(26) end }
+    klass.object_id == object.class.object_id
+    # => false
+    ```
+
+10. Ruby provides another way to get at the object ID: `.__id__`.
+    It isn't an alias for `.object_id`.
+
+    ``` rb
+    klass.__id__ == object.class.__id__
+    # => true
+    klass.class_exec { def self.__id__; rand(26) end }
+    klass.__id__ == object.class.__id__
+    # => false
+    ```
+
+11. We can't see if the classes are equal,
+    but we can see if they aren't equal using `.!=`.
+
+    ``` rb
+    klass != object.class
+    # => false
+    klass.class_exec { def self.!=(*) true end }
+    klass != object.class
+    # => true
+    ```
+
+12. Since we've completely broken equality,
+    let's move on to inequality.
+
+    ``` rb
+    klass <=> object.class
+    # => 0
+    klass.class_exec { def self.<=>(*) nil end }
+    klass <=> object.class
+    # => nil
+    ```
+
+13. `Class` doesn't implement `Comparable`,
+    so `.<=` still works even though we broke `.<=>`.
+
+    ``` rb
+    klass <= object.class
+    # => true
+    klass.class_exec { def self.<=(*) false end }
+    klass <= object.class
+    # => false
+    ```
+
+14. The same is true of `.>=`.
+
+    ``` rb
+    klass >= object.class
+    # => true
+    klass.class_exec { def self.>=(*) false end }
+    klass >= object.class
+    # => false
+    ```
+
+15. Despite all our efforts,
+    it's still possible to successfully compare the classes using their names.
+    Let's break that too.
 
     ``` rb
     klass.name == object.class.name
@@ -300,7 +306,8 @@ Is `object` an instance of `klass`?
     # => false
     ```
 
-16. It would just be silly if these were aliased.
+16. The default implementation of `.to_s` is the same as `.name`,
+    but they aren't aliased.
 
     ``` rb
     klass.to_s == object.class.to_s
@@ -310,7 +317,7 @@ Is `object` an instance of `klass`?
     # => false
     ```
 
-17. Yet another way to do the same thing.
+17. Similarly, `.inspect` is the same as the other two by default.
 
     ``` rb
     klass.inspect == object.class.inspect
@@ -320,7 +327,8 @@ Is `object` an instance of `klass`?
     # => false
     ```
 
-18. Finally, you can pre-empt most of these by returning a new class every time.
+18. Instead of breaking all these class methods,
+    we could just make `#class` return a new anonymous class.
 
     ``` rb
     object.class == object.class
