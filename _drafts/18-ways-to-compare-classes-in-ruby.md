@@ -3,7 +3,7 @@ layout: post
 title: 18 Ways to Compare Classes in Ruby
 ---
 
-Last week, I encountered [an interesting issue][] in Ruby.
+Last week, I encountered [an interesting issue][].
 It boils down to this:
 How do you know if an object is an instance of a class?
 
@@ -60,7 +60,7 @@ end
 While developing [a fix][] for ActiveInteraction,
 I wondered if there were other ways to do this.
 I did some research and discovered that
-there are at least 18 different ways to see if an object is an instance of a class in Ruby.
+there are at least 18 different ways to see if an object is an instance of a class.
 And a single line of code can break each of them.
 
 I've compiled a list of all the different methods,
@@ -118,7 +118,7 @@ Is `object` an instance of `klass`?
     ```
 
     Alright!
-    We broke the most idiomatic way to check if an object is an instance of a class in Ruby.
+    We broke the most idiomatic way to check if an object is an instance of a class.
 
 2.  Without a `case` statement,
     the next best thing is `#is_a?`.
@@ -158,7 +158,7 @@ Is `object` an instance of `klass`?
     Great!
     It returns `false`.
     With that,
-    we've essentially broken class comparison in Ruby.
+    we've essentially broken class comparison.
     It would be reasonable for a program to conclude that `object` was not an instance of `klass`.
 
 3.  But let's be unreasonable.
@@ -335,6 +335,15 @@ Is `object` an instance of `klass`?
     object.class == object.class
     # => false
     ```
+
+As you can see,
+it's hard to confidently say if an object is an instance of a class.
+There may be even more methods than the ones I've listed here.
+But if I've learned anything,
+it's that you don't want to do this.
+If you have to,
+keep it simple:
+Use `.===` and `#is_a?`.
 
 [an interesting issue]: https://github.com/orgsync/active_interaction/issues/179
 [activeinteraction]: https://github.com/orgsync/active_interaction
