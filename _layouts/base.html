@@ -12,7 +12,7 @@
         <link href="/sitemap.atom" rel="alternate" title="{{ site.data.config.title | escape }} (Atom)" type="application/atom+xml">
         <link href="/sitemap.rss" rel="alternate" title="{{ site.data.config.title | escape }} (RSS)" type="application/rss+xml">
 
-        <link href="{{ site.data.config.url }}{% if page.title %}{{ page.url }}{% endif %}" rel="canonical">
+        <link href="{{ site.data.config.url }}{% if page.url != '/' %}{{ page.url }}{% endif %}" rel="canonical">
 
         {% include apple.html %}
         {% include facebook.html %}
