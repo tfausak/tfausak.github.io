@@ -69,8 +69,6 @@ A word of warning though:
 If you're using anything other than `.===` and `#is_a?`,
 you're doing it wrong.
 
-## Class
-
 Let's say you have a class and an instance of that class.
 In particular, you have this code:
 
@@ -337,89 +335,6 @@ Is `object` an instance of `klass`?
     object.class == object.class
     # => false
     ```
-
-## Subclass
-
-``` rb
-other = Class.new
-klass = Class.new(other)
-```
-
-Is `klass` a subclass of `other`?
-
-1.  Surely the most straightforward way.
-
-    ```rb
-    klass < other
-    # => true
-    klass.class_exec { def self.<(*) false end }
-    klass < other
-    # => false
-    ```
-
-2.  Only works for direct subclasses.
-
-    ```rb
-    klass.superclass == other
-    # => true
-    klass.class_exec { def self.superclass; Class.new end }
-    klass.superclass == other
-    # => false
-    ```
-
-Plus `.<=`, `.<=>`, and `.ancestors`.
-
-## Superclass
-
-``` rb
-klass = Class.new
-other = Class.new(klass)
-```
-
-Is `klass` a superclass of `other`?
-
-1.  The easiest way.
-
-    ``` rb
-    klass > other
-    # => true
-    klass.class_exec { def self.>(*) false end }
-    klass > other
-    # => false
-    ```
-
-Plus `.>=` and `.<=>`.
-
-## Module
-
-``` rb
-other = Module.new
-klass = Class.new { include other }
-```
-
-Does `klass` include `other`?
-
-1.  So simple it reads like English.
-
-    ``` rb
-    klass.include?(other)
-    # => true
-    klass.class_exec { def self.include?(*) false end }
-    klass.include?(other)
-    # => false
-    ```
-
-2.  Take a more roundabout approach.
-
-    ``` rb
-    klass.included_modules.include?(other)
-    # => true
-    klass.class_exec { def self.included_modules; [] end }
-    klass.included_modules.include?(other)
-    # => false
-    ```
-
-Plus `.<=`, `.<=>`, and `.ancestors`.
 
 [an interesting issue]: https://github.com/orgsync/active_interaction/issues/179
 [activeinteraction]: https://github.com/orgsync/active_interaction
