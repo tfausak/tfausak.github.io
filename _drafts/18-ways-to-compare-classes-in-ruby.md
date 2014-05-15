@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ruby Classes
+title: 18 Ways to Compare Classes in Ruby
 ---
 
 Last week, I encountered [an interesting issue][] in Ruby.
