@@ -19,7 +19,7 @@ model :someone,
 
 During execution, it's guaranteed that `someone` is in fact a `User`.
 Behind the scenes, ActiveInteraction validates that using a `case` statement.
-In this instance, it would look like:
+In this instance, it would look like this:
 
 ``` rb
 case someone
@@ -49,9 +49,9 @@ the only way around this is to ask both questions.
 
 ``` rb
 if User === someone
-  # It's valid according to the class.
+  # The class says it's valid.
 elsif someone.is_a?(User)
-  # It's valid according to the object.
+  # The object says it's valid.
 else
   # It's invalid.
 end
@@ -69,7 +69,7 @@ A word of warning though:
 If you're using anything other than `.===` and `#is_a?`,
 you're doing it wrong.
 
-Let's say you have a class and an instance of that class.
+Alright, let's say you have a class and an instance of that class.
 In particular, you have this code:
 
 ``` rb
