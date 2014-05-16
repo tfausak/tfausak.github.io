@@ -36,19 +36,19 @@ Unfortunately, that won't work in any browsers yet. CSS animation
 is still a working draft, so the vendor prefixes are required. And
 the keyframe definition must be repeated for every vendor prefix.
 
-{% highlight css %}
+``` css
 @-moz-keyframes    solarized { /* ... */ }
 @-ms-keyframes     solarized { /* ... */ }
 @-o-keyframes      solarized { /* ... */ }
 @-webkit-keyframes solarized { /* ... */ }
 @keyframes         solarized { /* ... */ }
-{% endhighlight %}
+```
 
 Once the keyframes have been defined, they need to be applied. It's
 also a good idea to set the element's styles to match the first
 keyframe so nothing flashes when the page loads.
 
-{% highlight css %}
+~~~ css
 .header {
     color: #dc322f;
        -moz-animation: solarized 14s infinite;
@@ -57,7 +57,7 @@ keyframe so nothing flashes when the page loads.
     -webkit-animation: solarized 14s infinite;
             animation: solarized 14s infinite;
 }
-{% endhighlight %}
+~~~
 
 I chose a leisurely pace for my animation since I didn't want to
 draw a whole lot of attention to it. It's more of an easter egg
