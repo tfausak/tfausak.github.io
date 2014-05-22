@@ -7,9 +7,8 @@ Last week, I encountered [an interesting issue][1]. It boils down to this: How
 do you know if an object is an instance of a class?
 
 I had to ask this question because I help maintain [ActiveInteraction][2], a
-[command pattern][3] library. It provides a way to describe an input that must
-be a certain class. For instance, if an interaction needs a `User`, it could
-say:
+[command pattern][3] library. It provides a way to ensure that an object is a
+certain class. For instance, if an interaction needs a `User`, it could say:
 
 ``` rb
 model :someone,
@@ -42,10 +41,10 @@ else
 end
 ```
 
-Instead of asking the object if it is an instance of the class, it asks the
-class if the object is an instance of itself. Since the test mock doesn't
-monkey patch the class it's mocking, the only way around this is to ask both
-questions.
+The `.===` method asks the class if an object is the right class. `#is_a?` does
+the same thing in the other direction by asking the object if it's the right
+class. Since the test mock doesn't monkey patch the class it's mocking, the
+only way around this is to ask both questions.
 
 ``` rb
 if User === someone
