@@ -324,8 +324,6 @@ FakeCheese.equal?(Cheese)
 We can also use the object IDs to compare object equality by hand.
 
 {% highlight rb %}
-Cheese.object_id
-# => 70241271152880
 FakeCheese.object_id
 # => 70241271125600
 class FakeCheese
@@ -342,8 +340,6 @@ FakeCheese.object_id
 Ruby provides another way to get at the object IDs.
 
 {% highlight rb %}
-Cheese.__id__
-# => 70241271152880
 FakeCheese.__id__
 # => 70241271125600
 class FakeCheese
@@ -357,40 +353,36 @@ FakeCheese.__id__
 
 ### `.<=>`
 
+Now that we've faked all of the ways to check equality,
+let's move on to inequalities.
+The obvious place to start is with the spaceship operator.
+
 {% highlight rb %}
 FakeCheese <=> Cheese
 # => nil
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def self.<=>(other)
     Cheese <=> other
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese <=> Cheese
 # => 0
 {% endhighlight %}
+
+Even though classes implement `.<=>`,
+they don't include `Comparable`.
+So we have to manually override all of the associated methods.
 
 ### `.<`
 
 {% highlight rb %}
 FakeCheese < Cheese
 # => nil
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def self.<(other)
     Cheese < other
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese < Cheese
 # => false
 {% endhighlight %}
@@ -400,17 +392,11 @@ FakeCheese < Cheese
 {% highlight rb %}
 FakeCheese > Cheese
 # => nil
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def self.>(other)
     Cheese > other
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese > Cheese
 # => false
 {% endhighlight %}
@@ -420,17 +406,11 @@ FakeCheese > Cheese
 {% highlight rb %}
 FakeCheese <= Cheese
 # => nil
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def self.<=(other)
     Cheese <= other
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese <= Cheese
 # => true
 {% endhighlight %}
@@ -440,17 +420,11 @@ FakeCheese <= Cheese
 {% highlight rb %}
 FakeCheese >= Cheese
 # => nil
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def self.>=(other)
     Cheese >= other
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese >= Cheese
 # => true
 {% endhighlight %}
