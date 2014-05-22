@@ -57,9 +57,9 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-C = Class.new
-M = Module.new
-Cheese = Class.new(C) { include M }
+Klass = Class.new
+Mojule = Module.new
+Cheese = Class.new(Klass) { include Mojule }
 FakeCheese = Class.new
 {% endhighlight %}
 
@@ -334,7 +334,7 @@ FakeCheese.equal?(Cheese)
 ## `.include?`
 
 {% highlight rb %}
-FakeCheese.include?(M)
+FakeCheese.include?(Mojule)
 # => false
 {% endhighlight %}
 
@@ -347,7 +347,7 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese.include?(M)
+FakeCheese.include?(Mojule)
 # => true
 {% endhighlight %}
 
@@ -408,7 +408,7 @@ end
 
 {% highlight rb %}
 FakeCheese.ancestors
-# => [Cheese, M, C, Object, PP::ObjectMixin, Kernel, BasicObject]
+# => [Cheese, Mojule, Klass, Object, PP::ObjectMixin, Kernel, BasicObject]
 {% endhighlight %}
 
 ## `.included_modules`
@@ -428,7 +428,7 @@ end
 
 {% highlight rb %}
 FakeCheese.included_modules
-# => [M, PP::ObjectMixin, Kernel]
+# => [Mojule, PP::ObjectMixin, Kernel]
 {% endhighlight %}
 
 ## `.inspect`
@@ -508,7 +508,7 @@ end
 
 {% highlight rb %}
 FakeCheese.superclass
-# => C
+# => Klass
 {% endhighlight %}
 
 ## `.to_s`
