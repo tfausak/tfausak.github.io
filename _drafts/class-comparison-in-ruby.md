@@ -59,13 +59,13 @@ end
 While developing [a fix][4] for ActiveInteraction,
 I wondered if there were other ways to do this.
 I did some research and discovered that
-there are at least 16 different ways to compare classes.
+there are at least 18 different ways to make this comparison.
 
-Naturally the next step was to fake all of them.
-I wanted to make a perfect mock --- one that would pass any check.
-A word of warning, though:
-If you're using anything other than `.===` and `#is_a?`,
+It would be unreasonable to make all those checks.
+In fact, if you're using anything other than `.===` and `#is_a?`,
 you're doing it wrong.
+However, I was interested in creating a class that is indistinguishable from another class.
+In other words, a perfect mock.
 
 ## Creating the Perfect Mock
 
