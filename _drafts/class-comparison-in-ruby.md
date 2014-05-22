@@ -237,20 +237,17 @@ american.kind_of?(Cheese)
 
 ### `#instance_of?`
 
+Unlike `#is_a?` and `#kind_of?`,
+`#instance_of?` checks for an exact match.
+
 {% highlight rb %}
 american.instance_of?(Cheese)
 # => false
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def instance_of?(klass)
     Cheese == klass
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 american.instance_of?(Cheese)
 # => true
 {% endhighlight %}
