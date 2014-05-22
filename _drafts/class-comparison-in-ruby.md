@@ -121,10 +121,24 @@ we can move on to faking the comparisons.
 
 ### `.===`
 
+We hit a problem right out of the gate:
+
+{% highlight rb %}
+Cheese === american
+# => false
+{% endhighlight %}
+
+This is an issue because it means instances of `FakeCheese` won't be able to pass as `Cheese` in `case` statements.
+Unfortunately there's nothing we can do about it without monkey patching `Cheese`.
+Let's stay focused on the `FakeCheese` class.
+
 {% highlight rb %}
 FakeCheese === gouda
 # => false
 {% endhighlight %}
+
+We can do something about this one.
+Let's make `FakeCheese` behave like `Cheese` by delegating to it.
 
 {% highlight rb %}
 class FakeCheese
@@ -134,10 +148,26 @@ class FakeCheese
 end
 {% endhighlight %}
 
+After making that change,
+we can see that the conditional returns `true` now.
+
 {% highlight rb %}
 FakeCheese === gouda
 # => true
 {% endhighlight %}
+
+Note that we broke the default behavior:
+
+{% highlight rb %}
+FakeCheese === american
+# => false
+{% endhighlight %}
+
+Instances of `FakeCheese` aren't able to pass as `FakeCheese` in `case` statements anymore.
+We could fix that by throwing a call to `super` somewhere in `.===`,
+but remember that we're trying to build a perfect mock.
+If `Cheese === american` is `false`, `FakeCheese === american` should be too.
+(We'll see later that falling back to `super` doesn't always make sense.)
 
 ### `#is_a?`
 
