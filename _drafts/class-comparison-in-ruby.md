@@ -75,8 +75,7 @@ To make things interesting,
 let's have it subclass another class.
 
 {% highlight rb %}
-Food = Class.new
-Cheese = Class.new(Food)
+Cheese = Class.new
 gouda = Cheese.new
 {% endhighlight %}
 
@@ -112,7 +111,6 @@ we can move on to faking the comparisons.
 - [`.name`](#name)
 - [`#to_s`](#tos-1)
 - [`#inspect`](#inspect-1)
-- [`.superclass`](#superclass)
 
 ### `.===`
 
@@ -439,7 +437,7 @@ class FakeCheese
   end
 end
 FakeCheese.ancestors
-# => [Cheese, Food, Object, PP::ObjectMixin, Kernel, BasicObject]
+# => [Cheese, Object, PP::ObjectMixin, Kernel, BasicObject]
 {% endhighlight %}
 
 ### `.to_s`
@@ -533,26 +531,6 @@ american.inspect
 # => "#<Cheese:0x7fa3e09ccd00>"
 {% endhighlight %}
 
-### `.superclass`
-
-{% highlight rb %}
-FakeCheese.superclass
-# => Object
-{% endhighlight %}
-
-{% highlight rb %}
-class FakeCheese
-  def self.superclass
-    Cheese.superclass
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-FakeCheese.superclass
-# => Food
-{% endhighlight %}
-
 ## TLDR
 
 {% highlight rb %}
@@ -575,7 +553,6 @@ def fake(klass)
       inspect
       name
       object_id
-      superclass
       to_s
     ]
 
