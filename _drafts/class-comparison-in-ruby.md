@@ -67,6 +67,8 @@ A word of warning, though:
 If you're using anything other than `.===` and `#is_a?`,
 you're doing it wrong.
 
+## Creating the Perfect Mock
+
 Before we create the mock,
 we need to create the class we'll be mocking.
 To make things interesting,
@@ -117,7 +119,7 @@ we can move on to faking the comparisons.
 - [`.included_modules`](#includedmodules)
 - [`.superclass`](#superclass)
 
-## `.===`
+### `.===`
 
 {% highlight rb %}
 FakeCheese === gouda
@@ -137,7 +139,7 @@ FakeCheese === gouda
 # => true
 {% endhighlight %}
 
-## `#is_a?`
+### `#is_a?`
 
 {% highlight rb %}
 american.is_a?(Cheese)
@@ -157,7 +159,7 @@ american.is_a?(Cheese)
 # => true
 {% endhighlight %}
 
-## `#kind_of?`
+### `#kind_of?`
 
 {% highlight rb %}
 american.kind_of?(Cheese)
@@ -177,7 +179,7 @@ american.kind_of?(Cheese)
 # => true
 {% endhighlight %}
 
-## `#instance_of?`
+### `#instance_of?`
 
 {% highlight rb %}
 american.instance_of?(Cheese)
@@ -197,7 +199,7 @@ american.instance_of?(Cheese)
 # => true
 {% endhighlight %}
 
-## `#class`
+### `#class`
 
 {% highlight rb %}
 american.class
@@ -217,7 +219,7 @@ american.class
 # => Cheese
 {% endhighlight %}
 
-## `.<=>`
+### `.<=>`
 
 {% highlight rb %}
 FakeCheese <=> Cheese
@@ -237,7 +239,7 @@ FakeCheese <=> Cheese
 # => 0
 {% endhighlight %}
 
-## `.<`
+### `.<`
 
 {% highlight rb %}
 FakeCheese < Cheese
@@ -257,7 +259,7 @@ FakeCheese < Cheese
 # => false
 {% endhighlight %}
 
-## `.>`
+### `.>`
 
 {% highlight rb %}
 FakeCheese > Cheese
@@ -277,7 +279,7 @@ FakeCheese > Cheese
 # => false
 {% endhighlight %}
 
-## `.<=`
+### `.<=`
 
 {% highlight rb %}
 FakeCheese <= Cheese
@@ -297,7 +299,7 @@ FakeCheese <= Cheese
 # => true
 {% endhighlight %}
 
-## `.>=`
+### `.>=`
 
 {% highlight rb %}
 FakeCheese >= Cheese
@@ -317,7 +319,7 @@ FakeCheese >= Cheese
 # => true
 {% endhighlight %}
 
-## `.==`
+### `.==`
 
 {% highlight rb %}
 FakeCheese == Cheese
@@ -337,7 +339,7 @@ FakeCheese == Cheese
 # => true
 {% endhighlight %}
 
-## `.eql?`
+### `.eql?`
 
 {% highlight rb %}
 FakeCheese.eql?(Cheese)
@@ -357,7 +359,7 @@ FakeCheese.eql?(Cheese)
 # => true
 {% endhighlight %}
 
-## `.equal?`
+### `.equal?`
 
 {% highlight rb %}
 FakeCheese.equal?(Cheese)
@@ -377,7 +379,7 @@ FakeCheese.equal?(Cheese)
 # => true
 {% endhighlight %}
 
-## `.object_id`
+### `.object_id`
 
 {% highlight rb %}
 FakeCheese.object_id
@@ -397,7 +399,7 @@ FakeCheese.object_id
 # => 70241271152880
 {% endhighlight %}
 
-## `.__id__`
+### `.__id__`
 
 {% highlight rb %}
 FakeCheese.__id__
@@ -417,7 +419,7 @@ FakeCheese.__id__
 # => 70241271152880
 {% endhighlight %}
 
-## `.ancestors`
+### `.ancestors`
 
 {% highlight rb %}
 FakeCheese.ancestors
@@ -437,7 +439,7 @@ FakeCheese.ancestors
 # => [Cheese, Milk, Food, Object, PP::ObjectMixin, Kernel, BasicObject]
 {% endhighlight %}
 
-## `.to_s`
+### `.to_s`
 
 {% highlight rb %}
 FakeCheese.to_s
@@ -457,7 +459,7 @@ FakeCheese.to_s
 # => "Cheese"
 {% endhighlight %}
 
-## `.inspect`
+### `.inspect`
 
 {% highlight rb %}
 FakeCheese.inspect
@@ -477,7 +479,7 @@ FakeCheese.inspect
 # => "Cheese"
 {% endhighlight %}
 
-## `.name`
+### `.name`
 
 {% highlight rb %}
 FakeCheese.name
@@ -497,7 +499,7 @@ FakeCheese.name
 # => "Cheese"
 {% endhighlight %}
 
-## `#to_s`
+### `#to_s`
 
 {% highlight rb %}
 american.to_s
@@ -517,7 +519,7 @@ american.to_s
 # => "#<Cheese:0x007fa3e09ccd00>"
 {% endhighlight %}
 
-## `#inspect`
+### `#inspect`
 
 {% highlight rb %}
 american.inspect
@@ -537,7 +539,7 @@ american.inspect
 # => "#<Cheese:0x007fa3e09ccd00>"
 {% endhighlight %}
 
-## `.include?`
+### `.include?`
 
 {% highlight rb %}
 FakeCheese.include?(Milk)
@@ -557,7 +559,7 @@ FakeCheese.include?(Milk)
 # => true
 {% endhighlight %}
 
-## `.included_modules`
+### `.included_modules`
 
 {% highlight rb %}
 FakeCheese.included_modules
@@ -577,7 +579,7 @@ FakeCheese.included_modules
 # => [Milk, PP::ObjectMixin, Kernel]
 {% endhighlight %}
 
-## `.superclass`
+### `.superclass`
 
 {% highlight rb %}
 FakeCheese.superclass
@@ -595,6 +597,45 @@ end
 {% highlight rb %}
 FakeCheese.superclass
 # => Food
+{% endhighlight %}
+
+## TLDR
+
+{% highlight rb %}
+def fake(klass)
+  Class.new(BasicObject) do
+    eigenclass = class << self; self end
+    eigenclass.extend Forwardable
+    eigenclass.def_delegators klass, *%i(
+      <
+      <=
+      <=>
+      ==
+      ===
+      >
+      >=
+      __id__
+      ancestors
+      eql?
+      equal?
+      include?
+      included_modules
+      inspect
+      name
+      object_id
+      superclass
+      to_s
+    )
+
+    define_method(:instance_of?) { |x| klass == x }
+
+    define_method(:is_a?) { |x| klass >= x }
+    alias_method(:kind_of?, :is_a?)
+
+    define_method(:inspect) { "#<#{klass.name}:0x#{'%x' % (__id__ << 1)}>" }
+    alias_method(:to_s, :inspect)
+  end
+end
 {% endhighlight %}
 
 [1]: https://github.com/orgsync/active_interaction/issues/179
