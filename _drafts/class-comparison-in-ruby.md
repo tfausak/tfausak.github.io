@@ -171,10 +171,33 @@ If `Cheese === american` is `false`, `FakeCheese === american` should be too.
 
 ### `#is_a?`
 
+Since we can't make `case` statements work without monkey patching,
+let's move on to something we can fix.
+
 {% highlight rb %}
 american.is_a?(Cheese)
 # => false
 {% endhighlight %}
+
+We want to delegate to `Cheese` again,
+but this is an instance method.
+We don't have an instance of `Cheese` in `FakeCheese`.
+We could make one and delegate to it,
+but initializing `Cheese` could be complicated or expensive.
+
+Let's look at [`#is_a?`'s documentation][] for inspiration.
+
+> Returns `true` if *class* is the class of *obj*, or if *class* is one of the superclasses of *obj* or modules included in *obj*.
+
+We need a class method that does the same thing.
+Looking at [the documentation for `.>=`],
+it seems to fit the bill.
+
+> Returns true if *mod* is an ancestor of *other*, or the two modules are the same.
+
+Using `.>=`
+we can essentially delegate `#is_a?` to `Cheese`
+without having an instance handy.
 
 {% highlight rb %}
 class FakeCheese
@@ -184,10 +207,16 @@ class FakeCheese
 end
 {% endhighlight %}
 
+Let's reevaluate our conditional to make sure it worked.
+
 {% highlight rb %}
 american.is_a?(Cheese)
 # => true
 {% endhighlight %}
+
+Great!
+That was a little tricky,
+but ultimately not too bad.
 
 ### `#kind_of?`
 
@@ -248,6 +277,9 @@ end
 american.class
 # => Cheese
 {% endhighlight %}
+
+TODO: Note that this is the first place where falling back to `super` doesn't
+  make sense.
 
 ### `.<=>`
 
@@ -678,3 +710,5 @@ end
 [2]: https://github.com/orgsync/active_interaction
 [3]: http://en.wikipedia.org/wiki/Command_pattern
 [4]: https://github.com/orgsync/active_interaction/pull/180
+[`#is_a?`'s documentation]: http://ruby-doc.org/core-2.1.2/Object.html#method-i-is_a-3F
+[the documentation for `.>=`]: http://www.ruby-doc.org/core-2.1.2/Module.html#method-i-3E-3D
