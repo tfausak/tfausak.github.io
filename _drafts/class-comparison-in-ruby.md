@@ -56,10 +56,22 @@ else
 end
 {% endhighlight %}
 
-## `instance_of?`
+{% highlight rb %}
+C = Class.new
+M = Module.new
+Cheese = Class.new(C) { include M }
+FakeCheese = Class.new
+{% endhighlight %}
 
 {% highlight rb %}
-#<FakeCheese:0x007fde3ebdc760>.instance_of?(Cheese)
+gouda = Cheese.new
+american = FakeCheese.new
+{% endhighlight %}
+
+## `#instance_of?`
+
+{% highlight rb %}
+american.instance_of?(Cheese)
 # => false
 {% endhighlight %}
 
@@ -72,14 +84,14 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-#<FakeCheese:0x007fde3ebdc760>.instance_of?(Cheese)
+american.instance_of?(Cheese)
 # => true
 {% endhighlight %}
 
-## `is_a?`
+## `#is_a?`
 
 {% highlight rb %}
-#<FakeCheese:0x007fde3ebaac88>.is_a?(Cheese)
+american.is_a?(Cheese)
 # => false
 {% endhighlight %}
 
@@ -92,14 +104,14 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-#<FakeCheese:0x007fde3ebaac88>.is_a?(Cheese)
+american.is_a?(Cheese)
 # => true
 {% endhighlight %}
 
-## `kind_of?`
+## `#kind_of?`
 
 {% highlight rb %}
-#<FakeCheese:0x007fde3eba8e60>.kind_of?(Cheese)
+american.kind_of?(Cheese)
 # => false
 {% endhighlight %}
 
@@ -112,14 +124,14 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-#<FakeCheese:0x007fde3eba8e60>.kind_of?(Cheese)
+american.kind_of?(Cheese)
 # => true
 {% endhighlight %}
 
-## `class`
+## `#class`
 
 {% highlight rb %}
-#<FakeCheese:0x007fde3eba6ca0>.class
+american.class
 # => FakeCheese
 {% endhighlight %}
 
@@ -132,14 +144,14 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-#<FakeCheese:0x007fde3eba6ca0>.class
+american.class
 # => Cheese
 {% endhighlight %}
 
-## `<`
+## `.<`
 
 {% highlight rb %}
-FakeCheese.<(Cheese)
+FakeCheese < Cheese
 # => nil
 {% endhighlight %}
 
@@ -152,14 +164,14 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese.<(Cheese)
+FakeCheese < Cheese
 # => false
 {% endhighlight %}
 
-## `<=`
+## `.<=`
 
 {% highlight rb %}
-FakeCheese.<=(Cheese)
+FakeCheese <= Cheese
 # => nil
 {% endhighlight %}
 
@@ -172,14 +184,14 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese.<=(Cheese)
+FakeCheese <= Cheese
 # => true
 {% endhighlight %}
 
-## `<=>`
+## `.<=>`
 
 {% highlight rb %}
-FakeCheese.<=>(Cheese)
+FakeCheese <=> Cheese
 # => nil
 {% endhighlight %}
 
@@ -192,14 +204,14 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese.<=>(Cheese)
+FakeCheese <=> Cheese
 # => 0
 {% endhighlight %}
 
-## `==`
+## `.==`
 
 {% highlight rb %}
-FakeCheese.==(Cheese)
+FakeCheese == Cheese
 # => false
 {% endhighlight %}
 
@@ -212,14 +224,14 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese.==(Cheese)
+FakeCheese == Cheese
 # => true
 {% endhighlight %}
 
-## `>`
+## `.>`
 
 {% highlight rb %}
-FakeCheese.>(Cheese)
+FakeCheese > Cheese
 # => nil
 {% endhighlight %}
 
@@ -232,14 +244,14 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese.>(Cheese)
+FakeCheese > Cheese
 # => false
 {% endhighlight %}
 
-## `>=`
+## `.>=`
 
 {% highlight rb %}
-FakeCheese.>=(Cheese)
+FakeCheese >= Cheese
 # => nil
 {% endhighlight %}
 
@@ -252,11 +264,11 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese.>=(Cheese)
+FakeCheese >= Cheese
 # => true
 {% endhighlight %}
 
-## `eql?`
+## `.eql?`
 
 {% highlight rb %}
 FakeCheese.eql?(Cheese)
@@ -276,7 +288,7 @@ FakeCheese.eql?(Cheese)
 # => true
 {% endhighlight %}
 
-## `equal?`
+## `.equal?`
 
 {% highlight rb %}
 FakeCheese.equal?(Cheese)
@@ -296,7 +308,7 @@ FakeCheese.equal?(Cheese)
 # => true
 {% endhighlight %}
 
-## `include?`
+## `.include?`
 
 {% highlight rb %}
 FakeCheese.include?(M)
@@ -316,10 +328,10 @@ FakeCheese.include?(M)
 # => true
 {% endhighlight %}
 
-## `===`
+## `.===`
 
 {% highlight rb %}
-FakeCheese.===(#<Cheese:0x007fde3eb680e0>)
+FakeCheese === gouda
 # => false
 {% endhighlight %}
 
@@ -332,11 +344,11 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese.===(#<Cheese:0x007fde3eb680e0>)
+FakeCheese === gouda
 # => true
 {% endhighlight %}
 
-## `__id__`
+## `.__id__`
 
 {% highlight rb %}
 FakeCheese.__id__
@@ -356,7 +368,7 @@ FakeCheese.__id__
 # => 70296255791780
 {% endhighlight %}
 
-## `ancestors`
+## `.ancestors`
 
 {% highlight rb %}
 FakeCheese.ancestors
@@ -376,7 +388,7 @@ FakeCheese.ancestors
 # => [Cheese, M, C, Object, PP::ObjectMixin, Kernel, BasicObject]
 {% endhighlight %}
 
-## `included_modules`
+## `.included_modules`
 
 {% highlight rb %}
 FakeCheese.included_modules
@@ -396,10 +408,10 @@ FakeCheese.included_modules
 # => [M, PP::ObjectMixin, Kernel]
 {% endhighlight %}
 
-## `inspect`
+## `.inspect`
 
 {% highlight rb %}
-Cheese.inspect
+FakeCheese.inspect
 # => "FakeCheese"
 {% endhighlight %}
 
@@ -412,11 +424,11 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-Cheese.inspect
+FakeCheese.inspect
 # => "Cheese"
 {% endhighlight %}
 
-## `name`
+## `.name`
 
 {% highlight rb %}
 FakeCheese.name
@@ -436,7 +448,7 @@ FakeCheese.name
 # => "Cheese"
 {% endhighlight %}
 
-## `object_id`
+## `.object_id`
 
 {% highlight rb %}
 FakeCheese.object_id
@@ -456,7 +468,7 @@ FakeCheese.object_id
 # => 70296255626720
 {% endhighlight %}
 
-## `superclass`
+## `.superclass`
 
 {% highlight rb %}
 FakeCheese.superclass
@@ -476,7 +488,7 @@ FakeCheese.superclass
 # => C
 {% endhighlight %}
 
-## `to_s`
+## `.to_s`
 
 {% highlight rb %}
 FakeCheese.to_s
