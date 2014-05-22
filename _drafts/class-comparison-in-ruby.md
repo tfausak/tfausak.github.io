@@ -111,8 +111,8 @@ we can move on to faking the comparisons.
 - [`.>=`](#section-6)
 - [`.ancestors`](#ancestors)
 - [`.to_s`](#tos)
-- [`.name`](#name)
 - [`.inspect`](#inspect)
+- [`.name`](#name)
 - [`#to_s`](#tos-1)
 - [`#inspect`](#inspect-1)
 - [`.include?`](#include)
@@ -431,90 +431,86 @@ FakeCheese >= Cheese
 
 ### `.ancestors`
 
+Another way to see if two classes are the same
+is to see if they have the same ancestors.
+Let's make `FakeCheese` pretend like it's got the same family tree as `Cheese`.
+
 {% highlight rb %}
 FakeCheese.ancestors
 # => [FakeCheese, Object, PP::ObjectMixin, Kernel, BasicObject]
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def self.ancestors
     Cheese.ancestors
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese.ancestors
 # => [Cheese, Milk, Food, Object, PP::ObjectMixin, Kernel, BasicObject]
 {% endhighlight %}
 
 ### `.to_s`
 
+Having exhausted all of the somewhat reasonable ways to compare classes,
+let's move on to comparing their string representations.
+
 {% highlight rb %}
 FakeCheese.to_s
 # => "FakeCheese"
-{% endhighlight %}
-
-{% highlight rb %}
-class Cheese
+class FakeCheese
   def self.to_s
     Cheese.to_s
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese.to_s
 # => "Cheese"
 {% endhighlight %}
 
 ### `.inspect`
 
+By default, `.to_s` and `.inspect` do the same thing,
+but they aren't aliased.
+
 {% highlight rb %}
 FakeCheese.inspect
 # => "FakeCheese"
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def self.inspect
     Cheese.inspect
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese.inspect
 # => "Cheese"
 {% endhighlight %}
 
 ### `.name`
 
+`.name` is just like `.to_s` and `.inspect`.
+It's not aliased either.
+
 {% highlight rb %}
 FakeCheese.name
 # => "FakeCheese"
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def self.name
     Cheese.name
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese.name
 # => "Cheese"
 {% endhighlight %}
 
 ### `#to_s`
 
+Instances of classes in Ruby don't use their class's string representation in their own string representation.
+
 {% highlight rb %}
 american.to_s
 # => "#<FakeCheese:0x007fa3e09ccd00>"
 {% endhighlight %}
+
+This is ridiculous,
+but not insurmountable.
+We need to [shift the object ID][],
+but otherwise this is straightforward.
 
 {% highlight rb %}
 class FakeCheese
@@ -522,31 +518,24 @@ class FakeCheese
     "#<#{Cheese}:0x#{'%x' % (object_id << 1)}>"
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 american.to_s
-# => "#<Cheese:0x007fa3e09ccd00>"
+# => "#<Cheese:0x7fa3e09ccd00>"
 {% endhighlight %}
 
 ### `#inspect`
 
+Unsurprisingly, this is not an alias.
+
 {% highlight rb %}
 american.inspect
 # => "#<FakeCheese:0x007fa3e09ccd00>"
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def inspect
     "#<#{Cheese}:0x#{'%x' % (object_id << 1)}>"
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 american.inspect
-# => "#<Cheese:0x007fa3e09ccd00>"
+# => "#<Cheese:0x7fa3e09ccd00>"
 {% endhighlight %}
 
 ### `.include?`
@@ -660,3 +649,4 @@ end
 [4]: https://github.com/orgsync/active_interaction/pull/180
 [`#is_a?`'s documentation]: http://ruby-doc.org/core-2.1.2/Object.html#method-i-is_a-3F
 [the documentation for `.>=`]: http://www.ruby-doc.org/core-2.1.2/Module.html#method-i-3E-3D
+[shift the object id]: http://stackoverflow.com/questions/2818602/in-ruby-why-does-inspect-print-out-some-kind-of-object-id-which-is-different
