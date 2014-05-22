@@ -56,17 +56,41 @@ else
 end
 {% endhighlight %}
 
+While developing [a fix][4] for ActiveInteraction,
+I wondered if there were other ways to do this.
+I did some research and discovered that
+there are at least 16 different ways to compare classes.
+
+Naturally the next step was to fake all of them.
+I wanted to make a perfect mock --- one that would pass any check.
+A word of warning, though:
+If you're using anything other than `.===` and `#is_a?`,
+you're doing it wrong.
+
+Before we create the mock,
+we need to create the class we'll be mocking.
+To make things interesting,
+let's have it subclass another class and include a module.
+
 {% highlight rb %}
 Klass = Class.new
 Mojule = Module.new
-Cheese = Class.new(Klass) { include Mojule }
-FakeCheese = Class.new
+class Cheese < Klass
+  include Mojule
+end
+gouda = Cheese.new
 {% endhighlight %}
 
+Next up let's create the mock.
+It shouldn't have anything in common with the class it's mocking.
+
 {% highlight rb %}
-gouda = Cheese.new
+FakeCheese = Class.new
 american = FakeCheese.new
 {% endhighlight %}
+
+With those defined,
+we can move on to faking the comparisons.
 
 - `#instance_of?`
 - `#is_a?`
@@ -534,3 +558,4 @@ FakeCheese.to_s
 [1]: https://github.com/orgsync/active_interaction/issues/179
 [2]: https://github.com/orgsync/active_interaction
 [3]: http://en.wikipedia.org/wiki/Command_pattern
+[4]: https://github.com/orgsync/active_interaction/pull/180
