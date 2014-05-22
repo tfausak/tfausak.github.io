@@ -381,7 +381,7 @@ FakeCheese.equal?(Cheese)
 
 {% highlight rb %}
 FakeCheese.object_id
-# => 70296255626460
+# => 70241271125600
 {% endhighlight %}
 
 {% highlight rb %}
@@ -394,14 +394,14 @@ end
 
 {% highlight rb %}
 FakeCheese.object_id
-# => 70296255626720
+# => 70241271152880
 {% endhighlight %}
 
 ## `.__id__`
 
 {% highlight rb %}
 FakeCheese.__id__
-# => 70296255791620
+# => 70241271125600
 {% endhighlight %}
 
 {% highlight rb %}
@@ -414,7 +414,7 @@ end
 
 {% highlight rb %}
 FakeCheese.__id__
-# => 70296255791780
+# => 70241271152880
 {% endhighlight %}
 
 ## `.ancestors`
