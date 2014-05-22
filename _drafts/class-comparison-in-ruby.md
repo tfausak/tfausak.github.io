@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 18 Ways to Compare Classes in Ruby
+title: Class Comparison in Ruby
 ---
 
 Last week, I encountered [an interesting issue][1]. It boils down to this: How
