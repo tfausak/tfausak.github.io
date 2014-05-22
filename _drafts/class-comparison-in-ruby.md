@@ -273,100 +273,84 @@ This is the first method where falling back to `super` doesn't make sense.
 
 ### `.==`
 
+We can check the classes themselves for equality.
+
 {% highlight rb %}
 FakeCheese == Cheese
 # => false
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def self.==(other)
     Cheese == other
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese == Cheese
 # => true
 {% endhighlight %}
 
 ### `.eql?`
 
+Or slightly stricter equality.
+
 {% highlight rb %}
 FakeCheese.eql?(Cheese)
 # => false
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def self.eql?(other)
     Cheese.eql?(other)
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese.eql?(Cheese)
 # => true
 {% endhighlight %}
 
 ### `.equal?`
 
+Or the strictest equality.
+
 {% highlight rb %}
 FakeCheese.equal?(Cheese)
 # => false
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def self.equal?(other)
     Cheese.equal?(other)
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese.equal?(Cheese)
 # => true
 {% endhighlight %}
 
 ### `.object_id`
 
-{% highlight rb %}
-FakeCheese.object_id
-# => 70241271125600
-{% endhighlight %}
+We can also use the object IDs to compare object equality by hand.
 
 {% highlight rb %}
+Cheese.object_id
+# => 70241271152880
+FakeCheese.object_id
+# => 70241271125600
 class FakeCheese
   def self.object_id
     Cheese.object_id
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese.object_id
 # => 70241271152880
 {% endhighlight %}
 
 ### `.__id__`
 
-{% highlight rb %}
-FakeCheese.__id__
-# => 70241271125600
-{% endhighlight %}
+Ruby provides another way to get at the object IDs.
 
 {% highlight rb %}
+Cheese.__id__
+# => 70241271152880
+FakeCheese.__id__
+# => 70241271125600
 class FakeCheese
   def self.__id__
     Cheese.__id__
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 FakeCheese.__id__
 # => 70241271152880
 {% endhighlight %}
