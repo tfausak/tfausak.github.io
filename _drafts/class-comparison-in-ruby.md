@@ -220,20 +220,17 @@ but ultimately not too bad.
 
 ### `#kind_of?`
 
+Even though `#kind_of?` and `#is_a?` do the same things,
+they aren't aliases.
+
 {% highlight rb %}
 american.kind_of?(Cheese)
 # => false
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def kind_of?(klass)
     Cheese >= klass
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 american.kind_of?(Cheese)
 # => true
 {% endhighlight %}
