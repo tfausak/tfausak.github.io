@@ -96,6 +96,8 @@ we can move on to faking the comparisons.
 - `#is_a?`
 - `#kind_of?`
 - `#class`
+- `#inspect`
+- `#to_s`
 - `.<`
 - `.<=`
 - `.<=>`
@@ -193,6 +195,46 @@ end
 {% highlight rb %}
 american.class
 # => Cheese
+{% endhighlight %}
+
+## `#inspect`
+
+{% highlight rb %}
+american.inspect
+# => "#<FakeCheese:0x007fa3e09ccd00>"
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def inspect
+    "#<#{Cheese}:0x#{'%x' % (object_id << 1)}>"
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+american.inspect
+# => "#<Cheese:0x007fa3e09ccd00>"
+{% endhighlight %}
+
+## `#to_s`
+
+{% highlight rb %}
+american.to_s
+# => "#<FakeCheese:0x007fa3e09ccd00>"
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def to_s
+    "#<#{Cheese}:0x#{'%x' % (object_id << 1)}>"
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+american.to_s
+# => "#<Cheese:0x007fa3e09ccd00>"
 {% endhighlight %}
 
 ## `.<`
