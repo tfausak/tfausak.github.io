@@ -254,26 +254,22 @@ american.instance_of?(Cheese)
 
 ### `#class`
 
+Instead of using a predicate method,
+we can look directly at the object's class.
+
 {% highlight rb %}
 american.class
 # => FakeCheese
-{% endhighlight %}
-
-{% highlight rb %}
 class FakeCheese
   def class
     Cheese
   end
 end
-{% endhighlight %}
-
-{% highlight rb %}
 american.class
 # => Cheese
 {% endhighlight %}
 
-TODO: Note that this is the first place where falling back to `super` doesn't
-  make sense.
+This is the first method where falling back to `super` doesn't make sense.
 
 ### `.<=>`
 
