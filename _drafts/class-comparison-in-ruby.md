@@ -99,16 +99,16 @@ we can move on to faking the comparisons.
 - [`#kind_of?`](#kindof)
 - [`#instance_of?`](#instanceof)
 - [`#class`](#class)
-- [`.<=>`](#section-1)
-- [`.<`](#section-2)
-- [`.>`](#section-3)
-- [`.<=`](#section-4)
-- [`.>=`](#section-5)
-- [`.==`](#section-6)
+- [`.==`](#section-1)
 - [`.eql?`](#eql)
 - [`.equal?`](#equal)
 - [`.object_id`](#objectid)
 - [`.__id__`](#id)
+- [`.<=>`](#section-2)
+- [`.<`](#section-3)
+- [`.>`](#section-4)
+- [`.<=`](#section-5)
+- [`.>=`](#section-6)
 - [`.ancestors`](#ancestors)
 - [`.to_s`](#tos)
 - [`.name`](#name)
@@ -271,106 +271,6 @@ american.class
 
 This is the first method where falling back to `super` doesn't make sense.
 
-### `.<=>`
-
-{% highlight rb %}
-FakeCheese <=> Cheese
-# => nil
-{% endhighlight %}
-
-{% highlight rb %}
-class FakeCheese
-  def self.<=>(other)
-    Cheese <=> other
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-FakeCheese <=> Cheese
-# => 0
-{% endhighlight %}
-
-### `.<`
-
-{% highlight rb %}
-FakeCheese < Cheese
-# => nil
-{% endhighlight %}
-
-{% highlight rb %}
-class FakeCheese
-  def self.<(other)
-    Cheese < other
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-FakeCheese < Cheese
-# => false
-{% endhighlight %}
-
-### `.>`
-
-{% highlight rb %}
-FakeCheese > Cheese
-# => nil
-{% endhighlight %}
-
-{% highlight rb %}
-class FakeCheese
-  def self.>(other)
-    Cheese > other
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-FakeCheese > Cheese
-# => false
-{% endhighlight %}
-
-### `.<=`
-
-{% highlight rb %}
-FakeCheese <= Cheese
-# => nil
-{% endhighlight %}
-
-{% highlight rb %}
-class FakeCheese
-  def self.<=(other)
-    Cheese <= other
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-FakeCheese <= Cheese
-# => true
-{% endhighlight %}
-
-### `.>=`
-
-{% highlight rb %}
-FakeCheese >= Cheese
-# => nil
-{% endhighlight %}
-
-{% highlight rb %}
-class FakeCheese
-  def self.>=(other)
-    Cheese >= other
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-FakeCheese >= Cheese
-# => true
-{% endhighlight %}
-
 ### `.==`
 
 {% highlight rb %}
@@ -469,6 +369,106 @@ end
 {% highlight rb %}
 FakeCheese.__id__
 # => 70241271152880
+{% endhighlight %}
+
+### `.<=>`
+
+{% highlight rb %}
+FakeCheese <=> Cheese
+# => nil
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.<=>(other)
+    Cheese <=> other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese <=> Cheese
+# => 0
+{% endhighlight %}
+
+### `.<`
+
+{% highlight rb %}
+FakeCheese < Cheese
+# => nil
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.<(other)
+    Cheese < other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese < Cheese
+# => false
+{% endhighlight %}
+
+### `.>`
+
+{% highlight rb %}
+FakeCheese > Cheese
+# => nil
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.>(other)
+    Cheese > other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese > Cheese
+# => false
+{% endhighlight %}
+
+### `.<=`
+
+{% highlight rb %}
+FakeCheese <= Cheese
+# => nil
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.<=(other)
+    Cheese <= other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese <= Cheese
+# => true
+{% endhighlight %}
+
+### `.>=`
+
+{% highlight rb %}
+FakeCheese >= Cheese
+# => nil
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.>=(other)
+    Cheese >= other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese >= Cheese
+# => true
 {% endhighlight %}
 
 ### `.ancestors`
