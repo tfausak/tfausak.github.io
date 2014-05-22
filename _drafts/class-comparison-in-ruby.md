@@ -68,6 +68,29 @@ gouda = Cheese.new
 american = FakeCheese.new
 {% endhighlight %}
 
+- `#instance_of?`
+- `#is_a?`
+- `#kind_of?`
+- `#class`
+- `.<`
+- `.<=`
+- `.<=>`
+- `.==`
+- `.>`
+- `.>=`
+- `.eql?`
+- `.equal?`
+- `.include?`
+- `.===`
+- `.__id__`
+- `.ancestors`
+- `.included_modules`
+- `.inspect`
+- `.name`
+- `.object_id`
+- `.superclass`
+- `.to_s`
+
 ## `#instance_of?`
 
 {% highlight rb %}
