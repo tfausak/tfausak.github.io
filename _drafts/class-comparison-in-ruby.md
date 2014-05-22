@@ -606,7 +606,7 @@ def fake(klass)
   Class.new(BasicObject) do
     eigenclass = class << self; self end
     eigenclass.extend Forwardable
-    eigenclass.def_delegators klass, *%i(
+    eigenclass.def_delegators klass, *%i[
       <
       <=
       <=>
@@ -625,15 +625,21 @@ def fake(klass)
       object_id
       superclass
       to_s
-    )
+    ]
 
-    define_method(:instance_of?) { |x| klass == x }
+    define_method :instance_of? do |other|
+      klass == other
+    end
 
-    define_method(:is_a?) { |x| klass >= x }
-    alias_method(:kind_of?, :is_a?)
+    define_method :is_a? do |other|
+      klass >= other
+    end
+    alias_method :kind_of?, :is_a?
 
-    define_method(:inspect) { "#<#{klass.name}:0x#{'%x' % (__id__ << 1)}>" }
-    alias_method(:to_s, :inspect)
+    define_method :inspect do
+      "#<#{klass.name}:0x#{'%x' % (__id__ << 1)}>"
+    end
+    alias_method :to_s, :inspect
   end
 end
 {% endhighlight %}
