@@ -73,10 +73,10 @@ To make things interesting,
 let's have it subclass another class and include a module.
 
 {% highlight rb %}
-Klass = Class.new
-Mojule = Module.new
-class Cheese < Klass
-  include Mojule
+Food = Class.new
+Milk = Module.new
+class Cheese < Food
+  include Milk
 end
 gouda = Cheese.new
 {% endhighlight %}
@@ -434,7 +434,7 @@ end
 
 {% highlight rb %}
 FakeCheese.ancestors
-# => [Cheese, Mojule, Klass, Object, PP::ObjectMixin, Kernel, BasicObject]
+# => [Cheese, Milk, Food, Object, PP::ObjectMixin, Kernel, BasicObject]
 {% endhighlight %}
 
 ## `.to_s`
@@ -540,7 +540,7 @@ american.inspect
 ## `.include?`
 
 {% highlight rb %}
-FakeCheese.include?(Mojule)
+FakeCheese.include?(Milk)
 # => false
 {% endhighlight %}
 
@@ -553,7 +553,7 @@ end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese.include?(Mojule)
+FakeCheese.include?(Milk)
 # => true
 {% endhighlight %}
 
@@ -574,7 +574,7 @@ end
 
 {% highlight rb %}
 FakeCheese.included_modules
-# => [Mojule, PP::ObjectMixin, Kernel]
+# => [Milk, PP::ObjectMixin, Kernel]
 {% endhighlight %}
 
 ## `.superclass`
@@ -594,7 +594,7 @@ end
 
 {% highlight rb %}
 FakeCheese.superclass
-# => Klass
+# => Food
 {% endhighlight %}
 
 [1]: https://github.com/orgsync/active_interaction/issues/179
