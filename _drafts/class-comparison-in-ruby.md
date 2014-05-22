@@ -3,7 +3,7 @@ layout: post
 title: Class Comparison in Ruby
 ---
 
-Last week, I encountered [an interesting issue][1]. It boils down to this: How
+I recently encountered [an interesting issue][1]. It boils down to this: How
 do you know if an object is an instance of a class?
 
 I had to ask this question because I help maintain [ActiveInteraction][2], a
