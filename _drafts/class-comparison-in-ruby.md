@@ -3,8 +3,8 @@ layout: post
 title: Class Comparison in Ruby
 ---
 
-I recently encountered [an interesting issue][1]. It boils down to this: How
-do you know if an object is an instance of a class?
+I recently encountered [an interesting issue][1]. It boils down to this: How do
+you know if an object is an instance of a class?
 
 I had to ask this question because I help maintain [ActiveInteraction][2], a
 [command pattern][3] library. It provides a way to ensure that an object is a
@@ -56,39 +56,34 @@ else
 end
 {% endhighlight %}
 
-While developing [a fix][4] for ActiveInteraction,
-I wondered if there were other ways to do this.
-I did some research and discovered that
-there are at least 18 different ways to make this comparison.
+While developing [a fix][4] for ActiveInteraction, I wondered if there were
+other ways to do this. I did some research and discovered that there are at
+least 18 different ways to make this comparison.
 
-It would be unreasonable to make all those checks.
-In fact, if you're using anything other than `.===` and `#is_a?`,
-you're doing it wrong.
-However, I was interested in creating a class that is indistinguishable from another class.
-In other words, a perfect mock.
+It would be unreasonable to make all those checks. In fact, if you're using
+anything other than `.===` and `#is_a?`, you're doing it wrong. However, I was
+interested in creating a class that is indistinguishable from another class. In
+other words, a perfect mock.
 
 ## Creating the Perfect Mock
 
-Before we create the mock,
-we need to create the class we'll be mocking.
-To make things interesting,
-let's have it subclass another class.
+Before we create the mock, we need to create the class we'll be mocking. To
+make things interesting, let's have it subclass another class.
 
 {% highlight rb %}
 Cheese = Class.new
 gouda = Cheese.new
 {% endhighlight %}
 
-Next up let's create the mock.
-It shouldn't have anything in common with the class it's mocking.
+Next up let's create the mock. It shouldn't have anything in common with the
+class it's mocking.
 
 {% highlight rb %}
 FakeCheese = Class.new
 american = FakeCheese.new
 {% endhighlight %}
 
-With those defined,
-we can move on to faking the comparisons.
+With those defined, we can move on to faking the comparisons.
 
 - [`.===`](#section)
 - [`#is_a?`](#isa)
@@ -121,17 +116,18 @@ Cheese === american
 # => false
 {% endhighlight %}
 
-This is an issue because it means instances of `FakeCheese` won't be able to pass as `Cheese` in `case` statements.
-Unfortunately there's nothing we can do about it without monkey patching `Cheese`.
-Let's stay focused on the `FakeCheese` class.
+This is an issue because it means instances of `FakeCheese` won't be able to
+pass as `Cheese` in `case` statements. Unfortunately there's nothing we can do
+about it without monkey patching `Cheese`. Let's stay focused on the
+`FakeCheese` class.
 
 {% highlight rb %}
 FakeCheese === gouda
 # => false
 {% endhighlight %}
 
-We can do something about this one.
-Let's make `FakeCheese` behave like `Cheese` by delegating to it.
+We can do something about this one. Let's make `FakeCheese` behave like
+`Cheese` by delegating to it.
 
 {% highlight rb %}
 class FakeCheese
@@ -141,8 +137,7 @@ class FakeCheese
 end
 {% endhighlight %}
 
-After making that change,
-we can see that the conditional returns `true` now.
+After making that change, we can see that the conditional returns `true` now.
 
 {% highlight rb %}
 FakeCheese === gouda
@@ -156,41 +151,39 @@ FakeCheese === american
 # => false
 {% endhighlight %}
 
-Instances of `FakeCheese` aren't able to pass as `FakeCheese` in `case` statements anymore.
-We could fix that by throwing a call to `super` somewhere in `.===`,
-but remember that we're trying to build a perfect mock.
-If `Cheese === american` is `false`, `FakeCheese === american` should be too.
-(We'll see later that falling back to `super` doesn't always make sense.)
+Instances of `FakeCheese` aren't able to pass as `FakeCheese` in `case`
+statements anymore. We could fix that by throwing a call to `super` somewhere
+in `.===`, but remember that we're trying to build a perfect mock. If `Cheese ===
+american` is `false`, `FakeCheese === american` should be too. (We'll see later
+that falling back to `super` doesn't always make sense.)
 
 ### `#is_a?`
 
-Since we can't make `case` statements work without monkey patching,
-let's move on to something we can fix.
+Since we can't make `case` statements work without monkey patching, let's move
+on to something we can fix.
 
 {% highlight rb %}
 american.is_a?(Cheese)
 # => false
 {% endhighlight %}
 
-We want to delegate to `Cheese` again,
-but this is an instance method.
-We don't have an instance of `Cheese` in `FakeCheese`.
-We could make one and delegate to it,
-but initializing `Cheese` could be complicated or expensive.
+We want to delegate to `Cheese` again, but this is an instance method. We don't
+have an instance of `Cheese` in `FakeCheese`. We could make one and delegate to
+it, but initializing `Cheese` could be complicated or expensive.
 
-Let's look at [`#is_a?`'s documentation][] for inspiration.
+Let's look at [`#is_a?`'s documentation][5] for inspiration.
 
-> Returns `true` if *class* is the class of *obj*, or if *class* is one of the superclasses of *obj* or modules included in *obj*.
+> Returns `true` if *class* is the class of *obj*, or if *class* is one of the
+> superclasses of *obj* or modules included in *obj*.
 
-We need a class method that does the same thing.
-Looking at [the documentation for `.>=`],
-it seems to fit the bill.
+We need a class method that does the same thing. Looking at [the documentation
+for `.>=`][6], it seems to fit the bill.
 
-> Returns true if *mod* is an ancestor of *other*, or the two modules are the same.
+> Returns true if *mod* is an ancestor of *other*, or the two modules are the
+> same.
 
-Using `.>=`
-we can essentially delegate `#is_a?` to `Cheese`
-without having an instance handy.
+Using `.>=` we can essentially delegate `#is_a?` to `Cheese` without having an
+instance handy.
 
 {% highlight rb %}
 class FakeCheese
@@ -207,14 +200,11 @@ american.is_a?(Cheese)
 # => true
 {% endhighlight %}
 
-Great!
-That was a little tricky,
-but ultimately not too bad.
+Great! That was a little tricky, but ultimately not too bad.
 
 ### `#kind_of?`
 
-Even though `#kind_of?` and `#is_a?` do the same things,
-they aren't aliases.
+Even though `#kind_of?` and `#is_a?` do the same things, they aren't aliases.
 
 {% highlight rb %}
 american.kind_of?(Cheese)
@@ -230,8 +220,7 @@ american.kind_of?(Cheese)
 
 ### `#instance_of?`
 
-Unlike `#is_a?` and `#kind_of?`,
-`#instance_of?` checks for an exact match.
+Unlike `#is_a?` and `#kind_of?`, `#instance_of?` checks for an exact match.
 
 {% highlight rb %}
 american.instance_of?(Cheese)
@@ -247,8 +236,8 @@ american.instance_of?(Cheese)
 
 ### `#class`
 
-Instead of using a predicate method,
-we can look directly at the object's class.
+Instead of using a predicate method, we can look directly at the object's
+class.
 
 {% highlight rb %}
 american.class
@@ -346,9 +335,8 @@ FakeCheese.__id__
 
 ### `.<=>`
 
-Now that we've faked all of the ways to check equality,
-let's move on to inequalities.
-The obvious place to start is with the spaceship operator.
+Now that we've faked all of the ways to check equality, let's move on to
+inequalities. The obvious place to start is with the spaceship operator.
 
 {% highlight rb %}
 FakeCheese <=> Cheese
@@ -362,9 +350,8 @@ FakeCheese <=> Cheese
 # => 0
 {% endhighlight %}
 
-Even though classes implement `.<=>`,
-they don't include `Comparable`.
-So we have to manually override all of the associated methods.
+Even though classes implement `.<=>`, they don't include `Comparable`. So we
+have to manually override all of the associated methods.
 
 ### `.<`
 
@@ -424,9 +411,9 @@ FakeCheese >= Cheese
 
 ### `.ancestors`
 
-Another way to see if two classes are the same
-is to see if they have the same ancestors.
-Let's make `FakeCheese` pretend like it's got the same family tree as `Cheese`.
+Another way to see if two classes are the same is to see if they have the same
+ancestors. Let's make `FakeCheese` pretend like it's got the same family tree
+as `Cheese`.
 
 {% highlight rb %}
 FakeCheese.ancestors
@@ -442,8 +429,8 @@ FakeCheese.ancestors
 
 ### `.to_s`
 
-Having exhausted all of the somewhat reasonable ways to compare classes,
-let's move on to comparing their string representations.
+Having exhausted all of the somewhat reasonable ways to compare classes, let's
+move on to comparing their string representations.
 
 {% highlight rb %}
 FakeCheese.to_s
@@ -459,8 +446,7 @@ FakeCheese.to_s
 
 ### `.inspect`
 
-By default, `.to_s` and `.inspect` do the same thing,
-but they aren't aliased.
+By default, `.to_s` and `.inspect` do the same thing, but they aren't aliased.
 
 {% highlight rb %}
 FakeCheese.inspect
@@ -476,8 +462,7 @@ FakeCheese.inspect
 
 ### `.name`
 
-`.name` is just like `.to_s` and `.inspect`.
-It's not aliased either.
+`.name` is just like `.to_s` and `.inspect`. It's not aliased either.
 
 {% highlight rb %}
 FakeCheese.name
@@ -493,17 +478,16 @@ FakeCheese.name
 
 ### `#to_s`
 
-Instances of classes in Ruby don't use their class's string representation in their own string representation.
+Instances of classes in Ruby don't use their class's string representation in
+their own string representation.
 
 {% highlight rb %}
 american.to_s
 # => "#<FakeCheese:0x007fa3e09ccd00>"
 {% endhighlight %}
 
-This is ridiculous,
-but not insurmountable.
-We need to [shift the object ID][],
-but otherwise this is straightforward.
+This is ridiculous, but not insurmountable. We need to [shift the object
+ID][7], but otherwise this is straightforward.
 
 {% highlight rb %}
 class FakeCheese
@@ -577,6 +561,6 @@ end
 [2]: https://github.com/orgsync/active_interaction
 [3]: http://en.wikipedia.org/wiki/Command_pattern
 [4]: https://github.com/orgsync/active_interaction/pull/180
-[`#is_a?`'s documentation]: http://ruby-doc.org/core-2.1.2/Object.html#method-i-is_a-3F
-[the documentation for `.>=`]: http://www.ruby-doc.org/core-2.1.2/Module.html#method-i-3E-3D
-[shift the object id]: http://stackoverflow.com/questions/2818602/in-ruby-why-does-inspect-print-out-some-kind-of-object-id-which-is-different
+[5]: http://ruby-doc.org/core-2.1.2/Object.html#method-i-is_a-3F
+[6]: http://www.ruby-doc.org/core-2.1.2/Module.html#method-i-3E-3D
+[7]: http://stackoverflow.com/questions/2818602/in-ruby-why-does-inspect-print-out-some-kind-of-object-id-which-is-different
