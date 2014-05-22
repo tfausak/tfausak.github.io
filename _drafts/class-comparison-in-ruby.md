@@ -92,48 +92,48 @@ american = FakeCheese.new
 With those defined,
 we can move on to faking the comparisons.
 
-- `#instance_of?`
-- `#is_a?`
-- `#kind_of?`
-- `#class`
-- `#inspect`
-- `#to_s`
-- `.<`
-- `.<=`
-- `.<=>`
-- `.==`
-- `.>`
-- `.>=`
-- `.eql?`
-- `.equal?`
-- `.include?`
-- `.===`
-- `.__id__`
-- `.ancestors`
-- `.included_modules`
-- `.inspect`
-- `.name`
-- `.object_id`
-- `.superclass`
-- `.to_s`
+- [`.===`](#section)
+- [`#is_a?`](#isa)
+- [`#kind_of?`](#kindof)
+- [`#instance_of?`](#instanceof)
+- [`#class`](#class)
+- [`.<=>`](#section-1)
+- [`.<`](#section-2)
+- [`.>`](#section-3)
+- [`.<=`](#section-4)
+- [`.>=`](#section-5)
+- [`.==`](#section-6)
+- [`.eql?`](#eql)
+- [`.equal?`](#equal)
+- [`.object_id`](#objectid)
+- [`.__id__`](#id)
+- [`.ancestors`](#ancestors)
+- [`.to_s`](#tos)
+- [`.name`](#name)
+- [`.inspect`](#inspect)
+- [`#to_s`](#tos-1)
+- [`#inspect`](#inspect-1)
+- [`.include?`](#include)
+- [`.included_modules`](#includedmodules)
+- [`.superclass`](#superclass)
 
-## `#instance_of?`
+## `.===`
 
 {% highlight rb %}
-american.instance_of?(Cheese)
+FakeCheese === gouda
 # => false
 {% endhighlight %}
 
 {% highlight rb %}
 class FakeCheese
-  def instance_of?(klass)
-    Cheese == klass
+  def self.===(other)
+    Cheese === other
   end
 end
 {% endhighlight %}
 
 {% highlight rb %}
-american.instance_of?(Cheese)
+FakeCheese === gouda
 # => true
 {% endhighlight %}
 
@@ -177,6 +177,26 @@ american.kind_of?(Cheese)
 # => true
 {% endhighlight %}
 
+## `#instance_of?`
+
+{% highlight rb %}
+american.instance_of?(Cheese)
+# => false
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def instance_of?(klass)
+    Cheese == klass
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+american.instance_of?(Cheese)
+# => true
+{% endhighlight %}
+
 ## `#class`
 
 {% highlight rb %}
@@ -197,44 +217,24 @@ american.class
 # => Cheese
 {% endhighlight %}
 
-## `#inspect`
+## `.<=>`
 
 {% highlight rb %}
-american.inspect
-# => "#<FakeCheese:0x007fa3e09ccd00>"
+FakeCheese <=> Cheese
+# => nil
 {% endhighlight %}
 
 {% highlight rb %}
 class FakeCheese
-  def inspect
-    "#<#{Cheese}:0x#{'%x' % (object_id << 1)}>"
+  def self.<=>(other)
+    Cheese <=> other
   end
 end
 {% endhighlight %}
 
 {% highlight rb %}
-american.inspect
-# => "#<Cheese:0x007fa3e09ccd00>"
-{% endhighlight %}
-
-## `#to_s`
-
-{% highlight rb %}
-american.to_s
-# => "#<FakeCheese:0x007fa3e09ccd00>"
-{% endhighlight %}
-
-{% highlight rb %}
-class FakeCheese
-  def to_s
-    "#<#{Cheese}:0x#{'%x' % (object_id << 1)}>"
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-american.to_s
-# => "#<Cheese:0x007fa3e09ccd00>"
+FakeCheese <=> Cheese
+# => 0
 {% endhighlight %}
 
 ## `.<`
@@ -254,6 +254,26 @@ end
 
 {% highlight rb %}
 FakeCheese < Cheese
+# => false
+{% endhighlight %}
+
+## `.>`
+
+{% highlight rb %}
+FakeCheese > Cheese
+# => nil
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.>(other)
+    Cheese > other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese > Cheese
 # => false
 {% endhighlight %}
 
@@ -277,24 +297,24 @@ FakeCheese <= Cheese
 # => true
 {% endhighlight %}
 
-## `.<=>`
+## `.>=`
 
 {% highlight rb %}
-FakeCheese <=> Cheese
+FakeCheese >= Cheese
 # => nil
 {% endhighlight %}
 
 {% highlight rb %}
 class FakeCheese
-  def self.<=>(other)
-    Cheese <=> other
+  def self.>=(other)
+    Cheese >= other
   end
 end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese <=> Cheese
-# => 0
+FakeCheese >= Cheese
+# => true
 {% endhighlight %}
 
 ## `.==`
@@ -314,46 +334,6 @@ end
 
 {% highlight rb %}
 FakeCheese == Cheese
-# => true
-{% endhighlight %}
-
-## `.>`
-
-{% highlight rb %}
-FakeCheese > Cheese
-# => nil
-{% endhighlight %}
-
-{% highlight rb %}
-class FakeCheese
-  def self.>(other)
-    Cheese > other
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-FakeCheese > Cheese
-# => false
-{% endhighlight %}
-
-## `.>=`
-
-{% highlight rb %}
-FakeCheese >= Cheese
-# => nil
-{% endhighlight %}
-
-{% highlight rb %}
-class FakeCheese
-  def self.>=(other)
-    Cheese >= other
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-FakeCheese >= Cheese
 # => true
 {% endhighlight %}
 
@@ -397,44 +377,24 @@ FakeCheese.equal?(Cheese)
 # => true
 {% endhighlight %}
 
-## `.include?`
+## `.object_id`
 
 {% highlight rb %}
-FakeCheese.include?(Mojule)
-# => false
+FakeCheese.object_id
+# => 70296255626460
 {% endhighlight %}
 
 {% highlight rb %}
 class FakeCheese
-  def self.include?(mojule)
-    Cheese.include?(mojule)
+  def self.object_id
+    Cheese.object_id
   end
 end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese.include?(Mojule)
-# => true
-{% endhighlight %}
-
-## `.===`
-
-{% highlight rb %}
-FakeCheese === gouda
-# => false
-{% endhighlight %}
-
-{% highlight rb %}
-class FakeCheese
-  def self.===(other)
-    Cheese === other
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-FakeCheese === gouda
-# => true
+FakeCheese.object_id
+# => 70296255626720
 {% endhighlight %}
 
 ## `.__id__`
@@ -477,24 +437,24 @@ FakeCheese.ancestors
 # => [Cheese, Mojule, Klass, Object, PP::ObjectMixin, Kernel, BasicObject]
 {% endhighlight %}
 
-## `.included_modules`
+## `.to_s`
 
 {% highlight rb %}
-FakeCheese.included_modules
-# => [PP::ObjectMixin, Kernel]
+FakeCheese.to_s
+# => "FakeCheese"
 {% endhighlight %}
 
 {% highlight rb %}
-class FakeCheese
-  def self.included_modules
-    Cheese.included_modules
+class Cheese
+  def self.to_s
+    Cheese.to_s
   end
 end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese.included_modules
-# => [Mojule, PP::ObjectMixin, Kernel]
+FakeCheese.to_s
+# => "Cheese"
 {% endhighlight %}
 
 ## `.inspect`
@@ -537,24 +497,84 @@ FakeCheese.name
 # => "Cheese"
 {% endhighlight %}
 
-## `.object_id`
+## `#to_s`
 
 {% highlight rb %}
-FakeCheese.object_id
-# => 70296255626460
+american.to_s
+# => "#<FakeCheese:0x007fa3e09ccd00>"
 {% endhighlight %}
 
 {% highlight rb %}
 class FakeCheese
-  def self.object_id
-    Cheese.object_id
+  def to_s
+    "#<#{Cheese}:0x#{'%x' % (object_id << 1)}>"
   end
 end
 {% endhighlight %}
 
 {% highlight rb %}
-FakeCheese.object_id
-# => 70296255626720
+american.to_s
+# => "#<Cheese:0x007fa3e09ccd00>"
+{% endhighlight %}
+
+## `#inspect`
+
+{% highlight rb %}
+american.inspect
+# => "#<FakeCheese:0x007fa3e09ccd00>"
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def inspect
+    "#<#{Cheese}:0x#{'%x' % (object_id << 1)}>"
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+american.inspect
+# => "#<Cheese:0x007fa3e09ccd00>"
+{% endhighlight %}
+
+## `.include?`
+
+{% highlight rb %}
+FakeCheese.include?(Mojule)
+# => false
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.include?(mojule)
+    Cheese.include?(mojule)
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.include?(Mojule)
+# => true
+{% endhighlight %}
+
+## `.included_modules`
+
+{% highlight rb %}
+FakeCheese.included_modules
+# => [PP::ObjectMixin, Kernel]
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.included_modules
+    Cheese.included_modules
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.included_modules
+# => [Mojule, PP::ObjectMixin, Kernel]
 {% endhighlight %}
 
 ## `.superclass`
@@ -575,26 +595,6 @@ end
 {% highlight rb %}
 FakeCheese.superclass
 # => Klass
-{% endhighlight %}
-
-## `.to_s`
-
-{% highlight rb %}
-FakeCheese.to_s
-# => "FakeCheese"
-{% endhighlight %}
-
-{% highlight rb %}
-class Cheese
-  def self.to_s
-    Cheese.to_s
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-FakeCheese.to_s
-# => "Cheese"
 {% endhighlight %}
 
 [1]: https://github.com/orgsync/active_interaction/issues/179
