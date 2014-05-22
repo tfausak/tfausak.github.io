@@ -72,14 +72,11 @@ In other words, a perfect mock.
 Before we create the mock,
 we need to create the class we'll be mocking.
 To make things interesting,
-let's have it subclass another class and include a module.
+let's have it subclass another class.
 
 {% highlight rb %}
 Food = Class.new
-Milk = Module.new
-class Cheese < Food
-  include Milk
-end
+Cheese = Class.new(Food)
 gouda = Cheese.new
 {% endhighlight %}
 
@@ -115,8 +112,6 @@ we can move on to faking the comparisons.
 - [`.name`](#name)
 - [`#to_s`](#tos-1)
 - [`#inspect`](#inspect-1)
-- [`.include?`](#include)
-- [`.included_modules`](#includedmodules)
 - [`.superclass`](#superclass)
 
 ### `.===`
@@ -444,7 +439,7 @@ class FakeCheese
   end
 end
 FakeCheese.ancestors
-# => [Cheese, Milk, Food, Object, PP::ObjectMixin, Kernel, BasicObject]
+# => [Cheese, Food, Object, PP::ObjectMixin, Kernel, BasicObject]
 {% endhighlight %}
 
 ### `.to_s`
@@ -538,46 +533,6 @@ american.inspect
 # => "#<Cheese:0x7fa3e09ccd00>"
 {% endhighlight %}
 
-### `.include?`
-
-{% highlight rb %}
-FakeCheese.include?(Milk)
-# => false
-{% endhighlight %}
-
-{% highlight rb %}
-class FakeCheese
-  def self.include?(mojule)
-    Cheese.include?(mojule)
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-FakeCheese.include?(Milk)
-# => true
-{% endhighlight %}
-
-### `.included_modules`
-
-{% highlight rb %}
-FakeCheese.included_modules
-# => [PP::ObjectMixin, Kernel]
-{% endhighlight %}
-
-{% highlight rb %}
-class FakeCheese
-  def self.included_modules
-    Cheese.included_modules
-  end
-end
-{% endhighlight %}
-
-{% highlight rb %}
-FakeCheese.included_modules
-# => [Milk, PP::ObjectMixin, Kernel]
-{% endhighlight %}
-
 ### `.superclass`
 
 {% highlight rb %}
@@ -617,8 +572,6 @@ def fake(klass)
       ancestors
       eql?
       equal?
-      include?
-      included_modules
       inspect
       name
       object_id
