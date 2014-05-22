@@ -56,6 +56,446 @@ else
 end
 {% endhighlight %}
 
+## `instance_of?`
+
+{% highlight rb %}
+#<FakeCheese:0x007fde3ebdc760>.instance_of?(Cheese)
+# => false
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def instance_of?(klass)
+    Cheese == klass
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+#<FakeCheese:0x007fde3ebdc760>.instance_of?(Cheese)
+# => true
+{% endhighlight %}
+
+## `is_a?`
+
+{% highlight rb %}
+#<FakeCheese:0x007fde3ebaac88>.is_a?(Cheese)
+# => false
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def is_a?(klass)
+    Cheese >= klass
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+#<FakeCheese:0x007fde3ebaac88>.is_a?(Cheese)
+# => true
+{% endhighlight %}
+
+## `kind_of?`
+
+{% highlight rb %}
+#<FakeCheese:0x007fde3eba8e60>.kind_of?(Cheese)
+# => false
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def kind_of?(klass)
+    Cheese >= klass
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+#<FakeCheese:0x007fde3eba8e60>.kind_of?(Cheese)
+# => true
+{% endhighlight %}
+
+## `class`
+
+{% highlight rb %}
+#<FakeCheese:0x007fde3eba6ca0>.class
+# => FakeCheese
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def class
+    Cheese
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+#<FakeCheese:0x007fde3eba6ca0>.class
+# => Cheese
+{% endhighlight %}
+
+## `<`
+
+{% highlight rb %}
+FakeCheese.<(Cheese)
+# => nil
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.<(other)
+    Cheese < other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.<(Cheese)
+# => false
+{% endhighlight %}
+
+## `<=`
+
+{% highlight rb %}
+FakeCheese.<=(Cheese)
+# => nil
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.<=(other)
+    Cheese <= other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.<=(Cheese)
+# => true
+{% endhighlight %}
+
+## `<=>`
+
+{% highlight rb %}
+FakeCheese.<=>(Cheese)
+# => nil
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.<=>(other)
+    Cheese <=> other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.<=>(Cheese)
+# => 0
+{% endhighlight %}
+
+## `==`
+
+{% highlight rb %}
+FakeCheese.==(Cheese)
+# => false
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.==(other)
+    Cheese == other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.==(Cheese)
+# => true
+{% endhighlight %}
+
+## `>`
+
+{% highlight rb %}
+FakeCheese.>(Cheese)
+# => nil
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.>(other)
+    Cheese > other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.>(Cheese)
+# => false
+{% endhighlight %}
+
+## `>=`
+
+{% highlight rb %}
+FakeCheese.>=(Cheese)
+# => nil
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.>=(other)
+    Cheese >= other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.>=(Cheese)
+# => true
+{% endhighlight %}
+
+## `eql?`
+
+{% highlight rb %}
+FakeCheese.eql?(Cheese)
+# => false
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.eql?(other)
+    Cheese.eql?(other)
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.eql?(Cheese)
+# => true
+{% endhighlight %}
+
+## `equal?`
+
+{% highlight rb %}
+FakeCheese.equal?(Cheese)
+# => false
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.equal?(other)
+    Cheese.equal?(other)
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.equal?(Cheese)
+# => true
+{% endhighlight %}
+
+## `include?`
+
+{% highlight rb %}
+FakeCheese.include?(M)
+# => false
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.include?(mojule)
+    Cheese.include?(mojule)
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.include?(M)
+# => true
+{% endhighlight %}
+
+## `===`
+
+{% highlight rb %}
+FakeCheese.===(#<Cheese:0x007fde3eb680e0>)
+# => false
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.===(other)
+    Cheese === other
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.===(#<Cheese:0x007fde3eb680e0>)
+# => true
+{% endhighlight %}
+
+## `__id__`
+
+{% highlight rb %}
+FakeCheese.__id__
+# => 70296255791620
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.__id__
+    Cheese.__id__
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.__id__
+# => 70296255791780
+{% endhighlight %}
+
+## `ancestors`
+
+{% highlight rb %}
+FakeCheese.ancestors
+# => [FakeCheese, Object, PP::ObjectMixin, Kernel, BasicObject]
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.ancestors
+    Cheese.ancestors
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.ancestors
+# => [Cheese, M, C, Object, PP::ObjectMixin, Kernel, BasicObject]
+{% endhighlight %}
+
+## `included_modules`
+
+{% highlight rb %}
+FakeCheese.included_modules
+# => [PP::ObjectMixin, Kernel]
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.included_modules
+    Cheese.included_modules
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.included_modules
+# => [M, PP::ObjectMixin, Kernel]
+{% endhighlight %}
+
+## `inspect`
+
+{% highlight rb %}
+Cheese.inspect
+# => "FakeCheese"
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.inspect
+    Cheese.inspect
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+Cheese.inspect
+# => "Cheese"
+{% endhighlight %}
+
+## `name`
+
+{% highlight rb %}
+FakeCheese.name
+# => "FakeCheese"
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.name
+    Cheese.name
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.name
+# => "Cheese"
+{% endhighlight %}
+
+## `object_id`
+
+{% highlight rb %}
+FakeCheese.object_id
+# => 70296255626460
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.object_id
+    Cheese.object_id
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.object_id
+# => 70296255626720
+{% endhighlight %}
+
+## `superclass`
+
+{% highlight rb %}
+FakeCheese.superclass
+# => Object
+{% endhighlight %}
+
+{% highlight rb %}
+class FakeCheese
+  def self.superclass
+    Cheese.superclass
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.superclass
+# => C
+{% endhighlight %}
+
+## `to_s`
+
+{% highlight rb %}
+FakeCheese.to_s
+# => "FakeCheese"
+{% endhighlight %}
+
+{% highlight rb %}
+class Cheese
+  def self.to_s
+    Cheese.to_s
+  end
+end
+{% endhighlight %}
+
+{% highlight rb %}
+FakeCheese.to_s
+# => "Cheese"
+{% endhighlight %}
+
 [1]: https://github.com/orgsync/active_interaction/issues/179
 [2]: https://github.com/orgsync/active_interaction
 [3]: http://en.wikipedia.org/wiki/Command_pattern
