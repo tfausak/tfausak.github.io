@@ -517,7 +517,13 @@ american.inspect
 
 ## TLDR
 
+We created the perfect mock, but it took a lot of code and we repeated
+ourselves quite a bit. We can make it a lot simpler. Let's write a function
+that takes a class and returns a perfect mock of that class.
+
 {% highlight rb %}
+require 'forwardable'
+
 def fake(klass)
   Class.new(BasicObject) do
     eigenclass = class << self; self end
@@ -540,6 +546,15 @@ def fake(klass)
       to_s
     ]
 
+    define_method :class do
+      klass
+    end
+
+    define_method :inspect do
+      "#<#{klass.name}:0x#{'%x' % (__id__ << 1)}>"
+    end
+    alias_method :to_s, :inspect
+
     define_method :instance_of? do |other|
       klass == other
     end
@@ -548,13 +563,37 @@ def fake(klass)
       klass >= other
     end
     alias_method :kind_of?, :is_a?
-
-    define_method :inspect do
-      "#<#{klass.name}:0x#{'%x' % (__id__ << 1)}>"
-    end
-    alias_method :to_s, :inspect
   end
 end
+{% endhighlight %}
+
+We can see that it passes all of our checks.
+
+{% highlight rb %}
+FakeCheese = fake(Cheese)
+# => Cheese
+american = FakeCheese.new
+# => #<Cheese:0x7fd8e1e5ba48>
+[
+  american.is_a?(Cheese),
+  american.kind_of?(Cheese),
+  american.instance_of?(Cheese),
+  american.class == Cheese,
+  FakeCheese == Cheese,
+  FakeCheese.eql?(Cheese),
+  FakeCheese.equal?(Cheese),
+  FakeCheese.object_id == Cheese.object_id,
+  FakeCheese.__id__ == Cheese.__id__,
+  (FakeCheese <=> Cheese) == 0,
+  FakeCheese <= Cheese && FakeCheese >= Cheese,
+  FakeCheese.ancestors == Cheese.ancestors,
+  FakeCheese.to_s == Cheese.to_s,
+  FakeCheese.inspect == Cheese.inspect,
+  FakeCheese.name == Cheese.name,
+  american.to_s =~ /#{Cheese}/,
+  american.inspect =~ /#{Cheese}/
+].all?
+# => true
 {% endhighlight %}
 
 [1]: https://github.com/orgsync/active_interaction/issues/179
