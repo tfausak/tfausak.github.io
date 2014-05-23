@@ -597,7 +597,7 @@ american = FakeCheese.new
 {% endhighlight %}
 
 [1]: https://github.com/orgsync/active_interaction/issues/179
-[2]: https://github.com/orgsync/active_interaction
+[2]: http://devblog.orgsync.com/active_interaction/
 [3]: http://en.wikipedia.org/wiki/Command_pattern
 [4]: https://github.com/orgsync/active_interaction/pull/180
 [5]: http://ruby-doc.org/core-2.1.2/Object.html#method-i-is_a-3F
