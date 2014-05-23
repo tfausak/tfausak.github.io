@@ -67,8 +67,7 @@ other words, a perfect mock.
 
 ## Creating the Perfect Mock
 
-Before we create the mock, we need to create the class we'll be mocking. To
-make things interesting, let's have it subclass another class.
+Before we create the mock, we need to create the class we'll be mocking.
 
 {% highlight rb %}
 Cheese = Class.new
