@@ -63,7 +63,7 @@ least 18 different ways to make this comparison.
 It would be unreasonable to make all those checks. In fact, if you're using
 anything other than `.===` and `#is_a?`, you're doing it wrong. However, I was
 interested in creating a class that is indistinguishable from another class. In
-other words, a perfect mock.
+other words, the perfect mock.
 
 ## Creating the Perfect Mock
 
@@ -152,9 +152,9 @@ FakeCheese === american
 
 Instances of `FakeCheese` aren't able to pass as `FakeCheese` in `case`
 statements anymore. We could fix that by throwing a call to `super` somewhere
-in `.===`, but remember that we're trying to build a perfect mock. If `Cheese ===
-american` is `false`, `FakeCheese === american` should be too. (We'll see later
-that falling back to `super` doesn't always make sense.)
+in `.===`, but remember that we're trying to build the perfect mock. If
+`Cheese === american` is `false`, `FakeCheese === american` should be too.
+(We'll see later that falling back to `super` doesn't always make sense.)
 
 ### `#is_a?`
 
@@ -168,9 +168,8 @@ american.is_a?(Cheese)
 
 We want to delegate to `Cheese` again, but this is an instance method. We don't
 have an instance of `Cheese` in `FakeCheese`. We could make one and delegate to
-it, but initializing `Cheese` could be complicated or expensive.
-
-Let's look at [`#is_a?`'s documentation][5] for inspiration.
+it, but initializing `Cheese` could be complicated or expensive. Let's turn to
+[`#is_a?`'s documentation][5] for inspiration.
 
 > Returns `true` if *class* is the class of *obj*, or if *class* is one of the
 > superclasses of *obj* or modules included in *obj*.
@@ -203,7 +202,7 @@ Great! That was a little tricky, but ultimately not too bad.
 
 ### `#kind_of?`
 
-Even though `#kind_of?` and `#is_a?` do the same things, they aren't aliases.
+Even though `#kind_of?` and `#is_a?` do the same thing, they aren't aliases.
 
 {% highlight rb %}
 american.kind_of?(Cheese)
@@ -335,7 +334,7 @@ FakeCheese.__id__
 ### `.<=>`
 
 Now that we've faked all of the ways to check equality, let's move on to
-inequalities. The obvious place to start is with the spaceship operator.
+inequality. The obvious place to start is with the spaceship operator.
 
 {% highlight rb %}
 FakeCheese <=> Cheese
@@ -411,8 +410,8 @@ FakeCheese >= Cheese
 ### `.ancestors`
 
 Another way to see if two classes are the same is to see if they have the same
-ancestors. Let's make `FakeCheese` pretend like it's got the same family tree
-as `Cheese`.
+ancestors. Let's make `FakeCheese` pretend like it has the same family tree as
+`Cheese`.
 
 {% highlight rb %}
 FakeCheese.ancestors
@@ -485,8 +484,10 @@ american.to_s
 # => "#<FakeCheese:0x007fa3e09ccd00>"
 {% endhighlight %}
 
-This is ridiculous, but not insurmountable. We need to [shift the object
-ID][7], but otherwise this is straightforward.
+Even though we overrode `.to_s`, `.inspect`, and `.name`, the instance somehow
+uses the class's real name. So we have to provide a custom `#to_s`
+implementation that mimics the default behavior. Other than [shifting the
+object ID][7], this is pretty easy.
 
 {% highlight rb %}
 class FakeCheese
@@ -514,7 +515,7 @@ american.inspect
 # => "#<Cheese:0x7fa3e09ccd00>"
 {% endhighlight %}
 
-## TLDR
+## Shorter & More Generic
 
 We created the perfect mock, but it took a lot of code and we repeated
 ourselves quite a bit. We can make it a lot simpler. Let's write a function
@@ -566,13 +567,18 @@ def fake(klass)
 end
 {% endhighlight %}
 
-We can see that it passes all of our checks.
+We can replace all our work above with just one function call.
 
 {% highlight rb %}
 FakeCheese = fake(Cheese)
 # => Cheese
 american = FakeCheese.new
 # => #<Cheese:0x7fd8e1e5ba48>
+{% endhighlight %}
+
+And it passes all the checks!
+
+{% highlight rb %}
 [
   american.is_a?(Cheese),
   american.kind_of?(Cheese),
