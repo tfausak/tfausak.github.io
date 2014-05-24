@@ -82,7 +82,7 @@ def image(name, width, height = width, background: '#ac4142', rotate: true)
     args = [
       '-filter', 'point',
       '-background', background,
-      '-density', ([width, height].min * 72.0 / 80.0).round(1).to_s,
+      '-density', ([width, height].min * 72.0 / 5.0).round(1).to_s,
       '-gravity', 'center'
     ]
 
