@@ -348,7 +348,7 @@ FakeCheese <=> Cheese
 # => 0
 {% endhighlight %}
 
-Even though classes implement `.<=>`, they don't include `Comparable`. So we
+Even though `Class` implements `.<=>`, it doesn't include `Comparable`. So we
 have to manually override all of the associated methods.
 
 ### `.<`
