@@ -82,9 +82,9 @@ each group. Let's write a little function to help us out here.
 
 {% highlight hs %}
 add :: [Int] -> [Int]
-add (x : y : rest) = x + y : rest
+add (x : y : rest) = x + y : add rest
 add ts = ts
--- add [2, 2, 2, 2] = [4, 2, 2]
+-- add [2, 2, 2, 2] = [4, 4]
 {% endhighlight %}
 
 Now let's apply that function to our grouped tiles.
