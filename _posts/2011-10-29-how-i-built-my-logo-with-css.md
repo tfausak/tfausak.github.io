@@ -102,7 +102,7 @@ any extra HTTP requests.
 
 [1]: http://v1.jontangerine.com
 [2]: http://v1.jontangerine.com/log/2007/11/complex-type-css-fix-cleartype-miss
-[3]: /static/images/2011-10-29-my-logo.png
+[3]: /static/images/2011/10/29/my-logo.png
 [4]: http://caniuse.com/svg
 [5]: http://meyerweb.com
 [6]: http://meyerweb.com/eric/css/edge/slantastic/demo.html

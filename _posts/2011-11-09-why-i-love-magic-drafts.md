@@ -58,13 +58,13 @@ constructed, you can win more games by spending more money. In
 limited, you can't spend more money. The only way to be better is
 to be more skillful.
 
-[1]: /static/images/2011-11-09-magic-the-gathering.jpg
+[1]: /static/images/2011/11/09/magic-the-gathering.jpg
 [2]: http://en.wikipedia.org/wiki/Magic:_The_Gathering
 [3]: http://en.wikipedia.org/wiki/Urza's_Destiny
 [4]: http://www.wizards.com/magic/displaythemedeck.asp?set=urzasdestiny&decknum=1
-[5]: /static/images/2011-11-09-enchanter.jpg
+[5]: /static/images/2011/11/09/enchanter.jpg
 [6]: http://en.wikipedia.org/wiki/Ravnica:_City_of_Guilds
 [7]: http://en.wikipedia.org/wiki/Friday_Night_Magic
 [8]: http://en.wikipedia.org/wiki/Eventide
-[9]: /static/images/2011-11-09-hateflayer.jpg
+[9]: /static/images/2011/11/09/hateflayer.jpg
 [10]: http://en.wikipedia.org/wiki/Magic_2010

@@ -42,6 +42,6 @@ if this is an improvement or not. I think it looks better, though.
 
 [1]: http://www.kyleisom.net/blog/2012/10/17/syntax-off/
 [2]: http://lilypond.org
-[3]: /static/images/2012-11-15-musical-scales.png
-[4]: /static/images/2012-11-15-ferlings-famous-studies-13.png
+[3]: /static/images/2012/11/15/musical-scales.png
+[4]: /static/images/2012/11/15/ferlings-famous-studies-13.png
 [5]: https://gist.github.com/tfausak/4083481

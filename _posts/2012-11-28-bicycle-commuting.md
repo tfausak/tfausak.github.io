@@ -60,4 +60,4 @@ riding against a headwind can put me in a foul mood. Fortunately I
 haven't had to deal with any real weather yet, but I'll probably
 just opt for the car on those days.
 
-[1]: /static/images/2012-11-28-my-bike.jpg
+[1]: /static/images/2012/11/28/my-bike.jpg

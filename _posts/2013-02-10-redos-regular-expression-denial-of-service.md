@@ -91,7 +91,7 @@ The rewrite is a little more lax in that regard.
 }ix
 {% endhighlight %}
 
-[1]: /static/images/2013-02-10-regular-expression-problems.png
+[1]: /static/images/2013/02/10/regular-expression-problems.png
 [2]: http://xkcd.com/1171/
 [3]: http://en.wikiquote.org/wiki/Jamie_Zawinski
 [4]: http://www.ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI.html#method-c-regexp
