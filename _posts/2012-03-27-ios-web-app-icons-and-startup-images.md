@@ -64,8 +64,8 @@ loading, and it's exactly 20 pixels tall.
 Startup images for retina iPhones should be twice the resolution,
 `640x920`. Unfortunately, linking to a retina startup image isn't
 as easy as the icon. The `sizes` attribute doesn't work for startup
-images. Looking for a workaround to this lead me to a [Gist about
-iOS web app configuration][3]. It reminded me that startup images
+images. Looking for a workaround to this lead me to a Gist about
+iOS web app configuration. It reminded me that startup images
 are just `<link>` elements that can be targeted using media queries.
 
 All iPhones report their resolution as `320x480`. This means a media
@@ -142,7 +142,6 @@ Phone 7][7] using completely unrelated techniques.
 
 [1]: http://developer.apple.com/library/ios/#DOCUMENTATION/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
 [2]: http://developer.apple.com/library/ios/#DOCUMENTATION/UserExperience/Conceptual/MobileHIG/IconsImages/IconsImages.html%23//apple_ref/doc/uid/TP40006556-CH14
-[3]: https://gist.github.com/jdaihl/472519
 [4]: https://developer.mozilla.org/en-US/docs/CSS/Media_queries#-moz-device-pixel-ratio
 [5]: /static/pages/2012-03-27-web-app.html
 [6]: https://gist.github.com/tfausak/2222823
