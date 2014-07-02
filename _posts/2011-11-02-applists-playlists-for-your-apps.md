@@ -39,8 +39,8 @@ with)! Send comments, suggestions, and questions to [info@famigo.com][8].
 [1]: http://www.famigo.com
 [2]: https://play.google.com/store/apps/details?id=com.famigo.sandbox
 [3]: http://www.famigo.com/applists/
-[4]: /static/images/2011-11-02-applist-creation.png
-[5]: /static/images/2011-11-02-applist.png
+[4]: /static/images/2011/11/02/applist-creation.png
+[5]: /static/images/2011/11/02/applist.png
 [6]: http://www.famigo.com/applists/4eb1f162cea0992b550121e2/
 [7]: http://www.famigo.com/applists/4eb1f295cea0992b55012d6d/
 [8]: mailto:info@famigo.com?subject=Famigo+Applists

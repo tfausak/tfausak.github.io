@@ -61,5 +61,5 @@ heading our separate ways.
 
 All in all, not a bad way to spend a weekend.
 
-[1]: /static/images/2013-03-12-south-by-south-fixed.jpg
+[1]: /static/images/2013/03/12/south-by-south-fixed.jpg
 [2]: http://fixedtouring.com/south-by-south-fixed/

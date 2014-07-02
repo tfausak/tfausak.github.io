@@ -184,7 +184,7 @@ image with the correct resolution.
 
 ## Status bar
 
-![Some status bars](/static/images/2013-11-01-status-bar.png)
+![Some status bars](/static/images/2013/11/01/status-bar.png)
 
 Just like with startup images, you page must be web app capable to
 modify the status bar.
@@ -227,6 +227,6 @@ this, add the `-webkit-text-size-adjust` CSS property.
 [2]: {% post_url 2012-03-27-ios-web-app-icons-and-startup-images %}
 [3]: {% post_url 2012-09-20-iphone-5-web-app-startup-image %}
 [4]: /static/pages/2013-11-01-ios-7-web-app.html
-[5]: /static/images/2013-11-01-title.png
-[6]: /static/images/2013-11-01-icons.png
-[7]: /static/images/2013-11-01-startup-images.png
+[5]: /static/images/2013/11/01/title.png
+[6]: /static/images/2013/11/01/icons.png
+[7]: /static/images/2013/11/01/startup-images.png

@@ -82,9 +82,9 @@ each group. Let's write a little function to help us out here.
 
 {% highlight hs %}
 add :: [Int] -> [Int]
-add (x : y : rest) = x + y : rest
+add (x : y : rest) = x + y : add rest
 add ts = ts
--- add [2, 2, 2, 2] = [4, 2, 2]
+-- add [2, 2, 2, 2] = [4, 4]
 {% endhighlight %}
 
 Now let's apply that function to our grouped tiles.
@@ -193,7 +193,7 @@ rotate, then shift, then undo the rotation by rotating three times. That's
 tedious and annoying, though. If you want to see the next step, check out [the
 source][5] on GitHub. It's got all that and more.
 
-[1]: /static/images/2014-04-28-hs2048.png
+[1]: /static/images/2014/04/28/hs2048.png
 [2]: https://github.com/gabrielecirulli/2048
 [3]: http://hackage.haskell.org/package/hs2048
 [4]: http://community.haskell.org/~ndm/hlint/

@@ -188,7 +188,7 @@ do it sooner rather than later. In the unlikely (but entirely
 possible) event of a database leak, your users' passwords will
 be protected.
 
-[1]: /static/images/2013-05-10-crypt.jpg
+[1]: /static/images/2013/05/10/crypt.jpg
 [2]: http://commons.wikimedia.org/wiki/File%3AWola_Gu%C5%82owska-trumna.jpg
 [3]: https://www.livingsocial.com/createpassword
 [4]: http://blog.us.playstation.com/2011/04/26/update-on-playstation-network-and-qriocity/

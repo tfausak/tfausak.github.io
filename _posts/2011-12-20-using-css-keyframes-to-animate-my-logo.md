@@ -64,5 +64,5 @@ draw a whole lot of attention to it. It's more of an easter egg
 than an in-your-face effect.
 
 [1]: {% post_url 2011-10-29-how-i-built-my-logo-with-css %}
-[2]: /static/images/2011-12-20-my-animated-logo.png
+[2]: /static/images/2011/12/20/my-animated-logo.png
 [3]: https://developer.mozilla.org/en-US/docs/CSS/@keyframes

@@ -146,7 +146,7 @@ pretty quickly.
 [4]: http://jquery.com
 [5]: http://jqueryui.com/autocomplete/
 [6]: https://play.google.com/store/search?q=angry+birds&c=apps
-[7]: /static/images/2011-11-02-applist-creation.png
-[8]: /static/images/2011-11-02-applist.png
+[7]: /static/images/2011/11/02/applist-creation.png
+[8]: /static/images/2011/11/02/applist.png
 [9]: http://mongoengine.org
 [10]: https://github.com/toastdriven/pysolr/

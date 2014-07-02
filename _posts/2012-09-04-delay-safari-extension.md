@@ -67,9 +67,9 @@ and the `attr()` function.
 }
 {% endhighlight %}
 
-[1]: /static/images/2012-09-04-let-go.png
+[1]: /static/images/2012/09/04/let-go.png
 [2]: http://xkcd.com/862/
 [3]: http://www.reddit.com/r/aww/comments/zabw9/my_running_buddy/
 [4]: http://blog.xkcd.com/2011/02/18/distraction-affliction-correction-extensio/
-[5]: /static/images/2012-09-04-delay.png
+[5]: /static/images/2012/09/04/delay.png
 [6]: https://github.com/tfausak/delay

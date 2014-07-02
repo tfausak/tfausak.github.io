@@ -46,7 +46,7 @@ library, which is now known as boto. For the ones that couldn't be
 found, I either deleted them outright if they weren't very important
 or looked for a suitable replacement.
 
-[1]: /static/images/2013-03-05-grimy-chain.jpg
+[1]: /static/images/2013/03/05/grimy-chain.jpg
 [2]: http://en.wikipedia.org/wiki/Link_rot
 [3]: http://www.nngroup.com/articles/fighting-linkrot/
 [4]: http://validator.w3.org/checklink

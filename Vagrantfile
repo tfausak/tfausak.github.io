@@ -1,7 +1,7 @@
-# Vagrant 1.6.2 <http://www.vagrantup.com/downloads.html>
+# Vagrant 1.6.3 <http://www.vagrantup.com/downloads.html>
 # VirtualBox 4.3.12 <https://www.virtualbox.org/wiki/Downloads>
 
-Vagrant.require_version '~> 1.5'
+Vagrant.require_version '~> 1.6.3'
 
 Vagrant.configure('2') do |config|
   config.vm.box = 'chef/ubuntu-13.10'
