@@ -64,13 +64,13 @@ loading, and it's exactly 20 pixels tall.
 Startup images for retina iPhones should be twice the resolution,
 `640x920`. Unfortunately, linking to a retina startup image isn't
 as easy as the icon. The `sizes` attribute doesn't work for startup
-images. Looking for a workaround to this lead me to a Gist about
-iOS web app configuration. It reminded me that startup images
-are just `<link>` elements that can be targeted using media queries.
+images. Looking for a workaround to this lead me to a Gist about iOS web
+app configuration. It reminded me that startup images are just `<link>`
+elements that can be targeted using media queries.
 
 All iPhones report their resolution as `320x480`. This means a media
 query of `(device-width: 320px)` will match all iPhones. Retina
-iPhones report their [pixel ratio][4] as `2`, so a
+iPhones report their [pixel ratio][3] as `2`, so a
 `(-webkit-device-pixel-ratio: 2)` will match retina iPhones.
 
 {% highlight html %}
@@ -124,8 +124,8 @@ rotate them 90° clockwise.
 
 ## Complete Example
 
-I've created [a minimal web app][5] that includes all icons and
-startup images for iOS devices. It's also available [a Gist][6].
+I've created [a minimal web app][4] that includes all icons and
+startup images for iOS devices. It's also available [a Gist][5].
 Please let me know if you notice any problems or want to suggest
 an improvement.
 
@@ -138,11 +138,11 @@ mention anything about icons or startup images for web apps.
 
 Icons and startup images are completely unsupported on Windows Phone
 7. However, it is possible to create [mobile web app tiles on Windows
-Phone 7][7] using completely unrelated techniques.
+Phone 7][6] using completely unrelated techniques.
 
 [1]: http://developer.apple.com/library/ios/#DOCUMENTATION/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
 [2]: http://developer.apple.com/library/ios/#DOCUMENTATION/UserExperience/Conceptual/MobileHIG/IconsImages/IconsImages.html%23//apple_ref/doc/uid/TP40006556-CH14
-[4]: https://developer.mozilla.org/en-US/docs/CSS/Media_queries#-moz-device-pixel-ratio
-[5]: /static/pages/2012-03-27-web-app.html
-[6]: https://gist.github.com/tfausak/2222823
-[7]: {% post_url 2012-02-03-windows-phone-7-web-page-tiles %}
+[3]: https://developer.mozilla.org/en-US/docs/CSS/Media_queries#-moz-device-pixel-ratio
+[4]: /static/pages/2012-03-27-web-app.html
+[5]: https://gist.github.com/tfausak/2222823
+[6]: {% post_url 2012-02-03-windows-phone-7-web-page-tiles %}
