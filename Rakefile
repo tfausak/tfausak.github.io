@@ -40,8 +40,6 @@ task :clean do
     static/images/msapplication-square70x70logo.png
     static/images/msapplication-wide310x150logo.png
     static/images/og-image.png
-    static/scripts/all.js
-    static/scripts/all.min.js
     static/styles/all.css
     static/styles/all.min.css
   ))
@@ -49,20 +47,9 @@ end
 
 desc 'Generate assets'
 multitask assets: [
-  'static/scripts/all.min.js',
   'static/styles/all.min.css',
   :images
 ]
-
-file 'static/scripts/all.js' => [
-  'static/scripts/main.js'
-] do |t|
-  sh("cat #{t.prerequisites.join(' ')} > #{t.name}")
-end
-
-file 'static/scripts/all.min.js' => ['static/scripts/all.js'] do |t|
-  sh('yui-compressor', '-o', t.name, t.prerequisites.first)
-end
 
 file 'static/styles/all.css' => [
   'static/styles/reset.css',
