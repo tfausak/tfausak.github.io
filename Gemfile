@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'github-pages', '19', require: false
+gem 'github-pages', '21', require: false
 
 group :test do
   gem 'rake', '~> 10.3.2', require: false
