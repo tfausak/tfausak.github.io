@@ -40,28 +40,13 @@ task :clean do
     static/images/msapplication-square70x70logo.png
     static/images/msapplication-wide310x150logo.png
     static/images/og-image.png
-    static/styles/all.css
-    static/styles/all.min.css
   ))
 end
 
 desc 'Generate assets'
 multitask assets: [
-  'static/styles/all.min.css',
   :images
 ]
-
-file 'static/styles/all.css' => [
-  'static/styles/reset.css',
-  'static/styles/main.css',
-  'static/styles/syntax.css'
-] do |t|
-  sh("cat #{t.prerequisites.join(' ')} > #{t.name}")
-end
-
-file 'static/styles/all.min.css' => ['static/styles/all.css'] do |t|
-  sh('yui-compressor', '-o', t.name, t.prerequisites.first)
-end
 
 multitask :images
 def image(name, width, height = width, background: '#ac4142', rotate: true)
