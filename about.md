@@ -14,6 +14,13 @@ anything to show for it.
 
 The best way to reach me is by sending an email to [taylor@fausak.me][4].
 
+## Projects
+
+- [Strive](/strive/)
+- [Haskeleton](/haskeleton/)
+- [Hs2048](/hs2048/)
+- [Delay](/delay/)
+
 [1]: /static/images/taylor-fausak.jpg
 [2]: http://www.orgsync.com
 [3]: http://www.utexas.edu
