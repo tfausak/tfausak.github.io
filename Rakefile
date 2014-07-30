@@ -43,11 +43,6 @@ task :clean do
   ))
 end
 
-desc 'Generate assets'
-multitask assets: [
-  :images
-]
-
 multitask :images
 def image(name, width, height = width, background: '#ac4142', rotate: true)
   "static/images/#{name}.png".tap do |path|
