@@ -13,6 +13,5 @@ timezone: America/Chicago
 
 # https://help.github.com/articles/using-jekyll-with-pages#configuring-jekyll
 lsi: false
-pygments: true
 safe: true
 #source: .
