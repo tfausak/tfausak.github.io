@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Staying Up to Date with Daily Status Emails
 ---
 

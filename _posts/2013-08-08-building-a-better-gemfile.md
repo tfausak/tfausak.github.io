@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Building a Better Gemfile
 ---
 

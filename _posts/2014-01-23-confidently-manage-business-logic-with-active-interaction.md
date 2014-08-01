@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Confidently Manage Business Logic with Active­Interaction
 ---
 

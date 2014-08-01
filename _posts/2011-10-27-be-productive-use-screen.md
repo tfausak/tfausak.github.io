@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 'Be Productive: Use Screen'
 ---
 

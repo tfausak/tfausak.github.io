@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Personal Per Diem
 ---
 

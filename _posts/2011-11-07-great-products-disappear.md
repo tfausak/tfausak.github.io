@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Great Products Disappear
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Hacking Hubot with Hubot
 ---
 

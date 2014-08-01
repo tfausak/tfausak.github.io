@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Making the Famigo Logo with CSS
 ---
 

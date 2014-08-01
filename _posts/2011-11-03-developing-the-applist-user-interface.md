@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Developing the Applist User Interface
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Why I Love Magic Drafts
 ---
 

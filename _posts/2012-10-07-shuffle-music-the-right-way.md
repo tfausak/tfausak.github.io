@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Shuffle Music the Right Way
 ---
 

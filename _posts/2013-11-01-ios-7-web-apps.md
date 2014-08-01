@@ -1,5 +1,4 @@
 ---
-layout: post
 title: iOS 7 Web Apps
 ---
 

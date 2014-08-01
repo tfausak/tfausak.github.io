@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Adding Pinterest's "Pin It" Button
 ---
 

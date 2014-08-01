@@ -1,5 +1,4 @@
 ---
-layout: post
 title: The Famigo Tech Stack
 ---
 

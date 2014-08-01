@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Testing a Node.js HTTP Server with Mocha
 ---
 

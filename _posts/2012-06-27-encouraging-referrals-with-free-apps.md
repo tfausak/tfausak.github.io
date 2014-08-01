@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Encouraging Referrals with Free Apps
 ---
 

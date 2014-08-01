@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 'Magic: The Gathering Grand Prix'
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Dropdown Menu in Twitter Bootstrap's Collapsed Navbar
 ---
 

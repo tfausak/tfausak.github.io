@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Better Social Widget Lazy Loading
 ---
 

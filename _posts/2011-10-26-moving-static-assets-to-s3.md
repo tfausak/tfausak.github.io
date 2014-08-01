@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Moving Static Assets to S3
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 'Applists: Playlists for Your Apps'
 ---
 

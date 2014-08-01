@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How I Built My Logo with CSS
 ---
 

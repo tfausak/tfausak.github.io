@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Rebuilding Famigo with Twitter Bootstrap
 ---
 

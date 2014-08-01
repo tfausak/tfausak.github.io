@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Syntax Highlighting for Sheet Music
 ---
 

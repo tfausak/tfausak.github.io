@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 'Haskeleton: A Haskell Project Skeleton'
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Serving Atom Feeds with GitHub Pages
 ---
 

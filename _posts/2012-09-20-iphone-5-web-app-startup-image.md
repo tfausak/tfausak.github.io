@@ -1,5 +1,4 @@
 ---
-layout: post
 title: iPhone 5 Web App Startup Image
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: I Accidentally Deleted All Our Data
 ---
 

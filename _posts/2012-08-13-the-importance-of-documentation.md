@@ -1,5 +1,4 @@
 ---
-layout: post
 title: The Importance of Documentation
 ---
 

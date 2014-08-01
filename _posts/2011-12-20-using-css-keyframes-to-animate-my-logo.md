@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Using CSS Keyframes to Animate My Logo
 ---
 

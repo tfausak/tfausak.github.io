@@ -1,5 +1,4 @@
 ---
-layout: post
 title: iOS Web App Icons & Startup Images
 ---
 

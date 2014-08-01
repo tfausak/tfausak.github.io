@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How Four Characters Caused 579 Errors
 ---
 

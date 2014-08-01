@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 'Dropping Out: A Year Later'
 ---
 

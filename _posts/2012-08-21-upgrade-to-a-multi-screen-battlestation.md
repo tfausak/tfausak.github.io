@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Upgrade to a Multi-Screen Battlestation
 ---
 

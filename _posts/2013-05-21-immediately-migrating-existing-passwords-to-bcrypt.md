@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Immediately Migrating Existing Passwords to bcrypt
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Write Faster Tests with a Factory Context
 ---
 

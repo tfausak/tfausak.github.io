@@ -1,5 +1,4 @@
 ---
-layout: post
 title: On Windows Phone 7's Dearth of Devices
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Class Comparison in Ruby
 ---
 

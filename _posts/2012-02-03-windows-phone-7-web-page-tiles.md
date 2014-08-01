@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Windows Phone 7 Web Page Tiles
 ---
 
