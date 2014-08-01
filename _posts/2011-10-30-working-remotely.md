@@ -1,5 +1,5 @@
 ---
-title: Working Remotely
+title: Working remotely
 ---
 
 Two summers ago, I interned at [Cisco][1]. I worked in the office

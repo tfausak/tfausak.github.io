@@ -1,5 +1,5 @@
 ---
-title: Encouraging Referrals with Free Apps
+title: Encouraging referrals with free apps
 ---
 
 At [Famigo][1], we're always making our [Sandbox][2] better. But

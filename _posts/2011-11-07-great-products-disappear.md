@@ -1,5 +1,5 @@
 ---
-title: Great Products Disappear
+title: Great products disappear
 ---
 
 Recently, I lost my [Nexus S][1] and replaced it with a [Venue

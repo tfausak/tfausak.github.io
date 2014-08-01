@@ -1,5 +1,5 @@
 ---
-title: Building a Better Gemfile
+title: Building a better Gemfile
 ---
 
 If you've been hacking on a Rails project for a while, chances are

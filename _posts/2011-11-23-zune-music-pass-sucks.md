@@ -1,5 +1,5 @@
 ---
-title: Zune Music Pass Sucks
+title: Zune Music Pass sucks
 ---
 
 A few months ago, I lost my [Nexus S][1]. I bought it under contract

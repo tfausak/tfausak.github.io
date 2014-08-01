@@ -1,5 +1,5 @@
 ---
-title: Class Comparison in Ruby
+title: Class comparison in Ruby
 ---
 
 I recently encountered [an interesting issue][1]. It boils down to this: How do

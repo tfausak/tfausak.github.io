@@ -1,5 +1,5 @@
 ---
-title: Hello, World!
+title: Hello, world!
 ---
 
 I discovered [GitHub Pages][1] this afternoon. That was lucky. I

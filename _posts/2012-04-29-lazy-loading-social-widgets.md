@@ -1,5 +1,5 @@
 ---
-title: Lazy Loading Social Widgets
+title: Lazy loading social widgets
 ---
 
 <aside>Update: <a href="{% post_url 2012-05-31-better-social-widget-lazy-loading %}">Better Social Widget Lazy Loading</a></aside>

@@ -1,5 +1,5 @@
 ---
-title: Delay Safari Extension
+title: Delay Safari extension
 ---
 
 [![Let Go][1]][2]

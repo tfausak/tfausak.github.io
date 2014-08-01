@@ -1,5 +1,5 @@
 ---
-title: Developing the Applist User Interface
+title: Developing the applist user interface
 ---
 
 Yesterday, [I introduced a new feature][1] I worked on this week:

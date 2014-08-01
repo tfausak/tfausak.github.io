@@ -1,5 +1,5 @@
 ---
-title: iOS 7 Web Apps
+title: iOS 7 web apps
 ---
 
 Apple released iOS 7 a few weeks ago. They updated [their web app

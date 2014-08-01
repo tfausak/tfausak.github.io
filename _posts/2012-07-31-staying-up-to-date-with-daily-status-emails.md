@@ -1,5 +1,5 @@
 ---
-title: Staying Up to Date with Daily Status Emails
+title: Staying up to date with daily status emails
 ---
 
 A couple months ago, I noticed I followed the same routine every

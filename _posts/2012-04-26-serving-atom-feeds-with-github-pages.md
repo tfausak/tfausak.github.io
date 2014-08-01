@@ -1,5 +1,5 @@
 ---
-title: Serving Atom Feeds with GitHub Pages
+title: Serving Atom feeds with GitHub Pages
 ---
 
 I recently checked on my blog through [Google's Webmaster Tools][1].

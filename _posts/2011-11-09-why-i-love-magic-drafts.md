@@ -1,5 +1,5 @@
 ---
-title: Why I Love Magic Drafts
+title: Why I love Magic drafts
 ---
 
 ![Magic: The Gathering logo][1]

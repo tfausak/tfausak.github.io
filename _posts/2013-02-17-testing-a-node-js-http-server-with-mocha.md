@@ -1,5 +1,5 @@
 ---
-title: Testing a Node.js HTTP Server with Mocha
+title: Testing a Node.js HTTP server with Mocha
 ---
 
 I spent the better part of the past week updating a [Node.js][1]

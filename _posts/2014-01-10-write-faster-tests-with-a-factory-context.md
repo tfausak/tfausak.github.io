@@ -1,5 +1,5 @@
 ---
-title: Write Faster Tests with a Factory Context
+title: Write faster tests with a factory context
 ---
 
 At [OrgSync][1], we test our Ruby code with [RSpec][2] and

@@ -1,5 +1,5 @@
 ---
-title: Making the Famigo Logo with CSS
+title: Making the Famigo logo with CSS
 ---
 
 The [Famigo][1] [logo][2] is relatively simple. Some colorful, jumbled

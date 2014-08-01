@@ -1,5 +1,5 @@
 ---
-title: How Four Characters Caused 579 Errors
+title: How four characters caused 579 errors
 ---
 
 When I started work this morning, my goal was to eliminate errors

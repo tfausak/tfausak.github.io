@@ -1,5 +1,5 @@
 ---
-title: Using CSS Keyframes to Animate My Logo
+title: Using CSS keyframes to animate my logo
 ---
 
 A couple months ago, I explained [how I built my logo with CSS][1].

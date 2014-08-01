@@ -1,5 +1,5 @@
 ---
-title: Personal Per Diem
+title: Personal per diem
 ---
 
 For the past week, I've been running a financial experiment. I'm

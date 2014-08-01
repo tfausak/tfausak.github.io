@@ -1,5 +1,5 @@
 ---
-title: 'Magic: The Gathering Grand Prix'
+title: 'Magic: the Gathering Grand Prix'
 ---
 
 I participated in my first Magic: The Gathering Grand Prix this
