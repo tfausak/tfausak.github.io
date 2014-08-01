@@ -7,7 +7,6 @@ exclude:
 -   Rakefile
 -   Vagrantfile
 -   vendor
-markdown: kramdown
 permalink: pretty
 sass:
     sass_dir: static/styles
