@@ -1,6 +1,5 @@
 ---
-layout: post
-title: 'Haskeleton: A Haskell Project Skeleton'
+title: 'Haskeleton: a Haskell project skeleton'
 ---
 
 I'm new to Haskell. I've learned enough to feel comfortable writing programs in

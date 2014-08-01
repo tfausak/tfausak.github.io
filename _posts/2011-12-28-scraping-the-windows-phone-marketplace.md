@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Scraping the Windows Phone Marketplace
 ---
 

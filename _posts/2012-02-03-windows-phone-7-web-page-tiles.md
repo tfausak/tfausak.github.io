@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Windows Phone 7 Web Page Tiles
+title: Windows Phone 7 web page tiles
 ---
 
 <aside>Update: You should use <a href="http://www.buildmypinnedsite.com/">My Pinned Site</a> by Microsoft to create web page tiles.</aside>

@@ -1,6 +1,5 @@
 ---
-layout: post
-title: 'Be Productive: Use Screen'
+title: 'Be productive: use screen'
 ---
 
 My development machine exists in "the cloud", so to speak. At

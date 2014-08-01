@@ -1,6 +1,5 @@
 ---
-layout: post
-title: 'Applists: Playlists for Your Apps'
+title: 'Applists: playlists for your apps'
 ---
 
 At [Famigo][1], we're working hard to make smartphones safe for

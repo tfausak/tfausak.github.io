@@ -1,6 +1,5 @@
 ---
-layout: post
-title: The Coding Grindstone
+title: The coding grindstone
 ---
 
 [![Disused grindstones][1]][2]

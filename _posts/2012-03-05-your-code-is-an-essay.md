@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Your Code is an Essay
+title: Your code is an essay
 ---
 
 Writing code is a lot like writing an essay. You start off with an

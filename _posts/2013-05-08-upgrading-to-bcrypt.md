@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Upgrading to bcrypt
 ---
 

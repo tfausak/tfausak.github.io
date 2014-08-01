@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Bicycle Commuting
+title: Bicycle commuting
 ---
 
 ![My bike][1]

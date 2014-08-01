@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Dropdown Menu in Twitter Bootstrap's Collapsed Navbar
+title: Dropdown menu in Twitter Bootstrap's collapsed navbar
 ---
 
 <aside>Update: Twitter Bootstrap (version 2.0.3 and above) natively supports dropdown menus in collapsed navbars. It was fixed in <a href="https://github.com/twitter/bootstrap/pull/2907">pull request 2907 by Bryan Petty</a>. <a href="https://gist.github.com/3845213">This Gist</a> shows a complete example.</aside>

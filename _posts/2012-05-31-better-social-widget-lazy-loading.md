@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Better Social Widget Lazy Loading
+title: Better social widget lazy loading
 ---
 
 Last month, I streamlined my blog by [lazy loading social widgets][1].

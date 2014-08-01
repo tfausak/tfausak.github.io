@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Fighting Link Rot
+title: Fighting link rot
 ---
 
 ![Grimy chain][1]

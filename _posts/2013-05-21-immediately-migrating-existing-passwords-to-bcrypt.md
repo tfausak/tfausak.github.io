@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Immediately Migrating Existing Passwords to bcrypt
+title: Immediately migrating existing passwords to bcrypt
 ---
 
 > Security cannot afford to be "eventually consistent".

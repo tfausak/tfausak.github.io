@@ -1,6 +1,5 @@
 ---
-layout: post
-title: 'ReDoS: Regular Expression Denial of Service'
+title: 'ReDoS: regular expression denial of service'
 ---
 
 [![Regular expression problems][1]][2]

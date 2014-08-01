@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Replace Google Analytics with Piwik on OpenShift
 ---
 

@@ -1,6 +1,5 @@
 ---
-layout: post
-title: On Windows Phone 7's Dearth of Devices
+title: On Windows Phone 7's dearth of devices
 ---
 
 Back in October, [I switched to Windows Phone 7][1]. My feelings

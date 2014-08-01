@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Syntax Highlighting for Sheet Music
+title: Syntax highlighting for sheet music
 ---
 
 A couple weeks ago, I read Kyle Isom's [:syntax off][1] blog post

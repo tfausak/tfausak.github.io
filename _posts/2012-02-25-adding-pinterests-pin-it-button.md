@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Adding Pinterest's "Pin It" Button
+title: Adding Pinterest's "Pin It" button
 ---
 
 At [Famigo][1], we want to make it as easy as possible to share

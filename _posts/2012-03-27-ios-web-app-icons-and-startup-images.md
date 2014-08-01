@@ -1,6 +1,5 @@
 ---
-layout: post
-title: iOS Web App Icons & Startup Images
+title: iOS web app icons & startup images
 ---
 
 <aside>Update: <a href="{% post_url 2013-11-01-ios-7-web-apps %}">iOS 7 Web Apps</a></aside>

@@ -1,6 +1,5 @@
 ---
-layout: post
-title: The Importance of Documentation
+title: The importance of documentation
 ---
 
 Yesterday, I spent a couple hours scouring an old machine for a

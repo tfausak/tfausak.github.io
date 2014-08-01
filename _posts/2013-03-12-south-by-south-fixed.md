@@ -1,5 +1,4 @@
 ---
-layout: post
 title: South By South Fixed
 ---
 

@@ -1,6 +1,5 @@
 ---
-layout: post
-title: The Famigo Tech Stack
+title: The Famigo tech stack
 ---
 
 Ever wonder what happens when you point your browser to [Famigo][1]?

@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Real Life Garbage Collection
+title: Real life garbage collection
 ---
 
 Any computer scientist worth their salt knows about [garbage

@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Moving Static Assets to S3
+title: Moving static assets to S3
 ---
 
 At [Famigo][1], we serve lots of static assets. Every application

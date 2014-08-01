@@ -1,6 +1,5 @@
 ---
-layout: post
-title: I Accidentally Deleted All Our Data
+title: I accidentally deleted all our data
 ---
 
 Yesterday, I went to [MongoDallas][1] with [Cody][2] and [Shaun][3],

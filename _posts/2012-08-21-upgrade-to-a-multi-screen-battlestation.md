@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Upgrade to a Multi-Screen Battlestation
+title: Upgrade to a multi-screen battlestation
 ---
 
 ![My workstation][1]

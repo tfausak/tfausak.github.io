@@ -1,6 +1,5 @@
 ---
-layout: post
-title: How I Built My Logo with CSS
+title: How I built my logo with CSS
 ---
 
 I'm a big fan of [Jon Tan][1]'s [text logo][2]. When I was designing

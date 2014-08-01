@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Adios, Famigo! Hello, OrgSync!
 ---
 

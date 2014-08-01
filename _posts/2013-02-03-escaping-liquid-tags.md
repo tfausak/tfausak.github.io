@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Escaping Liquid Tags
+title: Escaping Liquid tags
 ---
 
 Every so often, I post code samples that contain things that look like

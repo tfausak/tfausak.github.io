@@ -1,19 +1,21 @@
+defaults:
+- scope:
+    path: ''
+    type: post
+  values:
+    layout: post
 exclude:
--   CNAME
--   Gemfile
--   Gemfile.lock
--   LICENSE.txt
--   README.md
--   Rakefile
--   Vagrantfile
--   vendor
-markdown: kramdown
-permalink: pretty
-sass:
-    sass_dir: static/styles
-timezone: America/Chicago
-
-# https://help.github.com/articles/using-jekyll-with-pages#configuring-jekyll
+- CNAME
+- Gemfile
+- Gemfile.lock
+- LICENSE.txt
+- README.md
+- Rakefile
+- Vagrantfile
+- vendor
 lsi: false
+permalink: pretty
 safe: true
-#source: .
+sass:
+  sass_dir: static/styles
+timezone: America/Chicago

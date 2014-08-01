@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Shuffle Music the Right Way
+title: Shuffle music the right way
 ---
 
 ![iTunes shuffle playlist][1]
