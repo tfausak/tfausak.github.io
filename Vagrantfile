@@ -11,8 +11,8 @@ Vagrant.configure('2') do |config|
   config.vm.provision :shell, inline: <<-'SHELL'
     set -e -x
     update-locale LC_ALL=en_US.UTF-8
-    apt-get update
-    apt-get install --assume-yes imagemagick make yui-compressor
+    wget -qO- https://deb.nodesource.com/setup | bash -
+    apt-get install --assume-yes imagemagick make nodejs yui-compressor
     if ! ruby --version | grep --fixed-strings 2.1.2; then
       test -f ruby-2.1.2.tar.bz2 ||
         wget cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.bz2
