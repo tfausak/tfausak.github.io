@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Lenses from the ground up
 ---
 
