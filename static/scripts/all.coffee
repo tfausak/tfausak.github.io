@@ -9,7 +9,7 @@ window._paq = [
 ]
 
 script = document.createElement 'script'
-scipt.async = true
+script.async = true
 script.defer = true
 script.src = '//piwik.fausak.me/piwik.js'
 
