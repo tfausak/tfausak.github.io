@@ -238,7 +238,7 @@ getName anAthlete :: String
 {% endhighlight %}
 
 This does what we want, but it's ugly. Our typeclass is giving us flexibility we
-don't need That's forcing us to be explicit about our types. Let's define
+don't need. That's forcing us to be explicit about our types. Let's define
 another instance to highlight the flexibility of the typeclass.
 
 {% highlight hs %}
