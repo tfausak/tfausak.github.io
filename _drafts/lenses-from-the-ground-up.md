@@ -38,7 +38,7 @@ getName anAthlete
 
 This works, but it's tedious.
 Things get out of control quickly as the number of fields goes up.
-Let's convert our data type to the record syntax.
+Let's change our data type to use the record syntax.
 
 ``` hs
 data Athlete = Athlete { name :: String }
@@ -61,7 +61,7 @@ data Club = Club { name :: String }
 
 After desugaring, the getter functions for both fields exist at the top level.
 One way to get around this is to put each type in its own file.
-Then you can import them without having multiple function declarations.
+Then you can import them without having multiple conflicting function declarations.
 
 ``` hs
 -- Athlete.hs
@@ -126,9 +126,9 @@ C.name aClub
 -- "Fixed Touring"
 ```
 
-This is less verbose than before, but it's not ideal.
+This is less verbose than before, but it's still not ideal.
 If we import a lot of modules, it's likely that some of them will collide.
-And if we want to re-export these modules, we can't do that with the aliases.
+And if we want to re-export those modules, we can't do that with the aliases.
 We can fix these problems, but we have to be more verbose.
 
 ``` hs
@@ -182,7 +182,7 @@ getName aClub
 We pushed the verbosity into the typeclass, making the usage more succinct.
 This seems like a perfect solution, but it has one problem:
 What if the fields don't have the same type?
-Let's say that clubs don't have to have names.
+Let's say that clubs aren't required to have names.
 That means we need to change the data type.
 
 ``` hs
@@ -195,13 +195,13 @@ data Club = Club { clubName :: Maybe String }
 -- In the instance declaration for `HasName Club'
 ```
 
-The `HasName` typeclass requires that `name` be of type `String`.
+The `HasName` typeclass requires that the `name` field has type `String`.
 We want `name` to be able to vary from instance to instance.
 We can do that by adding another variable to the type class.
 (And adding the [MultiParamTypeClasses][] extension.)
 
 ``` hs
-{#- LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 
 class HasName a b where
   getName :: a -> b
@@ -210,7 +210,7 @@ class HasName a b where
 
 Here `a` is the record type and `b` is the field type.
 Since we changed the definition of our typeclass, let's update the instances.
-(We need a couple more language extensions: [TypeSynonymInstances][] and [FlexibleInstances][].)
+(We'll need a couple more language extensions: [TypeSynonymInstances][] and [FlexibleInstances][].)
 
 ``` hs
 {-# LANGUAGE TypeSynonymInstances #-}
@@ -225,7 +225,7 @@ instance HasName Club (Maybe String) where
   setName club name = club { clubName = name }
 ```
 
-Let's try to use the new typeclass and instances.
+Let's see what happens when we use this new code.
 
 ``` hs
 blankAthlete = Athlete { athleteName = "" }
@@ -234,7 +234,9 @@ getName anAthlete
 -- The type variable `a0' is ambiguous
 ```
 
-This looks like it should work, but the return type of `getName` is ambiguous because the variables in the `HasName` typeclass are independent.
+This looks like it should work, but it doesn't.
+The return type of `getName` is ambiguous.
+This is because the variables in the `HasName` typeclass are independent.
 We can work around this problem by specifying the types.
 
 ``` hs
@@ -243,7 +245,8 @@ getName anAthlete :: String
 ```
 
 This does what we want, but it's ugly.
-Our typeclass is giving us flexibility we don't want, and that's forcing us to be explicit about our types.
+Our typeclass is giving us flexibility we don't need
+That's forcing us to be explicit about our types.
 Let's define another instance to highlight the flexibility of the typeclass.
 
 ``` hs
@@ -256,7 +259,7 @@ getName anAthlete :: Maybe String
 ```
 
 This is an interesting concept, but it's ultimately useless for our purposes.
-We want each input type (like `Athlete`) to be uniquely paired to an output type (like `String`).
+We want each input type, like `Athlete` to be uniquely paired to an output type, like `String`.
 This is possible by adding a [functional dependency][] to the typeclass.
 
 ``` hs
@@ -268,9 +271,9 @@ class HasName a b | a -> b where
 ```
 
 This says that `b` depends solely on `a`.
-What that means for us is that given `a`, we already know `b`.
+What this means for us is that given `a`, we already know `b`.
 For instance, given that `a` is `Athlete` we know that `b` is `String`.
-This allows us to avoid explicitly giving the types.
+This allows us to avoid explicit type annotations.
 
 ``` hs
 getName anAthlete
@@ -316,7 +319,7 @@ get getName aClub
 ```
 
 This is worse than before!
-Instead of removing "get" and "set", we've duplicated it.
+Instead of removing "get" and "set", we've repeated them.
 But not without reason;
 these two functions make up a lens.
 We can define a new type to hold them.
@@ -345,7 +348,7 @@ clubNameLens = Lens
   }
 ```
 
-We can use these lenses to redefine our typeclass and its instances.
+We can use these lenses to redefine our typeclass along with its instances.
 
 ``` hs
 class HasName a b | a -> b where
@@ -358,7 +361,7 @@ instance HasName Club (Maybe String) where
   name = clubNameLens
 ```
 
-Finally we can use this new typeclass to write shorter, cleaner code.
+Finally, we can use this new typeclass to write shorter, cleaner code.
 
 ```hs
 blankAthlete = Athlete { athleteName = "" }
@@ -378,7 +381,6 @@ That's the power of lenses.
 
 ## Further reading
 
-I hope this post helped you understand lenses.
 If you're looking for more, Jakub Arnold's [Lens Tutorial][] is an excellent follow up.
 It starts with simple lenses like those introduced here and derives functor-based van Laarhoven lenses from them.
 
