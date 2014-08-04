@@ -2,14 +2,14 @@
 title: Lenses from the ground up
 ---
 
-![Lens diagram][]
+![Lens diagram][1]
 
-I've been working on a Haskell library for [Strava's API][].
-It's called [Strive][].
-While I was working on it, I encountered [an issue][] that I didn't know how to solve.
+I've been working on a Haskell library for [Strava's API][2].
+It's called [Strive][3].
+While I was working on it, I encountered [an issue][4] that I didn't know how to solve.
 Lenses looked like a promising solution, but I didn't understand them.
-I looked up the most popular lens package (called [`lens`][]), and it scared me.
-Its ["field guide"][] is a massive UML diagram.
+I looked up the most popular lens package (called [`lens`][5]), and it scared me.
+Its ["field guide"][6] is a massive UML diagram.
 
 I researched lenses for a while and discovered that they're not that scary.
 Simply put, a lens is both a getter and a setter.
@@ -198,7 +198,7 @@ data Club = Club { clubName :: Maybe String }
 The `HasName` typeclass requires that the `name` field has type `String`.
 We want `name` to be able to vary from instance to instance.
 We can do that by adding another variable to the type class.
-(And adding the [MultiParamTypeClasses][] extension.)
+(And adding the [MultiParamTypeClasses][7] extension.)
 
 {% highlight hs %}
 {-# LANGUAGE MultiParamTypeClasses #-}
@@ -210,7 +210,7 @@ class HasName a b where
 
 Here `a` is the record type and `b` is the field type.
 Since we changed the definition of our typeclass, let's update the instances.
-(We'll need a couple more language extensions: [TypeSynonymInstances][] and [FlexibleInstances][].)
+(We'll need a couple more language extensions: [TypeSynonymInstances][8] and [FlexibleInstances][9].)
 
 {% highlight hs %}
 {-# LANGUAGE TypeSynonymInstances #-}
@@ -260,7 +260,7 @@ getName anAthlete :: Maybe String
 
 This is an interesting concept, but it's ultimately useless for our purposes.
 We want each input type, like `Athlete` to be uniquely paired to an output type, like `String`.
-This is possible by adding a [functional dependency][] to the typeclass.
+This is possible by adding a [functional dependency][10] to the typeclass.
 
 {% highlight hs %}
 {-# LANGUAGE FunctionalDependencies #-}
@@ -381,21 +381,21 @@ That's the power of lenses.
 
 ## Further reading
 
-If you're looking for more, Jakub Arnold's [Lens Tutorial][] is an excellent follow up.
+If you're looking for more, Jakub Arnold's [Lens Tutorial][11] is an excellent follow up.
 It starts with simple lenses like those introduced here and derives functor-based van Laarhoven lenses from them.
 
-If you're interested in more information about the `lens` library, I suggest you read [A Little Lens Starter Tutorial][] by Joseph Abrahamson.
+If you're interested in more information about the `lens` library, I suggest you read [A Little Lens Starter Tutorial][12] by Joseph Abrahamson.
 It starts with lenses and goes on to cover prisms, traversals, and isomorphisms.
 
-[lens diagram]: /static/images/2014/08/03/lens.png
-[strive]: https://github.com/tfausak/strive
-[strava's api]: http://strava.github.io/api/
-[an issue]: https://github.com/tfausak/strive/issues/44
-[`lens`]: http://lens.github.io/
-["field guide"]: http://creately.com/diagram/h5nyo9ne1/LBbRz63yg4yQsTXGLtub1bQU4%3D
-[MultiParamTypeClasses]: https://ghc.haskell.org/trac/haskell-prime/wiki/MultiParamTypeClasses
-[TypeSynonymInstances]: https://ghc.haskell.org/trac/haskell-prime/wiki/TypeSynonymInstances
-[FlexibleInstances]: https://ghc.haskell.org/trac/haskell-prime/wiki/FlexibleInstances
-[functional dependency]: https://ghc.haskell.org/trac/haskell-prime/wiki/FunctionalDependencies
-[lens tutorial]: http://blog.jakubarnold.cz/2014/07/14/lens-tutorial-introduction-part-1.html
-[a little lens starter tutorial]: https://www.fpcomplete.com/user/tel/a-little-lens-starter-tutorial
+[1]: /static/images/2014/08/03/lens.png
+[2]: http://strava.github.io/api/
+[3]: https://github.com/tfausak/strive
+[4]: https://github.com/tfausak/strive/issues/44
+[5]: http://lens.github.io/
+[6]: http://creately.com/diagram/h5nyo9ne1/Hierarchy
+[7]: https://ghc.haskell.org/trac/haskell-prime/wiki/MultiParamTypeClasses
+[8]: https://ghc.haskell.org/trac/haskell-prime/wiki/TypeSynonymInstances
+[9]: https://ghc.haskell.org/trac/haskell-prime/wiki/FlexibleInstances
+[10]: https://ghc.haskell.org/trac/haskell-prime/wiki/FunctionalDependencies
+[11]: http://blog.jakubarnold.cz/2014/07/14/lens-tutorial-introduction-part-1.html
+[12]: https://www.fpcomplete.com/user/tel/a-little-lens-starter-tutorial
