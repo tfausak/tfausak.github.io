@@ -4,22 +4,21 @@ title: Lenses from the ground up
 
 ![Lens diagram][1]
 
-I've been working on a Haskell library for [Strava's API][2].
-It's called [Strive][3].
-While I was working on it, I encountered [an issue][4] that I didn't know how to solve.
-Lenses looked like a promising solution, but I didn't understand them.
-I looked up the most popular lens package (called [`lens`][5]), and it scared me.
-Its ["field guide"][6] is a massive UML diagram.
+I've been working on a Haskell library for [Strava's API][2]. It's called
+[Strive][3]. While I was working on it, I encountered [an issue][4] that I
+didn't know how to solve. Lenses looked like a promising solution, but I didn't
+understand them. I looked up the most popular lens package (called [`lens`][5]),
+and it scared me. Its ["field guide"][6] is a massive UML diagram.
 
 I researched lenses for a while and discovered that they're not that scary.
-Simply put, a lens is both a getter and a setter.
-This post aims to be a gentle introduction to lenses using my experience as a motivating example.
-No advanced Haskell knowledge is required.
+Simply put, a lens is both a getter and a setter. This post aims to be a gentle
+introduction to lenses using my experience as a motivating example. No advanced
+Haskell knowledge is required.
 
 ## Motivation
 
-Let's start with a basic data type.
-We'll also define getters and setters for the fields.
+Let's start with a basic data type. We'll also define getters and setters for
+the fields.
 
 {% highlight hs %}
 data Athlete = Athlete String
@@ -36,9 +35,8 @@ getName anAthlete
 -- "Taylor Fausak"
 {% endhighlight %}
 
-This works, but it's tedious.
-Things get out of control quickly as the number of fields goes up.
-Let's change our data type to use the record syntax.
+This works, but it's tedious. Things get out of control quickly as the number of
+fields goes up. Let's change our data type to use the record syntax.
 
 {% highlight hs %}
 data Athlete = Athlete { name :: String }
@@ -49,9 +47,9 @@ name anAthlete
 -- "Taylor Fausak"
 {% endhighlight %}
 
-This is great.
-We didn't have to write any boilerplate, yet it desugars into what we wrote before.
-But what happens when we introduce a new data type with the same field name?
+This is great. We didn't have to write any boilerplate, yet it desugars into
+what we wrote before. But what happens when we introduce a new data type with
+the same field name?
 
 {% highlight hs %}
 data Athlete = Athlete { name :: String }
@@ -60,8 +58,8 @@ data Club = Club { name :: String }
 {% endhighlight %}
 
 After desugaring, the getter functions for both fields exist at the top level.
-One way to get around this is to put each type in its own file.
-Then you can import them without having multiple conflicting function declarations.
+One way to get around this is to put each type in its own file. Then you can
+import them without having multiple conflicting function declarations.
 
 {% highlight hs %}
 -- Athlete.hs
@@ -84,11 +82,10 @@ blankAthlete = Athlete { name = "" }
 -- or `Club.name'
 {% endhighlight %}
 
-To us, this looks completely unambiguous.
-There's no way we want `Club.name` inside of the record syntax for `Athlete`.
-It doesn't make any sense.
-But to the compiler, it's ambiguous.
-To get out of this mess, we need to use the fully-qualified names.
+To us, this looks completely unambiguous. There's no way we want `Club.name`
+inside of the record syntax for `Athlete`. It doesn't make any sense. But to the
+compiler, it's ambiguous. To get out of this mess, we need to use the
+fully-qualified names.
 
 {% highlight hs %}
 -- Main.hs
@@ -106,9 +103,9 @@ Club.name aClub
 -- "Fixed Touring"
 {% endhighlight %}
 
-This may work, but it's annoyingly verbose.
-We can make it a little better by aliasing the module names to something shorter.
-We'll use `A` instead of `Athlete`, for instance.
+This may work, but it's annoyingly verbose. We can make it a little better by
+aliasing the module names to something shorter. We'll use `A` instead of
+`Athlete`, for instance.
 
 {% highlight hs %}
 -- Main.hs
@@ -126,10 +123,10 @@ C.name aClub
 -- "Fixed Touring"
 {% endhighlight %}
 
-This is less verbose than before, but it's still not ideal.
-If we import a lot of modules, it's likely that some of them will collide.
-And if we want to re-export those modules, we can't do that with the aliases.
-We can fix these problems, but we have to be more verbose.
+This is less verbose than before, but it's still not ideal. If we import a lot
+of modules, it's likely that some of them will collide. And if we want to
+re-export those modules, we can't do that with the aliases. We can fix these
+problems, but we have to be more verbose.
 
 {% highlight hs %}
 data Athlete = Athlete { athleteName :: String }
@@ -146,11 +143,9 @@ clubName aClub
 -- "Fixed Touring"
 {% endhighlight %}
 
-Now everything is defined in one module.
-The names won't collide because they're fully qualified.
-And we can export everything without issue.
-But we have to repeat ourselves a lot.
-Fortunately we can add a typeclass to help.
+Now everything is defined in one module. The names won't collide because they're
+fully qualified. And we can export everything without issue. But we have to
+repeat ourselves a lot. Fortunately we can add a typeclass to help.
 
 {% highlight hs %}
 data Athlete = Athlete { athleteName :: String }
@@ -179,11 +174,10 @@ getName aClub
 -- "Fixed Touring"
 {% endhighlight %}
 
-We pushed the verbosity into the typeclass, making the usage more succinct.
-This seems like a perfect solution, but it has one problem:
-What if the fields don't have the same type?
-Let's say that clubs aren't required to have names.
-That means we need to change the data type.
+We pushed the verbosity into the typeclass, making the usage more succinct. This
+seems like a perfect solution, but it has one problem: What if the fields don't
+have the same type? Let's say that clubs aren't required to have names. That
+means we need to change the data type.
 
 {% highlight hs %}
 data Club = Club { clubName :: Maybe String }
@@ -195,10 +189,10 @@ data Club = Club { clubName :: Maybe String }
 -- In the instance declaration for `HasName Club'
 {% endhighlight %}
 
-The `HasName` typeclass requires that the `name` field has type `String`.
-We want `name` to be able to vary from instance to instance.
-We can do that by adding another variable to the type class.
-(And adding the [MultiParamTypeClasses][7] extension.)
+The `HasName` typeclass requires that the `name` field has type `String`. We
+want `name` to be able to vary from instance to instance. We can do that by
+adding another variable to the type class. (And adding the
+[MultiParamTypeClasses][7] extension.)
 
 {% highlight hs %}
 {-# LANGUAGE MultiParamTypeClasses #-}
@@ -208,9 +202,9 @@ class HasName a b where
   setName :: a -> b -> a
 {% endhighlight %}
 
-Here `a` is the record type and `b` is the field type.
-Since we changed the definition of our typeclass, let's update the instances.
-(We'll need a couple more language extensions: [TypeSynonymInstances][8] and [FlexibleInstances][9].)
+Here `a` is the record type and `b` is the field type. Since we changed the
+definition of our typeclass, let's update the instances. (We'll need a couple
+more language extensions: [TypeSynonymInstances][8] and [FlexibleInstances][9].)
 
 {% highlight hs %}
 {-# LANGUAGE TypeSynonymInstances #-}
@@ -234,20 +228,18 @@ getName anAthlete
 -- The type variable `a0' is ambiguous
 {% endhighlight %}
 
-This looks like it should work, but it doesn't.
-The return type of `getName` is ambiguous.
-This is because the variables in the `HasName` typeclass are independent.
-We can work around this problem by specifying the types.
+This looks like it should work, but it doesn't. The return type of `getName` is
+ambiguous. This is because the variables in the `HasName` typeclass are
+independent. We can work around this problem by specifying the types.
 
 {% highlight hs %}
 getName anAthlete :: String
 -- "Taylor Fausak"
 {% endhighlight %}
 
-This does what we want, but it's ugly.
-Our typeclass is giving us flexibility we don't need
-That's forcing us to be explicit about our types.
-Let's define another instance to highlight the flexibility of the typeclass.
+This does what we want, but it's ugly. Our typeclass is giving us flexibility we
+don't need That's forcing us to be explicit about our types. Let's define
+another instance to highlight the flexibility of the typeclass.
 
 {% highlight hs %}
 instance HasName Athlete (Maybe String) where
@@ -258,9 +250,10 @@ getName anAthlete :: Maybe String
 -- Just "Taylor Fausak"
 {% endhighlight %}
 
-This is an interesting concept, but it's ultimately useless for our purposes.
-We want each input type, like `Athlete` to be uniquely paired to an output type, like `String`.
-This is possible by adding a [functional dependency][10] to the typeclass.
+This is an interesting concept, but it's ultimately useless for our purposes. We
+want each input type, like `Athlete` to be uniquely paired to an output type,
+like `String`. This is possible by adding a [functional dependency][10] to the
+typeclass.
 
 {% highlight hs %}
 {-# LANGUAGE FunctionalDependencies #-}
@@ -270,10 +263,9 @@ class HasName a b | a -> b where
   setName :: a -> b -> a
 {% endhighlight %}
 
-This says that `b` depends solely on `a`.
-What this means for us is that given `a`, we already know `b`.
-For instance, given that `a` is `Athlete` we know that `b` is `String`.
-This allows us to avoid explicit type annotations.
+This says that `b` depends solely on `a`. What this means for us is that given
+`a`, we already know `b`. For instance, given that `a` is `Athlete` we know that
+`b` is `String`. This allows us to avoid explicit type annotations.
 
 {% highlight hs %}
 getName anAthlete
@@ -285,14 +277,14 @@ getName aClub
 -- Just "Fixed Touring"
 {% endhighlight %}
 
-This is pretty great.
-We've got short getters and setters that are easy to use and type safe.
-What more could you want?
+This is pretty great. We've got short getters and setters that are easy to use
+and type safe. What more could you want?
 
 ## Lenses
 
 It'd be nice if the getters and setters weren't prefixed with "get" and "set".
-Let's take a step toward that by defining two new functions called `get` and `set`.
+Let's take a step toward that by defining two new functions called `get` and
+`set`.
 
 {% highlight hs %}
 get :: (a -> b) -> a -> b
@@ -302,9 +294,8 @@ set :: (a -> b -> a) -> a -> b -> a
 set setter record field = setter record field
 {% endhighlight %}
 
-Ignore the fact that these are both synonyms for `id`.
-We'll come back to that later.
-Let's see how you'd use them.
+Ignore the fact that these are both synonyms for `id`. We'll come back to that
+later. Let's see how you'd use them.
 
 {% highlight hs %}
 blankAthlete = Athlete { athleteName = "" }
@@ -318,11 +309,9 @@ get getName aClub
 -- Just "Fixed Touring"
 {% endhighlight %}
 
-This is worse than before!
-Instead of removing "get" and "set", we've repeated them.
-But not without reason;
-these two functions make up a lens.
-We can define a new type to hold them.
+This is worse than before! Instead of removing "get" and "set", we've repeated
+them. But not without reason; these two functions make up a lens. We can define
+a new type to hold them.
 
 {% highlight hs %}
 data Lens a b = Lens
@@ -331,8 +320,8 @@ data Lens a b = Lens
   }
 {% endhighlight %}
 
-That type represents the core idea of lenses.
-Let's use it to define lenses for our types.
+That type represents the core idea of lenses. Let's use it to define lenses for
+our types.
 
 {% highlight hs %}
 athleteNameLens :: Lens Athlete String
@@ -375,17 +364,19 @@ get name aClub
 -- Just "Fixed Touring"
 {% endhighlight %}
 
-I think you'll agree that this is the best version of the code so far.
-It doesn't use verbose names and it doesn't require multiple modules or aliased imports.
-That's the power of lenses.
+I think you'll agree that this is the best version of the code so far. It
+doesn't use verbose names and it doesn't require multiple modules or aliased
+imports. That's the power of lenses.
 
 ## Further reading
 
-If you're looking for more, Jakub Arnold's [Lens Tutorial][11] is an excellent follow up.
-It starts with simple lenses like those introduced here and derives functor-based van Laarhoven lenses from them.
+If you're looking for more, Jakub Arnold's [Lens Tutorial][11] is an excellent
+follow up. It starts with simple lenses like those introduced here and derives
+functor-based van Laarhoven lenses from them.
 
-If you're interested in more information about the `lens` library, I suggest you read [A Little Lens Starter Tutorial][12] by Joseph Abrahamson.
-It starts with lenses and goes on to cover prisms, traversals, and isomorphisms.
+If you're interested in more information about the `lens` library, I suggest you
+read [A Little Lens Starter Tutorial][12] by Joseph Abrahamson. It starts with
+lenses and goes on to cover prisms, traversals, and isomorphisms.
 
 [1]: /static/images/2014/08/03/lens.png
 [2]: http://strava.github.io/api/
