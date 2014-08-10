@@ -2,9 +2,9 @@
 title: Strive
 ---
 
-[Strive logo][]
+![Strive logo][]
 
 - <https://github.com/tfausak/strive>
 - <http://strava.github.io/api/>
 
-[strive logo]: ../images/strive.png
+[strive logo]: ../static/images/strive.png
