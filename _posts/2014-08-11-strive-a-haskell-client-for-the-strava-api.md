@@ -48,7 +48,7 @@ I want to show you the bare minimum needed to get started. It covers Strava's
 token exchange, which is necessary for getting a token. Once you have one, you
 can perform any request against their API. I will show one here as an example.
 
-``` hs
+{% highlight hs %}
 import Strive
 import Data.Default (def)
 import Data.Text (unpack)
@@ -74,7 +74,7 @@ let token = unpack (get accessToken tokenExchangeResponse)
 client <- buildClient token
 Right currentAthlete <- getCurrentAthlete client
 print (get firstname currentAthlete)
-```
+{% endhighlight %}
 
 This just scratches the surface of what Strive provides. It covers 100% of
 Strava's API. Check out [the readme][9] for a complete list of available
