@@ -80,7 +80,7 @@ This just scratches the surface of what Strive provides. It covers 100% of
 Strava's API. Check out [the readme][9] for a complete list of available
 endpoints.
 
-[1]: ../static/images/strive.png
+[1]: /static/images/2014/08/11/strive.png
 [2]: https://github.com/tfausak/strive
 [3]: http://strava.github.io/api/
 [4]: https://github.com/tfausak/strive/milestones/v1.0.0
