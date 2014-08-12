@@ -16,20 +16,20 @@ The best way to reach me is by sending an email to [taylor@fausak.me][4].
 
 ## Projects
 
-- [ActiveInteraction](http://devblog.orgsync.com/active_interaction/)
+- [ActiveInteraction](http://devblog.orgsync.com/active_interaction/):
   Manage application-specific business logic. An implementation of
   the command pattern in Ruby.
 
-- [Haskeleton](/haskeleton/)
+- [Haskeleton](/haskeleton/):
   A Haskell project skeleton.
 
-- [Strive](/strive/)
+- [Strive](/strive/):
   A Haskell client for the Strava V3 API.
 
-- [Hs2048](/hs2048/)
+- [Hs2048](/hs2048/):
   A 2048 clone in Haskell.
 
-- [Delay](/delay/)
+- [Delay](/delay/):
   A Safari extension that delays the loading of time-wasting websites.
 
 [1]: /static/images/taylor-fausak.jpg
