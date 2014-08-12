@@ -53,30 +53,31 @@ import Strive
 import Data.Default (def)
 import Data.Text (unpack)
 
--- Each API application has a client ID and a client secret. Get them both at
--- <http://www.strava.com/settings/api>.
+-- Each API application has a client ID and a client secret. Get them
+-- both at <http://www.strava.com/settings/api>.
 let clientId = 1790
 let clientSecret = "..."
 
 -- To get authorized, you need to build a URL and visit it.
-let authorizeUrl = buildAuthorizeUrl clientId "http://localhost" def
-putStrLn authorizeUrl
+let url = buildAuthorizeUrl clientId "http://localhost" def
+putStrLn url
 
--- After visiting the above URL, copy the code out of the request parameters.
+-- After visiting the above URL, copy the code out of the request
+-- parameters.
 let code = "..."
 
--- Finally you can exchange your code for a token, which can be used to access
--- the API.
-Right tokenExchangeResponse <- exchangeToken clientId clientSecret code
-let token = unpack (get accessToken tokenExchangeResponse)
+-- Finally you can exchange your code for a token, which can be used
+-- to access the API.
+Right response <- exchangeToken clientId clientSecret code
+let token = unpack (get accessToken response)
 
 -- Build a Strive client and use it to request the current athlete.
 client <- buildClient token
-Right currentAthlete <- getCurrentAthlete client
-print (get firstname currentAthlete)
+Right athlete <- getCurrentAthlete client
+print (get firstname athlete)
 {% endhighlight %}
 
-This just scratches the surface of what Strive provides. It covers 100% of
+This example scratches the surface of what Strive provides. It covers 100% of
 Strava's API. Check out [the readme][9] for a complete list of available
 endpoints.
 
