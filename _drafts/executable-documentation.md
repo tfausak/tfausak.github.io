@@ -2,6 +2,14 @@
 title: Executable documentation
 ---
 
+> - Examples are priceless.
+>
+> - Examples that don't work are worse than worthless.
+>
+> - Examples that work eventually turn into examples that don't.
+
+https://groups.google.com/forum/#!msg/comp.lang.python/DfzH5Nrt05E/Yyd3s7fPVxwJ
+
 - recently working on many small projects
 - http://taylor.fausak.me/about/#projects
 - noticed a common trend with their tests and documentation
