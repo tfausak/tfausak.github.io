@@ -25,6 +25,8 @@ The best way to reach me is by sending an email to [taylor@fausak.me][4].
   A Haskell client for the Strava V3 API.
 - [Hs2048](/hs2048/):
   A 2048 clone in Haskell.
+- [Erudite](/erudite/):
+  Excutable documentation. Converts Ruby console session into tests.
 - [Delay](/delay/):
   A Safari extension that delays the loading of time-wasting websites.
 
