@@ -3,4 +3,5 @@
 .vagrant/
 _site/
 static/images/favicon-*.png
+tmp/
 vendor/
