@@ -13,9 +13,10 @@ exclude:
 - Rakefile
 - Vagrantfile
 - vendor
+gems:
+- jekyll-sitemap
 lsi: false
 permalink: pretty
-safe: true
 sass:
   sass_dir: static/styles
 timezone: America/Chicago
