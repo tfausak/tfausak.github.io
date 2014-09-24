@@ -19,16 +19,12 @@ The best way to reach me is by sending an email to [taylor@fausak.me][4].
 - [ActiveInteraction](http://devblog.orgsync.com/active_interaction/):
   Manage application-specific business logic. An implementation of
   the command pattern in Ruby.
-
 - [Haskeleton](/haskeleton/):
   A Haskell project skeleton.
-
 - [Strive](/strive/):
   A Haskell client for the Strava V3 API.
-
 - [Hs2048](/hs2048/):
   A 2048 clone in Haskell.
-
 - [Delay](/delay/):
   A Safari extension that delays the loading of time-wasting websites.
 
