@@ -18,7 +18,7 @@ in Ruby, I looked for [a doctest gem][4]. Unfortunately I didn't like what I
 found.
 
 From what I can tell, [rubydoctest][5] is the de facto standard. It doesn't
-appear to be actively maintained. And it has a couple glaring omissions, like
+appear to be actively maintained, and it has a couple glaring omissions, like
 [ellipsis wildcards][6] and [expected exceptions][7]. I considered forking it to
 fix these issues, but ultimately decided to create my own gem instead.
 
@@ -30,7 +30,7 @@ and it should run that as a test. This is inspired by Simon Hengel's tool
 
 My own tool, [Erudite][9], isn't as robust as either rubydoctest or
 markdown-unlit yet. Even so, it's be useful for testing. I can fire up the
-executable and paste in code from [a readme][10]. It'll do all the work to
+executable and paste in code from [a `README.md`][10]. It'll do all the work to
 determine if that code is valid or not.
 
 {% highlight sh %}
@@ -38,13 +38,13 @@ $ bundle exec erudite
 >> require 'stoplight'
 => true
 >> Stoplight.data_store
-=> #<Stoplight::DataStore::Memory:...>
+=> #<Stoplight::DataStore::Memory:0x... @data={}>
 - PASS
 - PASS
 {% endhighlight %}
 
 I'm looking forward to rounding out Erudite's feature set, and I hope you find
-it useful.
+it useful. Check out [its project page][9] or the source [on GitHub][11]
 
 [1]: /static/images/erudite.png
 [2]: https://groups.google.com/forum/#!msg/comp.lang.python/DfzH5Nrt05E/Yyd3s7fPVxwJ
@@ -56,3 +56,4 @@ it useful.
 [8]: https://github.com/sol/markdown-unlit
 [9]: http://taylor.fausak.me/erudite/
 [10]: https://github.com/orgsync/stoplight/blob/v0.4.0/README.md#setup
+[11]: https://github.com/tfausak/erudite
