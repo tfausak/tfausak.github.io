@@ -1,6 +1,8 @@
 .bundle/
 .sass-cache/
 .vagrant/
+Gemfile.lock
 _site/
 static/images/favicon-*.png
+tmp/
 vendor/
