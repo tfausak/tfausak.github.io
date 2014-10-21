@@ -3,6 +3,12 @@ title: Building a JSON REST API with Haskell
 layout: post
 ---
 
+This is a Literate Haskell file. Assuming you have [the dependencies][], you should be able to run it with this command:
+
+{% highlight sh %}
+$ runhaskell -optL -q this-post.lhs Hairy/Models.hs
+{% endhighlight %}
+
 Before we can begin, we need to enable a few language extensions.
 
 {% highlight hs %}
@@ -22,8 +28,8 @@ it's hard to live without.
 These are a little harder to explain, so instead I'll explain them when they're
 used.
 
-Now we have to let GHC know that our module is called `Hairy`, not `Main` like
-it would otherwise assume.
+After that, we have to let GHC know that our module is called `Hairy`, not
+`Main` like it would otherwise assume.
 
 {% highlight hs %}
 > module Hairy where
@@ -42,7 +48,8 @@ from. Then look it up on Hackage.
 > import Control.Applicative (Applicative)
 > import Control.Monad.IO.Class (MonadIO, liftIO)
 > import Control.Monad.Logger (runNoLoggingT, runStdoutLoggingT)
-> import Control.Monad.Reader (MonadReader, ReaderT, asks, runReaderT)
+> import Control.Monad.Reader (MonadReader, ReaderT, asks,
+>   runReaderT)
 > import Control.Monad.Trans.Class (MonadTrans, lift)
 > import Data.Aeson (Value (Null), (.=), object)
 > import Data.Default (def)
@@ -51,18 +58,25 @@ from. Then look it up on Hackage.
 > import Data.Text.Lazy (Text)
 > import qualified Database.Persist as DB
 > import qualified Database.Persist.Postgresql as DB
-> import Hairy.Models (Task, TaskId, migrateAll)
-> import Network.HTTP.Types.Status (created201, internalServerError500,
->   notFound404)
+> import Network.HTTP.Types.Status (created201,
+>   internalServerError500, notFound404)
 > import Network.Wai (Middleware)
 > import Network.Wai.Handler.Warp (Settings, defaultSettings,
 >   setFdCacheDuration, setPort)
-> import Network.Wai.Middleware.RequestLogger (logStdout, logStdoutDev)
+> import Network.Wai.Middleware.RequestLogger (logStdout,
+>   logStdoutDev)
 > import System.Environment (lookupEnv)
 > import Web.Heroku (parseDatabaseUrl)
-> import Web.Scotty.Trans (ActionT, Options, ScottyT, defaultHandler, delete,
->   get, json, jsonData, middleware, notFound, param, post, put, scottyOptsT,
->   settings, showError, status, verbose)
+> import Web.Scotty.Trans (ActionT, Options, ScottyT,
+>   defaultHandler, delete, get, json, jsonData, middleware,
+>   notFound, param, post, put, scottyOptsT, settings,
+>   showError, status, verbose)
+{% endhighlight %}
+
+This next import is special. If you're following along at home, you'll need to create a folder called `Hairy` and put [`Models.hs`][] in it.
+
+{% highlight hs %}
+> import Hairy.Models (Task, TaskId, migrateAll)
 {% endhighlight %}
 
 With all that out of the way, we can start on the actual program itself. The
@@ -76,7 +90,7 @@ configuration and run the application with that configuration.
 >   runApplication c
 {% endhighlight %}
 
-We could've written this in the point-free style.
+This is the same as the more succinct point-free version.
 
 {% highlight hs %}
 main :: IO ()
@@ -131,11 +145,13 @@ If we wanted to handle it more gracefully, we could use `Text.Read.readMaybe`.
 >   return e
 {% endhighlight %}
 
-We could've written this point-free.
+This also could've been written in the point-free style.
 
 {% highlight hs %}
 getEnvironment :: IO Environment
-getEnvironment = fmap (maybe Development read) (lookupEnv "SCOTTY_ENV")
+getEnvironment = fmap
+  (maybe Development read)
+  (lookupEnv "SCOTTY_ENV")
 {% endhighlight %}
 
 Now that we've seen how to get the environment, let's see what the possible
@@ -163,9 +179,12 @@ use.
 >   s <- getConnectionString e
 >   let n = getConnectionSize e
 >   case e of
->     Development -> runStdoutLoggingT (DB.createPostgresqlPool s n)
->     Production -> runStdoutLoggingT (DB.createPostgresqlPool s n)
->     Test -> runNoLoggingT (DB.createPostgresqlPool s n)
+>     Development -> runStdoutLoggingT
+>       (DB.createPostgresqlPool s n)
+>     Production -> runStdoutLoggingT
+>       (DB.createPostgresqlPool s n)
+>     Test -> runNoLoggingT
+>       (DB.createPostgresqlPool s n)
 {% endhighlight %}
 
 This function is a little weird. I wish it could be written like this:
@@ -214,12 +233,17 @@ These are the default connection parameters per environment.
 
 {% highlight hs %}
 > getDefaultConnectionString :: Environment -> DB.ConnectionString
-> getDefaultConnectionString Development =
->   "host=localhost port=5432 user=postgres dbname=hairy_development"
-> getDefaultConnectionString Production =
->   "host=localhost port=5432 user=postgres dbname=hairy_production"
-> getDefaultConnectionString Test =
->   "host=localhost port=5432 user=postgres dbname=hairy_test"
+> getDefaultConnectionString e =
+>   let n = case e of
+>         Development -> "hairy_development"
+>         Production -> "hairy_production"
+>         Test -> "hairy_test"
+>   in  createConnectionString
+>         [ ("host", "localhost")
+>         , ("port", "5432")
+>         , ("user", "postgres")
+>         , ("dbname", n)
+>         ]
 {% endhighlight %}
 
 This function converts a list of text tuples into a database connection string,
@@ -235,7 +259,8 @@ This is necessary to convert what `Web.Heroku.parseDatabaseUrl` gives us into
 something that Persistent can understand.
 
 {% highlight hs %}
-> createConnectionString :: [(T.Text, T.Text)] -> DB.ConnectionString
+> createConnectionString
+>   :: [(T.Text, T.Text)] -> DB.ConnectionString
 > createConnectionString l =
 >   let f (k, v) = T.concat [k, "=", v]
 >   in  encodeUtf8 (T.unwords (map f l))
@@ -282,8 +307,9 @@ transformer stack.
 
 {% highlight hs %}
 > newtype ConfigM a = ConfigM
->  { runConfigM :: ReaderT Config IO a
->  } deriving (Applicative, Functor, Monad, MonadIO, MonadReader Config)
+>   { runConfigM :: ReaderT Config IO a
+>   } deriving (Applicative, Functor, Monad, MonadIO,
+>     MonadReader Config)
 {% endhighlight %}
 
 Let's circle back and see how we get Scotty's options. The data type exposed
@@ -571,3 +597,6 @@ That's all there is to it! With less than 200 lines of code we've created a JSON
 REST API with some CRUD actions. It's all backed by a database and can be
 configured to run in development mode on your machine or in production on
 Heroku.
+
+[the dependencies]: https://github.com/tfausak/hairy/blob/22145de/hairy.cabal#L31-L47
+[`Models.hs`]: https://github.com/tfausak/hairy/blob/22145de/library/Hairy/Models.hs
