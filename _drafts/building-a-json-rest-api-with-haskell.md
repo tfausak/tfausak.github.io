@@ -4,12 +4,12 @@ layout: post
 ---
 
 I spent the last couple weeks building a JSON REST API in Haskell. I called it
-Hairy. It's available [on GitHub][] and [on Hackage][]. I learned a lot in the
+Hairy. It's available [on GitHub][1] and [on Hackage][2]. I learned a lot in the
 process and wanted to share what I learned. I also wanted to put my code out
 there to see what I could do better. Patches welcome!
 
 This is a Literate Haskell file. Only lines that start with `>` are program
-code. Assuming you have [the dependencies][], you should be able to run it with
+code. Assuming you have [the dependencies][3], you should be able to run it with
 this command:
 
 {% highlight sh %}
@@ -99,7 +99,7 @@ it up on Hackage.
 {% endhighlight %}
 
 This next import is special. If you're following along at home, you'll need to
-create a folder called `Hairy` and put [`Models.hs`][] in it. I didn't include
+create a folder called `Hairy` and put [`Models.hs`][4] in it. I didn't include
 the models in this file because I couldn't get the Template Haskell to play
 nicely with the Literate Haskell.
 
@@ -335,7 +335,7 @@ get the options for Scotty and set up a runner for reading the configuration.
 {% endhighlight %}
 
 This takes Scotty's monad `m` and adds the ability to read our custom config `c`
-from it. This is called a [monad transformer stack][]. It allows us to use any
+from it. This is called a [monad transformer stack][5]. It allows us to use any
 monad in the stack. So after adding our reader monad, we can both deal with
 requests (using Scotty's monad) and read our config (using our monad).
 
@@ -670,15 +670,15 @@ Heroku.
 
 I used a few excellent resources while working on this post, including:
 
-- [Making A Website With Haskell][] by Aditya Bhargava
-- [Hello Scotty][] by Miëtek Bak
-- [Persistent][] by Michael Snoyman
+- [Making A Website With Haskell][6] by Aditya Bhargava
+- [Hello Scotty][7] by Miëtek Bak
+- [Persistent][8] by Michael Snoyman
 
-[on github]: https://github.com/tfausak/hairy
-[on hackage]: http://hackage.haskell.org/package/hairy
-[the dependencies]: https://github.com/tfausak/hairy/blob/22145de/hairy.cabal#L31-L47
-[`Models.hs`]: https://github.com/tfausak/hairy/blob/22145de/library/Hairy/Models.hs
-[monad transformer stack]: http://book.realworldhaskell.org/read/monad-transformers.html
-[making a website with haskell]: http://adit.io/posts/2013-04-15-making-a-website-with-haskell.html
-[hello scotty]: https://github.com/mietek/haskell-on-heroku-examples/tree/master/hello-scotty
-[persistent]: http://www.yesodweb.com/book/persistent
+[1]: https://github.com/tfausak/hairy
+[2]: http://hackage.haskell.org/package/hairy
+[3]: https://github.com/tfausak/hairy/blob/22145de/hairy.cabal#L31-L47
+[4]: https://github.com/tfausak/hairy/blob/22145de/library/Hairy/Models.hs
+[5]: http://book.realworldhaskell.org/read/monad-transformers.html
+[6]: http://adit.io/posts/2013-04-15-making-a-website-with-haskell.html
+[7]: https://github.com/mietek/haskell-on-heroku-examples/tree/master/hello-scotty
+[8]: http://www.yesodweb.com/book/persistent
