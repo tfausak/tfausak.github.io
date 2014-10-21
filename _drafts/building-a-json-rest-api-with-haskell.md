@@ -9,6 +9,23 @@ This is a Literate Haskell file. Assuming you have [the dependencies][], you sho
 $ runhaskell -optL -q this-post.lhs Hairy/Models.hs
 {% endhighlight %}
 
+- [Boilerplate](#boilerplate)
+- [Main](#main)
+- [Configuration](#configuration)
+- [Environment](#environment)
+- [Database](#database)
+- [Transformers](#transformers)
+- [Options](#options)
+- [Settings](#settings)
+- [Errors](#errors)
+- [Application](#application)
+- [Middlewares](#middlewares)
+- [Actions](#actions)
+- [Utilities](#utilities)
+
+Boilerplate
+---
+
 Before we can begin, we need to enable a few language extensions.
 
 {% highlight hs %}
@@ -79,6 +96,9 @@ This next import is special. If you're following along at home, you'll need to c
 > import Hairy.Models (Task, TaskId, migrateAll)
 {% endhighlight %}
 
+Main
+---
+
 With all that out of the way, we can start on the actual program itself. The
 top-level entry point, `main`, only has two responsibilities: get the current
 configuration and run the application with that configuration.
@@ -96,6 +116,9 @@ This is the same as the more succinct point-free version.
 main :: IO ()
 main = getConfig >>= runApplication
 {% endhighlight %}
+
+Configuration
+---
 
 Getting the current configuration involves reading the environment from the
 system and then setting up the database connection pool. After doing both of
@@ -123,6 +146,9 @@ database connection pool.
 >   , pool :: DB.ConnectionPool
 >   }
 {% endhighlight %}
+
+Environment
+---
 
 We want to read the environment from the `SCOTTY_ENV` environment variable, then
 parse that string as our `Environment` data type and return it. If it doesn't
@@ -165,6 +191,9 @@ particular needs.
 >   | Test
 >   deriving (Eq, Read, Show)
 {% endhighlight %}
+
+Database
+---
 
 With all the environment stuff out of the way, let's take a look at the database
 connection pool. It will be used by the application to make database queries, so
@@ -279,6 +308,9 @@ the web server and the database server are even running on the same machine.
 > getConnectionSize Test = 1
 {% endhighlight %}
 
+Transformers
+---
+
 So we've set up our environment and our database connection. That's enough to
 let us move on to setting up the application itself. All we need to do here is
 get the options for Scotty and set up a runner for reading the configuration.
@@ -312,6 +344,9 @@ transformer stack.
 >     MonadReader Config)
 {% endhighlight %}
 
+Options
+---
+
 Let's circle back and see how we get Scotty's options. The data type exposed
 only has two fields, so there's not a lot for us to do here.
 
@@ -342,6 +377,9 @@ Or, if you're feeling particularly witty:
 {% highlight hs %}
 verbose = fromEnum (e == Development)
 {% endhighlight %}
+
+Settings
+---
 
 Most of the real options are in Wai's settings. The defaults are good for most
 of them, but we want to make two changes. First, we need to remove the file
@@ -390,6 +428,9 @@ hairy: Prelude.read: no parse
 >   return p
 {% endhighlight %}
 
+Errors
+---
+
 The last bit of configuration is to set up our error type. We're going to make
 it an alias for `Text`. You could do something fancier here by enumerating the
 possible error states for your application.
@@ -408,6 +449,9 @@ fancy yet.
 
 That wraps up all of the configuration, options, and settings. Everything from
 here on out deals with the application itself.
+
+Application
+---
 
 Our application has several responsibilities. It needs to run database
 migrations, set up middlewares, install a default exception handler, and define
@@ -454,6 +498,9 @@ found action.
 
 That's it! As your application grows you'll add more routes and middlewares, but
 the basic structure shouldn't change too much.
+
+Middlewares
+---
 
 Let's take a look at that `runDB` helper we used. It takes a SQL query `q` and
 runs it inside our monad transformer stack. It does this by asking the config
@@ -502,6 +549,9 @@ real world you might send the exception to another service.
 >         Test -> object ["error" .= showError x]
 >   json o
 {% endhighlight %}
+
+Actions
+---
 
 At long last we can get to the meat of our application: the actions. This is
 where all of your business logic lives. Since Hairy is just a basic CRUD app,
@@ -568,6 +618,9 @@ such task, it returns 200 anyway. In either case, `null` is returned.
 >   runDB (DB.delete (toKey i :: TaskId))
 >   json Null
 {% endhighlight %}
+
+Utilities
+---
 
 That wraps up the business logic. We only have a couple things to attend to. We
 used `toKey`, a helper function that converts a request parameter into a
