@@ -3,11 +3,20 @@ title: Building a JSON REST API with Haskell
 layout: post
 ---
 
-This is a Literate Haskell file. Assuming you have [the dependencies][], you should be able to run it with this command:
+I spent the last couple weeks building a JSON REST API in Haskell. I called it
+Hairy. It's available [on GitHub][] and [on Hackage][]. I learned a lot in the
+process and wanted to share what I learned. I also wanted to put my code out
+there to see what I could do better. Patches welcome!
+
+This is a Literate Haskell file. Only lines that start with `>` are program
+code. Assuming you have [the dependencies][], you should be able to run it with
+this command:
 
 {% highlight sh %}
 $ runhaskell -optL -q this-post.lhs Hairy/Models.hs
 {% endhighlight %}
+
+Without any further ado, let's get to it!
 
 - [Boilerplate](#boilerplate)
 - [Main](#main)
@@ -26,40 +35,39 @@ $ runhaskell -optL -q this-post.lhs Hairy/Models.hs
 Boilerplate
 ---
 
-Before we can begin, we need to enable a few language extensions.
+Before we can begin, we need to enable a few language extensions. The first
+allows string literals (like `"cheese"`) to represent string-like types such as
+Text`. It's not strictly required since you can accomplish the same thing using
+`pack`. But it's so convenient that it's hard to live without.
 
 {% highlight hs %}
 > {-# LANGUAGE OverloadedStrings #-}
 {% endhighlight %}
 
-This extension allows string literals (like `"cheese"`) to represent string-like
-types such as `ByteString` and `Text`. It's not strictly required since you
-could do the same thing using `pack`, for instance. But it's so convenient that
-it's hard to live without.
+These next couple are a little harder to explain, so I'll hold off doing that
+until we use them.
 
 {% highlight hs %}
 > {-# LANGUAGE FlexibleContexts #-}
 > {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {% endhighlight %}
 
-These are a little harder to explain, so instead I'll explain them when they're
-used.
-
-After that, we have to let GHC know that our module is called `Hairy`, not
-`Main` like it would otherwise assume.
+Now that we've enabled the language extensions that we need, we have to let GHC
+know that our module is called `Hairy`. If we didn't do this, it would assume
+it's called `Main`.
 
 {% highlight hs %}
 > module Hairy where
 {% endhighlight %}
 
-Imports make up the last bit of the preamble. These are a little overly-specific
-in order to make it easier to see where everything came from. In the real world
-you might import everything from, say, `Web.Scotty.Trans` instead of explicitly
-listing everything you needed from it.
+Imports make up the last bit of the boilerplate. These are a little
+overly-specific in order to make it easier to see where everything comes from.
+In the real world you might import everything from `Web.Scotty.Trans` instead of
+explicitly listing the things you need from it.
 
-For the most part, you don't have to worry about these imports. If you're
-curious about something later on, come back up here to see where it's imported
-from. Then look it up on Hackage.
+For the most part, you shouldn't worry about these. If you're curious about
+something later on, come back up here to see where it's imported from. Then look
+it up on Hackage.
 
 {% highlight hs %}
 > import Control.Applicative (Applicative)
@@ -90,7 +98,10 @@ from. Then look it up on Hackage.
 >   showError, status, verbose)
 {% endhighlight %}
 
-This next import is special. If you're following along at home, you'll need to create a folder called `Hairy` and put [`Models.hs`][] in it.
+This next import is special. If you're following along at home, you'll need to
+create a folder called `Hairy` and put [`Models.hs`][] in it. I didn't include
+the models in this file because I couldn't get the Template Haskell to play
+nicely with the Literate Haskell.
 
 {% highlight hs %}
 > import Hairy.Models (Task, TaskId, migrateAll)
@@ -99,8 +110,8 @@ This next import is special. If you're following along at home, you'll need to c
 Main
 ---
 
-With all that out of the way, we can start on the actual program itself. The
-top-level entry point, `main`, only has two responsibilities: get the current
+With all that out of the way, we can start on the program itself. The top-level
+entry point, `main`, only has two responsibilities: get the current
 configuration and run the application with that configuration.
 
 {% highlight hs %}
@@ -135,10 +146,9 @@ those, we create a new `Config` value with the environment and pool.
 >     }
 {% endhighlight %}
 
-The data type for `Config` is pretty simple. It has two fields: one for the
-environment and one for the database connection pool. We'll define another data
-type for the environment, and we're using Persistent's `ConnectionPool` for the
-database connection pool.
+The data type for `Config` is pretty simple. It has two fields. The first is the
+environment, which uses a data type we'll define shortly. The second is
+Persistent's `ConnectionPool`.
 
 {% highlight hs %}
 > data Config = Config
@@ -160,6 +170,7 @@ hairy: Prelude.read: no parse
 {% endhighlight %}
 
 If we wanted to handle it more gracefully, we could use `Text.Read.readMaybe`.
+However I'm ok with the exception here.
 
 {% highlight hs %}
 > getEnvironment :: IO Environment
@@ -192,15 +203,18 @@ particular needs.
 >   deriving (Eq, Read, Show)
 {% endhighlight %}
 
+The only instance we need to derive is `Read`. `Show` is handy for debugging and
+error reporting. `Eq` is useful if you want to do different things based on the
+environment without pattern matching.
+
 Database
 ---
 
-With all the environment stuff out of the way, let's take a look at the database
-connection pool. It will be used by the application to make database queries, so
-it's responsible for configuring the database itself. That means logging,
-connection parameters, and pool size. To start, the top-level function gets the
-connection parameters and pool size, then determines which kind of logging to
-use.
+Next let's take a look at the database connection pool. It will be used by the
+application to make database queries, so it's responsible for configuring the
+database itself. That means logging, connection parameters, and pool size. To
+start, the top-level function gets the connection parameters and pool size, then
+determines which kind of logging to use.
 
 {% highlight hs %}
 > getPool :: Environment -> IO DB.ConnectionPool
@@ -235,18 +249,15 @@ Unfortunately the type system won't allow it. `runStdoutLoggingT` and
 `runNoLoggingT` work on different monad transformers. `createPostgresqlPool` is
 fine with either of them, but it can't accept both simultaneously.
 
-Just like we looked up the environment through `SCOTTY_ENV`, we're going to look
-up the database connection parameters through `DATABASE_URL`. It's expected to
-look like this: `postgres://user:pass@host:port/db`. If it doesn't look like
-that, we'll blow up.
+Anyway, just as we looked up the environment through `SCOTTY_ENV`, we're going
+to look up the database connection parameters through `DATABASE_URL`. It's
+expected to look like this: `postgres://user:pass@host:port/db`. If it doesn't
+look like that, we'll blow up.
 
 {% highlight sh %}
 $ env DATABASE_URL=not-a-database-url cabal run
 hairy: couldn't parse absolute uri
 {% endhighlight %}
-
-If it's not given at all, we'll fall back to using a hard-coded default based on
-the environment.
 
 {% highlight hs %}
 > getConnectionString :: Environment -> IO DB.ConnectionString
@@ -258,7 +269,8 @@ the environment.
 >   return s
 {% endhighlight %}
 
-These are the default connection parameters per environment.
+If it's not given at all, we'll fall back to using a hard-coded default based on
+the environment.
 
 {% highlight hs %}
 > getDefaultConnectionString :: Environment -> DB.ConnectionString
@@ -275,9 +287,9 @@ These are the default connection parameters per environment.
 >         ]
 {% endhighlight %}
 
-This function converts a list of text tuples into a database connection string,
-which is a byte string. It joins each tuple with an equals sign and then joins
-each element in the list with a space.
+We used a utility function that converts a list of text tuples into a database
+connection string, which is byte string. It joins each tuple with an equals sign
+and then joins each element in the list with a space.
 
 {% highlight hs %}
 createConnectionString [("k1", "v1"), ("k2", "v2")]
@@ -285,7 +297,8 @@ createConnectionString [("k1", "v1"), ("k2", "v2")]
 {% endhighlight %}
 
 This is necessary to convert what `Web.Heroku.parseDatabaseUrl` gives us into
-something that Persistent can understand.
+something that Persistent can understand. It also makes our definition of
+`getDefaultConnectionString` easier to read.
 
 {% highlight hs %}
 > createConnectionString
@@ -322,9 +335,9 @@ get the options for Scotty and set up a runner for reading the configuration.
 {% endhighlight %}
 
 This takes Scotty's monad `m` and adds the ability to read our custom config `c`
-from it. This is called a monad transformer stack. It allows us to use any monad
-in the stack. So after layering on our config reader monad, we can both deal
-with requests using Scotty's monad and read our config using our monad.
+from it. This is called a [monad transformer stack][]. It allows us to use any
+monad in the stack. So after adding our reader monad, we can both deal with
+requests (using Scotty's monad) and read our config (using our monad).
 
 {% highlight hs %}
 >   let r m = runReaderT (runConfigM m) c
@@ -364,7 +377,7 @@ only has two fields, so there's not a lot for us to do here.
 {% endhighlight %}
 
 I explicitly listed all of the environments here to ensure that I got all of
-them. In the real world you might do something like this instead:
+them. In the real world you might use a wildcard match.
 
 {% highlight hs %}
 verbose = case e of
@@ -372,7 +385,8 @@ verbose = case e of
   _ -> 0
 {% endhighlight %}
 
-Or, if you're feeling particularly witty:
+Or you can accomplish the same thing on a single line. (This uses the `Eq`
+instance we derived for `Environment`.)
 
 {% highlight hs %}
 verbose = fromEnum (e == Development)
@@ -384,8 +398,8 @@ Settings
 Most of the real options are in Wai's settings. The defaults are good for most
 of them, but we want to make two changes. First, we need to remove the file
 cache so that static file changes will be picked up. We only want to do this in
-development since static files should be static in other environments. Then we
-want to use the port in the `PORT` environment variable, if it's available.
+development since static files should be static in other environments. Then if
+the `PORT` environment variable exists, we want to use it to set the port.
 
 {% highlight hs %}
 > getSettings :: Environment -> IO Settings
@@ -395,7 +409,7 @@ want to use the port in the `PORT` environment variable, if it's available.
 
 Here I'm using primes (`'`) to mark altered versions of the settings. There are
 probably better ways to do this type of modification, but this works and is
-straighforward.
+fairly straightforward.
 
 {% highlight hs %}
 >       s' = case e of
@@ -466,11 +480,12 @@ run the migrations first.
 
 `runDB` is a utility function we'll define a little later. It basically lifts a
 database operation into the current Scotty monad. `migrateAll` comes from
-`Hairy.Models` and is generated by Persistent using Template Haskell.
+`Hairy.Models` and is generated by Persistent's `mkMigrate` Template Haskell
+function.
 
 Now that the database has been migrated, we can set up middleware and exception
 handlers. Both of them depend on the environment, so we have to get that from
-our config reader monad first.
+our reader monad first.
 
 {% highlight hs %}
 >   e <- lift (asks environment)
@@ -499,13 +514,10 @@ found action.
 That's it! As your application grows you'll add more routes and middleware, but
 the basic structure shouldn't change too much.
 
-Middleware
----
-
 Let's take a look at that `runDB` helper we used. It takes a SQL query `q` and
-runs it inside our monad transformer stack. It does this by asking the config
-reader for the database connection pool, then running the query with that pool
-in the IO monad.
+runs it inside our monad transformer stack. It does this by asking the reader
+monad for the database connection pool, then running the query with that pool in
+the IO monad.
 
 {% highlight hs %}
 > runDB :: (MonadTrans t, MonadIO (t ConfigM)) =>
@@ -514,6 +526,9 @@ in the IO monad.
 >   p <- lift (asks pool)
 >   liftIO (DB.runSqlPool q p)
 {% endhighlight %}
+
+Middleware
+---
 
 Up next is the logging middleware. In development we want colorful multiline
 logs flushed every request. In production we want plain log lines flushed
@@ -536,7 +551,7 @@ repeat ourselves over and over again.
 
 Since our default exception handler handles uncaught exceptions in our
 application, we want it print out the exceptions in development but swallow them
-in production (we don't really care what happens to them in testing). In the
+in production. We don't really care what happens to them in testing. In the
 real world you might send the exception to another service.
 
 {% highlight hs %}
@@ -555,8 +570,9 @@ Actions
 
 At long last we can get to the meat of our application: the actions. This is
 where all of your business logic lives. Since Hairy is just a basic CRUD app,
-there's not a lot going on here. This action gets all the tasks from the
-database and renders them as JSON.
+there's not a lot going on here.
+
+This action gets all the tasks from the database and renders them as JSON.
 
 {% highlight hs %}
 > getTasksA :: Action
@@ -570,8 +586,8 @@ valid, an exception will be raised. That means in development you'll get a
 helpful error message, but in production you'll get a blank 500.
 
 {% highlight sh %}
-$ curl -X POST localhost:3000/tasks -d 'not valid json'
-{"error":"jsonData - no parse: not valid json"}
+$ curl -X POST localhost:3000/tasks -d not-json
+{"error":"jsonData - no parse: not-json"}
 {% endhighlight %}
 
 {% highlight hs %}
@@ -622,17 +638,18 @@ such task, it returns 200 anyway. In either case, `null` is returned.
 Utilities
 ---
 
-That wraps up the business logic. We only have a couple things to attend to. We
-used `toKey`, a helper function that converts a request parameter into a
+That wraps up the business logic. We only have a couple other things to attend
+to. We used `toKey`, a helper function that converts a request parameter into a
 database key. It allows us to query for stuff from the database using request
 parameters.
 
-This helper function requires the FlexibleContexts language extension, although
-I can't really tell you why. If you don't have it, GHC complains. If you do have
-it, everything works fine.
+This helper function requires the `FlexibleContexts` language extension,
+although I can't really tell you why. If you don't have it, GHC complains. If
+you do have it, everything works fine.
 
 {% highlight hs %}
-> toKey :: DB.ToBackendKey DB.SqlBackend a => Integer -> DB.Key a
+> toKey :: DB.ToBackendKey DB.SqlBackend a =>
+>   Integer -> DB.Key a
 > toKey i = DB.toSqlKey (fromIntegral (i :: Integer))
 {% endhighlight %}
 
@@ -651,5 +668,17 @@ REST API with some CRUD actions. It's all backed by a database and can be
 configured to run in development mode on your machine or in production on
 Heroku.
 
+I used a few excellent resources while working on this post, including:
+
+- [Making A Website With Haskell][] by Aditya Bhargava
+- [Hello Scotty][] by Miëtek Bak
+- [Persistent][] by Michael Snoyman
+
+[on github]: https://github.com/tfausak/hairy
+[on hackage]: http://hackage.haskell.org/package/hairy
 [the dependencies]: https://github.com/tfausak/hairy/blob/22145de/hairy.cabal#L31-L47
 [`Models.hs`]: https://github.com/tfausak/hairy/blob/22145de/library/Hairy/Models.hs
+[monad transformer stack]: http://book.realworldhaskell.org/read/monad-transformers.html
+[making a website with haskell]: http://adit.io/posts/2013-04-15-making-a-website-with-haskell.html
+[hello scotty]: https://github.com/mietek/haskell-on-heroku-examples/tree/master/hello-scotty
+[persistent]: http://www.yesodweb.com/book/persistent
