@@ -1,6 +1,5 @@
 ---
-title: Building a JSON REST API with Haskell
-layout: post
+title: Building a JSON REST API in Haskell
 ---
 
 I spent the last couple weeks building a JSON REST API in Haskell. I called it
