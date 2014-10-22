@@ -7,6 +7,35 @@ Hairy. It's available [on GitHub][1] and [on Hackage][2]. I learned a lot in the
 process and wanted to share what I learned. I also wanted to put my code out
 there to see what I could do better. Patches welcome!
 
+Before we dive into the code, let's take a look at what we'll end up with.
+Assuming you're running it on port 3000, which is the default, here's what some
+CRUD actions look like.
+
+{% highlight sh %}
+$ http post :3000/tasks \
+  content='Do something!' created='2014-10-21T00:00:00Z'
+{ "content": "Do something!"
+, "created": "2014-10-21T00:00:00.000Z"
+}
+$ http :3000/tasks
+[ { "content": "Do something!"
+  , "created": "2014-10-21T00:00:00.000Z"
+  , "id": 2
+  }
+]
+$ http :3000/tasks/2
+{ "content": "Do something!"
+, "created": "2014-10-21T00:00:00.000Z"
+}
+$ http put :3000/tasks/2 \
+  content='Do something else!' created='2014-10-21T00:00:00Z'
+{ "content": "Do something else!"
+, "created": "2014-10-21T00:00:00.000Z"
+}
+$ http delete :3000/tasks/2
+null
+{% endhighlight %}
+
 This is a Literate Haskell file. Only lines that start with `>` are program
 code. Assuming you have [the dependencies][3], you should be able to run it with
 this command:
