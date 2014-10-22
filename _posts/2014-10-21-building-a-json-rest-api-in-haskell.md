@@ -65,7 +65,7 @@ Boilerplate
 
 Before we can begin, we need to enable a few language extensions. The first
 allows string literals (like `"cheese"`) to represent string-like types such as
-Text`. It's not strictly required since you can accomplish the same thing using
+`Text`. It's not strictly required since you can accomplish the same thing using
 `pack`. But it's so convenient that it's hard to live without.
 
 {% highlight hs %}
