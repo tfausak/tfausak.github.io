@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'github-pages', '29', require: false
+gem 'github-pages', '31', require: false
 
 group :test do
-  gem 'rake', '~> 10.3', require: false
+  gem 'rake', '~> 10.4', require: false
 end
