@@ -10,7 +10,7 @@ You'll need [Ruby][2] and [Bundler][3].
 $ git clone https://github.com/tfausak/tfausak.github.io.git
 $ cd tfausak.github.io
 $ bundle install
-$ bundle exec jekyll serve --drafts --future --watch
+$ bundle exec rake serve
 # http://localhost:4000
 ```
 
