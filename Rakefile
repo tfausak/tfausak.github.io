@@ -12,7 +12,7 @@ end
 
 desc 'Remove assets'
 task :clean do
-  sh(*%w(rm --force --recursive
+  sh(*%w(rm -f -r
     _site/
     static/images/apple-touch-icon-114x114.png
     static/images/apple-touch-icon-120x120.png
