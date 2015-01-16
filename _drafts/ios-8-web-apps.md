@@ -13,11 +13,6 @@ Past posts:
 
 supports ios >=3, any iphone and any ipad
 
-- [Configuration](#configuration)
-- [Icons](#icons)
-- [Startup images](#startup-images)
-- [Hacks](#hacks)
-
 ## Configuration
 
 <https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html>
@@ -56,15 +51,15 @@ supports ios >=3, any iphone and any ipad
 ## Icons
 
 - you need seven:
-  1. 76@2x for ipad retina >= ios 7
-  2. 72@2x for ipad retina < ios 7
+  1. 76@2x (152) for ipad retina >= ios 7
+  2. 72@2x (144) for ipad retina < ios 7
   3. 76 for ipad >= ios 7
   4. 72 for ipad < ios 7
-  5. 60@3x for iphone 6 plus
-  6. 57@2x for iphone retina < ios 7
+  5. 60@3x (180) for iphone 6 plus
+  6. 57@2x (114) for iphone retina < ios 7
   7. 57 for iphone < ios 7
 - you *don't* need:
-  1. 60@2x for iphone retina >= ios 7 because there's no way to differentiate it from the 6 plus, which is higher resolution
+  1. 60@2x (120) for iphone retina >= ios 7 because there's no way to differentiate it from the 6 plus, which is higher resolution
   2. 60 for iphone >= ios 7 because there are no such devices
 - precomposed vs not
   - prefers precomposed if both given
@@ -74,23 +69,23 @@ supports ios >=3, any iphone and any ipad
 ## Startup images
 
 - you need ten:
-  1. ipad retina portrait
-  2. ipad retina landscape
-  3. ipad portrait
-  4. ipad landscape
-  5. iphone 6 plus portrait
-  6. iphone 6 plus landscape
-  7. iphone 6 retina portrait
-  8. iphone 5 retina portrait
-  9. iphone retina portrait
-  10. iphone portrait
+  1. ipad retina portrait (768x1004@2x / 1536x2008)
+  2. ipad retina landscape (748x1024@2x / 1496x2048)
+  3. ipad portrait (768x1004)
+  4. ipad landscape (748x1024)
+  5. iphone 6 plus portrait (414x716@3x / 1242x2148)
+  6. iphone 6 plus landscape (394x736@3x / 1182x2208)
+  7. iphone 6 retina portrait (375x647@2x / 750x1294)
+  8. iphone 5 retina portrait (320x548@2x / 640x1096)
+  9. iphone retina portrait (320x460@2x / 640x920)
+  10. iphone portrait (320x460)
 - you *don't* need:
   1. landscape for non plus iphones because they can't start in that orientation
   2. iphone 5 or 6 form factor non-retina because no such devices exist
 - requires web app capable
 - landscape images are rotated 90 degrees clockwise
-- stretched on ios 7. deal with it.
-  - fixed in ios 8
+- start stretched on ios 7 and pop under the status bar
+  - in ios 8 it doesnt pop any more, but the resolution is still shorter than it should be
 - defaults to plain white
 - doesn't try anything automatically
 - last one is fallback
