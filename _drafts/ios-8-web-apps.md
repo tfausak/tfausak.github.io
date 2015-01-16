@@ -3,19 +3,27 @@ title: iOS 8 web apps
 layout: post
 ---
 
-[example](/static/pages/YYYY-MM-DD-ios-8-web-app.html)
+Apple released the iPhone 6 and 6 Plus a few months ago.
+They also released iOS 8 along with it.
+Unfortunately they didn't update [their web app documentation][] at the same time.
+That leaves the officials docs woefully out of date.
 
-Past posts:
+Apple has done this in the past.
+I filled in the gaps for configuring web apps with [iOS 7][], [iOS 6][], and [iOS 5][].
+This post will do the same for iOS 8.
+But instead of making you flip between four guides,
+I've put everything here.
+This information works for all versions of iOS on all iPhones, iPads, and iPod Touches.
 
-- [iOS 5]({% post_url 2012-03-27-ios-web-app-icons-and-startup-images %})
-- [iOS 6]({% post_url 2012-09-20-iphone-5-web-app-startup-image %})
-- [iOS 7]({% post_url 2013-11-01-ios-7-web-apps %})
+Check out [my example web app][] on an iOS device to see the finished product.
 
-supports ios >=3, any iphone and any ipad
+[their web app documentation]: https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3
+[ios 5]: {% post_url 2012-03-27-ios-web-app-icons-and-startup-images %}
+[ios 6]: {% post_url 2012-09-20-iphone-5-web-app-startup-image %}
+[ios 7]: {% post_url 2013-11-01-ios-7-web-apps %}
+[my example web app]: /static/pages/YYYY-MM-DD-ios-8-web-app.html
 
 ## Configuration
-
-<https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html>
 
 ### apple-mobile-web-app-capable
 
