@@ -3,25 +3,19 @@ title: iOS 8 web apps
 layout: post
 ---
 
-Apple released the iPhone 6 and 6 Plus a few months ago.
-They also released iOS 8 along with it.
-Unfortunately they didn't update [their web app documentation][] at the same time.
-That leaves the official docs woefully out of date.
+Apple released the iPhone 6 and 6 Plus a few months ago. They also
+released iOS 8 along with it. Unfortunately they didn't update
+[their web app documentation][1] at the same time. That leaves the
+official docs woefully out of date.
 
-Apple has done this in the past.
-I filled in the gaps for configuring web apps with [iOS 7][], [iOS 6][], and [iOS 5][].
-This post will do the same for iOS 8.
-But instead of making you flip between four guides,
-I've put everything here.
-This information works for all versions of iOS on all iPhones, iPads, and iPod Touches.
+Apple has done this in the past. I filled in the gaps for configuring
+web apps with [iOS 7][2], [iOS 6][3], and [iOS 5][4]. This post
+will do the same for iOS 8. But instead of making you flip between
+four guides, I've put everything here.
 
-Check out [my example web app][] on an iOS device to see the finished product.
-
-[their web app documentation]: https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3
-[ios 5]: {% post_url 2012-03-27-ios-web-app-icons-and-startup-images %}
-[ios 6]: {% post_url 2012-09-20-iphone-5-web-app-startup-image %}
-[ios 7]: {% post_url 2013-11-01-ios-7-web-apps %}
-[my example web app]: /static/pages/YYYY-MM-DD-ios-8-web-app.html
+This information works for all versions of iOS on all iPhones,
+iPads, and iPod Touches. Check out [my example web app][5] on an
+iOS device to see the finished product.
 
 ## Configuration
 
@@ -32,8 +26,8 @@ Check out [my example web app][] on an iOS device to see the finished product.
       content="yes">
 {% endhighlight %}
 
-This tag allows the page to be run full screen.
-Note that this only works when it has been added to the home screen.
+This tag allows the page to be run full screen. Note that this only
+works when it has been added to the home screen.
 
 ### `apple-mobile-web-app-title`
 
@@ -42,9 +36,8 @@ Note that this only works when it has been added to the home screen.
       content="iOS Web App">
 {% endhighlight %}
 
-This tag sets a custom title.
-If it's missing, iOS will use the `<title>` tag.
-If that is missing too, it will default to "Favorites".
+This tag sets a custom title. If it's missing, iOS will use the
+`<title>` tag. If that is missing too, it will default to "Favorites".
 This is limited to about 8 to 12 characters.
 
 ### `apple-mobile-web-app-status-bar-style`
@@ -54,12 +47,12 @@ This is limited to about 8 to 12 characters.
       content="black">
 {% endhighlight %}
 
-This tag changes the color of the status bar.
-There are three options: `default`, `black`, and `black-translucent`.
-The best bet for maximum compatibility is `black`;
-`default` and `black-translucent` behave differently between iOS 6 and 7.
-(Sometimes on iOS 7+, the status bar starts as white-on-white or black-on-black.
-Restarting the web app fixes this problem.)
+This tag changes the color of the status bar. There are three
+options: `default`, `black`, and `black-translucent`. The best bet
+for maximum compatibility is `black`; `default` and `black-translucent`
+behave differently between iOS 6 and 7. (Sometimes on iOS 7+, the
+status bar starts as white-on-white or black-on-black. Restarting
+the web app fixes this problem.)
 
 ### `viewport`
 
@@ -68,12 +61,12 @@ Restarting the web app fixes this problem.)
       content="initial-scale=1">
 {% endhighlight %}
 
-This tag sets the size of the browser's viewport.
-That means it determines how wide the virtual window is.
-By setting `initial-scale` to 1, the virtual window will be the same size as the physical device.
-That makes it the only setting you need here.
-Other settings, like `device-width` just cause trouble.
-(In particular, `device-width=320` will cause letterboxing on iOS 7+.)
+This tag sets the size of the browser's viewport. That means it
+determines how wide the virtual window is. By setting `initial-scale`
+to 1, the virtual window will be the same size as the physical
+device. That makes it the only setting you need here. Other settings,
+like `device-width` just cause trouble. (In particular, `device-width=320`
+will cause letterboxing on iOS 7+.)
 
 {% highlight html %}
 <!-- Only for web apps pretending to be native. -->
@@ -81,9 +74,9 @@ Other settings, like `device-width` just cause trouble.
       content="initial-scale=1,minimum-scale=1,maximum-scale=1">
 {% endhighlight %}
 
-If you want to pretend like you're a native app,
-set `minimum-scale=1` and `maximum-scale=1`.
-Be warned that this means users can't scale your app at all.
+If you want to pretend like you're a native app, set `minimum-scale=1`
+and `maximum-scale=1`. Be warned that this means users can't scale
+your app at all.
 
 ### `format-detection`
 
@@ -137,16 +130,20 @@ You'll need seven icon sizes:
 -   144x144 (57@2x) for iPhone retina on iOS 6
 -   57x57 for iPhone on iOS 6
 
-There are two icon sizes you might think you need but actually don't:
+There are two icon sizes you might think you need but actually
+don't:
 
--   120x120 (60@x) for iPhone retina on iOS 7+: There's no way to tell this apart from the 60@3x icon for the iPhone 6 Plus.
--   60x60 for iPhone on iOS 7+: There are no devices that support this combination.
+-   120x120 (60@x) for iPhone retina on iOS 7+: There's no way to
+    tell this apart from the 60@3x icon for the iPhone 6 Plus.
+-   60x60 for iPhone on iOS 7+: There are no devices that support
+    this combination.
 
-If you set the `rel` to `apple-touch-icon` instead of `apple-touch-icon-precomposed`, iOS 6 will apply a glossy icon finish.
-For consistency with iOS 7+, use precomposed icons.
+If you set the `rel` to `apple-touch-icon` instead of
+`apple-touch-icon-precomposed`, iOS 6 will apply a glossy icon
+finish. For consistency with iOS 7+, use precomposed icons.
 
-By default, the icon is a screenshot of the page.
-If there are no icon tags, Safari will try the following URLs:
+By default, the icon is a screenshot of the page. If there are no
+icon tags, Safari will try the following URLs:
 
 1.  `/apple-touch-icon-180x180-precomposed.png`
 2.  `/apple-touch-icon-180x180.png`
@@ -229,28 +226,28 @@ You'll need ten startup image sizes:
 -   640x920 (320x460@2x) for iPhone retina
 -   320x460 for iPhone
 
-Note that you only need portrait and landscape images for iPads and the iPhone 6 Plus.
-All other iPhones only start web apps in portrait.
+Note that you only need portrait and landscape images for iPads and
+the iPhone 6 Plus. All other iPhones only start web apps in portrait.
 
-In order for these to work, your web app must be `apple-mobile-web-app-capable`.
-They will only show up when launching your web app from the home screen.
+In order for these to work, your web app must be
+`apple-mobile-web-app-capable`. They will only show up when launching
+your web app from the home screen.
 
-Unlike icons, startup images don't have a default.
-If you don't provide one, the screen will be plain white.
-And Safari doesn't try anything automatically.
-You have to add the meta tags.
+Unlike icons, startup images don't have a default. If you don't
+provide one, the screen will be plain white. And Safari doesn't try
+anything automatically. You have to add the meta tags.
 
-Landscape images aren't actually in landscape;
-they're taller than they are wide.
-They should be rotated 90 degrees clockwise from their correct orientation.
+Landscape images aren't actually in landscape; they're taller than
+they are wide. They should be rotated 90 degrees clockwise from
+their correct orientation.
 
-On iOS 7+, startup images are stretched when the app launches.
-On iOS 7, the image pops under the status bar once the app loads.
-Unfortunately there's no way to provide a startup image with the correct dimensions.
-It will always be stretched on iOS 7+.
+On iOS 7+, startup images are stretched when the app launches. On
+iOS 7, the image pops under the status bar once the app loads.
+Unfortunately there's no way to provide a startup image with the
+correct dimensions. It will always be stretched on iOS 7+.
 
-That being said, startup images must be the exact resolution listed here.
-Safari will not perform any scaling.
+That being said, startup images must be the exact resolution listed
+here. Safari will not perform any scaling.
 
 ## Hacks
 
@@ -262,4 +259,11 @@ Safari will not perform any scaling.
 </style>
 {% endhighlight %}
 
-This style prevents fonts from getting bigger when rotating to landscape.
+This style prevents fonts from getting bigger when rotating to
+landscape.
+
+[1]: https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3
+[2]: {% post_url 2013-11-01-ios-7-web-apps %}
+[3]: {% post_url 2012-09-20-iphone-5-web-app-startup-image %}
+[4]: {% post_url 2012-03-27-ios-web-app-icons-and-startup-images %}
+[5]: /static/pages/YYYY-MM-DD-ios-8-web-app.html
