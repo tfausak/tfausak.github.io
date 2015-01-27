@@ -210,7 +210,7 @@ The exact dimensions will depend on the device.
       media="(device-width: 320px) and (device-height: 480px)
              and (-webkit-device-pixel-ratio: 1)"
       rel="apple-touch-startup-image">
-{% highlight html %}
+{% endhighlight %}
 
 You'll need ten startup image sizes:
 
