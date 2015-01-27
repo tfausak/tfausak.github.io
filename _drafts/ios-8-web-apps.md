@@ -129,18 +129,18 @@ This tag prevents Safari from automatically linking phone numbers.
 
 You'll need seven icon sizes:
 
-- 152x152 (76@2x) for iPad retina on iOS 7+
-- 144x144 (72@2x) for iPad retina on iOS 6
-- 76x76 for iPad on iOS 7+
-- 72x72 for iPad on iOS 6
-- 180x180 (60@3x) for iPhone 6 Plus
-- 144x144 (57@2x) for iPhone retina on iOS 6
-- 57x57 for iPhone on iOS 6
+-   152x152 (76@2x) for iPad retina on iOS 7+
+-   144x144 (72@2x) for iPad retina on iOS 6
+-   76x76 for iPad on iOS 7+
+-   72x72 for iPad on iOS 6
+-   180x180 (60@3x) for iPhone 6 Plus
+-   144x144 (57@2x) for iPhone retina on iOS 6
+-   57x57 for iPhone on iOS 6
 
 There are two icon sizes you might think you need but actually don't:
 
-- 120x120 (60@x) for iPhone retina on iOS 7+: There's no way to tell this apart from the 60@3x icon for the iPhone 6 Plus.
-- 60x60 for iPhone on iOS 7+: There are no devices that support this combination.
+-   120x120 (60@x) for iPhone retina on iOS 7+: There's no way to tell this apart from the 60@3x icon for the iPhone 6 Plus.
+-   60x60 for iPhone on iOS 7+: There are no devices that support this combination.
 
 If you set the `rel` to `apple-touch-icon` instead of `apple-touch-icon-precomposed`, iOS 6 will apply a glossy icon finish.
 For consistency with iOS 7+, use precomposed icons.
@@ -159,85 +159,98 @@ The exact dimensions will depend on the device.
 
 {% highlight html %}
 <!-- iPad retina portrait startup image -->
-<link href="/static/images/apple-touch-startup-image-1536x2008.png"
+<link href="apple-touch-startup-image-1536x2008.png"
       media="(device-width: 768px) and (device-height: 1024px)
              and (-webkit-device-pixel-ratio: 2)
              and (orientation: portrait)"
       rel="apple-touch-startup-image">
 <!-- iPad retina landscape startup image -->
-<link href="/static/images/apple-touch-startup-image-1496x2048.png"
+<link href="apple-touch-startup-image-1496x2048.png"
       media="(device-width: 768px) and (device-height: 1024px)
              and (-webkit-device-pixel-ratio: 2)
              and (orientation: landscape)"
       rel="apple-touch-startup-image">
 <!-- iPad non-retina portrait startup image -->
-<link href="/static/images/apple-touch-startup-image-768x1004.png"
+<link href="apple-touch-startup-image-768x1004.png"
       media="(device-width: 768px) and (device-height: 1024px)
              and (-webkit-device-pixel-ratio: 1)
              and (orientation: portrait)"
       rel="apple-touch-startup-image">
 <!-- iPad non-retina landscape startup image -->
-<link href="/static/images/apple-touch-startup-image-748x1024.png"
+<link href="apple-touch-startup-image-748x1024.png"
       media="(device-width: 768px) and (device-height: 1024px)
              and (-webkit-device-pixel-ratio: 1)
              and (orientation: landscape)"
       rel="apple-touch-startup-image">
 <!-- iPhone 6 Plus portrait startup image -->
-<link href="/static/images/apple-touch-startup-image-1242x2148.png"
+<link href="apple-touch-startup-image-1242x2148.png"
       media="(device-width: 414px) and (device-height: 736px)
              and (-webkit-device-pixel-ratio: 3)
              and (orientation: portrait)"
       rel="apple-touch-startup-image">
 <!-- iPhone 6 Plus landscape startup image -->
-<link href="/static/images/apple-touch-startup-image-1182x2208.png"
+<link href="apple-touch-startup-image-1182x2208.png"
       media="(device-width: 414px) and (device-height: 736px)
              and (-webkit-device-pixel-ratio: 3)
              and (orientation: landscape)"
       rel="apple-touch-startup-image">
-<!-- iPhone 6 portrait startup image -->
-<link href="/static/images/apple-touch-startup-image-750x1294.png"
+<!-- iPhone 6 startup image -->
+<link href="apple-touch-startup-image-750x1294.png"
       media="(device-width: 375px) and (device-height: 667px)
              and (-webkit-device-pixel-ratio: 2)"
       rel="apple-touch-startup-image">
-<!-- iPhone retina portrait startup image -->
-<link href="/static/images/apple-touch-startup-image-640x1096.png"
+<!-- iPhone 5 startup image -->
+<link href="apple-touch-startup-image-640x1096.png"
       media="(device-width: 320px) and (device-height: 568px)
              and (-webkit-device-pixel-ratio: 2)"
       rel="apple-touch-startup-image">
-<!-- iPhone < 5 retina portrait startup image -->
-<link href="/static/images/apple-touch-startup-image-640x920.png"
+<!-- iPhone < 5 retina startup image -->
+<link href="apple-touch-startup-image-640x920.png"
       media="(device-width: 320px) and (device-height: 480px)
              and (-webkit-device-pixel-ratio: 2)"
       rel="apple-touch-startup-image">
-<!-- iPhone < 5 non-retina portrait startup image -->
-<link href="/static/images/apple-touch-startup-image-320x460.png"
+<!-- iPhone < 5 non-retina startup image -->
+<link href="apple-touch-startup-image-320x460.png"
       media="(device-width: 320px) and (device-height: 480px)
              and (-webkit-device-pixel-ratio: 1)"
       rel="apple-touch-startup-image">
 {% highlight html %}
 
-- you need ten:
-  1. ipad retina portrait (768x1004@2x / 1536x2008)
-  2. ipad retina landscape (748x1024@2x / 1496x2048)
-  3. ipad portrait (768x1004)
-  4. ipad landscape (748x1024)
-  5. iphone 6 plus portrait (414x716@3x / 1242x2148)
-  6. iphone 6 plus landscape (394x736@3x / 1182x2208)
-  7. iphone 6 retina portrait (375x647@2x / 750x1294)
-  8. iphone 5 retina portrait (320x548@2x / 640x1096)
-  9. iphone retina portrait (320x460@2x / 640x920)
-  10. iphone portrait (320x460)
-- you *don't* need:
-  1. landscape for non plus iphones because they can't start in that orientation
-  2. iphone 5 or 6 form factor non-retina because no such devices exist
-- requires web app capable
-- landscape images are rotated 90 degrees clockwise
-- start stretched on ios 7 and pop under the status bar
-  - in ios 8 it doesnt pop any more, but the resolution is still shorter than it should be
-- defaults to plain white
-- doesn't try anything automatically
-- last one is fallback
-- must be the exact resolution - no scaling
+You'll need ten startup image sizes:
+
+-   1536x2008 (768x1004@2x) for iPad retina portrait
+-   1496x2048 (748x1024@2x) for iPad retina landscape
+-   768x1004 for iPad portrait
+-   748x1024 for iPad landscape
+-   1242x2148 (414x716@3x) for iPhone 6 Plus portrait
+-   1182x2208 (394x736@3x) for iPhone 6 Plus landscape
+-   750x1294 (375x647@2x) for iPhone 6
+-   640x1096 (320x548@2x) for iPhone 5
+-   640x920 (320x460@2x) for iPhone retina
+-   320x460 for iPhone
+
+Note that you only need portrait and landscape images for iPads and the iPhone 6 Plus.
+All other iPhones only start web apps in portrait.
+
+In order for these to work, your web app must be `apple-mobile-web-app-capable`.
+They will only show up when launching your web app from the home screen.
+
+Unlike icons, startup images don't have a default.
+If you don't provide one, the screen will be plain white.
+And Safari doesn't try anything automatically.
+You have to add the meta tags.
+
+Landscape images aren't actually in landscape;
+they're taller than they are wide.
+They should be rotated 90 degrees clockwise from their correct orientation.
+
+On iOS 7+, startup images are stretched when the app launches.
+On iOS 7, the image pops under the status bar once the app loads.
+Unfortunately there's no way to provide a startup image with the correct dimensions.
+It will always be stretched on iOS 7+.
+
+That being said, startup images must be the exact resolution listed here.
+Safari will not perform any scaling.
 
 ## Hacks
 
@@ -249,4 +262,4 @@ The exact dimensions will depend on the device.
 </style>
 {% endhighlight %}
 
-- `-webkit-text-size-adjust` prevents font from getting huge when rotating to landscape
+This style prevents fonts from getting bigger when rotating to landscape.
