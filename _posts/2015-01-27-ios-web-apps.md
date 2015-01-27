@@ -1,6 +1,5 @@
 ---
 title: iOS 8 web apps
-layout: post
 ---
 
 Apple released the iPhone 6 and 6 Plus a few months ago. They also
