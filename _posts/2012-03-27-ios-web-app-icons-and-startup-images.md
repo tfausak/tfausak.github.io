@@ -2,8 +2,6 @@
 title: iOS web app icons & startup images
 ---
 
-<aside>Update: <a href="{% post_url 2013-11-01-ios-7-web-apps %}">iOS 7 Web Apps</a></aside>
-
 <aside>Update: <a href="{% post_url 2012-09-20-iphone-5-web-app-startup-image %}">iPhone 5 Web App Startup Image</a></aside>
 
 Apple makes it a piece of cake to develop web apps for iOS.
