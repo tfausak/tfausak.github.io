@@ -25,7 +25,7 @@ Check out [my example web app][] on an iOS device to see the finished product.
 
 ## Configuration
 
-### apple-mobile-web-app-capable
+### `apple-mobile-web-app-capable`
 
 {% highlight html %}
 <meta name="apple-mobile-web-app-capable"
@@ -35,7 +35,7 @@ Check out [my example web app][] on an iOS device to see the finished product.
 - allows the page to be run full screen
 - only works when added to the home screen
 
-### apple-mobile-web-app-title
+### `apple-mobile-web-app-title`
 
 {% highlight html %}
 <meta name="apple-mobile-web-app-title"
@@ -47,7 +47,7 @@ Check out [my example web app][] on an iOS device to see the finished product.
 - this is like the app name
 - usually 8-12 characters
 
-### apple-mobile-web-app-status-bar-style
+### `apple-mobile-web-app-status-bar-style`
 
 {% highlight html %}
 <meta name="apple-mobile-web-app-status-bar-style"
@@ -60,7 +60,7 @@ Check out [my example web app][] on an iOS device to see the finished product.
 - sometimes starts white-on-white or black-on-black
   - restarting fixes
 
-### viewport
+### `viewport`
 
 {% highlight html %}
 <meta name="viewport"
@@ -72,7 +72,7 @@ Check out [my example web app][] on an iOS device to see the finished product.
 - carefully consider `minimum-scale` and `maximum-scale`
   - should be for emulating apps only!
 
-### format-detection
+### `format-detection`
 
 {% highlight html %}
 <meta name="format-detection"
