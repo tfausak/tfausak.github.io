@@ -32,8 +32,8 @@ Check out [my example web app][] on an iOS device to see the finished product.
       content="yes">
 {% endhighlight %}
 
-- allows the page to be run full screen
-- only works when added to the home screen
+This tag allows the page to be run full screen.
+Note that this only works when it has been added to the home screen.
 
 ### `apple-mobile-web-app-title`
 
@@ -42,10 +42,10 @@ Check out [my example web app][] on an iOS device to see the finished product.
       content="iOS Web App">
 {% endhighlight %}
 
-- defaults to "Favorites"
-- specify a different page name
-- this is like the app name
-- usually 8-12 characters
+This tag sets a custom title.
+If it's missing, iOS will use the `<title>` tag.
+If that is missing too, it will default to "Favorites".
+This is limited to about 8 to 12 characters.
 
 ### `apple-mobile-web-app-status-bar-style`
 
@@ -54,11 +54,12 @@ Check out [my example web app][] on an iOS device to see the finished product.
       content="black">
 {% endhighlight %}
 
-- change the color of the status bar
-- `black-translucent` is really white text on transparent
-- `black` is the best bet
-- sometimes starts white-on-white or black-on-black
-  - restarting fixes
+This tag changes the color of the status bar.
+There are three options: `default`, `black`, and `black-translucent`.
+The best bet for maximum compatibility is `black`;
+`default` and `black-translucent` behave differently between iOS 6 and 7.
+(Sometimes on iOS 7+, the status bar starts as white-on-white or black-on-black.
+Restarting the web app fixes this problem.)
 
 ### `viewport`
 
@@ -67,10 +68,22 @@ Check out [my example web app][] on an iOS device to see the finished product.
       content="initial-scale=1">
 {% endhighlight %}
 
-- `initial-scale` is all you need
-- `device-width=320` causes letterboxing
-- carefully consider `minimum-scale` and `maximum-scale`
-  - should be for emulating apps only!
+This tag sets the size of the browser's viewport.
+That means it determines how wide the virtual window is.
+By setting `initial-scale` to 1, the virtual window will be the same size as the physical device.
+That makes it the only setting you need here.
+Other settings, like `device-width` just cause trouble.
+(In particular, `device-width=320` will cause letterboxing on iOS 7+.)
+
+{% highlight html %}
+<!-- Only for web apps pretending to be native. -->
+<meta name="viewport"
+      content="initial-scale=1,minimum-scale=1,maximum-scale=1">
+{% endhighlight %}
+
+If you want to pretend like you're a native app,
+set `minimum-scale=1` and `maximum-scale=1`.
+Be warned that this means users can't scale your app at all.
 
 ### `format-detection`
 
@@ -79,7 +92,7 @@ Check out [my example web app][] on an iOS device to see the finished product.
       content="telephone=no">
 {% endhighlight %}
 
-- set `telephone=no` to not automatically link phone numbers
+This tag prevents Safari from automatically linking phone numbers.
 
 ## Icons
 
@@ -114,21 +127,33 @@ Check out [my example web app][] on an iOS device to see the finished product.
       rel="apple-touch-icon-precomposed">
 {% endhighlight %}
 
-- you need seven:
-  1. 76@2x (152) for ipad retina >= ios 7
-  2. 72@2x (144) for ipad retina < ios 7
-  3. 76 for ipad >= ios 7
-  4. 72 for ipad < ios 7
-  5. 60@3x (180) for iphone 6 plus
-  6. 57@2x (114) for iphone retina < ios 7
-  7. 57 for iphone < ios 7
-- you *don't* need:
-  1. 60@2x (120) for iphone retina >= ios 7 because there's no way to differentiate it from the 6 plus, which is higher resolution
-  2. 60 for iphone >= ios 7 because there are no such devices
-- precomposed vs not
-  - prefers precomposed if both given
-- automatically tries some
-- last one is fallback
+You'll need seven icon sizes:
+
+- 152x152 (76@2x) for iPad retina on iOS 7+
+- 144x144 (72@2x) for iPad retina on iOS 6
+- 76x76 for iPad on iOS 7+
+- 72x72 for iPad on iOS 6
+- 180x180 (60@3x) for iPhone 6 Plus
+- 144x144 (57@2x) for iPhone retina on iOS 6
+- 57x57 for iPhone on iOS 6
+
+There are two icon sizes you might think you need but actually don't:
+
+- 120x120 (60@x) for iPhone retina on iOS 7+: There's no way to tell this apart from the 60@3x icon for the iPhone 6 Plus.
+- 60x60 for iPhone on iOS 7+: There are no devices that support this combination.
+
+If you set the `rel` to `apple-touch-icon` instead of `apple-touch-icon-precomposed`, iOS 6 will apply a glossy icon finish.
+For consistency with iOS 7+, use precomposed icons.
+
+By default, the icon is a screenshot of the page.
+If there are no icon tags, Safari will try the following URLs:
+
+1.  `/apple-touch-icon-180x180-precomposed.png`
+2.  `/apple-touch-icon-180x180.png`
+3.  `/apple-touch-icon-precomposed.png`
+4.  `/apple-touch-icon.png`
+
+The exact dimensions will depend on the device.
 
 ## Startup images
 
