@@ -266,4 +266,4 @@ landscape.
 [2]: {% post_url 2013-11-01-ios-7-web-apps %}
 [3]: {% post_url 2012-09-20-iphone-5-web-app-startup-image %}
 [4]: {% post_url 2012-03-27-ios-web-app-icons-and-startup-images %}
-[5]: /static/pages/YYYY-MM-DD-ios-8-web-app.html
+[5]: /static/pages/2015-01-27-ios-8-web-app.html
