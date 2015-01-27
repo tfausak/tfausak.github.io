@@ -2,6 +2,11 @@
 title: iOS 7 web apps
 ---
 
+<aside>
+   Update:
+   <a href="{% post_url YYYY-MM-DD-ios-8-web-apps %}">iOS 8 Web Apps</a>
+</aside>
+
 Apple released iOS 7 a few weeks ago. They updated [their web app
 documentation][1], but it's still not comprehensive. The fact of
 the matter is, building a web app can be a frustrating trial-and-error
