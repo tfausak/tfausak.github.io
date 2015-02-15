@@ -338,8 +338,8 @@ test-suite hspec
 {% endhighlight %}
 
 The only new build information here is `type`. The Cabal documentation
-recommends the non-existent `detailed-1.0` type. Ignore that and use `exitcode-
-stdio-1.0`, which uses the exit code to signify success or failure.
+recommends the non-existent `detailed-1.0` type. Ignore that and use
+`exitcode-stdio-1.0`, which uses the exit code to signify success or failure.
 
 After doing all that, you should be able to run the tests.
 
