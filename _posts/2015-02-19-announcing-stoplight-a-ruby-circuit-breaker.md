@@ -9,6 +9,56 @@ like traffic control for your code. It's an implementation of the [circuit
 breaker design pattern][] as a Ruby gem. Use it to gracefully handle code that
 can fail every now and then.
 
+installation
+
+{% highlight sh %}
+$ gem install stoplight --version '~> 1.0'
+{% endhighlight %}
+
+simple example
+
+{% highlight rb %}
+require 'stoplight'
+
+stoplight = Stoplight('pi') { 22.0 / 7.0 }
+stoplight.run
+# => 3.142857142857143
+stoplight.color
+# => "green"
+{% endhighlight %}
+
+failing example
+
+{% highlight rb %}
+stoplight = Stoplight('error') { [][] }
+stoplight.run
+# ArgumentError: wrong number of arguments (0 for 1..2)
+stoplight.run
+# ArgumentError: wrong number of arguments (0 for 1..2)
+stoplight.run
+# Switching error from green to red because ArgumentError wrong number of arguments (0 for 1..2)
+# ArgumentError: wrong number of arguments (0 for 1..2)
+stoplight.color
+# => "red"
+{% endhighlight %}
+
+failing example with fallback
+
+{% highlight rb %}
+stoplight = Stoplight('zero') { 1 / 0 }.with_fallback { 0 }
+stoplight.run
+# => 0
+stoplight.run
+# => 0
+stoplight.run
+# Switching zero from green to red because ZeroDivisionError divided by 0
+# => 0
+stoplight.color
+# => "red"
+{% endhighlight %}
+
+check out the readme for more examples
+
 ---
 
 prior art:
