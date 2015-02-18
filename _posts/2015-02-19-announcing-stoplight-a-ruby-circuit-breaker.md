@@ -61,6 +61,10 @@ check out the readme for more examples
 
 ---
 
+[Cameron Desautels][] and I developed Stoplight for [OrgSync][] over the past six months. We saw the need for a circuit breaker after some service failures cascaded into [downtime for our entire site][].
+
+---
+
 prior art:
 
 - `breaker` by Adam Hawkins
@@ -73,3 +77,6 @@ prior art:
 [1]: /static/images/2015/02/19/stoplight.svg
 [stoplight]: https://github.com/orgsync/stoplight
 [circuit breaker design pattern]: http://en.wikipedia.org/wiki/Circuit_breaker_design_pattern
+[cameron desautels]: http://camdez.com
+[orgsync]: https://www.orgsync.com
+[some downtime]: http://status.orgsync.com/incidents/1j6zkfj2dbdy
