@@ -71,20 +71,46 @@ stoplight.run
 Stoplights are highly configurable. Check out [the readme][] for more examples
 and settings.
 
----
+## Motivation
 
-[Cameron Desautels][] and I developed Stoplight for [OrgSync][] over the past six months. We saw the need for a circuit breaker after some service failures cascaded into [downtime for our entire site][].
+[Cameron Desautels][] and I developed Stoplight for [OrgSync][] over the past
+six months. We saw the need for a circuit breaker after some service failures
+cascaded into [downtime for our entire site][].
 
----
+## Inspiration
 
-prior art:
+We didn't jump right into creating our own gem, though. We surveyed the existing
+circuit breaker gems. Ultimately none of them were right for us, which is why we
+created Stoplight. But they did inspire us, and you might find them useful if
+Stoplight isn't right for you.
 
-- `breaker` by Adam Hawkins
-- `circuit_b` by Aleksey Gureiev
-- `circuit_breaker` by Will Sargent at Typesafe
-- `circuitbox` by Yann Armand at Yammer
-- `simple_circuit_breaker` by Julius Volz and Tobias Schmidt at SoundCloud
-- `ya_circuit_breaker` by Patrick Huesler and Nadia Zryanina at Wooga
+### [Breaker][]
+
+Author: [Adam Hawkins][]
+
+### [CircuitB][]
+
+Author: [Aleksey Gureiev][]
+
+### [CircuitBreaker][]
+
+Author: [Will Sargent][]
+Company: [Typesafe][]
+
+### [Circuitbox][]
+
+Author: [Yann Armand][]
+Company: [Yammer][]
+
+### [SimpleCircuitBreaker][]
+
+Authors: [Julius Volz][] and [Tobias Schmidt][]
+Company: [SoundCloud][]
+
+### [(Ya)CircuitBreaker][]
+
+Authors: [Patrick Huesler][]
+Company: [Wooga][]
 
 [1]: /static/images/2015/02/19/stoplight.svg
 [stoplight]: https://github.com/orgsync/stoplight
@@ -94,4 +120,21 @@ prior art:
 [the readme]: https://github.com/orgsync/stoplight/blob/v1.0.0/README.md#readme
 [cameron desautels]: http://camdez.com
 [orgsync]: https://www.orgsync.com
-[some downtime]: http://status.orgsync.com/incidents/1j6zkfj2dbdy
+[downtime for our entire site]: http://status.orgsync.com/incidents/1j6zkfj2dbdy
+[breaker]: https://github.com/ahawkins/breaker
+[adam hawkins]: https://github.com/ahawkins
+[circuitb]: https://github.com/alg/circuit_b
+[aleksey gureiev]: https://github.com/alg
+[circuitbreaker]: https://github.com/wsargent/circuit_breaker
+[will sargent]: https://github.com/wsargent
+[typesafe]: https://typesafe.com
+[circuitbox]: https://github.com/yammer/circuitbox
+[yann armand]: https://github.com/yarmand
+[yammer]: https://www.yammer.com
+[simplecircuitbreaker]: https://github.com/soundcloud/simple_circuit_breaker
+[julius volz]: https://github.com/juliusv
+[tobias schmidt]: https://github.com/grobie
+[soundcloud]: https://soundcloud.com
+[(ya)circuitbreaker]: https://github.com/wooga/circuit_breaker
+[patrick huesler]: https://github.com/phuesler
+[wooga]: https://www.wooga.com
