@@ -51,9 +51,9 @@ stoplight.run
 By default, stoplights pass errors through them. When they're red,
 they'll raise a red light error. Sometimes it makes sense to return
 a default value instead. You can do this by using a fallback. If
-the stoplight is green and raises an error, it'll run the fallback
-instead. If the stoplight is red, it'll run the fallback instead
-of raising an error. Here's an example that uses a fallback.
+the stoplight is green and raises an error, it'll run the fallback.
+If the stoplight is red, it'll run the fallback instead of raising
+an error. Here's an example that uses a fallback.
 
 {% highlight rb %}
 stoplight = Stoplight('zero') { 1 / 0 }.with_fallback { 0 }
@@ -82,13 +82,26 @@ to respond. Those delays created a negative feedback loop that
 eventually brought the site down.
 
 We decided to wrap those external services in circuit breakers to
-protect ourselves from these types of failures. There are a few
-other circuit breaker gems. We evaluated all of them, but ultimately
-none of them were right for us. So [Cameron Desautels][8] and I
-started developing Stoplight.
+protect ourselves from these types of failures. We knew of a few
+circuit breaker gems and looked for more. We had a few requirements
+to meet:
 
-Those other gems did inspire us, though. I'll briefly cover them
-here. You might find one of them useful if Stoplight isn't for you.
+- State had to be persisted to an external data store like Redis.
+  We run many Rails front ends that need to be synchronized.
+
+- The circuits had to return the result of running their block. We
+  weren't using these solely for their side effects.
+
+- Any other features, like logging or metrics, were actually
+  antifeatures to us. We can handle those things our own way.
+
+We evaluated all of the gems we could find, but ultimately none of
+them were right for us. So [Cameron Desautels][8] and I started
+developing Stoplight. Those other gems did inspire us, though. I'll
+briefly cover them here. You might find one of them useful if
+Stoplight isn't right for you.
+
+## Inspiration
 
 ### [Breaker][9]
 
@@ -131,8 +144,9 @@ CircuitB('example') { p true }
 
 [Will Sargent][14] at [Typesafe][15] created CircuitBreaker. It
 actually implements a state machine behind the scenes. That makes
-it easy to debug, but hard to use external data stores. It's also
-intended to be used as a mixin, which isn't what we had in mind.
+it easy to debug, but hard to use with external data stores. It's
+also intended to be used as a mixin, which isn't what we had in
+mind.
 
 {% highlight rb %}
 require 'circuit_breaker'
