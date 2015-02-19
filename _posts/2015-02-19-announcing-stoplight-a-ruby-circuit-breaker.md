@@ -93,219 +93,107 @@ You might find one of them useful if Stoplight isn't for you.
 
 ### [Breaker][]
 
-Author: [Adam Hawkins][]
+Breaker was created by [Adam Hawkins][].
+It has a lot in common with Stoplight.
+It's simple, has great documentation, and supports external data stores.
+Unfortunately there's no interface for the data stores,
+so you have no choice but to read the reference implementation.
 
-Pros:
+{% highlight rb %}
+require 'breaker'
 
-- Supports external data stores, although you'd have to write your own.
-- Has a great readme.
-- Has a test suite.
-
-Cons:
-
-- Has typos in the readme.
-- No interface for the data store.
-
-Example:
-
-    require 'breaker'
-
-    Breaker.circuit('example').run { p true }
-    # true
-    # => true
-
-This gem has the most in common with Stoplight. It's simple, has a great readme,
-and supports external data stores. Sort of. You can implement your own data
-store (or "repository" as they call it) and plug it in relatively easily.
-However there's no protocol to implement. In spite of being simple, it
-implements timeouts, which I think are orthogonal to circuit breakers.
-
-In short, this gem is promising but has some rough edges. Had I found it when
-looking for existing circuit breaker gems, I probably would have forked it
-instead of starting from scratch.
+Breaker.circuit('example').run { p true }
+# true
+# => true
+{% endhighlight %}
 
 ### [CircuitB][]
 
-Author: [Aleksey Gureiev][]
+[Aleksey Gureev][] created CircuitB.
+It also supports external data stores.
+Unfortunately it requires configuring circuits ahead of time.
+It also doesn't return the result of the block (although that will be fixed in version 1.2).
+Those were deal breakers for us, so we couldn't use it.
 
-Pros:
+{% highlight rb %}
+require 'circuit_b'
 
-- Supports Redis data store.
-- Has a comprehensive test suite.
-- Has a good readme.
+CircuitB.configure do |c|
+  c.state_storage = CircuitB::Storage::Memory.new
+  c.fuse 'example'
+end
 
-Cons:
-
-- Requires configuring all circuits ahead of time.
-- Supports orthogonal features like timeouts.
-- Hasn't really been updated in five years.
-- Requires Redis gem even when using in-memory data store.
-- Doesn't return result of block.
-
-Example:
-
-    require 'circuit_b'
-
-    CircuitB.configure do |c|
-      c.state_storage = CircuitB::Storage::Memory.new
-      c.fuse 'example'
-    end
-
-    CircuitB('example') { p true }
-    # true
-    # => 0
-
-This gem supports Redis data stores out of the box. It also has a comprehensive
-test suite and a good readme. So it's got a lot going for it. But it's main
-drawback is that it requires configuring circuits ahead of time. Since we were
-planning on wrapping many things with circuit breakers, that wasn't an option
-for us.
-
-Sure, I could define a function that configures and runs the circuit all in one,
-but I would be fighting the library at that point. Plus it has two other
-problems: (1) it hasn't been updated in nearly five years, and (2) it doesn't
-return the result of the block. That means it's only useful for side effects.
+CircuitB('example') { p true }
+# true
+# => 0
+{% endhighlight %}
 
 ### [CircuitBreaker][]
 
-Author: [Will Sargent][]
-Company: [Typesafe][]
+[Will Sargent][] at [Typesafe][] created CircuitBreaker.
+It actually implements a state machine behind the scenes.
+That makes it easy to debug, but hard to use external data stores.
+It's also intended to be used as a mixin, which isn't what we had in mind.
 
-Pros:
+{% highlight rb %}
+require 'circuit_breaker'
 
-- Actually implements a state machine.
-- Has a test suite.
-- Has a decent readme.
-
-Cons:
-
-- Doesn't support external data stores.
-- Intended as a mixin.
-- Depends on AASM.
-
-Example:
-
-    require 'circuit_breaker'
-
-    class C
-      include CircuitBreaker
-      def example
-        p true
-      end
-      circuit_method :example
-    end
-
-    C.new.example
-    # true
-    # => true
-
-Holy cow. This one actually implements a state machine. And it just gives me the
-impression that someone thought about it a lot. Which would be great, but it
-doesn't support external data stores. Since we run many front ends that need to
-be kept in sync, that's not acceptable.
-
-I suspect that adding the ability to use external data stores would mess with
-the purity of actually using a state machine. It doesn't seem like a reasonable
-change to make to this gem.
+state = CircuitBreaker::CircuitState.new
+handler = CircuitBreaker::CircuitHandler.new
+handler.handle(state, -> { p true })
+# true
+# => true
+{% endhighlight %}
 
 ### [Circuitbox][]
 
-Author: [Yann Armand][]
-Company: [Yammer][]
+[Yann Armand][] at [Yammer][] created Circuitbox.
+Of all the circuit breaker gems, it feels the most heavyweight.
+It depends on ActiveSupport, which provides external data stores and logging.
+It also supports advanced percentage-based heuristics.
 
-Pros:
+{% highlight rb %}
+require 'circuitbox'
 
-- Has a test suite.
-- Has a readme.
-- Supports a percentage-based heuristic.
-- Supports external data stores via ActiveSupport.
-
-Cons:
-
-- Feels heavyweight.
-- Depends on ActiveSupport.
-- First example results in a syntax error.
-- Supports orthogonal features like logging.
-
-Example:
-
-    require 'circuitbox'
-
-    Circuitbox.circuit(:example).run { p true }
-    # D, [2015-02-03T09:05:04.307606 #1128] DEBUG -- : [CIRCUIT] closed: querying example
-    # true
-    # D, [2015-02-03T09:05:04.307920 #1128] DEBUG -- : [CIRCUIT] closed: example querie success
-    # => true
-
-If circuit_breaker was made by a computer scientist, circuitbox was made by a
-software engineer. It feels enterprise-y. That's not necessarily a problem, but
-in this case it's a little weird. Do circuits really need logging and metrics
-baked into the library?
-
-This gem also uses ActiveSupport caches for storage. That kind of makes sense,
-based on its dependency on ActiveSupport, but it feels weird storing critical
-application data in a cache.
+Circuitbox.circuit(:example).run { p true }
+# D, [2015-02-03T09:05:04.307606 #1128] DEBUG -- : [CIRCUIT] closed: querying example
+# true
+# D, [2015-02-03T09:05:04.307920 #1128] DEBUG -- : [CIRCUIT] closed: example querie success
+# => true
+{% endhighlight %}
 
 ### [SimpleCircuitBreaker][]
 
-Authors: [Julius Volz][] and [Tobias Schmidt][]
-Company: [SoundCloud][]
+[Julius Volz][] and [Tobias Schmidt][] at [SoundCloud][] created SimpleCircuitBreaker.
+It definitely lives up to its name.
+At less than 60 lines of code, it's the simplest circuit breaker gem available.
+This is probably how every other gem started out.
+Because of its simplicity, it doesn't support external data stores.
 
-Pros:
+{% highlight rb %}
+require 'simple_circuit_breaker'
 
-- Has a test suite.
-- Has a decent readme.
-- Implemented in less than 60 lines of code.
+SimpleCircuitBreaker.new(3, 10).handle { p true }
+# true
+# => true
+{% endhighlight %}
 
-Cons:
+### [YaCircuitBreaker][]
 
-- Doesn't support external data stores.
-- Hasn't been updated in a year.
+[Patrick Huesler][] at [Wooga][] created YaCircuitBreaker.
+It's one of the few that allows you to manually manage the state with `#trip!` and `#reset!`.
+Unfortunately it has a few problems.
+It doesn't support external data stores,
+the gem name (`ya_circuit_breaker`) isn't what you require (`circuit_breaker`),
+and it doesn't return the result of the block.
 
-Example:
+{% highlight rb %}
+require 'circuit_breaker'
 
-    require 'simple_circuit_breaker'
-
-    SimpleCircuitBreaker.new(3, 10).handle { p true }
-    # true
-    # => true
-
-This one definitely lives up to its name. It's a single file, less than 60
-lines. I get the feeling this is where every other gem started out. This is what
-you'd do if you had to implement a circuit breaker during an interview.
-
-That being said, it's not stupid, just simple. By not having any features (like
-external data stores), it can stay focused on the simplest thing that works.
-Unfortunately that doesn't cut it for me.
-
-### [(Ya)CircuitBreaker][]
-
-Authors: [Patrick Huesler][]
-Company: [Wooga][]
-
-Pros:
-
-- Has a readme.
-- Has a test suite.
-- Allows manually managing state with #trip! and #reset!.
-
-Cons:
-
-- Doesn't support external data stores.
-- Gem name differs from require name.
-- Doesn't return result of block.
-- Implements orthogonal features like timeouts.
-
-Example:
-
-    require 'circuit_breaker'
-
-    CircuitBreaker::Basic.new.execute { p true }
-    # true
-    # => nil
-
-I honestly don't know why this one exists. It acknowledges circuit_breaker and
-simple_circuit_breaker but doesn't say why you might want to use it instead.
+CircuitBreaker::Basic.new.execute { p true }
+# true
+# => nil
+{% endhighlight %}
 
 [1]: /static/images/2015/02/19/stoplight.svg
 [stoplight]: https://github.com/orgsync/stoplight
@@ -318,7 +206,7 @@ simple_circuit_breaker but doesn't say why you might want to use it instead.
 [breaker]: https://github.com/ahawkins/breaker
 [adam hawkins]: https://github.com/ahawkins
 [circuitb]: https://github.com/alg/circuit_b
-[aleksey gureiev]: https://github.com/alg
+[aleksey gureev]: https://github.com/alg
 [circuitbreaker]: https://github.com/wsargent/circuit_breaker
 [will sargent]: https://github.com/wsargent
 [typesafe]: https://typesafe.com
@@ -329,6 +217,6 @@ simple_circuit_breaker but doesn't say why you might want to use it instead.
 [julius volz]: https://github.com/juliusv
 [tobias schmidt]: https://github.com/grobie
 [soundcloud]: https://soundcloud.com
-[(ya)circuitbreaker]: https://github.com/wooga/circuit_breaker
+[yacircuitbreaker]: https://github.com/wooga/circuit_breaker
 [patrick huesler]: https://github.com/phuesler
 [wooga]: https://www.wooga.com
