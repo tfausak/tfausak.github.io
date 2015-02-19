@@ -210,7 +210,7 @@ CircuitBreaker::Basic.new.execute { p true }
 
 [1]: /static/images/2015/02/19/stoplight.svg
 [2]: https://github.com/orgsync/stoplight
-[4]: http://en.wikipedia.org/wiki/Circuit_breaker_design_pattern
+[3]: http://en.wikipedia.org/wiki/Circuit_breaker_design_pattern
 [4]: https://rubygems.org/gems/stoplight
 [5]: http://www.rubydoc.info/github/orgsync/stoplight/toplevel:Stoplight
 [6]: https://github.com/orgsync/stoplight/blob/v1.0.0/README.md#readme
