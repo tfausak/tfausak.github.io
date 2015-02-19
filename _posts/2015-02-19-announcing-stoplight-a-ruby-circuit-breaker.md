@@ -4,54 +4,58 @@ title: Announcing Stoplight, a Ruby circuit breaker
 
 ![][1]
 
-I am proud to announce the release of [Stoplight][] version 1.0.0! Stoplight is
-like traffic control for your code. It's an implementation of the [circuit
-breaker design pattern][] as a Ruby gem. Use it to gracefully handle code that
-can fail every now and then.
+I am proud to announce the first stable release of [Stoplight][]!
+It's like traffic control for your code.
+Stoplight implements the [circuit breaker design pattern][] in Ruby.
+Use it to gracefully handle things that occasionally fail.
 
-To start using Stoplight, install [the `stoplight` gem][].
+To get started, install [the `stoplight` gem][].
 
 {% highlight sh %}
 $ gem install stoplight --version '~> 1.0'
 {% endhighlight %}
 
-Once you've done that, use [the `Stoplight` method][] to create stoplights. Each
-stoplight needs a name and some code to run. Here's a simple example that
-calculates a rough approximation of pi.
+Once you've done that, use [the `Stoplight` method][] to create stoplights.
+Each stoplight needs a name and a block to run.
+Here's a simple example that calculates a rough approximation of pi.
 
 {% highlight rb %}
 require 'stoplight'
 
-stoplight = Stoplight('pi') { 22.0 / 7.0 }
+stoplight = Stoplight('roughly-pi') { 22.0 / 7.0 }
 stoplight.run
 # => 3.142857142857143
 stoplight.color
 # => "green"
 {% endhighlight %}
 
-Stoplights start green. If their code fails enough times, they switch to red.
-When they're red, they won't run their code anymore. Instead they'll short
-circuit by raising a red light error.
+Stoplights start off green.
+If they fail enough, they switch to red.
+When they're red, they short circuit and raise an error.
+Here's an example that will never succeed.
 
 {% highlight rb %}
-stoplight = Stoplight('problematic') { 'oh'[:no] }
+stoplight = Stoplight('no-conversion') { 'oh'[:no] }
 stoplight.run
 # TypeError: no implicit conversion of Symbol into Integer
 stoplight.run
 # TypeError: no implicit conversion of Symbol into Integer
 stoplight.run
-# Switching problematic from green to red because TypeError no implicit conversion of Symbol into Integer
+# Switching no-conversion from green to red because TypeError no implicit conversion of Symbol into Integer
 # TypeError: no implicit conversion of Symbol into Integer
 stoplight.color
 # => "red"
 stoplight.run
-# Stoplight::Error::RedLight: problematic
+# Stoplight::Error::RedLight: no-conversion
 {% endhighlight %}
 
-Sometimes it makes sense to return a default value instead of raising an error.
-You can accomplish this by using a fallback. If the stoplight is green and
-raises an error, it'll run the fallback instead. If the stoplight is red, it'll
-just run the fallback instead of raising a red light error.
+By default, stoplights pass errors through them.
+When they're red, they'll raise a red light error.
+Sometimes it makes sense to return a default value instead.
+You can do this by using a fallback.
+If the stoplight is green and raises an error, it'll run the fallback instead.
+If the stoplight is red, it'll run the fallback instead of raising an error.
+Here's an example that uses a fallback.
 
 {% highlight rb %}
 stoplight = Stoplight('zero') { 1 / 0 }.with_fallback { 0 }
@@ -68,21 +72,24 @@ stoplight.run
 # => 0
 {% endhighlight %}
 
-Stoplights are highly configurable. Check out [the readme][] for more examples
-and settings.
+These examples scratch the surface of what stoplights can do.
+They are highly configurable.
+Check out [the readme][] for more examples and settings.
 
 ## Motivation
 
-[Cameron Desautels][] and I developed Stoplight for [OrgSync][] over the past
-six months. We saw the need for a circuit breaker after some service failures
-cascaded into [downtime for our entire site][].
+Six months ago, [OrgSync experienced a few hours of downtime][].
+It started with a few external services taking longer than expected to respond.
+Those delays created a negative feedback loop that eventually brought the site down.
 
-## Inspiration
+We decided to wrap those external services in circuit breakers to protect ourselves from these types of failures.
+There are a few other circuit breaker gems.
+We evaluated all of them, but ultimately none of them were right for us.
+So [Cameron Desautels][] and I started developing Stoplight.
 
-We didn't jump right into creating our own gem, though. We surveyed the existing
-circuit breaker gems. Ultimately none of them were right for us, which is why we
-created Stoplight. But they did inspire us, and you might find them useful if
-Stoplight isn't right for you.
+Those other gems did inspire us, though.
+I'll briefly cover them here.
+You might find one of them useful if Stoplight isn't for you.
 
 ### [Breaker][]
 
@@ -306,9 +313,8 @@ simple_circuit_breaker but doesn't say why you might want to use it instead.
 [the stoplight gem]: https://rubygems.org/gems/stoplight
 [the stoplight method]: http://www.rubydoc.info/github/orgsync/stoplight/toplevel:Stoplight
 [the readme]: https://github.com/orgsync/stoplight/blob/v1.0.0/README.md#readme
+[orgsync experienced some downtime]: http://status.orgsync.com/incidents/1j6zkfj2dbdy
 [cameron desautels]: http://camdez.com
-[orgsync]: https://www.orgsync.com
-[downtime for our entire site]: http://status.orgsync.com/incidents/1j6zkfj2dbdy
 [breaker]: https://github.com/ahawkins/breaker
 [adam hawkins]: https://github.com/ahawkins
 [circuitb]: https://github.com/alg/circuit_b
