@@ -16,9 +16,12 @@ The best way to reach me is by sending an email to [taylor@fausak.me][4].
 
 ## Projects
 
-- [ActiveInteraction](http://devblog.orgsync.com/active_interaction/):
+- [ActiveInteraction](http://orgsync.github.io/active_interaction/):
   Manage application-specific business logic. An implementation of
   the command pattern in Ruby.
+- [Stoplight](http://orgsync.github.io/stoplight/):
+  Traffic control for code. An implementation of the circuit breaker
+  design pattern in Ruby.
 - [Haskeleton](/haskeleton/):
   A Haskell project skeleton.
 - [Strive](/strive/):
