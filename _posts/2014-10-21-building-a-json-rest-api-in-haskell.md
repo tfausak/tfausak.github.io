@@ -708,5 +708,5 @@ I used a few excellent resources while working on this post, including:
 [4]: https://github.com/tfausak/hairy/blob/22145de/library/Hairy/Models.hs
 [5]: http://book.realworldhaskell.org/read/monad-transformers.html
 [6]: http://adit.io/posts/2013-04-15-making-a-website-with-haskell.html
-[7]: https://github.com/mietek/haskell-on-heroku-examples/tree/master/hello-scotty
+[7]: https://halcyon.sh/shootout/#hello-scotty
 [8]: http://www.yesodweb.com/book/persistent
