@@ -65,6 +65,11 @@ the people who own coins. This part of Assembly is conceptually
 simple. I would like to see how it plays out with a cash-positive
 product.
 
+After my team building phase ended, I stopped using Assembly. I
+like the idea of developing a product collectively in the open, but
+my product never took off. If I was more passionate about it, I
+might double down and try to get people interested in Ledger.
+
 [1]: /static/images/2015/03/12/assembly.svg
 [2]: https://assembly.com
 [3]: https://github.com/asm-products/ledger-backend
