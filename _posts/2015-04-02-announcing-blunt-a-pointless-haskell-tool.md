@@ -44,6 +44,12 @@ That avoids the problem of embedding all of JavaScript inside Haskell.
 It adds some sugar on top of JavaScript,
 but I loved it because it caught syntax errors as part of my build process.
 
+If you're interested in more about how I built Blunt,
+go look at [the source on GitHub][].
+You'll find all the nitty-gritty details over there.
+If you're only interested in using it,
+be sure to bookmark [blunt.herokuapp.com][].
+
 [blunt.herokuapp.com]: https://blunt.herokuapp.com
 [`pointfree`]: http://hackage.haskell.org/package/pointfree
 [`pointful`]: http://hackage.haskell.org/package/pointful
@@ -53,3 +59,4 @@ but I loved it because it caught syntax errors as part of my build process.
 [lucid]: http://hackage.haskell.org/package/lucid
 [clay]: http://hackage.haskell.org/package/clay
 [jmacro]: http://hackage.haskell.org/package/jmacro
+[the source on github]: https://github.com/tfausak/blunt
