@@ -1,5 +1,5 @@
 ---
-title: untitled
+title: Announcing Blunt, a pointless Haskell tool
 ---
 
 - idiomatic haskell is sometimes pointfree
