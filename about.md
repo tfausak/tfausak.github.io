@@ -24,6 +24,9 @@ The best way to reach me is by sending an email to [taylor@fausak.me][4].
   design pattern in Ruby.
 - [Haskeleton](/haskeleton/):
   A Haskell project skeleton.
+- [Blunt](https://blunt.herokuapp.com/):
+  Convert between pointfree and pointful Haskell expressions. A web front end
+  to the pointfree and pointful tools.
 - [Flow](/flow/):
   A package for writing more understandable Haskell.
 - [Strive](/strive/):
