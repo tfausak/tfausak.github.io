@@ -24,6 +24,8 @@ The best way to reach me is by sending an email to [taylor@fausak.me][4].
   design pattern in Ruby.
 - [Haskeleton](/haskeleton/):
   A Haskell project skeleton.
+- [Flow](/flow/):
+  A package for writing more understandable Haskell.
 - [Strive](/strive/):
   A Haskell client for the Strava V3 API.
 - [Hs2048](/hs2048/):
