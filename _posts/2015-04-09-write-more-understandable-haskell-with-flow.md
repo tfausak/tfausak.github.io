@@ -2,10 +2,41 @@
 title: Write more understandable Haskell with Flow
 ---
 
-- announced blunt last week
-- dont actually like pointfree style
-- built a library to help
-- its called flow
+Last week, I [announced Blunt][],
+a tool for converting Haskell expressions between the pointfree and pointful styles.
+I have a secret, though:
+I don't like the pointfree style.
+
+I don't like it because I think it's harder to read.
+Pointfree expressions don't even mention all of their arguments,
+which forces you to know the arity of the functions they call.
+And [the `.` operator][] reads from right to left,
+meaning your eyes have to jump back and forth when reading code that uses it.
+
+I think Haskell can do better.
+That's why I created [Flow][],
+a library for writing more understandable Haskell.
+Flow provides alternatives to common operators in [the base package][],
+like function application with `$`, function composition with `.`, and strict function application with `$!`.
+Here's an overview of the functions and operators it defines:
+
+Flow            | Base
+--------------- | -------------
+`apply x f`     | `f x`
+`x |> f`        | `x & f`
+`f <| x`        | `f $ x`
+`compose f g x` | `g (f x)`
+`f .> g`        | `f >>> g`
+`g <. f`        | `f . g`
+`apply' x f`    | `seq x (f x)`
+`x !> f`        | -
+`f <! x`        | `f $! x`
+
+[announced blunt]: {% post_url 2015-04-02-announcing-blunt-a-pointless-haskell-tool %}
+[the `.` operator]: https://hackage.haskell.org/package/base-4.8.0.0/docs/Prelude.html#v:.
+[flow]: /flow/
+[the base package]: https://hackage.haskell.org/package/base
+
 - it borrows from f# (and therefore elm and elixir)
 - it defines some functions (`apply`, `compose`, and `apply'`)
 - these are usually only available as operators
@@ -19,6 +50,7 @@ title: Write more understandable Haskell with Flow
 - i understand haskell's style and how to make and read pointfree functions
 - but i often prefer writing code that shows how data flows through it
 - for a more concrete example, let's check out project euler #8
+- <https://github.com/tfausak/project-euler/blob/42d0c19/haskell/pe008.hs>
 - first up is `takes`, a sliding window function
 - naively might write this:
   ``` hs
