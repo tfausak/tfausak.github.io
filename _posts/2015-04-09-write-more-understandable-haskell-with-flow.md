@@ -32,25 +32,24 @@ Flow            | Base
 `x !> f`        | -
 `f <! x`        | `f $! x`
 
+Flow borrows from F#,
+which defines "pipe forward" and "pipe backward" operators (`|>` and `<|`).
+It also borrows "compose forward" and "compose backward" (`>>` and `<<`),
+although I renamed them since Haskell already defines `>>`.
+
+In addition to operators,
+Flow provides normal functions for application and composition.
+I did this for two reasons:
+One, every operator needs a name.
+The easiest way to do that is to define it as a function.
+And two, regular functions can be more convenient with higher-order functions.
+Compare `map (apply 2)` to `map ($ 2)` for example.
+
 [announced blunt]: {% post_url 2015-04-02-announcing-blunt-a-pointless-haskell-tool %}
 [the `.` operator]: https://hackage.haskell.org/package/base-4.8.0.0/docs/Prelude.html#v:.
 [flow]: /flow/
 [the base package]: https://hackage.haskell.org/package/base
 
-- it borrows from f# (and therefore elm and elixir)
-- it defines some functions (`apply`, `compose`, and `apply'`)
-- these are usually only available as operators
-- having functions make some higher-order functions clearer
-- for example `map (apply 2) [(+ 2), (* 2), (^ 2)]`
-- it also defines some operators
-- for `apply`: `|>` (pipe forward) and `<|` (pipe backward)
-- for `compose`: `.>` (compose forward) and `<.` (compose backward)
-- for `apply'`: `!>` (strict pipe forward) and `<!` (strict pipe backward)
-- that's it
-- i understand haskell's style and how to make and read pointfree functions
-- but i often prefer writing code that shows how data flows through it
-- for a more concrete example, let's check out project euler #8
-- <https://github.com/tfausak/project-euler/blob/42d0c19/haskell/pe008.hs>
 - first up is `takes`, a sliding window function
 - naively might write this:
   ``` hs
@@ -81,6 +80,3 @@ Flow            | Base
   ``` hs
   euler8' n x = x |> filter isDigit |> map digitToInt |> takes n |> map product |> maximum
   ```
-- flow style reads left-to-right instead of right-to-left
-- could be written with `&` from lens or most recent prelude
-- the `$` and `&` don't mean anything to me, so it's hard to grok
