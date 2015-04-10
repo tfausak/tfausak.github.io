@@ -43,19 +43,19 @@ In addition to operators,
 Flow provides functions for application and composition.
 I did this for two reasons:
 One, every operator should have a name.
-And two, regular functions are more convenient to use with higher-order functions.
+And two, regular functions are clearer when used with higher-order functions.
 Compare `map (apply 2)` to `map ($ 2)` for example.
 
 Given all that,
 how can Flow be used to write more understandable Haskell?
-Let's look at [problem 8][6] from Project Euler for an example.
+Let's look at [problem 8][6] from Project Euler as an example.
 
 > Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
 
 I wrote [a solution][7] years ago when I was learning Haskell.
-I also recently re-wrote that solution in a more idiomatic, pointfree style.
+Recently I re-wrote that solution in a more idiomatic, pointfree way.
 I'll present both solutions here
-and convert them to the Flow style.
+and convert them to using Flow.
 
 The first part of the solution is the `takes` function.
 It slides a window of the given size over a list.
@@ -66,6 +66,8 @@ Let's see an example.
 
 When I first wrote this function,
 I used explicit recursion.
+There's nothing wrong with this per se,
+but most experienced Haskellers wouldn't write it this way.
 
     takes :: Int -> [a] -> [[a]]
     takes _ [] = [[]]
@@ -77,7 +79,7 @@ Using both leads to the most idiomatic definition of this function.
 
     takes n = map (take n) . tails
 
-So how can you convert this function to the Flow style,
+How can you rewrite this function with Flow,
 and what does it get you?
 You have two options for converting.
 If you want to keep the pointfree style,
@@ -100,7 +102,7 @@ Consider the following interpreter session.
     [1,2,3]
     >>> xs |> tails
     <interactive>:3:7: Not in scope: ‘tails’
-    >>> import Data.List (tails)
+    >>> import Data.List
     >>> xs |> tails
     [[1,2,3],[2,3],[3],[]]
     >>> xs |> tails |> map (take n)
@@ -113,7 +115,7 @@ Consider the following interpreter session.
 
 This shows how Flow helps you build up complex expressions one piece at a time.
 So let's move on to the next piece of this problem, the `euler8` function.
-Given a window size *n* and a string, it returns the largest product of *n* consecutive numbers in the string.
+Given a window of size *n* and a string, it returns the largest product of *n* consecutive numbers in the string.
 Let's take a look at a simple example.
 
     >>> euler8 2 "123"
@@ -121,8 +123,8 @@ Let's take a look at a simple example.
 
 The first time I wrote this function,
 I didn't know about function composition.
-I wrote it with a bunch of parentheses,
-then learned about [the `$` operator][9] to remove them.
+I wrote it with a bunch of parentheses.
+I quickly learned about [the `$` operator][9] to remove them.
 
     euler8 :: Int -> String -> Int
     euler8 n x
@@ -134,7 +136,7 @@ then learned about [the `$` operator][9] to remove them.
 
 Now that I know about the `.` operator,
 I would write this function differently.
-Like the pointfree definition of `takes` above,
+Like the pointfree definition of `takes`,
 this is the most idiomatic way to write this function.
 
     euler8 n
