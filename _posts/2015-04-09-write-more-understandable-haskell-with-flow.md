@@ -65,26 +65,34 @@ When I first wrote this function, I used explicit recursion. There's
 nothing wrong with this per se, but most experienced Haskellers
 wouldn't write it this way.
 
-    takes :: Int -> [a] -> [[a]]
-    takes _ [] = [[]]
-    takes n xs@(_ : ys) = take n xs : takes n ys
+{% highlight hs %}
+takes :: Int -> [a] -> [[a]]
+takes _ [] = [[]]
+takes n xs@(_ : ys) = take n xs : takes n ys
+{% endhighlight %}
 
 Since then, I learned about the pointfree style and the [`tails`][8]
 function. Using both leads to the most idiomatic definition of this
 function.
 
-    takes n = map (take n) . tails
+{% highlight hs %}
+takes n = map (take n) . tails
+{% endhighlight %}
 
 How can you rewrite this function with Flow, and what does it get
 you? You have two options for converting. If you want to keep the
 pointfree style, you can use the compose forward operator.
 
-    takes n = tails .> map (take n)
+{% highlight hs %}
+takes n = tails .> map (take n)
+{% endhighlight %}
 
 If, like me, you don't want to keep the pointfree style, you can
 use the pipe forward operator.
 
-    takes n xs = xs |> tails |> map (take n)
+{% highlight hs %}
+takes n xs = xs |> tails |> map (take n)
+{% endhighlight %}
 
 Either way, what you get is a function that reads naturally from
 left to right. And if you use the pipe forward operator, your
@@ -120,35 +128,41 @@ The first time I wrote this function, I didn't know about function
 composition. I wrote it with a bunch of parentheses. I quickly
 learned about [the `$` operator][9] to remove them.
 
-    euler8 :: Int -> String -> Int
-    euler8 n x
-        = maximum
-        $ map product
-        $ takes n
-        $ map digitToInt
-        $ filter isDigit x
+{% highlight hs %}
+euler8 :: Int -> String -> Int
+euler8 n x
+    = maximum
+    $ map product
+    $ takes n
+    $ map digitToInt
+    $ filter isDigit x
+{% endhighlight %}
 
 Now that I know about the `.` operator, I would write this function
 differently. Like the pointfree definition of `takes`, this is the
 most idiomatic way to write this function.
 
-    euler8 n
-        = maximum
-        . map product
-        . takes n
-        . map digitToInt
-        . filter isDigit
+{% highlight hs %}
+euler8 n
+    = maximum
+    . map product
+    . takes n
+    . map digitToInt
+    . filter isDigit
+{% endhighlight %}
 
 In spite of that, this looks backwards to me. You have to read it
 starting from the bottom in order to understand it. With Flow, you
 can read it naturally from top to bottom.
 
-    euler8 n x = x
-        |> filter isDigit
-        |> map digitToInt
-        |> takes n
-        |> map product
-        |> maximum
+{% highlight hs %}
+euler8 n x = x
+    |> filter isDigit
+    |> map digitToInt
+    |> takes n
+    |> map product
+    |> maximum
+{% endhighlight %}
 
 So that's a quick overview of what Flow does and why you might want
 it. If you're interested, please check out [Flow's project page][4].
