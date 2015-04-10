@@ -53,6 +53,6 @@ it useful. Check out [its project page][9] or the source [on GitHub][11]
 [6]: https://github.com/tablatom/rubydoctest/issues/9
 [7]: https://github.com/tablatom/rubydoctest/issues/10
 [8]: https://github.com/sol/markdown-unlit
-[9]: http://taylor.fausak.me/erudite/
+[9]: /erudite/
 [10]: https://github.com/orgsync/stoplight/blob/v0.4.0/README.md#setup
 [11]: https://github.com/tfausak/erudite
