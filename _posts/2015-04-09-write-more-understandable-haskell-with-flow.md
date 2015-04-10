@@ -2,6 +2,8 @@
 title: Write more understandable Haskell with Flow
 ---
 
+![Flow's logo][]
+
 Last week, I [announced Blunt][],
 a tool for converting Haskell expressions between the pointfree and pointful styles.
 I have a secret, though:
@@ -153,6 +155,7 @@ With Flow, you can read it naturally from top to bottom.
         |> map product
         |> maximum
 
+[flow's logo]: /static/images/2015/04/09/flow.svg
 [announced blunt]: {% post_url 2015-04-02-announcing-blunt-a-pointless-haskell-tool %}
 [the `.` operator]: https://hackage.haskell.org/package/base-4.8.0.0/docs/Prelude.html#v:.
 [flow]: /flow/
