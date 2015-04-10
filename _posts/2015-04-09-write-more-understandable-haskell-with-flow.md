@@ -155,6 +155,9 @@ With Flow, you can read it naturally from top to bottom.
         |> map product
         |> maximum
 
+So that's a quick overview of what Flow does and why you might want it.
+If you're interested, please check out [Flow's project page].
+
 [flow's logo]: /static/images/2015/04/09/flow.svg
 [announced blunt]: {% post_url 2015-04-02-announcing-blunt-a-pointless-haskell-tool %}
 [the `.` operator]: https://hackage.haskell.org/package/base-4.8.0.0/docs/Prelude.html#v:.
@@ -164,3 +167,4 @@ With Flow, you can read it naturally from top to bottom.
 [a solution]: https://github.com/tfausak/project-euler/blob/f3903d4/haskell/pe008.hs
 [`tails`]: http://hackage.haskell.org/package/base-4.8.0.0/docs/Data-List.html#v:tails
 [the `$` operator]: http://hackage.haskell.org/package/base-4.8.0.0/docs/Prelude.html#v:-36-
+[flow's project page]: /flow/
