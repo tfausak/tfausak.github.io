@@ -2,9 +2,9 @@
 title: Write more understandable Haskell with Flow
 ---
 
-![Flow's logo][]
+![Flow's logo][1]
 
-Last week, I [announced Blunt][],
+Last week, I [announced Blunt][2],
 a tool for converting Haskell expressions between the pointfree and pointful styles.
 I have a secret, though:
 I don't like the pointfree style.
@@ -12,13 +12,13 @@ I don't like the pointfree style.
 I don't like it because I think it's hard to read.
 Pointfree expressions don't mention all of their arguments,
 which forces you to know the arity of the functions they call.
-And [the `.` operator][] reads from right to left,
+And [the `.` operator][3] reads from right to left,
 meaning your eyes have to jump back and forth when reading code that uses it.
 
 I think Haskell can do better.
-That's why I created [Flow][],
+That's why I created [Flow][4],
 a library for writing more understandable Haskell.
-Flow provides alternatives to common operators in [the base package][],
+Flow provides alternatives to common operators in [the base package][5],
 like function application with `$` and function composition with `.`.
 Here's an overview of the functions and operators it defines:
 
@@ -48,11 +48,11 @@ Compare `map (apply 2)` to `map ($ 2)` for example.
 
 Given all that,
 how can Flow be used to write more understandable Haskell?
-Let's look at [problem 8][] from Project Euler for an example.
+Let's look at [problem 8][6] from Project Euler for an example.
 
 > Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
 
-I wrote [a solution][] years ago when I was learning Haskell.
+I wrote [a solution][7] years ago when I was learning Haskell.
 I also recently re-wrote that solution in a more idiomatic, pointfree style.
 I'll present both solutions here
 and convert them to the Flow style.
@@ -72,7 +72,7 @@ I used explicit recursion.
     takes n xs@(_ : ys) = take n xs : takes n ys
 
 Since then,
-I learned about the pointfree style and the [`tails`][] function.
+I learned about the pointfree style and the [`tails`][8] function.
 Using both leads to the most idiomatic definition of this function.
 
     takes n = map (take n) . tails
@@ -122,7 +122,7 @@ Let's take a look at a simple example.
 The first time I wrote this function,
 I didn't know about function composition.
 I wrote it with a bunch of parentheses,
-then learned about [the `$` operator][] to remove them.
+then learned about [the `$` operator][9] to remove them.
 
     euler8 :: Int -> String -> Int
     euler8 n x
@@ -156,15 +156,14 @@ With Flow, you can read it naturally from top to bottom.
         |> maximum
 
 So that's a quick overview of what Flow does and why you might want it.
-If you're interested, please check out [Flow's project page].
+If you're interested, please check out [Flow's project page][4].
 
-[flow's logo]: /static/images/2015/04/09/flow.svg
-[announced blunt]: {% post_url 2015-04-02-announcing-blunt-a-pointless-haskell-tool %}
-[the `.` operator]: https://hackage.haskell.org/package/base-4.8.0.0/docs/Prelude.html#v:.
-[flow]: /flow/
-[the base package]: https://hackage.haskell.org/package/base
-[problem 8]: https://projecteuler.net/problem=8
-[a solution]: https://github.com/tfausak/project-euler/blob/f3903d4/haskell/pe008.hs
-[`tails`]: http://hackage.haskell.org/package/base-4.8.0.0/docs/Data-List.html#v:tails
-[the `$` operator]: http://hackage.haskell.org/package/base-4.8.0.0/docs/Prelude.html#v:-36-
-[flow's project page]: /flow/
+[1]: /static/images/2015/04/09/flow.svg
+[2]: {% post_url 2015-04-02-announcing-blunt-a-pointless-haskell-tool %}
+[3]: https://hackage.haskell.org/package/base-4.8.0.0/docs/Prelude.html#v:.
+[4]: /flow/
+[5]: https://hackage.haskell.org/package/base-4.8.0.0
+[6]: https://projecteuler.net/problem=8
+[7]: https://github.com/tfausak/project-euler/blob/f3903d4/haskell/pe008.hs
+[8]: http://hackage.haskell.org/package/base-4.8.0.0/docs/Data-List.html#v:tails
+[9]: http://hackage.haskell.org/package/base-4.8.0.0/docs/Prelude.html#v:-36-
