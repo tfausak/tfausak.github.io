@@ -1,5 +1,5 @@
 ---
-title: untitled
+title: On the reaction to Flow
 ---
 
 My last post [introduced Flow][1], a library for writing more
