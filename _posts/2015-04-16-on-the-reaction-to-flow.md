@@ -42,7 +42,7 @@ seem to say that I would be okay with `.` and `$` if only I understood
 Haskell (or math) better. I think these types of comments are shitty,
 but I guess they're to be expected on the internet.
 
-These next comments actually critisize Flow, which I welcome. Because
+These next comments actually criticize Flow, which I welcome. Because
 Flow allows you to express operations as a pipeline, it can look
 imperative. Some people don't like that, which confused me. Avoiding
 imperative-looking code in functional programming doesn't help
