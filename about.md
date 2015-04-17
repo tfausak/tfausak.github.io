@@ -31,6 +31,9 @@ The best way to reach me is by sending an email to [taylor@fausak.me][4].
   A package for writing more understandable Haskell.
 - [Strive](/strive/):
   A Haskell client for the Strava V3 API.
+- [Wuss](/wuss/):
+  Wuss is a Haskell library that lets you easily create secure WebSocket
+  clients over the WSS protocol.
 - [Hs2048](/hs2048/):
   A 2048 clone in Haskell.
 - [Erudite](/erudite/):
