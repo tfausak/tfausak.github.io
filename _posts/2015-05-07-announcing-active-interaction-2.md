@@ -29,13 +29,6 @@ title: Announcing ActiveInteraction 2
 - useful for any type of object
 - warning in 1.6
 
-## Results
-
-- added results to invalid outcomes
-- this allows returning a common object from an interaction
-- this is mostly useful when updating an existing record
-- no warning in 1.6
-
 ## Hashes
 
 - use hashes with indifferent access throughout
@@ -47,6 +40,13 @@ title: Announcing ActiveInteraction 2
 - file filter accepts anything that respond to `#eof?`
 - used to special case uploaded files for rails
 - this allows for more IO-type objects
+- no warning in 1.6
+
+## Results
+
+- added results to invalid outcomes
+- this allows returning a common object from an interaction
+- this is mostly useful when updating an existing record
 - no warning in 1.6
 
 ## Defaults
