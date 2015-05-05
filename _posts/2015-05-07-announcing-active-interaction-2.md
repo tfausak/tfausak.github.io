@@ -6,6 +6,14 @@ title: Announcing ActiveInteraction 2
 
 ![ActiveInteraction logo][]
 
+We are proud to announce the release of [ActiveInteraction][] 2.
+This is the first major version change since we [released ActiveInteraction 1][] more than a year ago.
+
+To ease the transition,
+we are releasing version 1.6 simultaneously.
+It does not add any new features,
+but make the 1.x series compatible with the 2.x series.
+
 ## Transactions
 
 We removed support for ActiveRecord transactions ([issue 205][]).
@@ -230,6 +238,8 @@ A big thanks to everyone who contributed to ActiveInteraction!
 [aaron lasseigne]: http://aaronlasseigne.com
 [orgsync dev blog]: http://devblog.orgsync.com/2015/05/07/TODO/
 [activeinteraction logo]: /static/images/2015/05/07/active-interaction.svg
+[activeinteraction]: http://devblog.orgsync.com/active_interaction/
+[released ActiveInteraction 1]: {% post_url 2014-01-23-confidently-manage-business-logic-with-active-interaction %}
 [issue 205]: https://github.com/orgsync/active_interaction/issues/205
 [issue 250]: https://github.com/orgsync/active_interaction/issues/250
 [issue 264]: https://github.com/orgsync/active_interaction/issues/264
