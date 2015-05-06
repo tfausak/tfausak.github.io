@@ -11,13 +11,15 @@ This is the first major version change since we [released ActiveInteraction 1][]
 
 To ease the transition,
 we are releasing version 1.6 simultaneously.
-It does not add any new features,
-but make the 1.x series compatible with the 2.x series.
+It backports some features from 2.0.
+It also adds deprecation warnings for features that will be removed in 2.0.
 
 ## Transactions
 
 We removed support for ActiveRecord transactions ([issue 205][]).
 Interactions are no longer wrapped in a transaction by default.
+We decided to remove them because we saw that most interactions did not need transactions.
+Also wrapping everything in transactions is slower and can cause deadlocks.
 To retain the old behavior,
 wrap your `execute` method in an `ActiveRecord::Base.transaction` block.
 
@@ -27,6 +29,8 @@ since it does not do anything anymore.
 ``` rb
 # v1.6
 class Example < ActiveInteraction::Base
+  transaction true
+
   def execute
     # ...
   end
@@ -50,6 +54,9 @@ We replaced symbolic errors with detailed errors ([issue 250][]).
 We love symbolic errors,
 but Rails 5 will use detailed errors.
 They accomplish the same thing in slightly different ways.
+(We created our symbolic errors before detailed errors were added to Rails 5.)
+If you want to use detailed errors in your own code,
+check out the [active_model-errors_details][] gem.
 
 Instead of adding symbolic errors with `add_sym`,
 add detailed errors with `add`.
@@ -108,7 +115,6 @@ end
 Example.run(regexp: /.../)
 
 # v2.0
-object :x
 class Example < ActiveInteraction::Base
   object :regexp
 end
@@ -158,7 +164,7 @@ class Example < ActiveInteraction::Base
 end
 
 # v1.6
-Example.run!(io: StringIO.new)
+Example.run!(io: StringIO.new('Hello, world!'))
 # ActiveInteraction::InvalidInteractionError: Io is not a valid file
 
 # v2.0
@@ -177,7 +183,7 @@ This can be very useful when updating an existing record.
 class Example < ActiveInteraction::Base
   def execute
     errors.add(:base)
-    true
+    'something'
   end
 end
 
@@ -187,7 +193,7 @@ Example.run.result
 
 # v2.0
 Example.run.result
-# => true
+# => "something"
 ```
 
 ## Defaults
@@ -206,7 +212,6 @@ class Example < ActiveInteraction::Base
 
   def execute
     puts 'executing...'
-    !flag
   end
 end
 
@@ -242,6 +247,7 @@ A big thanks to everyone who contributed to ActiveInteraction!
 [released ActiveInteraction 1]: {% post_url 2014-01-23-confidently-manage-business-logic-with-active-interaction %}
 [issue 205]: https://github.com/orgsync/active_interaction/issues/205
 [issue 250]: https://github.com/orgsync/active_interaction/issues/250
+[active_model-errors_details]: https://rubygems.org/gems/active_model-errors_details
 [issue 264]: https://github.com/orgsync/active_interaction/issues/264
 [issue 164]: https://github.com/orgsync/active_interaction/issues/164
 [pull 236]: https://github.com/orgsync/active_interaction/pull/236
