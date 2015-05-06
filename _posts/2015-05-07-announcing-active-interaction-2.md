@@ -242,7 +242,7 @@ could not have done it without you.
 - [Matt Buck][21]
 
 [1]: http://aaronlasseigne.com
-[2]: http://devblog.orgsync.com/2015/05/07/announcing-activeinteraction-2/
+[2]: http://devblog.orgsync.com/2015/05/06/announcing-active-interaction-2/
 [3]: /static/images/2015/05/07/active-interaction.svg
 [4]: http://devblog.orgsync.com/active_interaction/
 [5]: {% post_url 2014-01-23-confidently-manage-business-logic-with-active-interaction %}
