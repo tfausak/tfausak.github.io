@@ -34,7 +34,7 @@ We decided to remove transactions because we saw that most interactions
 did not need them. The added cost and chance of deadlocks was not
 worth it in general.
 
-``` rb
+{% highlight rb %}
 # v1.6
 class Example < ActiveInteraction::Base
   # This is the default.
@@ -53,7 +53,7 @@ class Example < ActiveInteraction::Base
     end
   end
 end
-```
+{% endhighlight %}
 
 You will get a deprecation warning if you use `transaction` with
 1.6.
@@ -69,7 +69,7 @@ the example below for details.
 If you want to use detailed errors in your own code, check out the
 [active_model-errors_details][8] gem.
 
-``` rb
+{% highlight rb %}
 # v1.6
 class Example < ActiveInteraction::Base
   def execute
@@ -89,7 +89,7 @@ class Example < ActiveInteraction::Base
 end
 Example.run.errors.details
 # => {:base=>[{:error=>:invalid},{:error=>:custom,:message=>'...'}]}
-```
+{% endhighlight %}
 
 You will get a deprecation warning if you use either `add_sym` or
 `symbolic` with 1.6.
@@ -101,7 +101,7 @@ more accurately reflects what the filter can be used for. We initially
 used the `model` filter for ActiveModel objects. But it works with
 any object, so the name was misleading.
 
-``` rb
+{% highlight rb %}
 # v1.6
 class Example < ActiveInteraction::Base
   model :regexp
@@ -113,7 +113,7 @@ class Example < ActiveInteraction::Base
   object :regexp
 end
 Example.run(regexp: /.../)
-```
+{% endhighlight %}
 
 You will get a deprecation warning if you use `model` with 1.6.
 
@@ -123,7 +123,7 @@ We switched the `hash` filter to use indifferent access ([issue
 164][10]). This prevents a possible denial of service attack. As a
 result, hash keys will be strings instead of symbols.
 
-``` rb
+{% highlight rb %}
 class Example < ActiveInteraction::Base
   hash :options,
     strip: false
@@ -140,7 +140,7 @@ Example.run!(options: { enable: true })
 # v2.0
 Example.run!(options: { enable: true })
 # => ["enable"]
-```
+{% endhighlight %}
 
 ## Files
 
@@ -148,7 +148,7 @@ We changed the `file` filter to accept anything that responds to
 `eof?` ([pull 236][11]). It used to accept only `File`s and
 `Tempfile`s. Now it accepts a wider range of IO objects.
 
-``` rb
+{% highlight rb %}
 class Example < ActiveInteraction::Base
   file :io
 
@@ -164,7 +164,7 @@ Example.run!(io: StringIO.new('Hello, world!'))
 # v2.0
 Example.run!(io: StringIO.new('Hello, world!'))
 # => "Hello, world!"
-```
+{% endhighlight %}
 
 ## Results
 
@@ -174,7 +174,7 @@ right way to check for validity is to use `valid?`. This change
 allows you to return something from an interaction even if there
 are errors. This can be very useful when updating an existing record.
 
-``` rb
+{% highlight rb %}
 class Example < ActiveInteraction::Base
   def execute
     errors.add(:base)
@@ -195,7 +195,7 @@ outcome.valid?
 # => false
 outcome.result
 # => "something"
-```
+{% endhighlight %}
 
 ## Defaults
 
@@ -203,7 +203,7 @@ We made it so `Proc` defaults are not eagerly evaluated ([issue
 269][13]). They never should have been in the first place. This was
 an oversight when we introduced this feature.
 
-``` rb
+{% highlight rb %}
 class Example < ActiveInteraction::Base
   boolean :flag,
     default: -> {
@@ -225,7 +225,7 @@ Example.run
 Example.run
 # defaulting...
 # executing...
-```
+{% endhighlight %}
 
 ## Contributors
 
