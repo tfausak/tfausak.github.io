@@ -2,34 +2,37 @@
 title: Announcing ActiveInteraction 2
 ---
 
-*([Aaron Lasseigne][] co-authored this post for the [OrgSync Dev Blog][].)*
+*([Aaron Lasseigne][1] co-authored this post for the [OrgSync Dev
+Blog][2].)*
 
-![ActiveInteraction logo][]
+![ActiveInteraction logo][3]
 
-We are proud to announce the release of [ActiveInteraction][] 2.
-This is the first major version change since we [released ActiveInteraction][] more than a year ago.
-We made some backwards-incompatible changes that make working with interactions easier and faster.
+We are proud to announce the release of [ActiveInteraction][4] 2.
+This is the first major version change since we [released
+ActiveInteraction][5] more than a year ago. We made some
+backwards-incompatible changes that make working with interactions
+easier and faster.
 
-To simplify transitioning from 1.5.1 to 2.0.0,
-we are also releasing 1.6.0.
-It backports some features from 2.0.0
-and adds deprecations warnings for features that will be removed.
+To simplify transitioning from 1.5.1 to 2.0.0, we are also releasing
+1.6.0. It backports some features from 2.0.0 and adds deprecations
+warnings for features that will be removed.
 
 This blog post explains the changes we made and why we made them.
 It also shows you how to update interactions from 1.5.1 to 2.0.0.
 
 ## Transactions
 
-We removed support for ActiveRecord transactions ([issue 205][]).
-This means that interactions are not wrapped in a transaction by default.
-To retain the old behavior,
-wrap your `execute` method in an `ActiveRecord::Base.transaction` block.
+We removed support for ActiveRecord transactions ([issue 205][6]).
+This means that interactions are not wrapped in a transaction by
+default. To retain the old behavior, wrap your `execute` method in
+an `ActiveRecord::Base.transaction` block.
 
-We also removed the `transaction` method,
-since it does not do anything anymore.
+We also removed the `transaction` method, since it does not do
+anything anymore.
 
-We decided to remove transactions because we saw that most interactions did not need them.
-The added cost and chance of deadlocks was not worth it in general.
+We decided to remove transactions because we saw that most interactions
+did not need them. The added cost and chance of deadlocks was not
+worth it in general.
 
 ``` rb
 # v1.6
@@ -52,19 +55,19 @@ class Example < ActiveInteraction::Base
 end
 ```
 
-You will get a deprecation warning if you use `transaction` with 1.6.
+You will get a deprecation warning if you use `transaction` with
+1.6.
 
 ## Errors
 
-We replaced symbolic errors with detailed errors ([issue 250][]).
-Detailed errors will be part of Rails 5.
-We started using symbolic errors in version 0.6.0
-and are happy to see something similar make its way into Rails 5.
-Unfortunately their APIs differ slightly.
-See the example below for details.
+We replaced symbolic errors with detailed errors ([issue 250][7]).
+Detailed errors will be part of Rails 5. We started using symbolic
+errors in version 0.6.0 and are happy to see something similar make
+its way into Rails 5. Unfortunately their APIs differ slightly. See
+the example below for details.
 
-If you want to use detailed errors in your own code,
-check out the [active_model-errors_details][] gem.
+If you want to use detailed errors in your own code, check out the
+[active_model-errors_details][8] gem.
 
 ``` rb
 # v1.6
@@ -88,15 +91,15 @@ Example.run.errors.details
 # => {:base=>[{:error=>:invalid},{:error=>:custom,:message=>'...'}]}
 ```
 
-You will get a deprecation warning if you use either `add_sym` or `symbolic` with 1.6.
+You will get a deprecation warning if you use either `add_sym` or
+`symbolic` with 1.6.
 
 ## Objects
 
-We renamed the `model` filter to `object` ([issue 264][]).
-This more accurately reflects what the filter can be used for.
-We initially used the `model` filter for ActiveModel objects.
-But it works with any object,
-so the name was misleading.
+We renamed the `model` filter to `object` ([issue 264][9]). This
+more accurately reflects what the filter can be used for. We initially
+used the `model` filter for ActiveModel objects. But it works with
+any object, so the name was misleading.
 
 ``` rb
 # v1.6
@@ -116,10 +119,9 @@ You will get a deprecation warning if you use `model` with 1.6.
 
 ## Hashes
 
-We switched the `hash` filter to use indifferent access ([issue 164][]).
-This prevents a possible denial of service attack.
-As a result,
-hash keys will be strings instead of symbols.
+We switched the `hash` filter to use indifferent access ([issue
+164][10]). This prevents a possible denial of service attack. As a
+result, hash keys will be strings instead of symbols.
 
 ``` rb
 class Example < ActiveInteraction::Base
@@ -142,9 +144,9 @@ Example.run!(options: { enable: true })
 
 ## Files
 
-We changed the `file` filter to accept anything that responds to `eof?` ([pull 236][]).
-It used to accept only `File`s and `Tempfile`s.
-Now it accepts a wider range of IO objects.
+We changed the `file` filter to accept anything that responds to
+`eof?` ([pull 236][11]). It used to accept only `File`s and
+`Tempfile`s. Now it accepts a wider range of IO objects.
 
 ``` rb
 class Example < ActiveInteraction::Base
@@ -166,11 +168,11 @@ Example.run!(io: StringIO.new('Hello, world!'))
 
 ## Results
 
-We added the ability to return results from invalid interactions ([issue 168][]).
-Setting the result to `nil` was unnecessary.
-The right way to check for validity is to use `valid?`.
-This change allows you to return something from an interaction even if there are errors.
-This can be very useful when updating an existing record.
+We added the ability to return results from invalid interactions
+([issue 168][12]). Setting the result to `nil` was unnecessary. The
+right way to check for validity is to use `valid?`. This change
+allows you to return something from an interaction even if there
+are errors. This can be very useful when updating an existing record.
 
 ``` rb
 class Example < ActiveInteraction::Base
@@ -197,9 +199,9 @@ outcome.result
 
 ## Defaults
 
-We made it so `Proc` defaults are not eagerly evaluated ([issue 269][]).
-They never should have been in the first place.
-This was an oversight when we introduced this feature.
+We made it so `Proc` defaults are not eagerly evaluated ([issue
+269][13]). They never should have been in the first place. This was
+an oversight when we introduced this feature.
 
 ``` rb
 class Example < ActiveInteraction::Base
@@ -227,38 +229,36 @@ Example.run
 
 ## Contributors
 
-A big thanks to everyone who contributed to ActiveInteraction!
-We could not have done it without you.
+A big thanks to everyone who contributed to ActiveInteraction! We
+could not have done it without you.
 
-- [Aaron Lasseigne][]
-- [Alexey Blinov][]
-- [Alexey Shein][]
-- [Andrea Longhi][]
-- [Cameron Desautels][]
-- [Casey Foster][]
-- [Daniel Hollands][]
-- [Matt Buck][]
-- [Taylor Fausak][]
+- [Aaron Lasseigne][14]
+- [Alexey Blinov][15]
+- [Alexey Shein][16]
+- [Andrea Longhi][17]
+- [Cameron Desautels][18]
+- [Casey Foster][19]
+- [Daniel Hollands][20]
+- [Matt Buck][21]
 
-[aaron lasseigne]: http://aaronlasseigne.com
-[orgsync dev blog]: http://devblog.orgsync.com/2015/05/07/TODO/
-[activeinteraction logo]: /static/images/2015/05/07/active-interaction.svg
-[activeinteraction]: http://devblog.orgsync.com/active_interaction/
-[released ActiveInteraction]: {% post_url 2014-01-23-confidently-manage-business-logic-with-active-interaction %}
-[issue 205]: https://github.com/orgsync/active_interaction/issues/205
-[issue 250]: https://github.com/orgsync/active_interaction/issues/250
-[active_model-errors_details]: https://rubygems.org/gems/active_model-errors_details
-[issue 264]: https://github.com/orgsync/active_interaction/issues/264
-[issue 164]: https://github.com/orgsync/active_interaction/issues/164
-[pull 236]: https://github.com/orgsync/active_interaction/pull/236
-[issue 168]: https://github.com/orgsync/active_interaction/issues/168
-[issue 269]: https://github.com/orgsync/active_interaction/issues/269
-[aaron lasseigne]: https://github.com/AaronLasseigne
-[alexey blinov]: https://github.com/nilcolor
-[alexey shein]: https://github.com/conf
-[andrea longhi]: https://github.com/spaghetticode
-[cameron desautels]: https://github.com/camdez
-[casey foster]: https://github.com/caseywebdev
-[daniel hollands]: https://github.com/LimeBlast
-[matt buck]: https://github.com/techpeace
-[taylor fausak]: https://github.com/tfausak
+[1]: http://aaronlasseigne.com
+[2]: http://devblog.orgsync.com/2015/05/07/announcing-activeinteraction-2/
+[3]: /static/images/2015/05/07/active-interaction.svg
+[4]: http://devblog.orgsync.com/active_interaction/
+[5]: {% post_url 2014-01-23-confidently-manage-business-logic-with-active-interaction %}
+[6]: https://github.com/orgsync/active_interaction/issues/205
+[7]: https://github.com/orgsync/active_interaction/issues/250
+[8]: https://rubygems.org/gems/active_model-errors_details
+[9]: https://github.com/orgsync/active_interaction/issues/264
+[10]: https://github.com/orgsync/active_interaction/issues/164
+[11]: https://github.com/orgsync/active_interaction/pull/236
+[12]: https://github.com/orgsync/active_interaction/issues/168
+[13]: https://github.com/orgsync/active_interaction/issues/269
+[14]: https://github.com/AaronLasseigne
+[15]: https://github.com/nilcolor
+[16]: https://github.com/conf
+[17]: https://github.com/spaghetticode
+[18]: https://github.com/camdez
+[19]: https://github.com/caseywebdev
+[20]: https://github.com/LimeBlast
+[21]: https://github.com/techpeace
