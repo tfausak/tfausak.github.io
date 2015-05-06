@@ -7,28 +7,34 @@ title: Announcing ActiveInteraction 2
 ![ActiveInteraction logo][]
 
 We are proud to announce the release of [ActiveInteraction][] 2.
-This is the first major version change since we [released ActiveInteraction 1][] more than a year ago.
+This is the first major version change since we [released ActiveInteraction][] more than a year ago.
+We made some backwards-incompatible changes that make working with interactions easier and faster.
 
-To ease the transition,
-we are releasing version 1.6 simultaneously.
-It backports some features from 2.0.
-It also adds deprecation warnings for features that will be removed in 2.0.
+To simplify transitioning from 1.5.1 to 2.0.0,
+we are also releasing 1.6.0.
+It backports some features from 2.0.0
+and adds deprecations warnings for features that will be removed.
+
+This blog post explains the changes we made and why we made them.
+It also shows you how to update interactions from 1.5.1 to 2.0.0.
 
 ## Transactions
 
 We removed support for ActiveRecord transactions ([issue 205][]).
-Interactions are no longer wrapped in a transaction by default.
-We decided to remove them because we saw that most interactions did not need transactions.
-Also wrapping everything in transactions is slower and can cause deadlocks.
+This means that interactions are not wrapped in a transaction by default.
 To retain the old behavior,
 wrap your `execute` method in an `ActiveRecord::Base.transaction` block.
 
 We also removed the `transaction` method,
 since it does not do anything anymore.
 
+We decided to remove transactions because we saw that most interactions did not need them.
+The added cost and chance of deadlocks was not worth it in general.
+
 ``` rb
 # v1.6
 class Example < ActiveInteraction::Base
+  # This is the default.
   transaction true
 
   def execute
@@ -51,36 +57,21 @@ You will get a deprecation warning if you use `transaction` with 1.6.
 ## Errors
 
 We replaced symbolic errors with detailed errors ([issue 250][]).
-We love symbolic errors,
-but Rails 5 will use detailed errors.
-They accomplish the same thing in slightly different ways.
-(We created our symbolic errors before detailed errors were added to Rails 5.)
+Detailed errors will be part of Rails 5.
+We started using symbolic errors in version 0.6.0
+and are happy to see something similar make its way into Rails 5.
+Unfortunately their APIs differ slightly.
+See the example below for details.
+
 If you want to use detailed errors in your own code,
 check out the [active_model-errors_details][] gem.
-
-Instead of adding symbolic errors with `add_sym`,
-add detailed errors with `add`.
-So instead of `errors.add_sym(:foo, :bar)`,
-just do `errors.add(:foo, :bar)`.
-(`add_sym` also took an optional third parameter to use as the message.
-Pass a `message` option to `add` for that behavior.
-`errors.add_sym(:foo, :bar, 'bar')` becomes `errors.add(:foo, :bar, message: 'bar')`.)
-
-And instead of reading symbolic errors with `symbolic`,
-get detailed errors with `details`.
-So instead of `errors.symbolic[:foo]`,
-do `errors.details[:foo]`.
-(`symbolic` returned an array of symbolic.
-`details` returns an array of hashes.
-The symbol is available at the `:error` key.
-`[:bar]` becomes `[{ error: :bar }]`.)
 
 ``` rb
 # v1.6
 class Example < ActiveInteraction::Base
   def execute
-    errors.add_sym(:base, :invalid)
-    errors.add_sym(:base, :custom, '...')
+    errors.add_sym :base, :invalid
+    errors.add_sym :base, :custom, '...'
   end
 end
 Example.run.errors.symbolic
@@ -89,8 +80,8 @@ Example.run.errors.symbolic
 # v2.0
 class Example < ActiveInteraction::Base
   def execute
-    errors.add(:base, :invalid)
-    errors.add(:base, :custom, message: '...')
+    errors.add :base, :invalid
+    errors.add :base, :custom, message: '...'
   end
 end
 Example.run.errors.details
@@ -127,7 +118,8 @@ You will get a deprecation warning if you use `model` with 1.6.
 
 We switched the `hash` filter to use indifferent access ([issue 164][]).
 This prevents a possible denial of service attack.
-Hash keys will be strings instead of symbols.
+As a result,
+hash keys will be strings instead of symbols.
 
 ``` rb
 class Example < ActiveInteraction::Base
@@ -150,9 +142,9 @@ Example.run!(options: { enable: true })
 
 ## Files
 
-We changed the `file` filter to accept anything that respond to `eof?` ([pull 236][]).
-We used to accept either a `File` or a `Tempfile`.
-This change accepts a wider range of IO objects.
+We changed the `file` filter to accept anything that responds to `eof?` ([pull 236][]).
+It used to accept only `File`s and `Tempfile`s.
+Now it accepts a wider range of IO objects.
 
 ``` rb
 class Example < ActiveInteraction::Base
@@ -175,8 +167,9 @@ Example.run!(io: StringIO.new('Hello, world!'))
 ## Results
 
 We added the ability to return results from invalid interactions ([issue 168][]).
-Setting the result to `nil` was unnecessary since the right way to check for validity is to use `valid?`.
-This change allows you to return something from an interaction even if something goes wrong.
+Setting the result to `nil` was unnecessary.
+The right way to check for validity is to use `valid?`.
+This change allows you to return something from an interaction even if there are errors.
 This can be very useful when updating an existing record.
 
 ``` rb
@@ -188,18 +181,24 @@ class Example < ActiveInteraction::Base
 end
 
 # v1.6
-Example.run.result
+outcome = Example.run
+outcome.valid?
+# => false
+outcome.result
 # => nil
 
 # v2.0
-Example.run.result
+outcome = Example.run
+outcome.valid?
+# => false
+outcome.result
 # => "something"
 ```
 
 ## Defaults
 
 We made it so `Proc` defaults are not eagerly evaluated ([issue 269][]).
-They never should have been eagerly evaluated.
+They never should have been in the first place.
 This was an oversight when we introduced this feature.
 
 ``` rb
@@ -229,6 +228,7 @@ Example.run
 ## Contributors
 
 A big thanks to everyone who contributed to ActiveInteraction!
+We could not have done it without you.
 
 - [Aaron Lasseigne][]
 - [Alexey Blinov][]
@@ -244,7 +244,7 @@ A big thanks to everyone who contributed to ActiveInteraction!
 [orgsync dev blog]: http://devblog.orgsync.com/2015/05/07/TODO/
 [activeinteraction logo]: /static/images/2015/05/07/active-interaction.svg
 [activeinteraction]: http://devblog.orgsync.com/active_interaction/
-[released ActiveInteraction 1]: {% post_url 2014-01-23-confidently-manage-business-logic-with-active-interaction %}
+[released ActiveInteraction]: {% post_url 2014-01-23-confidently-manage-business-logic-with-active-interaction %}
 [issue 205]: https://github.com/orgsync/active_interaction/issues/205
 [issue 250]: https://github.com/orgsync/active_interaction/issues/250
 [active_model-errors_details]: https://rubygems.org/gems/active_model-errors_details
