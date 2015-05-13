@@ -12,7 +12,8 @@ living in Dallas, Texas. I currently work for [OrgSync][2]. I studied
 Computer Science at [UT Austin][3] for a while, but I don't have
 anything to show for it.
 
-The best way to reach me is by sending an email to [taylor@fausak.me][4].
+The best way to reach me is by sending an email to [taylor@fausak.me][4]. To
+find me at other places on the web, check [my Keybase profile][5].
 
 ## Projects
 
@@ -95,6 +96,7 @@ The best way to reach me is by sending an email to [taylor@fausak.me][4].
 [2]: http://www.orgsync.com
 [3]: http://www.utexas.edu
 [4]: mailto:taylor+honeypot@fausak.me
+[5]: https://keybase.io/taylorfausak
 
 [activeinteraction]: http://devblog.orgsync.com/active_interaction/
 [aaron lasseigne]: http://aaronlasseigne.com
