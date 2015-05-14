@@ -13,5 +13,5 @@ window._paq = [
 script = document.createElement 'script'
 script.async = true
 script.defer = true
-script.src = '#{url}/piwik.js'
+script.src = "#{url}/piwik.js"
 document.body.appendChild script
