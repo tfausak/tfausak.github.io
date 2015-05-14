@@ -116,7 +116,7 @@ you need to get all the way to the one you want.
 The only downside is that you need to run all of these monads. Doing
 so can be a little tedious.
 
-{% highligh hs %}
+{% highlight hs %}
 >>> let newReader = runWriterT stack
 >>> let newIdentity = runReaderT newReader 3
 >>> runIdentity newIdentity
