@@ -5,11 +5,11 @@ title: Scraping websites with Haskell
 I recently started a side project that involves scraping websites. Although I
 would typically do that with a scripting language like Python or Ruby, I wanted
 to use Haskell for its speed and type safety. It turned out to be easier than I
-thought, thanks in large part to [the html-conduit package][].
+thought, thanks in large part to [the html-conduit package][1].
 
 To show you how easy it is, let's look at an example. Say you want information
-about [Magic cards][]. For simplicity's sake, let's say you only want the name
-of a card given its ID on [Gatherer][]. We'll also ignore unusual cards that
+about [Magic cards][2]. For simplicity's sake, let's say you only want the name
+of a card given its ID on [Gatherer][3]. We'll also ignore unusual cards that
 are split or flipped.
 
 From a high level, this problem breaks down into a few pieces:
@@ -55,8 +55,9 @@ buildUrl multiverseId = concat
 ```
 
 Getting the URL and parsing the HTML is a little complicated. We are going to
-use conduits, provided by [the conduit package][]. They allow us to efficiently
-stream data. We'll take the HTTP response and feed it into the HTML parser.
+use conduits, provided by [the conduit package][4]. They allow us to
+efficiently stream data. We'll take the HTTP response and feed it into the HTML
+parser.
 
 ``` hs
 import Control.Monad.Trans.Resource (runResourceT)
@@ -152,8 +153,8 @@ So that was a pretty quick run through of scraping websites with Haskell. It's
 tougher than doing the same thing in scripting languages, but hopefully easier
 than you expected.
 
-[the html-conduit package]: http://hackage.haskell.org/package/html-conduit-1.2.0
-[magic cards]: https://en.wikipedia.org/wiki/Magic:_The_Gathering
-[gatherer]: http://gatherer.wizards.com/Pages/Default.aspx
-[the conduit package]: http://hackage.haskell.org/package/conduit-1.2.4.2
-[the xml-conduit package]: http://hackage.haskell.org/package/xml-conduit-1.3.0
+[1]: http://hackage.haskell.org/package/html-conduit-1.2.0
+[2]: https://en.wikipedia.org/wiki/Magic:_The_Gathering
+[3]: http://gatherer.wizards.com/Pages/Default.aspx
+[4]: http://hackage.haskell.org/package/conduit-1.2.4.2
+[5]: http://hackage.haskell.org/package/xml-conduit-1.3.0
