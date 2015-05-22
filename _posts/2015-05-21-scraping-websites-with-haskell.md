@@ -1,5 +1,5 @@
 ---
-title: untitled
+title: Scraping websites with Haskell
 ---
 
 - i wanted to get and parse some html with haskell
