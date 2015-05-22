@@ -33,18 +33,18 @@ Let's start with getting the IDs from the user. Even though they are integers,
 we'll treat them as strings. Converting them to integers isn't worth it because
 we'll just be putting them back into a URL.
 
-``` hs
+{% highlight hs %}
 import System.Environment (getArgs)
 
 getMultiverseIds :: IO [String]
 getMultiverseIds = getArgs
-```
+{% endhighlight %}
 
 Up next is building the URL. It is pretty easy, but the lack of string
 interpolation makes it a little annoying. We could build an actual URI, but we
 don't need that level of safety.
 
-``` hs
+{% highlight hs %}
 buildUrl :: String -> String
 buildUrl multiverseId = concat
   [ "http://gatherer.wizards.com"
@@ -52,14 +52,14 @@ buildUrl multiverseId = concat
   , "?multiverseid="
   , multiverseId
   ]
-```
+{% endhighlight %}
 
 Getting the URL and parsing the HTML is a little complicated. We are going to
 use conduits, provided by [the conduit package][5]. They allow us to
 efficiently stream data. We'll take the HTTP response and feed it into the HTML
 parser.
 
-``` hs
+{% highlight hs %}
 import Control.Monad.Trans.Resource (runResourceT)
 import Data.Conduit (($$+-))
 import Network.HTTP.Conduit (conduitManagerSettings, http, newManager, parseUrl, responseBody)
@@ -80,7 +80,7 @@ makeRequest url = do
     let body = responseBody response
     -- Parse the body as HTML.
     body $$+- sinkDoc
-```
+{% endhighlight %}
 
 Now that we have an HTML document, we need to find the name in it.
 Unfortunately there's not an easy way to get to it. It is one of many elements
@@ -88,7 +88,7 @@ at this CSS selector: `table.cardDetails td.rightCol div.row div.value`. We're
 going to use [the xml-conduit package][6] to express that as a series of
 combinators. It's a lot more verbose, but also more powerful.
 
-``` hs
+{% highlight hs %}
 {-# LANGUAGE OverloadedStrings #-}
 
 import Data.Maybe (listToMaybe)
@@ -112,22 +112,22 @@ getName document = listToMaybe contents where
       >=> attributeIs "class" "value"
     &// content
   cursor = fromDocument document
-```
+{% endhighlight %}
 
 With the name in hand, we can display it to the user. If, for whatever reason,
 we couldn't find the name, we'll just print out a question mark.
 
-``` hs
+{% highlight hs %}
 import Data.Text (strip, unpack)
 
 printName :: Maybe Text -> IO ()
 printName (Just name) = putStrLn (unpack (strip name))
 printName Nothing = putStrLn "?"
-```
+{% endhighlight %}
 
 Now that we have all the parts, we can combine them into a complete program.
 
-``` hs
+{% highlight hs %}
 import Control.Monad (forM_)
 
 main :: IO ()
@@ -139,15 +139,15 @@ main = do
     document <- makeRequest url
     let name = getName document
     printName name
-```
+{% endhighlight %}
 
 To run it, just pass a list of IDs you want to get from Gatherer.
 
-``` sh
+{% highlight sh %}
 $ cabal run -- 383172 0
 383172 Shivan Dragon
 0      ?
-```
+{% endhighlight %}
 
 So that was a pretty quick run through of scraping websites with Haskell. It's
 tougher than doing the same thing in scripting languages, but hopefully easier
