@@ -9,8 +9,7 @@ than I thought, thanks in large part to [the html-conduit package][2].
 
 To show you how easy it is, let's look at an example. Say you want information
 about [Magic cards][3]. For simplicity's sake, let's say you only want the name
-of a card given its ID on [Gatherer][4]. We'll also ignore unusual cards that
-are split or flipped.
+of a card given its ID on [Gatherer][4].
 
 From a high level, this problem breaks down into a few pieces:
 
