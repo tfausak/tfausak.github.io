@@ -3,13 +3,13 @@ title: Scraping websites with Haskell
 ---
 
 I recently started a side project that involves scraping websites. Although I
-would typically do that with a scripting language like Python or Ruby, I wanted
-to use Haskell for its speed and type safety. It turned out to be easier than I
-thought, thanks in large part to [the html-conduit package][1].
+would [typically do that with a scripting language][1] like Python or Ruby, I
+wanted to use Haskell for its speed and type safety. It turned out to be easier
+than I thought, thanks in large part to [the html-conduit package][2].
 
 To show you how easy it is, let's look at an example. Say you want information
-about [Magic cards][2]. For simplicity's sake, let's say you only want the name
-of a card given its ID on [Gatherer][3]. We'll also ignore unusual cards that
+about [Magic cards][3]. For simplicity's sake, let's say you only want the name
+of a card given its ID on [Gatherer][4]. We'll also ignore unusual cards that
 are split or flipped.
 
 From a high level, this problem breaks down into a few pieces:
@@ -55,7 +55,7 @@ buildUrl multiverseId = concat
 ```
 
 Getting the URL and parsing the HTML is a little complicated. We are going to
-use conduits, provided by [the conduit package][4]. They allow us to
+use conduits, provided by [the conduit package][5]. They allow us to
 efficiently stream data. We'll take the HTTP response and feed it into the HTML
 parser.
 
@@ -85,7 +85,7 @@ makeRequest url = do
 Now that we have an HTML document, we need to find the name in it.
 Unfortunately there's not an easy way to get to it. It is one of many elements
 at this CSS selector: `table.cardDetails td.rightCol div.row div.value`. We're
-going to use [the xml-conduit package][] to express that as a series of
+going to use [the xml-conduit package][6] to express that as a series of
 combinators. It's a lot more verbose, but also more powerful.
 
 ``` hs
@@ -153,8 +153,9 @@ So that was a pretty quick run through of scraping websites with Haskell. It's
 tougher than doing the same thing in scripting languages, but hopefully easier
 than you expected.
 
-[1]: http://hackage.haskell.org/package/html-conduit-1.2.0
-[2]: https://en.wikipedia.org/wiki/Magic:_The_Gathering
-[3]: http://gatherer.wizards.com/Pages/Default.aspx
-[4]: http://hackage.haskell.org/package/conduit-1.2.4.2
-[5]: http://hackage.haskell.org/package/xml-conduit-1.3.0
+[1]: {% post-url 2011-12-28-scraping-the-windows-phone-marketplace %}
+[2]: http://hackage.haskell.org/package/html-conduit-1.2.0
+[3]: https://en.wikipedia.org/wiki/Magic:_The_Gathering
+[4]: http://gatherer.wizards.com/Pages/Default.aspx
+[5]: http://hackage.haskell.org/package/conduit-1.2.4.2
+[6]: http://hackage.haskell.org/package/xml-conduit-1.3.0
