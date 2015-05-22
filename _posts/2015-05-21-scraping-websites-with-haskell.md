@@ -153,7 +153,7 @@ So that was a pretty quick run through of scraping websites with Haskell. It's
 tougher than doing the same thing in scripting languages, but hopefully easier
 than you expected.
 
-[1]: {% post-url 2011-12-28-scraping-the-windows-phone-marketplace %}
+[1]: {% post_url 2011-12-28-scraping-the-windows-phone-marketplace %}
 [2]: http://hackage.haskell.org/package/html-conduit-1.2.0
 [3]: https://en.wikipedia.org/wiki/Magic:_The_Gathering
 [4]: http://gatherer.wizards.com/Pages/Default.aspx
