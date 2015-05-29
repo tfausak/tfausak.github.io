@@ -19,7 +19,7 @@ any position.
 If you aren't familiar with them, here is a quick overview of the threading
 macros. `->` is "thread first". It is easiest to explain with examples.
 
-``` clj
+{% highlight clj %}
 (-> x
     f)
 ;; (f x)
@@ -30,12 +30,12 @@ macros. `->` is "thread first". It is easiest to explain with examples.
 (-> x
     (f y))
 ;; (f x y)
-```
+{% endhighlight %}
 
 It fills in the first argument and carries it through all the forms. If you
 want to fill in the last argument, use `->>`, the "thread last" macro.
 
-``` clj
+{% highlight clj %}
 (->> x
      f)
 ;; (f x)
@@ -46,12 +46,12 @@ want to fill in the last argument, use `->>`, the "thread last" macro.
 (->> x
      (f y))
 ;; (f y x)
-```
+{% endhighlight %}
 
 If you need more control than that, you can use `as->`, the "thread as" macro.
 It allows you to fill in an arbitrary argument.
 
-``` clj
+{% highlight clj %}
 (as-> x $
       (f $))
 ;; (f x)
@@ -69,7 +69,7 @@ It allows you to fill in an arbitrary argument.
       (f $ y)
       (g z $))
 ;; (g z (f x y))
-```
+{% endhighlight %}
 
 These macros are a powerful way to write expressive functional pipelines. I was
 surprised to find that they were idiomatic Clojure, considering [the
@@ -80,12 +80,12 @@ Regardless, this is a neat feature of Clojure. I wish Haskell had something
 similar. Unfortunately I think it would require Template Haskell, but it could
 be fun to write functions like this:
 
-``` hs
+{% highlight hs %}
 $(as-> x _
        (f _ y)
        (g z _))
 -- (g z (f x y))
-```
+{% endhighlight %}
 
 [1]: https://clojuredocs.org/clojure.core/-%3E
 [2]: https://clojuredocs.org/clojure.core/-%3E%3E
