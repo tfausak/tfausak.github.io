@@ -1,5 +1,5 @@
 ---
-title: untitled
+title: Run secure WebSocket clients with Wuss
 ---
 
 While working on [pressing the button with Haskell][1], I needed to establish a
