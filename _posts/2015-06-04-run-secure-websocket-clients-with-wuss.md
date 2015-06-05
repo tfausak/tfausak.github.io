@@ -3,7 +3,7 @@ title: Run secure WebSocket clients with Wuss
 ---
 
 While working on [pressing the button with Haskell][1], I needed to establish a
-secure WebSocket (WSS) connection. Unfprtunately the existing [`websockets`
+secure WebSocket (WSS) connection. Unfortunately the existing [`websockets`
 package][2] did not support secure WebSockets. I looked around and found [an
 issue][3] addressing it. It had a few workarounds by [@jaspervdj][4],
 [@mpickering][5], and [@elfenlaid][6]. They got the job done, but weren't
