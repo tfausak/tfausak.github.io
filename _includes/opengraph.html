@@ -1,6 +1,6 @@
 <meta
     property="og:description"
-    content="{{ content | split: '<!---->' | last | strip_html | replace: '"', '&#x22;' | strip_newlines | split: ' ' | join: ' ' | truncate: 200 }}">
+    content="{{ content | split: '<!---->' | last | strip_html | replace: '"', '&#x22;' | replace: '\n', ' ' | split: ' ' | join: ' ' | truncate: 200 }}">
 <meta
     property="og:image"
     content="{{ site.data.config.url }}/static/images/og-image.png">
