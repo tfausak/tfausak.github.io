@@ -8,10 +8,9 @@ exclude:
 - CNAME
 - Gemfile
 - Gemfile.lock
-- LICENSE.txt
+- LICENSE.md
 - README.md
 - Rakefile
-- Vagrantfile
 - vendor
 gems:
 - jekyll-sitemap
