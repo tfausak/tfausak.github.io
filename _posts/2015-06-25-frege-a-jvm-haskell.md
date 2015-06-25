@@ -1,5 +1,5 @@
 ---
-title: untitled
+title: Frege, a JVM Haskell
 ---
 
 Recently I have been [working with Clojure][1]. That got me interested in other
