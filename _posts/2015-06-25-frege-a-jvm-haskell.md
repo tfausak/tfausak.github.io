@@ -116,6 +116,11 @@ substantial, so I will just rattle them off here:
 - Frege has no package side like Hackage. This is not surprising, considering
   the previous point.
 
+Even though there are a few annoyances, I enjoyed using Frege. I liked working
+with a Haskell that was easier to install and didn't suffer from Cabal hell.
+However, I think that Scala is a better choice, since Frege is such a niche
+language.
+
 [1]: {% post_url 2015-05-28-clojures-threading-macros %}
 [2]: https://github.com/Frege/frege
 [3]: https://en.wikipedia.org/wiki/Gottlob_Frege
