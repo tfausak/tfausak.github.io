@@ -3,17 +3,17 @@ layout: base
 title: About
 ---
 
-![Taylor Fausak][1]
-
 # {{ page.title }}
 
-Howdy! My name is Taylor Fausak. I'm a 25-year-old software developer
-living in Dallas, Texas. I currently work for [OrgSync][2]. I studied
-Computer Science at [UT Austin][3] for a while, but I don't have
+Howdy! My name is Taylor Fausak. I am a 25-year-old software developer
+living in Dallas, Texas. I currently work for [OrgSync][1]. I studied
+Computer Science at [UT Austin][2] for a while, but I don't have
 anything to show for it.
 
-The best way to reach me is by sending an email to [taylor@fausak.me][4]. To
-find me at other places on the web, check [my Keybase profile][5].
+The best way to reach me is by sending an email to [taylor@fausak.me][3]. To
+find me at other places on the web, check [my Keybase profile][4].
+
+![Taylor Fausak][5]
 
 ## Projects
 
@@ -92,11 +92,11 @@ find me at other places on the web, check [my Keybase profile][5].
   learn about document-based data stores and the XML toolchain, including XPath
   and XSLT.
 
-[1]: /static/images/taylor-fausak.jpg
-[2]: http://www.orgsync.com
-[3]: http://www.utexas.edu
-[4]: mailto:taylor+honeypot@fausak.me
-[5]: https://keybase.io/taylorfausak
+[1]: http://www.orgsync.com
+[2]: http://www.utexas.edu
+[3]: mailto:taylor+honeypot@fausak.me
+[4]: https://keybase.io/taylorfausak
+[5]: /static/images/taylor-fausak.jpg
 
 [activeinteraction]: http://devblog.orgsync.com/active_interaction/
 [aaron lasseigne]: http://aaronlasseigne.com

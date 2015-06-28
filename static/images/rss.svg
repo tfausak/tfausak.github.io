@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-
-<svg viewBox="0 0 100 100" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="14" cy="86" r="14" fill="#b0b0b0"/>
-  <circle cy="100" r="56" fill="transparent" stroke-width="20%" stroke="#b0b0b0"/>
-  <circle cy="100" r="90" fill="transparent" stroke-width="20%" stroke="#b0b0b0"/>
-</svg>
