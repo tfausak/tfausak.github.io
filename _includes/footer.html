@@ -1,55 +1,13 @@
 <footer class="footer">
     <div class="wrapper">
-        <ul class="internal">
-            {% if page.previous or page.next %}
-                <li class="prev">
-                    {% if page.previous %}
-                        <a href="{{ page.previous.url }}" rel="prev" title="{{ page.previous.title | escape }}">
-                            &#x2190;
-                        </a>
-                    {% else %}
-                        &#x2190;
-                    {% endif %}
-                </li>
+        <p>
+            Content on this site is licensed under a
+            <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.
 
-                <li class="next">
-                    {% if page.next %}
-                        <a href="{{ page.next.url }}" rel="next" title="{{ page.next.title | escape }}">
-                            &#x2192;
-                        </a>
-                    {% else %}
-                        &#x2192;
-                    {% endif %}
-                </li>
-            {% endif %}
+            The source for this page is available
+            <a href="https://github.com/tfausak/tfausak.github.io/blob/master/{{ page.path }}">on GitHub</a>.
+        </p>
 
-            <li class="home">
-                <a href="/" title="{{ site.data.config.title | escape }}">
-                    {% include logo.html %}
-                </a>
-            </li>
-        </ul>
-
-        {% if page.title %}
-            <ul class="external">
-                <li>
-                    <a href="//creativecommons.org/licenses/by/4.0/">
-                        <img alt="License" height="1" src="/static/images/creative-commons.svg" width="1">
-                    </a>
-                </li>
-
-                <li>
-                    <a href="//github.com/tfausak/tfausak.github.io/blob/master/{{ page.path }}">
-                        <img alt="Source" height="1" src="/static/images/github.svg" width="1">
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/sitemap.atom">
-                        <img alt="Feed" height="1" src="/static/images/rss.svg" width="1">
-                    </a>
-                </li>
-            </ul>
-        {% endif %}
+        {% include logo.svg %}
     </div>
 </footer>

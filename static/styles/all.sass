@@ -31,13 +31,12 @@ $purple: $base0e
 
 html,
 body
-  background: $white
+  background: $base06
   color: $black
   font: 100%/1.5em 'Verdana', sans-serif
   -webkit-text-size-adjust: 100%
 
 .header,
-.content,
 .footer
   padding: 0 1.5em
 
@@ -82,7 +81,7 @@ em
 h1
   font-size: 2em
   line-height: 1.5
-  margin: 0.75em 0
+  margin: 0 0 0.75em 0
 
 h2
   font-size: 1.75em
@@ -148,10 +147,6 @@ ul
 
 // Header
 
-.header
-  background: $base06
-  margin-bottom: 1.5em
-
 .header h1
   font-size: 1em
   margin: 0
@@ -171,7 +166,8 @@ ul
 // Content
 
 .content
-  margin: 1.5em 0 3em 0
+  background: $white
+  padding: 1.5em
 
 .content .meta
   font-style: italic
@@ -185,82 +181,18 @@ ul
 
 .footer
   color: $base04
-  margin: 3em 0
 
-.internal
-  font-size: 3em
-  line-height: 1.5
-  list-style-type: none
-  margin: 0
+.footer p
+  margin-bottom: 0
 
-.internal li
-  width: 1.5em
+.footer a
+  color: inherit
 
-.internal .prev
-  float: left
-  text-align: left
-
-.internal .next
-  float: right
-  text-align: right
-
-.internal .home
+.footer svg
+  fill: $base05
+  height: 9em
+  display: block
   margin: 0 auto
-  text-align: center
-
-.internal a
-  display: block
-  text-decoration: none
-
-.internal .logo
-  color: $red
-  display: block
-
-.external
-  line-height: 0
-  list-style-type: none
-  margin: 1.5em 0 0 0
-  text-align: center
-
-.external li
-  display: inline-block
-
-.external a
-  display: block
-  margin: 0 0.75em
-
-.external img
-  background: none
-  height: 3em
-  margin: 0
-  outline: none
-  width: auto
-
-// Logo
-
-.logo
-  display: inline-block
-  height: 0.9em
-  padding: 0.3em
-  vertical-align: middle
-  width: 0.9em
-
-.logo i
-  border-style: solid
-  border-width: 0 0 0.3em 0.3em
-  display: block
-  float: left
-  height: 0
-  width: 0
-
-.logo .bottom.right,
-.logo .left
-  border-left-color: transparent
-
-.logo .bottom,
-.logo .center.left,
-.logo .right
-  border-bottom-color: transparent
 
 // Posts
 
@@ -279,19 +211,46 @@ ul
 .posts a
   text-decoration: none
 
-// Breakout
+// Colophon
 
-.breakout
-  min-height: 6em
+.colophon
+  border-top: thin solid $base06
+  margin-top: 1.5em
+  padding-top: 1.5em
 
-.breakout img
-  float: right
-  height: 6em
-  margin: 0 0 0 0.75em
-  width: auto
+// Pagination
 
-.breakout h2
-  margin: 0
+.pagination
+  color: $base06
+  table-layout: fixed
+  width: 100%
 
-.breakout p
-  margin: 0
+.pagination td
+  border: 0
+  padding: 0
+
+.pagination .prev-icon,
+.pagination .separator,
+.pagination .next-icon
+  font-size: 1.5em
+  line-height: 1em
+  text-align: center
+  width: 1.5em
+
+.pagination .prev,
+.pagination .next
+  overflow-x: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+.pagination .next
+  text-align: right
+
+.pagination a
+  text-decoration: none
+
+// About
+
+.about
+  margin-bottom: 0
+  text-align: center
