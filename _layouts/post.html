@@ -6,7 +6,7 @@ layout: base
     <h1 itemprop="name">{{ page.title | escape }}</h1>
 
     <p class="meta">
-        by <a href="https://plus.google.com/{{ site.data.author.google_id | escape }}?rel=author" rel="author">{{ site.data.author.name | escape }}</a>
+        by <a href="/about/">{{ site.data.author.name | escape }}</a>
         on <time datetime="{{ page.date | date:'%Y-%m-%d' }}" itemprop="datePublished">{{ page.date | date:'%B %d, %Y' }}</time>
     </p>
 
@@ -46,8 +46,4 @@ layout: base
             </tr>
         </table>
     {% endif %}
-
-    <p class="about">
-        I am Taylor Fausak, a 25-year-old software developer living in Dallas, Texas and working for OrgSync. <a href="/about/">Read more &#x2192;</a>
-    </p>
 </div>
