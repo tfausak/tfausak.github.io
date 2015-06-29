@@ -26,23 +26,19 @@ layout: base
                 <td class="prev">
                     <a href="{{ page.previous.url }}" rel="prev" title="{{ page.previous.title | escape }}">{{ page.previous.title }}</a>
                 </td>
-            {% else %}
-                <td class="prev-icon"></td>
-                <td class="prev"></td>
             {% endif %}
 
-            <td class="separator">
-                &middot;
-            </td>
+            {% if page.previous and page.next %}
+                <td class="separator">
+                    &middot;
+                </td>
+            {% endif %}
 
             {% if page.next %}
                 <td class="next">
                     <a href="{{ page.next.url }}" rel="next" title="{{ page.next.title | escape }}">{{ page.next.title }}</a>
                 </td>
                 <td class="next-icon">&#x2192;</td>
-            {% else %}
-                <td class="next"></td>
-                <td class="next-icon"></td>
             {% endif %}
         </tr>
     </table>
