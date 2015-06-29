@@ -28,12 +28,6 @@ layout: base
                 </td>
             {% endif %}
 
-            {% if page.previous and page.next %}
-                <td class="separator">
-                    &middot;
-                </td>
-            {% endif %}
-
             {% if page.next %}
                 <td class="next">
                     <a href="{{ page.next.url }}" rel="next" title="{{ page.next.title | escape }}">{{ page.next.title }}</a>
