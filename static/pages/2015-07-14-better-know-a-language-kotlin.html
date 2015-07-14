@@ -1,0 +1,892 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Better know a language: Kotlin</title>
+
+    <style>
+      body {
+        font-family: 'Avenir Next', sans-serif;
+      }
+      .remark-code {
+        font-family: 'Source Code Pro', monospace;
+      }
+    </style>
+  </head>
+
+  <body>
+    <textarea id="source">
+class: center, middle
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="115 365 111 111" width="300" height="300">
+  <path fill="#4971A9" d="M116.4,457.5v0.4c0,9.8,7.9,17.7,17.7,17.7c9.8,0,17.7-7.9,17.7-17.7v-19.5L116.4,457.5z"/>
+  <path fill="#4971A9" d="M223.4,457.6c-0.3-3.8-1.9-7.3-4.6-10l0-0.1l-31.8-28.1L156.1,436l39.9,35.5c3,2.6,6.8,4,10.8,4l0,0
+    c0.5,0,1,0,1.4-0.1c4.4-0.4,8.4-2.5,11.2-5.8C222.4,466.3,223.7,462,223.4,457.6z"/>
+  <path fill="#4971A9" d="M151.8,385.6v-1.9c0-0.1,0-0.3,0-0.4c0-9.8-8-17.7-17.7-17.7c-9.8,0-17.7,7.9-17.7,17.7V405L151.8,385.6z"
+    />
+  <path fill="#F58A1F" d="M116.4,412.6l82.7-45.1c2.4-1.3,5.1-1.9,7.8-1.9c1.7,0,3.4,0.3,5.1,0.8c8.7,2.8,13.4,12.1,10.6,20.8
+    c-1.2,3.6-3.5,6.7-6.7,8.8l0,0.1l-1,0.6l-98.5,53.2V412.6z"/>
+</svg>
+
+
+# Better know a language: Kotlin
+
+by Taylor Fausak  
+on July 14, 2015
+
+*Broadcast live as [a Hangout on Air][1]  
+Available as [a YouTube video][2]*
+
+[1]: https://plus.google.com/u/1/events/c1nmu90r02h8np7n6lrf9man7ts
+[2]: https://youtu.be/GIFD1AcNv-Q
+
+???
+
+I took a lot of this from the Kotlin reference:
+http://kotlinlang.org/docs/reference/
+
+---
+
+class: center, middle
+
+## Introduction
+
+---
+
+### What is Kotlin?
+
+http://kotlinlang.org
+
+> Kotlin is a statically typed language that targets the JVM and JavaScript.
+
+Kotlin is developed by JetBrains, who also make IntelliJ, TeamCity, Upsource,
+and YouTrack.
+
+???
+
+Kotlin's focus is obviously on the JVM. It is object-oriented, not functional.
+But it has some of the good things from functional programming.
+
+- IntelliJ: IDE
+  - PhpStorm (PHP), PyCharm (Python), RubyMine (Ruby), WebStorm (JavaScript),
+    AppCode (Swift), CLion (C/C++), ReSharper (.NET)
+- TeamCity: CI and CD
+- YouTrack: issues and projects
+- Upsource: code review
+
+---
+
+### Why a new language?
+
+- Safer than Java
+- More concise than Java
+- Compatible with Java
+- Compiles as fast as Java
+- Simpler than Scala
+
+???
+
+http://kotlinlang.org/docs/reference/faq.html#why-a-new-language
+
+> - Make it safer than Java, i.e. statically check for common pitfalls such as
+>   null pointer dereference,
+> - Make it more concise than Java by supporting variable type inference,
+>   higher-order functions (closures), extension functions, mixins and
+>   first-class delegation, etc;
+> - To create a Java-compatible language,
+> - That compiles at least as fast as Java,
+> - And, keeping the useful level of expressiveness (see above), make it way
+>   simpler than the most mature competitor – Scala.
+
+---
+
+### Why Kotlin?
+
+- Concise
+- Safe
+- Versatile
+- Interoperable
+- Tooling
+
+???
+
+- Concise: Drastically reduce the amount of boilerplate code you need to write.
+- Safe: Avoid entire classes of errors such as null pointer exceptions.
+- Versatile: Build server-side applications, Android apps or frontend code
+  running in the browser.
+- Interoperable: Leverage existing frameworks and libraries of the JVM with
+  100% Java Interoperability.
+- Tooling: Command Line Compiler or First Class IDE Support. Freedom to choose.
+
+---
+
+### Checklist
+
+You appear to be advocating a new:
+
+- functional,
+  imperative,
+  **object-oriented**,
+  procedural,
+  stack-based,
+  "multi-paradigm"
+- lazy,
+  **eager**
+- **statically-typed**,
+  dynamically-typed
+- pure,
+  **impure**
+- non-hygienic,
+  visual,
+  **beginner-friendly**,
+  non-programmer-friendly,
+  completely incomprehensible
+
+programming language. Your language will not work. Here is why it will not
+work...
+
+???
+
+http://colinm.org/language_checklist.html
+
+---
+
+### What does it look like?
+
+Java:
+
+``` java
+class HelloWorld {
+    public static void main(String... args) {
+        System.out.println("Hello, world!");
+    }
+}
+```
+
+Kotlin:
+
+```
+fun main(vararg args: String) {
+    println("Hello, world!")
+}
+```
+
+```
+fun main(args: Array<String>) = println("Hello, world!")
+```
+
+???
+
+Semicolons are optional. Top-level functions are possible. Return type (`Unit`)
+is implicit. Stardard library is nicer.
+
+---
+
+class: center, middle
+
+## Basics
+
+---
+
+### Functions
+
+```
+fun sum(a: Int, b: Int): Int {
+    return a + b
+}
+```
+
+```
+fun sum(a: Int, b: Int) = a + b
+```
+
+```
+fun printSum(a: Int, b: Int): Unit {
+    println(a + b)
+}
+```
+
+???
+
+The second form only works for single expressions. The return type can be
+inferred. The `Unit` return type can be left off. We saw that with the `main`
+function on the last slide.
+
+---
+
+### Variables
+
+```
+// immutable
+val a: Int = 1
+val b = 1
+val c: Int
+c = 1
+```
+
+```
+// mutable
+var x = 5
+x += 1
+```
+
+???
+
+Type can usually be inferred. Type required when no initializer. `val` makes
+immutable variables. `var` makes mutable variables. `val` can still mutate if
+it's a `MutableList`, for instance.
+
+---
+
+### Strings
+
+```
+val x = "world"
+println("Hello, $x!")
+```
+
+```
+println("3 + 4 = ${3 + 4}")
+```
+
+```
+println("""1. Uno
+2. "Dos"
+3. Tres""")
+```
+
+???
+
+String interpolation happens with `$`. Expressions can be grouped with `{}`.
+Mutli-line literals use triple quotes.
+
+---
+
+### Conditionals
+
+```
+fun max(a: Int, b: Int): Int {
+    if (a > b) {
+        return a
+    } else {
+        return b
+    }
+}
+```
+
+```
+fun max(a: Int, b: Int) = if (a > b) a else b
+```
+
+???
+
+Conditionals are expressions. Curly braces are optional. No ternary operator.
+
+---
+
+### Null
+
+```
+val x: String  = null // error
+val x: String? = null // ok
+```
+
+```
+val x: Int? = 3
+x + 4                // error
+if (x != null) x + 4 // ok
+```
+
+```
+val x: Int? = null
+val y: Int  = x ?: 0
+x?.rangeTo(3) // null
+y.rangeTo(3)  // 0..3
+```
+
+???
+
+`null` is not a valid value for all types. Types must be made nullable by
+adding `?`. Flow-dependent typing means you check for `null` once. The Elvis
+operator (`?:`) can be used to assign if null, like `||=`. The `?.` operator is
+like in Coffeescript or `#try` in Rails.
+
+---
+
+### Types
+
+```
+fun getStringLength(obj: Any): Int? {
+    if (obj is String) // obj is automatically cast to String
+        return obj.length
+    return null // obj is still Any
+}
+```
+
+```
+if (obj !is String) { return ... }
+return obj.length
+```
+
+```
+if (obj is String && obj.length > 0) { ... }
+```
+
+???
+
+`Any` is like `Object`, but not nullable. (`Any?` is nullable.) Automatic
+casting is a lot like flow-dependent typing for `null`s. It works even within
+expressions.
+
+---
+
+### Loops
+
+```
+val collection: List<String> = ...
+for (element in collection)
+    println(element)
+```
+
+```
+var i = 0
+while (i < collection.size())
+    println(collection[i++])
+```
+
+```
+collection.forEach { e -> println(e) }
+collection.forEach { println(it) }
+```
+
+???
+
+Note `List` is a generic type. We filled it in with `String`. The `while` loop
+is not idiomatic. `forEach` is the functional style. `it` is an implicit
+argument, like `_` in Scala.
+
+---
+
+### Switches
+
+```
+when (obj) {
+    1          -> ...
+    3..5       -> ...
+    is String  -> ...
+    !is String -> ...
+    else       -> ...
+}
+```
+
+???
+
+Annoyingly, you can't pattern match constructors in `when` cases.
+
+---
+
+### Membership
+
+```
+if (x in 1..10) ...
+if (element in collection) ...
+```
+
+???
+
+Ranges are expressed as `low..high`. You can see if something is in a range
+with `in`. Also works with collections.
+
+---
+
+### Infix functions
+
+```
+collection.contains(element)
+collection contains element
+```
+
+```
+collection.forEach({ it + 1 })
+collection foreach { it + 1 }
+```
+
+```
+names filter {
+    it startsWith "A"
+} sortBy {
+    it
+} map {
+    it.toUpperCase()
+} forEach {
+    println(it)
+}
+```
+
+???
+
+You can avoid `.` and `()` sometimes. This can get out of control. I feel like
+they stole this from Scala for no good reason. Passing functions without parens
+(`x.f { ... }`) makes sense.
+
+---
+
+### Classes
+
+```
+class Empty
+
+class Person(val name: String)
+val person = Person("Taylor Fausak")
+
+class User(val email: String) {
+    val username = email.toLowerCase()
+    init {
+        println("Creating user with email $email")
+    }
+}
+```
+
+???
+
+Unlike Java, everything is an object. There are no primitives. `val` in
+constructor makes a property.
+
+---
+
+class: center, middle
+
+## Advanced
+
+---
+
+### Companion objects
+
+```
+class Foo(...) {
+    companion object {
+        fun create(...) { return Foo(...) }
+    }
+}
+Foo.Companion.create(...)
+Foo.create(...)
+```
+
+???
+
+Kotlin doesn't have static methods per se. Companion objects fill that role,
+especially for factories. But they are objects too.
+
+---
+
+### Package functions
+
+```
+package Foo
+fun create(...) { return ... }
+```
+
+```
+import Foo
+Foo.create(...)
+```
+
+???
+
+Package functions also fill the role of static methods.
+
+---
+
+### Lists
+
+```
+val names = listOf("Woody", "Buzz")
+names[0]            // "Woody"
+names[1] = "Jessie" // error
+```
+
+```
+val names: MutableList<String> =
+    arrayListOf("Woody", "Buzz")
+names[0]            // "Woody"
+names[1] = "Jessie" // ok
+names[1]            // "Jessie"
+```
+
+???
+
+No literal list syntax. Must use `listOf` builder and friends. The list is
+mutable even though the variable is not (`val`).
+
+---
+
+### Maps
+
+```
+val m = mapOf("k" to "v", ...)
+m["k"]        // "v"
+m["k"] = "v!" // error
+```
+
+```
+val m: MutableMap<String, String> =
+    hashMapOf("k" to "v")
+m["k"]        // "v"
+m["k"] = "v!" // ok
+m["k"]        // "v!"
+```
+
+```
+for ((k, v) in m)
+    ...
+```
+
+???
+
+No literal map syntax. Must use `mapOf` builder and friends. The map is mutable
+even though the variable is not. Can decompose keys and values in a loop.
+Decomposition also works for assignment.
+
+---
+
+### Extension functions
+
+```
+fun String.exclaim() = "$this!"
+println("Hello, world".exclaim())
+// Hello, world!
+```
+
+???
+
+Looks a lot like Ruby. Easy way to add new functionality without actually
+changing existing class.
+
+---
+
+### Data classes
+
+```
+data class User(email: String, password: String)
+val user = User("someone@example.com", "hunter2")
+user.email // "someone@example.com"
+```
+
+???
+
+Like case classes in Scala. Defines a bunch of boilerplate for you, like
+equality and hashing.
+
+---
+
+### Functions
+
+```
+def f(x: Int = 0) = x * x
+f()    // 0
+f(1)   // 1
+f(x=2) // 4
+```
+
+???
+
+Any argument can be provided positionally or as a keyword. No way to force
+keyword arguments. Only arguments without defaults have to be provided.
+
+---
+
+### Packages
+
+```
+package com.orgsync.KotlinExample
+
+import com.example.Foo
+import com.example.*
+import com.example.Foo as Bar
+
+public f(x: Int): Int = x * x
+```
+
+???
+
+All public stuff must have explicit types. This is to avoid accidentally
+changing the implicit type. Other access modifiers are `internal`, `protected`,
+and `private`.
+
+---
+
+### Control flow
+
+```
+do { ... } while (...)
+```
+
+```
+while (true) {
+    if (false) break
+    if (false) continue
+    if (false) return
+}
+```
+
+```
+outer@ for (x in xs) {
+    for (y in ys) {
+        if (x == y) break@outer
+    }
+}
+```
+
+???
+
+All the usual cast of keywords. Labels come before `@`. Any of the control flow
+keywords can be modified with `@label`.
+
+---
+
+### Interfaces
+
+```
+interface Foo {
+    fun foo()
+    fun bar() {
+        // default body
+    }
+}
+
+class Bar : Foo {
+    fun foo() {
+        ...
+    }
+}
+```
+
+???
+
+Interfaces can define abstract values, too. The colon roughly reads as
+"implements". You can implement multiple interfaces with `C : A, B`.
+
+---
+
+### Generics
+
+```
+class Box<T>(t: T)
+val box = Box(1) // box: Box<Int>
+```
+
+???
+
+Generic type is inferred.
+
+---
+
+### Enums
+
+```
+enum class Direction {
+    NORTH, SOUTH, EAST, WEST
+}
+
+enum class Color(val rgb: Int) {
+    RED(0xFF0000)
+    GREEN(0x00FF00)
+    BLUE(0x0000FF)
+}
+```
+
+???
+
+Enums are instances of their class, so they can hold information. Still not
+quite ADTs, though.
+
+---
+
+### Type casting
+
+```
+if (x is String)
+    x.toUpperCase() // smart cast
+
+val y = x as String // explicit cast
+
+val z = x as? String // safe explicit cast
+```
+
+???
+
+`is` is the preferred way. `as` can blow up. `as?` is safe (returns `null`).
+
+---
+
+### Exceptions
+
+```
+try {
+    throw Exception("...")
+}
+catch (e: Exception) { ... }
+catch (e: ...) { ... }
+finally { ... }
+```
+
+???
+
+Kotlin does not have checked exceptions. `try` is an expression
+
+---
+
+### Closures
+
+```
+fun sum(xs: List<Int>): Int {
+    var result = 0
+    xs forEach { sum += it }
+    return result
+}
+```
+
+???
+
+Closures: Kotlin has them.
+
+---
+
+### Operator overloading
+
+```
+x + y
+// x.plus(y)
+
+```
+
+???
+
+No custom operators. Every operator maps to a normal method.
+
+---
+
+### Dynamic types
+
+```
+var x: dynamic = "String?"
+x = 0xBEEF
+x.foo().bar.baz()
+```
+
+???
+
+Kotlin has dynamic types to work with JavaScript. They turn off the type
+checker. They also infect everything they touch.
+
+---
+
+class: center, middle
+
+## Java inteorp
+
+---
+
+### Calling Java from Kotlin
+
+```
+import java.util.ArrayList
+
+fun example(source: List<Int>) {
+    val list = ArrayList<Int>()
+    for (item in source)
+        list.add(item)
+    for (i in 0..source.size() - 1)
+        list[i] = source[i]
+}
+```
+
+???
+
+Kotlin is designed to play nicely with Java. It is easy to call Java from
+Kotlin and vice versa.
+
+---
+
+### Calling Kotlin from Java
+
+Kotlin:
+
+```
+package example
+class Foo
+fun bar() {}
+```
+
+Java:
+
+``` java
+new example.Foo();
+example.ExamplePackage.bar();
+```
+
+???
+
+Top-level stuff gets put in the `[name]Package` class. If you don't have a
+`package`, it gets put in `_DefaultPackage`.
+
+---
+
+class: center, middle
+
+## Ecosystem
+
+---
+
+### IDE
+
+- Obviously IntelliJ has good support.
+- Eclipse support exists, but I have not tried it.
+- There is a standalone compiler that works with Ant, Gradle, and Maven.
+- There is also a Leiningen plugin.
+
+???
+
+With Ant, Gradle, Maven, or Leiningen, you can use whatever editor you want.
+
+---
+
+### Documentation
+
+- Similar to JavaDoc.
+- Uses Markdown.
+
+```
+/**
+ * Blah blah *blah*.
+ *
+ * @param T type thing
+ * @property name prop thing
+ */
+class Group<T>(val name: String) { ... }
+```
+
+---
+
+### Packages
+
+- Spek: testing
+- Wasabi, Kara, Yested: HTTP server
+- Kovenant: promises
+
+???
+
+Definitely a small ecosystem. It is easy to use Java stuff, though.
+    </textarea>
+
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script>
+      remark.create({
+        highlightLanguage: 'kotlin',
+        ratio: '16:9'
+      });
+    </script>
+  </body>
+</html>
