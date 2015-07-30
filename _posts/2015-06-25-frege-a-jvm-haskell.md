@@ -113,7 +113,7 @@ substantial, so I will just rattle them off here:
 - Frege has basically no libraries. I could not find any hosted on either
   Clojars or Maven Central.
 
-- Frege has no package side like Hackage. This is not surprising, considering
+- Frege has no package site like Hackage. This is not surprising, considering
   the previous point.
 
 Even though there are a few annoyances, I enjoyed using Frege. I liked working
