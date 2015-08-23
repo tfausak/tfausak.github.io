@@ -1,0 +1,22 @@
+---
+title: Type safe web services in Haskell with Servant
+---
+
+- <http://haskell-servant.github.io>
+- unlike a lot of haskell libraries, the documentation is excellent
+- in particular the tutorial is very easy to follow
+- almost no boilerplate
+- extremely type safe
+- api definition is separate from server
+- allows generating documentation, js client code, and haskell client code
+- this means you can consume an API by describing it and automatically generating the client code
+- writing new generators isn't too hard (upcoming post about this)
+- handlers are easy to write and get all the right args
+- servant handles the http layer beautifully
+- never have to think about content types in your handlers
+- giving a talk about this on wednesday over hangouts on air
+- <https://plus.google.com/events/c6jk82adnqbveqm4eqk4dn7r624>
+- so far the only thing i don't like is the connascence of position between the api definition and the server
+- i wrote a fully fledged example called factory
+- <https://github.com/tfausak/factory>
+- it defines an API, implements a server, generates documentation, and makes JS and HS client code
