@@ -156,7 +156,7 @@ provides. And we did it with less code!
 
 Let's provide an executable that uses the library. It shouldn't live at the top
 level either, so create an `executable` directory for it. Unlike the library,
-don't name this after your package. Just call is `Main.hs` instead.
+don't name this after your package. Just call it `Main.hs` instead.
 
 {% highlight hs %}
 -- executable/Main.hs
