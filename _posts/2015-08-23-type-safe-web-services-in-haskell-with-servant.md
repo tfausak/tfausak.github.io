@@ -7,15 +7,14 @@ So much so that I wrote about [creating a REST API in Haskell][] a while ago.
 I am happy to say that I think there is a better way now.
 
 I recently discovered [Servant][].
-It is a Haskell library for describing web services.
-Unlike the API I explained how to create before,
-those described by Servant are type safe.
+It is one of the coolest libraries I have ever seen.
+It is for describing type-safe web services.
 That means you know the types of the inputs and outputs for every endpoint.
 
 Although it appears to be primarily designed for implementing API servers,
 Servant can do a lot more.
 Since it is a way to formally describe an API,
-it can be used to generate servers, documentation, and clients.
+it can be used to generate documentation and clients as well.
 With a single API description,
 you can implement a server,
 then get documentation and clients for free.
@@ -30,8 +29,12 @@ So what does Servant look like?
 Here is the description for a simple API.
 
 {% highlight hs %}
+import Servant.API
+
 type API
+    -- GET /things
     = "things" :> Get '[JSON] [Thing]
+    -- GET /things/:id
     :<|> "thing" :> Capture "id" Integer :> Get '[JSON] Thing
 {% endhighlight %}
 
@@ -46,8 +49,10 @@ To do that,
 we can [use a proxy][].
 
 {% highlight hs %}
-api :: Data.Proxy.Proxy API
-api = Data.Proxy.Proxy
+import Data.Proxy
+
+api :: Proxy API
+api = Proxy
 {% endhighlight %}
 
 Now that we have a description of our API,
@@ -55,6 +60,8 @@ we can go ahead and implement a server.
 We will need to define two handlers.
 
 {% highlight hs %}
+import Control.Monad.Trans.Either
+
 -- This is Servant's default handler type.
 type Handler a = EitherT ServantErr IO a
 
@@ -79,9 +86,11 @@ By combining the handlers,
 we can create our complete server.
 
 {% highlight hs %}
-server :: Servant.Server API
+server :: Server API
 server
+    -- GET /things
     = getThings
+    -- GET /things/:id
     :<|> getThing
 {% endhighlight %}
 
@@ -90,9 +99,9 @@ Note that we have to list the handlers in the same order as the API.
 And to actually make the server available we need to serve it through Warp.
 
 {% highlight hs %}
-main =
-    let application = Servant.serve api server
-    Network.Wai.Handler.Warp.run 8080 application
+import Network.Wai.Handler.Warp
+
+main = run 8080 (serve api server)
 {% endhighlight %}
 
 As I mentioned before,
