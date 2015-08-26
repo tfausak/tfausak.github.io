@@ -120,4 +120,4 @@ the talk will be available afterwards on YouTube.
 [use a proxy]: http://stackoverflow.com/questions/27044209/haskell-why-use-proxy
 [connascence of position]: https://en.wikipedia.org/wiki/Connascence_%28computer_programming%29#Connascence_of_Position_.28CoP.29
 [factory]: https://github.com/tfausak/factory
-[a talk this wednesday]: https://plus.google.com/events/c6jk82adnqbveqm4eqk4dn7r624
+[a talk this wednesday]: https://plus.google.com/events/ca830qjcae9570q7kgmq3fl5cmk
