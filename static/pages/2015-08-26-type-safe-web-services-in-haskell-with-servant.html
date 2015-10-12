@@ -1,0 +1,332 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Type safe web services in Haskell with Servant</title>
+
+    <style>
+      body {
+        font-family: 'Avenir Next', sans-serif;
+      }
+      .remark-code {
+        font-family: 'Source Code Pro', monospace;
+      }
+    </style>
+  </head>
+
+  <body>
+    <textarea id="source">
+class: center, middle
+
+<img src="https://raw.githubusercontent.com/haskell-servant/servant/master/servant.png" width="150" height="190" alt="">
+
+# Servant
+
+by Taylor Fausak
+on August 26, 2015
+
+???
+
+For more information about this talk, including a recording of it, please go to
+its event page on Google+ at 
+<https://plus.google.com/events/ca830qjcae9570q7kgmq3fl5cmk>.
+
+---
+
+class: center, middle
+
+## Overview
+
+---
+
+### What is Servant?
+
+> Servant is a set of libraries that makes building Haskell web services a
+> breeze.
+
+> [Servant] provides a family of combinators to define web services and
+> automatically generate the documentation and client-side querying functions
+> for each endpoint.
+
+---
+
+### Why Servant?
+
+- **Concision**: Don't repeat yourself.
+
+- **Flexibility**: Use whichever libraries you want.
+
+- **Separation of concerns**: Let Servant think about HTTP.
+
+- **Type safety**: Get compile-time guarantees about your API.
+
+---
+
+class: center, middle
+
+## What does it look like?
+
+---
+
+### API description
+
+    type PeopleAPI = "people" :> GET '[JSON] [Person]
+
+This specifies our API. It defines a single endpoint, `GET /people`, that
+returns a JSON array of `Person` values.
+
+---
+
+### Server implementation
+
+    peopleServer :: Server PeopleAPI
+    peopleServer = return [Person { name = "Alice" },
+                           Person { name = "Bob" }]
+
+This implements our API. It will be checked at compile time against the
+specification.
+
+---
+
+### Client derivation
+
+
+    api :: Proxy PeopleAPI
+    api = Proxy
+
+    getPeople :: EitherT ServantError IO [Person]
+    getPeople = client api host where
+        Right host = parseBaseUrl "http://example.com"
+
+We need the `api` proxy to get the type-level API at the value level. Then we
+can use `client` to generate functions for consuming the API. The type
+(`EitherT ...`) means that `getPeople` will either return a list of people or
+an error, and it can do IO.
+
+---
+
+### JavaScript client
+
+    js :: String
+    js = jsForAPI api
+
+This generates a string that has code for a JavaScript client that is a lot
+like the Haskell client from the last slide.
+
+---
+
+### Markdown documentation
+
+    md :: String
+    md = markdown (docs api)
+
+    instance ToSample [Person] [Person] where
+        toSample _ = Just [Person { name = "Jane" }]
+
+Generating documentation is like generating JavaScript. Note that we have to
+manually specify how to generate examples for the documentation. These could be
+customized on a per-endpoint basis by using `newtype` wrappers.
+
+---
+
+class: center, middle
+
+## So what?
+
+---
+
+### Force multiplier
+
+Defining an API as a type allows you to implement a server and generate clients
+without doing too much more work. You can be sure that everything stays in
+sync at compile time.
+
+---
+
+### Explicit expectations
+
+Everything you need to know about the API is in the type. There is almost no
+tribal knowledge. You can use this to codify your understanding of someone
+else's API, or share a Markdown representation of your own.
+
+---
+
+### Service-oriented architecture
+
+Since you get clients for free, you can generate clients for all your APIs.
+That makes them much easier to consume, especially if you wrap that simple
+client in a friendlier service.
+
+---
+
+### Extensible
+
+Need client code for a new language, new Rust or Elixir? You can write a
+general converter once and use it for all of your APIs. Use the same machinery
+that Servant uses to generate JavaScript and Haskell clients. (Then share it
+with the community so everyone can use and improve it!)
+
+---
+
+class: center, middle
+
+## Real life
+
+---
+
+### Complicated API
+
+    type API
+        = "deeply" :> "nested" :> "things" :> Get '[JSON] [Thing]
+        :<|> "events" :> Capture "id" Int :> Get '[JSON] Event
+        :<|> "cgi" :> MatrixFlag "bin" :> Get '[PlainText] String
+        :<|> "share" :> QueryParams "network" String :> Post '[JSON] ()
+        :<|> Header "Cookie" String :> "auth" :> Get '[HTML] String
+        :<|> "create" :> ReqBody '[JSON, XML] Person :> Post '[JSON] Person
+        :<|> "index" :> Get '[HTML] (Headers [Header "X-Whatever" Int] String)
+        :<|> ReqBody '[HTML, JSON, XML] Thing :> Post '[HTML, JSON, XML] Thing
+
+APIs can be combined with the `:<|>` combinator.
+
+---
+
+### Deeply-nested routes
+
+    "deeply" :> "nested" :> "things" :> Get '[JSON] [Thing]
+
+You can combine routes with the `:>` combinator. Think of it like a slash for
+paths. This one describes `GET /deeply/nested/things`.
+
+---
+
+### Captured variables
+
+    "events" :> Capture "id" Int :> Get '[JSON] Event
+
+Capture parts of the URL with the `Capture name type` combinator. The capture
+will be automatically converted into the appropriate type. If it can't, Servant
+will return a 404.
+
+---
+
+### Flags and params
+
+    "cgi" :> MatrixFlag "bin" :> Get '[PlainText] String
+    :<|> "share" :> QueryParams "network" String :> Post '[JSON] ()
+
+Query params come at the end, after a question mark. Matrix params are in the
+path, separated by semicolons. So you might have `/a;matrix/b?query`. Flags
+are false if they're not there and true if they are. Params can either be
+singular (`QueryParam`), in which case they can be assigned to a value, like
+`foo=bar`. Or they can be plural (`QueryParams`), in which case they can be
+assigned to many values, like `foo[]=bar1&foo[]=bar2`.
+
+---
+
+### Request headers
+
+    Header "Cookie" String :> "auth" :> Get '[HTML] String
+
+This means you expect the "Cookie" header to have a string value. It will be
+passed to the handler as a `Maybe String` because it might not be there.
+
+---
+
+### Request bodies
+
+    "create" :> ReqBody '[JSON, XML] Person :> Post '[JSON] Person
+
+This endpoint accepts a `Person` serialized as either JSON or XML. If it's
+missing or can't be decoded, Servant will handle returning a 400 error with an
+appropriate error message.
+
+---
+
+### Response headers
+
+    "index" :> Get '[HTML] (Headers [Header "X-Whatever" Int] String)
+
+This says that the endpoint will return an "X-Whatever" header as an integer,
+in addition to it's normal string return type.
+
+---
+
+### Content types
+
+    ReqBody '[HTML, JSON, XML] Thing :> Post '[HTML, JSON, XML] Thing
+
+This endpoint accepts a `Thing` as HTML, JSON, or XML. Then it returns that
+thing in any of those formats. The cool thing is that you get this for free.
+Servant handles all the conversions.
+
+---
+
+### Don't repeat yourself
+
+Let's say you have an API that looks like this:
+
+    type API
+        =    "User"   :> "byid" :> Capture "guid" UUID :> Get '[JSON] User
+        :<|> "People" :> "byid" :> Capture "guid" UUID :> Get '[JSON] Person
+
+Since everything is just combinators, you can extract the duplication.
+
+    type GetEntity path kind
+        = path :> "byid" :> Capture "guid" UUID :> Get '[JSON] kind
+
+    type API
+        =    GetEntity "User"   User
+        :<|> GetEntity "People" Person
+
+---
+
+### Escape hatch
+
+Servant is built on top of WAI, which is Haskell's standard web server
+interface (think Rack for Ruby or Ring for Clojure). You can combine Servant
+with a normal WAI application --- i.e., any other server.
+
+    type CompleteSite
+        = ServantAPI
+        :<|> Raw
+
+Now when you host that server, any request not served by Servant will fall
+through to another WAI application.
+
+---
+
+### Nesting
+
+You can nest APIs easily with the familiar `:>` combinator.
+
+    type APIv1 = ...
+    type APIv2 = ...
+    type API
+        =    "api" :> "v1" :> APIv1
+        :<|> "api" :> "v2" :> APIv2
+
+---
+
+class: center, middle
+
+<img src="https://raw.githubusercontent.com/haskell-servant/servant/master/servant.png" width="150" height="190" alt="">
+
+Questions?
+    </textarea>
+
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script>
+      remark.create({
+        highlightLanguage: 'haskell',
+        ratio: '16:9'
+      });
+    </script>
+
+    <script async src="/static/scripts/all.js"></script>
+    <noscript>
+        <img alt="" src="http://piwik.fausak.me/piwik.php?idsite=1">
+    </noscript>
+  </body>
+</html>
