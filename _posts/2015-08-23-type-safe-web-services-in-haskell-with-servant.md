@@ -113,6 +113,7 @@ If you are interested in learning more about Servant,
 I am giving [a talk this Wednesday][] and broadcasting it over Hangouts on Air.
 If you can't make it,
 the talk will be available afterwards on YouTube.
+([The slides][] are now available on this site.)
 
 [creating a rest api in haskell]: {% post_url 2014-10-21-building-a-json-rest-api-in-haskell %}
 [servant]: http://haskell-servant.github.io
@@ -121,3 +122,4 @@ the talk will be available afterwards on YouTube.
 [connascence of position]: https://en.wikipedia.org/wiki/Connascence_%28computer_programming%29#Connascence_of_Position_.28CoP.29
 [factory]: https://github.com/tfausak/factory
 [a talk this wednesday]: https://plus.google.com/events/ca830qjcae9570q7kgmq3fl5cmk
+[the slides]: /static/pages/2015-08-26-type-safe-web-services-in-haskell-with-servant.html
