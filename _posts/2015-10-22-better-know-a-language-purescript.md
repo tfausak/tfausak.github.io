@@ -13,7 +13,7 @@ title: 'Better know a language: PureScript'
 - [PureScript by Example][]
 
 [better know a language: kotlin]: {% post_url 2015-07-14-better-know-a-language-kotlin %}
-[the purescript logo]: /static/images/2015/10/22/purescrip.svg
+[the purescript logo]: /static/images/2015/10/22/purescript.svg
 [purescript]: http://www.purescript.org
 [frege]: {% post_url 2015-06-25-frege-a-jvm-haskell %}
 [hangout]: https://plus.google.com/events/cpomrpac6ag61e85e6kponsc44o
