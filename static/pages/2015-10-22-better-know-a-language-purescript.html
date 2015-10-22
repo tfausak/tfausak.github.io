@@ -106,7 +106,7 @@ Why should you use PureScript instead of some other Haskell-like thing?
 
 - Compared to projects like Emscripten and UHC, the output should be smaller
   and more readable.
-- Compared to languages that preserve Haskells semantics like Fay, GHCJS, and
+- Compared to languages that preserve Haskell's semantics like Fay, GHCJS, and
   Haste, there is no runtime.
 - Compared to code generators like JMacro, you don't have to get Haskell
   involved at all.
@@ -298,8 +298,8 @@ Those type signatures quickly get annoying. Fortunately type aliases make it
 better.
 
 ```
-type Person = forall r. { first :: String, last :: String | r }
-fullName :: Person -> String
+type Person r = { first :: String, last :: String | r }
+fullName :: forall r. Person r -> String
 
 type Person' = { first :: String, last :: String }
 fullName' :: Person' -> String
@@ -410,6 +410,112 @@ encodeURIComponent "hello world"
 # FFI
 
 TL;DR: It's there. It works. Going from untyped to typed sucks.
+
+---
+
+# Nits
+
+The package ecosystem is excessively granular. To get anything done, you need
+tens of lines of imports.
+
+```
+import Prelude
+import qualified Control.Monad.Aff as Aff
+import qualified Control.Monad.Eff as Eff
+import qualified Control.Monad.Eff.Class as Eff
+import qualified Control.Monad.Eff.Console as Console
+import qualified Data.Argonaut.Core as JSON
+import qualified Data.Argonaut.Parser as JSON
+import qualified Data.Argonaut.Printer as JSON
+import qualified Data.Array as Array
+import qualified Data.Either as Either
+import qualified Data.Foldable as Foldable
+import qualified Data.Foreign as Foreign
+import qualified Data.Maybe as Maybe
+import qualified Data.Maybe.Unsafe as Maybe
+import qualified Data.Nullable as Nullable
+import qualified Data.Options as Options
+import qualified Data.String as String
+import qualified Data.StrMap as StrMap
+import qualified Data.Tuple as Tuple
+import qualified Network.HTTP as Network
+```
+
+---
+
+# Nits
+
+You are not required to lock down versions of transitive dependencies that you
+use.
+
+``` js
+{
+  "dependencies": {
+    "purescript-arrays": "0.4.2"
+    // implicit: "purescript-tuples": "^0.4.0"
+  }
+}
+```
+
+```
+-- Which version? Not listed in dependencies.
+import Data.Tuple
+```
+
+This may actually be a problem with Bower, I'm not sure.
+
+---
+
+# Nits
+
+The syntax is annoyingly close to Haskell in a lot of ways. No all the
+differences are bad, but they can be surprising if you already know Haskell.
+
+```
+import Data.Tuple (Tuple ()) -- Must include parentheses, otherwise tries to import type class.
+f x y = ...
+  where
+  z = ... -- Must *not* be indented!
+(!) x y = ... -- Can't be defined infix.
+g :: forall a. a -> a -- Always explicitly list type variables.
+class (Eq a) <= Ord a where -- Arrow goes other direction.
+instance arbitraryUnit :: Arbitrary Unit where -- Instances must have names.
+runST do -- No dollar sign required!
+h :: forall a. List a -> Unit -- More verbose type names (I like this one).
+```
+
+---
+
+# Nits
+
+Error messages can be a bit obtuse.
+
+```
+> import Prelude
+> let f x y = x + y
+Error found:
+Error in module $PSCI:
+Error in value declaration f:
+Error at  line 1, column 5 - line 1, column 17:
+  No instance found for Prelude.Semiring _5
+See https://github.com/purescript/purescript/wiki/Error-Code-NoInstanceFound for more
+information, or to contribute content related to this error.
+```
+
+On the other hand, wiki pages for errors are a great idea.
+
+---
+
+# Nits
+
+Function application can use non-obvious operators.
+
+```
+f $ x
+x # f
+```
+
+Compared to `<|` and `|>` from Elm (and other), these are weird.
 
 ---
 
