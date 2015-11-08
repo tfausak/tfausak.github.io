@@ -2,6 +2,11 @@
 layout: base
 ---
 
+<aside class="about">
+  Howdy! My name is Taylor. I am a software developer. I live in Texas. Want to
+  know more? Read <a href="/about/">my about page</a>.
+</aside>
+
 <ol class="posts" itemprop="blogPosts">
     {% for post in site.posts %}
         {% capture this_year %}{{ post.date | date:'%Y' }}{% endcapture %}
