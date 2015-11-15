@@ -1,5 +1,5 @@
 ---
-title: Automatically generating PureScript documentation
+title: Automatically generate PureScript documentation
 ---
 
 Recently I have been pouring a lot of time into PureScript projects. The
