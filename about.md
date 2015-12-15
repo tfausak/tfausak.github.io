@@ -34,6 +34,11 @@ find me at other places on the web, check [my Keybase profile][4].
   and idiomatic starting point. I made it to codify best practices. It also
   encourages package authors to create tests and benchmarks.
 
+- [Neon][] (PureScript):
+  Neon is an experimental standard library for PureScript. It starts from
+  scratch to explore lawless type classes. I made it to see what duck typing
+  would look like in a language like Haskell.
+
 - [Blunt][] (Haskell):
   Blunt converts Haskell expressions between the pointfree and pointful styles.
   It is a web front end to the `pointfree` and `pointful` executables extracted
@@ -103,6 +108,7 @@ find me at other places on the web, check [my Keybase profile][4].
 [stoplight]: http://devblog.orgsync.com/stoplight/
 [cameron desautels]: http://camdez.com
 [haskeleton]: /haskeleton/
+[neon]: https://github.com/tfausak/purescript-neon
 [blunt]: https://blunt.herokuapp.com
 [flow]: /flow/
 [erudite]: /erudite/
