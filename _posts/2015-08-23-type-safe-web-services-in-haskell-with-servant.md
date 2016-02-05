@@ -28,7 +28,7 @@ go read the tutorial to get started.
 So what does Servant look like?
 Here is the description for a simple API.
 
-{% highlight hs %}
+``` hs
 import Servant.API
 
 type API
@@ -36,7 +36,7 @@ type API
     = "things" :> Get '[JSON] [Thing]
     -- GET /things/:id
     :<|> "thing" :> Capture "id" Integer :> Get '[JSON] Thing
-{% endhighlight %}
+```
 
 That describes two endpoints, `GET /things` and `GET /things/:id`.
 The former returns a list of `Thing`s and the latter returns a single `Thing`.
@@ -48,18 +48,18 @@ it is convenient to get at it from the value level.
 To do that,
 we can [use a proxy][].
 
-{% highlight hs %}
+``` hs
 import Data.Proxy
 
 api :: Proxy API
 api = Proxy
-{% endhighlight %}
+```
 
 Now that we have a description of our API,
 we can go ahead and implement a server.
 We will need to define two handlers.
 
-{% highlight hs %}
+``` hs
 import Control.Monad.Trans.Either
 
 -- This is Servant's default handler type.
@@ -76,7 +76,7 @@ getThing thingID = do
     case maybeThing of
         Just thing -> return thing
         Nothing -> left err404
-{% endhighlight %}
+```
 
 Notice that the handlers don't really have to think about HTTP.
 They get the input defined by the API and return something of the correct type.
@@ -85,24 +85,24 @@ Servant handles converting the inputs and serializing the outputs as JSON.
 By combining the handlers,
 we can create our complete server.
 
-{% highlight hs %}
+``` hs
 server :: Server API
 server
     -- GET /things
     = getThings
     -- GET /things/:id
     :<|> getThing
-{% endhighlight %}
+```
 
 Note that we have to list the handlers in the same order as the API.
 (This [connascence of position][] is the only thing I don't like about Servant so far.)
 And to actually make the server available we need to serve it through Warp.
 
-{% highlight hs %}
+``` hs
 import Network.Wai.Handler.Warp
 
 main = run 8080 (serve api server)
-{% endhighlight %}
+```
 
 As I mentioned before,
 you can get documentation and client code from your API for free.

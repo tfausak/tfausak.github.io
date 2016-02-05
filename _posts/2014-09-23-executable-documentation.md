@@ -32,7 +32,7 @@ markdown-unlit yet. Even so, it's be useful for testing. I can fire up the
 executable and paste in code from [a `README.md`][10]. It'll do all the work to
 determine if that code is valid or not.
 
-{% highlight sh %}
+``` sh
 $ bundle exec erudite
 >> require 'stoplight'
 => true
@@ -40,7 +40,7 @@ $ bundle exec erudite
 => #<Stoplight::DataStore::Memory:0x... @data={}>
 - PASS
 - PASS
-{% endhighlight %}
+```
 
 I'm looking forward to rounding out Erudite's feature set, and I hope you find
 it useful. Check out [its project page][9] or the source [on GitHub][11]

@@ -24,13 +24,13 @@ To match the iPhone 5 with media queries, use the reported device
 resolution of `320x568`. It also has a `-webkit-device-pixel-ratio`
 of `2`, just like all other retina devices.
 
-{% highlight html %}
+``` html
 <link rel="apple-touch-startup-image"
       media="(device-width: 320px)
          and (device-height: 568px)
          and (-webkit-device-pixel-ratio: 2)"
       href="apple-touch-startup-image-640x1096.png">
-{% endhighlight %}
+```
 
 ## Complete Example
 
@@ -51,7 +51,7 @@ set to either `device-width` or `320`. To set the proper scale and
 avoid letterboxing, set the viewport's initial scale to `1.0`.
 (Thanks to [Max Firtman][5] for this solution.)
 
-{% highlight html %}
+``` html
 <!-- Letterboxed on iPhone 5 -->
 <meta name="viewport"
       content="width=device-width">
@@ -62,7 +62,7 @@ avoid letterboxing, set the viewport's initial scale to `1.0`.
       content="initial-scale=1.0">
 <meta name="viewport"
       content="width=320.1">
-{% endhighlight %}
+```
 
 [1]: /static/images/2012/09/20/iphone-comparison.png
 [2]: {% post_url 2012-03-27-ios-web-app-icons-and-startup-images %}

@@ -36,7 +36,7 @@ and doesn't require a framework. Loading the social widgets when
 the user scrolls is nearly as good as loading when they should be
 visible. You need to scroll to see them, anyway.
 
-{% highlight javascript %}
+``` javascript
 window.onscroll = function () {
     window.onscroll = null;
 
@@ -60,7 +60,7 @@ window.onscroll = function () {
     script.src = '//platform.twitter.com/widgets.js';
     document.body.appendChild(script);
 };
-{% endhighlight %}
+```
 
 Note that the first part of the `onscroll` function is to unassign
 it. That's because the scripts for these social widgets only need
@@ -79,11 +79,11 @@ elements. In this case, I'm okay with the old behavior of just
 loading the widgets anyway. So I can just call the `onscroll`
 function if the viewport is tall enough.
 
-{% highlight javascript %}
+``` javascript
 if (window.innerHeight >= document.body.clientHeight) {
     window.onscroll();
 }
-{% endhighlight %}
+```
 
 This method is [reasonably well-supported][3], but it won't work
 in Internet Explorer before version 9. That's not a problem for my

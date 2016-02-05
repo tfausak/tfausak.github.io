@@ -44,15 +44,15 @@ Now for the hardest part: thinking of a name for your package. I went with
 "husk". (If you're following along, replace that with your package's name
 throughout.) Make a directory for your package to get started.
 
-{% highlight sh %}
+``` sh
 # mkdir husk
 # cd husk
-{% endhighlight %}
+```
 
 You only need one file to make a package: a Cabal file. It describes the
 package and tells Cabal how to build it. It starts off pretty simple.
 
-{% highlight hs %}
+``` hs
 -- husk.cabal
 name:          husk
 version:       0.0.0
@@ -61,7 +61,7 @@ cabal-version: >= 1.18
 
 library
     default-language: Haskell2010
-{% endhighlight %}
+```
 
 The syntax is mix between Haskell and YAML. The [package properties][19] at the
 top describe the package as a whole. In the library section, the [build
@@ -81,16 +81,16 @@ With all the boilerplate out of the way, we can build the package. Before we
 do, let's create a sandbox. It sets up a private environment separate from the
 rest of your system.
 
-{% highlight sh %}
+``` sh
 # cabal sandbox init
 Writing a default package environment file to
 .../husk/cabal.sandbox.config
 Creating a new sandbox at .../husk/.cabal-sandbox
-{% endhighlight %}
+```
 
 Now let's install the package into the sandbox.
 
-{% highlight sh %}
+``` sh
 # cabal install
 Resolving dependencies...
 Configuring husk-0.0.0...
@@ -100,7 +100,7 @@ In-place registering husk-0.0.0...
 Installing library in .../husk-0.0.0
 Registering husk-0.0.0...
 Installed husk-0.0.0
-{% endhighlight %}
+```
 
 Alright, it worked! Six lines of code made a valid Cabal package. It doesn't do
 anything yet, though. Let's fix that.
@@ -112,23 +112,23 @@ for it. In there, make a file with the same name as your package. For this
 example, it doesn't have to do anything interesting. We're going to make it
 export a function that returns the unit value.
 
-{% highlight hs %}
+``` hs
 -- library/Husk.hs
 module Husk (husk) where
 
 husk :: ()
 husk = ()
-{% endhighlight %}
+```
 
 Just writing the module isn't enough. You have to let Cabal know about it.
 
-{% highlight hs %}
+``` hs
 -- husk.cabal
 library
     exposed-modules: Husk
     hs-source-dirs:  library
     build-depends:   base
-{% endhighlight %}
+```
 
 This adds some new build information to the library:
 
@@ -141,13 +141,13 @@ Now that Cabal's in the loop, you can fire up a REPL for your package. The
 modules exposed by the package are already available. You can play around with
 the functions they export.
 
-{% highlight sh %}
+``` sh
 # cabal repl
 *Husk> :type Husk.husk
 Husk.husk :: ()
 *Husk> husk
 ()
-{% endhighlight %}
+```
 
 Now we've got a Cabal package with a library, which is more than `cabal init`
 provides. And we did it with less code!
@@ -158,7 +158,7 @@ Let's provide an executable that uses the library. It shouldn't live at the top
 level either, so create an `executable` directory for it. Unlike the library,
 don't name this after your package. Just call it `Main.hs` instead.
 
-{% highlight hs %}
+``` hs
 -- executable/Main.hs
 module Main (main) where
 
@@ -166,31 +166,31 @@ import Husk (husk)
 
 main :: IO ()
 main = print husk
-{% endhighlight %}
+```
 
 As before, Cabal needs to know about this. Create a new section at the bottom
 of the Cabal file.
 
-{% highlight hs %}
+``` hs
 -- husk.cabal
 executable husk
     build-depends:    base, husk
     default-language: Haskell2010
     hs-source-dirs:   executable
     main-is:          Main.hs
-{% endhighlight %}
+```
 
 The only new property is `main-is`. It points to the main entry point for the
 executable. After adding that, you can run it!
 
-{% highlight sh %}
+``` sh
 # cabal run
 Preprocessing library husk-0.0.0...
 In-place registering husk-0.0.0...
 Preprocessing executable 'husk' for husk-0.0.0...
 Linking dist/build/husk/husk ...
 ()
-{% endhighlight %}
+```
 
 That's all it takes to make an executable with Cabal.
 
@@ -204,18 +204,18 @@ Documenting the package requires adding a few more package properties to the
 Cabal file. If you're not going to distribute your package on Hackage, you can
 skip this step.
 
-{% highlight hs %}
+``` hs
 -- husk.cabal
 copyright: 2014 Taylor Fausak
 license:   MIT
 synopsis:  An example package.
-{% endhighlight %}
+```
 
 To write documentation for the source, you'll need to learn [Haddock][25]. It's
 a simple markup language for annotating Haskell source. Here's how the library
 looks with comments:
 
-{% highlight hs %}
+``` hs
 -- library/Husk.hs
 -- | An example module.
 module Husk (husk) where
@@ -228,24 +228,24 @@ module Husk (husk) where
 -}
 husk :: () -- ^ The unit type.
 husk = ()
-{% endhighlight %}
+```
 
 Now that it's documented, let's generate the HTML documentation.
 
-{% highlight sh %}
+``` sh
 # cabal haddock
 Running Haddock for husk-0.0.0...
 Preprocessing library husk-0.0.0...
 Haddock coverage:
  100% (  2 /  2) in 'Husk'
 Documentation created: dist/doc/html/husk/index.html
-{% endhighlight %}
+```
 
 The output is like what you'd see on Hackage. It's missing one thing: links to
 the source. Adding those requires another dependency. It should be optional.
 Not everyone who installs the package will generate its documentation.
 
-{% highlight hs %}
+``` hs
 -- husk.cabal
 flag documentation
     default: False
@@ -253,12 +253,12 @@ flag documentation
 library
     if flag(documentation)
         build-depends: hscolour == 1.20.*
-{% endhighlight %}
+```
 
 Enabling flags for Cabal commands is easy. Add either `-fdocumentation` or
 `--flags=documentation`. Using that flag, let's regenerate the documentation.
 
-{% highlight sh %}
+``` sh
 # cabal install --flags=documentation
 # cabal haddock --hyperlink-source
 Running Haddock for husk-0.0.0...
@@ -267,7 +267,7 @@ Preprocessing library husk-0.0.0...
 Haddock coverage:
  100% (  2 /  2) in 'Husk'
 Documentation created: dist/doc/html/husk/index.html
-{% endhighlight %}
+```
 
 Now it should have source links. If you get a bunch of warnings, you can ignore
 them. Haddock is looking for the documentation for the standard library. If you
@@ -280,33 +280,33 @@ You can test Haskell code in two different ways:
 Unit tests using HUnit. Use these to test the behavior of your code. For
 example, you could test that `+` returns `3` when given `1` and `2`.
 
-{% highlight hs %}
+``` hs
 TestCase (assertEqual "1 + 2 = 3" 3 (1 + 2))
-{% endhighlight %}
+```
 
 Property tests using QuickCheck. Use these to test the properties of your code.
 For example, you could test that `+` always returns an even number when given
 even arguments.
 
-{% highlight hs %}
+``` hs
 quickCheck (\ x y -> even ((2 * x) + (2 * y)))
-{% endhighlight %}
+```
 
 We're going to use [HSpec][26] instead of those libraries. It has a nicer
 syntax and a uniform interface for both. Create a `test-suite` folder for the
 tests. In there, create `Spec.hs`, the top-level entry point. HSpec discovers
 and runs your tests using the `hspec-discover` GHC preprocessor.
 
-{% highlight hs %}
+``` hs
 -- test-suite/Spec.hs
 {-# OPTIONS_GHC -F -pgmF hspec-discover #-}
-{% endhighlight %}
+```
 
 It assumes you laid your tests out in the format it expects, so create a spec
 file for your library. We don't have much functionality to test, but we can
 write a unit test and a property test for the `husk` function.
 
-{% highlight hs %}
+``` hs
 -- test-suite/HuskSpec.hs
 module HuskSpec (spec) where
 
@@ -322,12 +322,12 @@ spec = do
 
         prop "equals the unit value" $
             \ x -> husk == x
-{% endhighlight %}
+```
 
 With that done, the only piece left is updating the Cabal file. Add a new
 section at the end for the test suite.
 
-{% highlight hs %}
+``` hs
 -- husk.cabal
 test-suite hspec
     build-depends:    base, husk, hspec == 1.8.*
@@ -335,7 +335,7 @@ test-suite hspec
     hs-source-dirs:   test-suite
     main-is:          Spec.hs
     type:             exitcode-stdio-1.0
-{% endhighlight %}
+```
 
 The only new build information here is `type`. The Cabal documentation
 recommends the non-existent `detailed-1.0` type. Ignore that and use
@@ -343,13 +343,13 @@ recommends the non-existent `detailed-1.0` type. Ignore that and use
 
 After doing all that, you should be able to run the tests.
 
-{% highlight sh %}
+``` sh
 # cabal install --enable-tests
 # cabal test
 Test suite hspec: RUNNING...
 Test suite hspec: PASS
 Test suite logged to: dist/test/husk-0.0.0-hspec.log
-{% endhighlight %}
+```
 
 ## Benchmarks
 
@@ -360,7 +360,7 @@ writing benchmarks.
 
 So let's make a new directory, `benchmark`, and do just that.
 
-{% highlight hs %}
+``` hs
 -- benchmark/HuskBench.hs
 module HuskBench (benchmarks) where
 
@@ -371,7 +371,7 @@ benchmarks :: [Benchmark]
 benchmarks =
     [ bench "husk" (nf (const husk) ())
     ]
-{% endhighlight %}
+```
 
 The only tricky part of this is `nf`. It evaluates the result of calling the
 function with the given value. This is necessary since Haskell is lazy. If you
@@ -381,7 +381,7 @@ benchmark wouldn't be accurate.
 Now that we have a benchmark, we need a runner. Unlike HSpec, Criterion doesn't
 auto-discover benchmarks. We have to wire it up.
 
-{% highlight hs %}
+``` hs
 -- benchmark/Bench.hs
 module Main (main) where
 
@@ -392,22 +392,22 @@ main :: IO ()
 main = defaultMain
     [ bgroup "Husk" HuskBench.benchmarks
     ]
-{% endhighlight %}
+```
 
 We need to add a new section to the Cabal file for the benchmarks.
 
-{% highlight hs %}
+``` hs
 benchmark criterion
     build-depends:    base, husk, criterion == 0.6.*
     default-language: Haskell2010
     hs-source-dirs:   benchmark
     main-is:          Bench.hs
     type:             exitcode-stdio-1.0
-{% endhighlight %}
+```
 
 With that in place, we can now run the benchmarks.
 
-{% highlight sh %}
+``` sh
 # cabal install --enable-benchmarks
 # cabal bench
 Benchmark criterion: RUNNING...
@@ -420,7 +420,7 @@ found 17 outliers among 100 samples (17.0%)
 variance introduced by outliers: 86.253%
 variance is severely inflated by outliers
 Benchmark criterion: FINISH
-{% endhighlight %}
+```
 
 ## Code Quality
 
@@ -439,7 +439,7 @@ frustrating.
 Thanks to [`doctest`][28], testing documentation is a cinch. We just need to
 write a new test suite.
 
-{% highlight hs %}
+``` hs
 -- test-suite/DocTest.hs
 module Main (main) where
 
@@ -448,14 +448,14 @@ import Test.DocTest (doctest)
 
 main :: IO ()
 main = glob "library/**/*.hs" >>= doctest
-{% endhighlight %}
+```
 
 This uses globbing to avoid listing all the source files. That means you
 shouldn't ever have to change it.
 
 Next, create a new section in the Cabal file.
 
-{% highlight hs %}
+``` hs
 -- husk.cabal
 test-suite doctest
     build-depends:    base, doctest == 0.9.*, Glob == 0.7.*
@@ -463,17 +463,17 @@ test-suite doctest
     hs-source-dirs:   test-suite
     main-is:          DocTest.hs
     type:             exitcode-stdio-1.0
-{% endhighlight %}
+```
 
 You can now run it along with the other test suites.
 
-{% highlight sh %}
+``` sh
 # cabal install --enable-tests
 # cabal test
 Test suite doctest: RUNNING...
 Test suite doctest: PASS
 Test suite logged to: dist/test/husk-0.0.0-doctest.log
-{% endhighlight %}
+```
 
 ### Documentation Coverage
 
@@ -483,7 +483,7 @@ Making one isn't too hard since Haddock outputs coverage information already.
 We just need a script for running it and parsing the results. So create a new
 test suite for that.
 
-{% highlight hs %}
+``` hs
 -- test-suite/Haddock.hs
 module Main (main) where
 
@@ -510,7 +510,7 @@ match :: String -> [Int]
 match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
   where
     pattern = mkRegex "^ *([0-9]*)% "
-{% endhighlight %}
+```
 
 This is the most complex code so far. Matching regular expressions in Haskell
 isn't as easy as in scripting languages like Perl. But this code does what we
@@ -518,7 +518,7 @@ want and the only part that might change is the `expected` value.
 
 To make this a bona fide test suite, we need to tell Cabal.
 
-{% highlight hs %}
+``` hs
 -- husk.cabal
 test-suite haddock
     build-depends:    base, process == 1.1.*, regex-compat == 0.95.*
@@ -526,30 +526,30 @@ test-suite haddock
     hs-source-dirs:   test-suite
     main-is:          Haddock.hs
     type:             exitcode-stdio-1.0
-{% endhighlight %}
+```
 
 Finally we can run it.
 
-{% highlight sh %}
+``` sh
 # cabal install --enable-tests
 # cabal test
 Test suite haddock: RUNNING...
 Test suite haddock: PASS
 Test suite logged to: dist/test/husk-0.0.0-haddock.log
-{% endhighlight %}
+```
 
 ### Test Coverage
 
 We know how much of our code we documented, but we don't know how much of it we
 tested. Let's fix that by modifying our `hspec` test suite to use [HPC][29].
 
-{% highlight hs %}
+``` hs
 -- husk.cabal
 test-suite hspec
     ghc-options:    -fhpc
     hs-source-dirs: test-suite library
     other-modules:  Husk, HuskSpec
-{% endhighlight %}
+```
 
 What we're doing here is telling GHC to enable HPC. We also have to add all the
 source and test files to `other-modules` so HPC can analyze them. This is kind
@@ -559,7 +559,7 @@ because if you forget a file, HPC will yell at you and your test will fail.
 Before it can fail, though, we need to write it. This new test suite looks a
 lot like the last one.
 
-{% highlight hs %}
+``` hs
 -- test-suite/HPC.hs
 module Main (main) where
 
@@ -586,11 +586,11 @@ match :: String -> [Int]
 match = fmap read . concat . catMaybes . fmap (matchRegex pattern) . lines
   where
     pattern = mkRegex "^ *([0-9]*)% "
-{% endhighlight %}
+```
 
 Just like the last one, we have to add it to the Cabal file.
 
-{% highlight hs %}
+``` hs
 -- husk.cabal
 test-suite hpc
     build-depends:    base, process == 1.1.*, regex-compat == 0.95.*
@@ -598,14 +598,14 @@ test-suite hpc
     hs-source-dirs:   test-suite
     main-is:          HPC.hs
     type:             exitcode-stdio-1.0
-{% endhighlight %}
+```
 
 The order of things in the Cabal file doesn't matter. But it runs the test
 suites in order of appearance. Since this test uses the output of the HSpec
 suite, make sure it comes after that one. If it doesn't, it'll either run with
 old data or no data.
 
-{% highlight sh %}
+``` sh
 # cabal install --enable-tests
 # cabal test
 Test suite hspec: RUNNING...
@@ -623,7 +623,7 @@ Test coverage report written to dist/hpc/html/hspec/hpc_index.html
 Test suite hpc: RUNNING...
 Test suite hpc: PASS
 Test suite logged to: dist/test/husk-0.0.0-hpc.log
-{% endhighlight %}
+```
 
 You can ignore HPC's warning about search paths. Everything works fine in spite
 of it.
@@ -633,7 +633,7 @@ of it.
 You might think we've got enough tests, but there's still one last suite to
 write. It's going to enforce code conventions with [HLint][30].
 
-{% highlight hs %}
+``` hs
 -- test-suite/HLint.hs
 module Main (main) where
 
@@ -652,12 +652,12 @@ main :: IO ()
 main = do
     hints <- hlint arguments
     if null hints then exitSuccess else exitFailure
-{% endhighlight %}
+```
 
 Thanks to HLint's excellent interface, there's nothing too interesting going on
 here. Let's tell Cabal about it.
 
-{% highlight hs %}
+``` hs
 -- husk.cabal
 test-suite hlint
     build-depends:    base, hlint == 1.8.*
@@ -665,17 +665,17 @@ test-suite hlint
     hs-source-dirs:   test-suite
     main-is:          HLint.hs
     type:             exitcode-stdio-1.0
-{% endhighlight %}
+```
 
 All that's left to do now is run it!
 
-{% highlight sh %}
+``` sh
 # cabal install --enable-tests
 # cabal test
 Test suite hlint: RUNNING...
 Test suite hlint: PASS
 Test suite logged to: dist/test/husk-0.0.0-hlint.log
-{% endhighlight %}
+```
 
 ## Continuous Integration
 
@@ -686,10 +686,10 @@ developing, let's make a computer do it!
 [Travis CI][31] makes continuous integration a cinch. Assuming your code is on
 GitHub, all you have to do is make one file and add one line to it.
 
-{% highlight yaml %}
+``` yaml
 # .travis.yml
 language: haskell
-{% endhighlight %}
+```
 
 Now every time you push to GitHub, Travis will run your tests. You'll get an
 email if they aren't green.

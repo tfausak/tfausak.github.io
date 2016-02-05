@@ -15,7 +15,7 @@ Unfortunately, naively grabbing an application's market page doesn't
 work too well. For instance, getting the page for [Tentacles][3]
 (using Python's [`urlopen`][4]) returns this cryptic HTML:
 
-{% highlight html %}
+``` html
 <html>
     <head>
         <meta http-equiv="REFRESH" content="0; URL=http://www.windowsphone.com/en-US/apps/6651b8fe-0da1-e011-986b-78e7d1fa76f8" />
@@ -24,7 +24,7 @@ work too well. For instance, getting the page for [Tentacles][3]
         </script>
     </head>
 </html>
-{% endhighlight %}
+```
 
 Turns out that the Windows Phone Marketplace sets a cookie and
 redirects back to the same page. If the cookie isn't present, it
@@ -37,23 +37,23 @@ not too much trouble with Python's [`CookieJar`][6] class. The first
 request just sets the cookies, so the response is unneeded. The
 second request returns the actual page.
 
-{% highlight python %}
+``` python
 import cookielib, urllib2
 jar = cookielib.CookieJar()
 handler = urllib2.HTTPCookieProcessor(jar)
 opener = urllib2.build_opener(handler)
 opener.open(url)
 response = opener.open(url)
-{% endhighlight %}
+```
 
 After getting the raw HTML, it's time to parse it. My tool of choice
 is [Beautiful Soup][7], but there are others. ([Don't use regular
 expressions][8]!)
 
-{% highlight python %}
+``` python
 import BeautifulSoup
 soup = BeautifulSoup.BeautifulSoup(response)
-{% endhighlight %}
+```
 
 Most of the information can be extracted right out of the DOM. The
 HTML is surprisingly easy to navigate and pull data out of. The
@@ -62,7 +62,7 @@ displayed as a part of a sprite, and it's specified by a class like
 "fourPtFive". Translating that pseudo-English into a number isn't
 too hard, though.
 
-{% highlight python %}
+``` python
 def parse_rating(rating):
     values = {'zero': 0, 'one': 1, 'two': 2,
         'three': 3, 'four': 4, 'five': 5}
@@ -70,7 +70,7 @@ def parse_rating(rating):
     integer = values[integer]
     fraction = values[fraction.lower()]
     return integer + (fraction / 10.0)
-{% endhighlight %}
+```
 
 (I avoided putting all the boring data extraction inline with this
 post because it's not very interesting. If you're interested in the
@@ -82,7 +82,7 @@ because each one will have to do the cookie handshake. That means
 getting `n` pages will require `2n` requests. We can do better.
 Much better, in fact: `1 + n`.
 
-{% highlight python %}
+``` python
 if jar is None:
     jar = cookielib.CookieJar()
 handler = urllib2.HTTPCookieProcessor(jar)
@@ -90,7 +90,7 @@ opener = urllib2.build_opener(handler)
 if not jar:
     opener.open(url)
 response = opener.open(url)
-{% endhighlight %}
+```
 
 The first time a page is requested, the cookie jar will be created
 and filled. Every time after that, it'll just use the existing

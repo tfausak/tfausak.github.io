@@ -30,7 +30,7 @@ build should generate and upload documentation.
 So open up your `.travis.yml` and add an `after_success` section that looks
 like this:
 
-{% highlight yaml %}
+``` yaml
 after_success:
 - >-
   test $TRAVIS_TAG &&
@@ -41,7 +41,7 @@ after_success:
     -d @output/documentation.json \
     -H 'Accept: application/json' \
     -H "Authorization: token ${GITHUB_TOKEN}"
-{% endhighlight %}
+```
 
 That does a lot, so here's a breakdown:
 

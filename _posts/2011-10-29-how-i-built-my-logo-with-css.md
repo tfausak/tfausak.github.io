@@ -34,13 +34,13 @@ at my logo, I see that it can be created using nine triangles (or
 four triangles and two squares). Further, it fits nicely into a
 three-by-three grid of squares. This made writing the HTML easy:
 
-{% highlight html %}
+``` html
 <span id="logo">
     <span id="tl"></span><span id="tc"></span><span id="tr"></span>
     <span id="cl"></span><span id="cc"></span><span id="cr"></span>
     <span id="bl"></span><span id="bc"></span><span id="br"></span>
 </span>
-{% endhighlight %}
+```
 
 As you can see, just a handful of `<span>` elements with short IDs
 describing their position ("tl" for "top left", and so on).
@@ -52,7 +52,7 @@ elements to behave like table cells. Unfortunately, that's [not
 supported very well][7]. Limiting the width and floating them all
 to one side gets the job done, though.
 
-{% highlight css %}
+``` css
 #logo {
     height: 3em;
     width: 3em; }
@@ -61,25 +61,25 @@ to one side gets the job done, though.
     float: left;
     height: 0;
     width: 0; }
-{% endhighlight %}
+```
 
 The next step is to make each cell render itself using two triangles.
 Due to the way my logo is shaped, the edge between them needs to
 run from bottom left to top right. This can be achieved using the
 border on the bottom and left of the element.
 
-{% highlight css %}
+``` css
 #logo span {
     border-color: transparent;
     border-style: solid;
     border-width: 0 0 1em 1em; }
-{% endhighlight %}
+```
 
 Now that everything's being drawn as triangles, the only thing left
 to do is color them. I like the [Tango Desktop Project][8]'s color
 palette, so I pulled some colors from that.
 
-{% highlight css %}
+``` css
 #logo #tl {
     border-bottom-color: #ce5c00; }
 #logo #tr, #logo #cr {
@@ -89,7 +89,7 @@ palette, so I pulled some colors from that.
     border-left-color: #d3d7cf; }
 #logo #bc {
     border-left-color: #d3d7cf; }
-{% endhighlight %}
+```
 
 That's it! This method works in every browser I can get my hands
 on. It also compares favorably to the other methods ([raster][9]

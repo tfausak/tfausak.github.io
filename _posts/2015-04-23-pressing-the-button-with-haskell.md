@@ -23,12 +23,12 @@ presses it when it hits the time you want. I called this program [Hutton][3].
 Assuming that you have Haskell installed, you can install and run Hutton like
 this:
 
-{% highlight sh %}
+``` sh
 $ cabal update
 $ cabal install hutton
 # hutton threshold username password
 $ hutton 10 taylorfausak secret
-{% endhighlight %}
+```
 
 That will connect to Reddit and listen to the button, printing out its state
 every second. Once the timer goes below the threshold, it will press the
@@ -48,7 +48,7 @@ packge][5] does not support secure WebSockets. I wrote [Wuss][6], a wrapper
 that does support WSS.) The socket sends messages about the current state of
 the button. They look like this:
 
-{% highlight json %}
+``` json
 {
   "type": "ticking",
   "payload": {
@@ -58,7 +58,7 @@ the button. They look like this:
     "now_str": "2015-04-23-14-21-21"
   }
 }
-{% endhighlight %}
+```
 
 Hutton parses those messages and displays them to you in a tab-separated table.
 

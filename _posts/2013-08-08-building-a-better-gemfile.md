@@ -27,7 +27,7 @@ of difference between `gem 'sass'` and `gem 'sass', '~> 3.2.10'`.
 With one simple helper function, you can fix both problems. Drop
 this into your Gemfile before any gems:
 
-{% highlight ruby %}
+``` ruby
 def gem(name, version, options = {})
   if options.has_key?(:require)
     if options[:require].equal?(true)
@@ -39,7 +39,7 @@ def gem(name, version, options = {})
 
   super(name, version, options)
 end
-{% endhighlight %}
+```
 
 ## Happier Developers with Versions
 

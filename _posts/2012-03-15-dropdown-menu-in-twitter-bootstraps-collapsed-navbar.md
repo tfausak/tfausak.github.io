@@ -60,21 +60,21 @@ This method requires changing the least code. When creating a
 dropdown menu in a navbar, just add `data-no-collapse="true"` to the
 `dropdown-menu` element. For instance:
 
-{% highlight html %}
+``` html
 <ul class="dropdown-menu">
 <!-- becomes -->
 <ul class="dropdown-menu" data-no-collapse="true">
-{% endhighlight %}
+```
 
 Then change nine lines in `bootstrap-responsive.css` that refer
 to `dropdown-menu`. Add `:not([data-no-collapse="true"])` to the
 `dropdown-menu` selectors. For example:
 
-{% highlight css %}
+``` css
 .navbar .dropdown-menu { /* ... */ }
 /* becomes */
 .navbar .dropdown-menu:not([data-no-collapse="true"]) { /* ... */ }
-{% endhighlight %}
+```
 
 This approach is the cleanest in that the least code is changed and it's
 pretty easy to keep it up-to-date if the bootstrap changes. However,
@@ -90,21 +90,21 @@ This method requires changing a little more code, but it doesn't use any
 fancy CSS selectors. Instead of adding a data attribute, just change the
 class from `dropdown-menu` to `dropdown-menu-no-collapse`. For example:
 
-{% highlight html %}
+``` html
 <ul class="dropdown-menu">
 <!-- becomes -->
 <ul class="dropdown-menu-no-collapse">
-{% endhighlight %}
+```
 
 Then change all the lines in `bootstrap.css` that refer to
 `dropdown-menu`. Copy the entire selector, then replace the second
 instance of `dropdown-menu` with `dropdown-menu-no-collapse`. For instance:
 
-{% highlight css %}
+``` css
 .navbar .dropdown-menu { /* ... */ }
 /* becomes */
 .navbar .dropdown-menu, .navbar .dropdown-menu-no-collapse { /* ... */ }
-{% endhighlight %}
+```
 
 This approach is a little less clean than the first, but works in more
 browsers. If supporting Internet Explorer is important for you, this is
@@ -116,18 +116,18 @@ This is the only method that doesn't require changing any of the
 bootstrap CSS. To get started with it, add the `no-collapse` class to any
 `dropdown-menu` that shouldn't collapse.
 
-{% highlight html %}
+``` html
 <ul class="dropdown-menu">
 <!-- becomes -->
 <ul class="dropdown-menu no-collapse">
-{% endhighlight %}
+```
 
 Now, the hard part. Either in a separate CSS file that gets loaded after
 `bootstrap-responsive.css` or inline CSS, manually override all the
 responsive dropdown styles. I created [a Gist][10] that shows everything
 needed. Here's a snippet:
 
-{% highlight css %}
+``` css
 @media (max-width: 979px) {
     .navbar .dropdown-menu.no-collapse {
         background-color: #ffffff;
@@ -145,7 +145,7 @@ needed. Here's a snippet:
     }
     /* ... */
 }
-{% endhighlight %}
+```
 
 As you can see, it's a bit ungainly. And it's very brittle --- any change
 to the bootstrap means you'll have to go back and make sure all these

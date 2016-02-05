@@ -11,15 +11,15 @@ handle things that occasionally fail.
 
 To get started, install [the `stoplight` gem][4].
 
-{% highlight sh %}
+``` sh
 $ gem install stoplight --version '~> 1.0'
-{% endhighlight %}
+```
 
 Once you've done that, use [the `Stoplight` method][5] to create
 stoplights. Each stoplight needs a name and a block to run. Here's
 a simple example that calculates a rough approximation of pi.
 
-{% highlight rb %}
+``` rb
 require 'stoplight'
 
 stoplight = Stoplight('roughly-pi') { 22.0 / 7.0 }
@@ -27,13 +27,13 @@ stoplight.run
 # => 3.142857142857143
 stoplight.color
 # => "green"
-{% endhighlight %}
+```
 
 Stoplights start off green. If they fail enough, they switch to
 red. When they're red, they short circuit and raise an error. Here's
 an example that will never succeed.
 
-{% highlight rb %}
+``` rb
 stoplight = Stoplight('no-conversion') { 'oh'[:no] }
 stoplight.run
 # TypeError: no implicit conversion of Symbol into Integer
@@ -46,7 +46,7 @@ stoplight.color
 # => "red"
 stoplight.run
 # Stoplight::Error::RedLight: no-conversion
-{% endhighlight %}
+```
 
 By default, stoplights pass errors through them. When they're red,
 they'll raise a red light error. Sometimes it makes sense to return
@@ -55,7 +55,7 @@ the stoplight is green and raises an error, it'll run the fallback.
 If the stoplight is red, it'll run the fallback instead of raising
 an error. Here's an example that uses a fallback.
 
-{% highlight rb %}
+``` rb
 stoplight = Stoplight('zero') { 1 / 0 }.with_fallback { 0 }
 stoplight.run
 # => 0
@@ -68,7 +68,7 @@ stoplight.color
 # => "red"
 stoplight.run
 # => 0
-{% endhighlight %}
+```
 
 These examples scratch the surface of what stoplights can do. They
 are highly configurable. Check out [the readme][6] for more examples
@@ -111,13 +111,13 @@ external data stores. Unfortunately there's no interface for the
 data stores, so you have no choice but to read the reference
 implementation.
 
-{% highlight rb %}
+``` rb
 require 'breaker'
 
 Breaker.circuit('example').run { p true }
 # true
 # => true
-{% endhighlight %}
+```
 
 ### [CircuitB][11]
 
@@ -127,7 +127,7 @@ of time. It also doesn't return the result of the block (although
 that will be fixed in version 1.2). Those were deal breakers for
 us, so we couldn't use it.
 
-{% highlight rb %}
+``` rb
 require 'circuit_b'
 
 CircuitB.configure do |c|
@@ -138,7 +138,7 @@ end
 CircuitB('example') { p true }
 # true
 # => 0
-{% endhighlight %}
+```
 
 ### [CircuitBreaker][13]
 
@@ -148,7 +148,7 @@ it easy to debug, but hard to use with external data stores. It's
 also intended to be used as a mixin, which isn't what we had in
 mind.
 
-{% highlight rb %}
+``` rb
 require 'circuit_breaker'
 
 state = CircuitBreaker::CircuitState.new
@@ -156,7 +156,7 @@ handler = CircuitBreaker::CircuitHandler.new
 handler.handle(state, -> { p true })
 # true
 # => true
-{% endhighlight %}
+```
 
 ### [Circuitbox][16]
 
@@ -165,7 +165,7 @@ circuit breaker gems, it feels the most heavyweight. It depends on
 ActiveSupport, which provides external data stores and logging. It
 also supports advanced percentage-based heuristics.
 
-{% highlight rb %}
+``` rb
 require 'circuitbox'
 
 Circuitbox.circuit(:example).run { p true }
@@ -173,7 +173,7 @@ Circuitbox.circuit(:example).run { p true }
 # true
 # D, [2015-02-03T09:05:04.307920 #1128] DEBUG -- : [CIRCUIT] closed: example querie success
 # => true
-{% endhighlight %}
+```
 
 ### [SimpleCircuitBreaker][19]
 
@@ -183,13 +183,13 @@ At less than 60 lines of code, it's the simplest circuit breaker
 gem available. This is probably how every other gem started out.
 Because of its simplicity, it doesn't support external data stores.
 
-{% highlight rb %}
+``` rb
 require 'simple_circuit_breaker'
 
 SimpleCircuitBreaker.new(3, 10).handle { p true }
 # true
 # => true
-{% endhighlight %}
+```
 
 ### [YaCircuitBreaker][23]
 
@@ -200,13 +200,13 @@ doesn't support external data stores, the gem name (`ya_circuit_breaker`)
 isn't what you require (`circuit_breaker`), and it doesn't return
 the result of the block.
 
-{% highlight rb %}
+``` rb
 require 'circuit_breaker'
 
 CircuitBreaker::Basic.new.execute { p true }
 # true
 # => nil
-{% endhighlight %}
+```
 
 [1]: /static/images/2015/02/19/stoplight.svg
 [2]: https://github.com/orgsync/stoplight

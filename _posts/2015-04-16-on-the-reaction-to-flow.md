@@ -65,21 +65,21 @@ uninitiated, `cat` ends up in a lot of places where it is "useless"
 because the program you pipe it into can do the same thing. For
 example, these commands are all identical:
 
-{% highlight sh %}
+``` sh
 $ cat a-file | grep a-pattern
 $ grep a-pattern < a-file
 $ grep a-pattern a-file
-{% endhighlight %}
+```
 
 Depending on the circumstances, any one of those could be the best
 way to express yourself. Flow tries to give you that freedom with
 Haskell. Consider the following equivalent expressions:
 
-{% highlight hs %}
+``` hs
 aValue |> aFunction |> anotherFunction
 anotherFunction . aFunction $ aValue
 anotherFunction (aFunction aValue)
-{% endhighlight %}
+```
 
 I didn't mean to imply that you should use Flow all the time. I
 think Flow allows you to write more understandable Haskell in certain

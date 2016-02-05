@@ -16,13 +16,13 @@ I was surprised by how easy it was to add support for secure clients to the
 to the design of that package, the strength of the ecosystem, and the
 expressiveness of Haskell as a language.
 
-{% highlight hs %}
+``` hs
 runSecureClientWith host port path options headers app = do
     context <- initConnectionContext
     connection <- connectTo context (connectionParams host port)
     stream <- makeStream (reader connection) (writer connection)
     runClientWithStream stream host path options headers app
-{% endhighlight %}
+```
 
 [1]: {% post_url 2015-04-23-pressing-the-button-with-haskell %}
 [2]: http://hackage.haskell.org/package/websockets

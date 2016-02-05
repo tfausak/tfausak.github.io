@@ -33,7 +33,7 @@ that users can pick an app with confidence. (Try searching for
 and platform (Android or iOS) along with the app name should help
 the user pick the right app.
 
-{% highlight javascript %}
+``` javascript
 function autocomplete_render (ul, item) {
     return $('<li/>')
         .data('item.autocomplete', item)
@@ -52,7 +52,7 @@ function autocomplete_render (ul, item) {
                 .html(item.developer)))
         .appendTo(ul);
 };
-{% endhighlight %}
+```
 
 ![Screenshot of the autocomplete dropdown][7]
 
@@ -66,7 +66,7 @@ The element needs to be added to the top of the applist, and the
 autocomplete box needs to be cleared and re-focused so the user can
 add another app.
 
-{% highlight javascript %}
+``` javascript
 function autocomplete_select (event, ui) {
     $('<li/>')
         .append($('<img/>')
@@ -87,19 +87,19 @@ function autocomplete_select (event, ui) {
     $(this).focus().val('');
     return false;
 }
-{% endhighlight %}
+```
 
 ![Screenshot of an app in the applist][8]
 
 All that's left is enable the autocompletion widget and set it up
 to use the custom functions.
 
-{% highlight javascript %}
+``` javascript
 $('#autocomplete').autocomplete({
     select: autocomplete_select,
     source: '/autocomplete/'
 }).data('autocomplete')._renderItem = autocomplete_render;
-{% endhighlight %}
+```
 
 ## Backend
 
@@ -113,7 +113,7 @@ view normalizes the query and searches Solr. Then the results are
 transformed into MongoEngine references, formatted, and returned
 as JSON.
 
-{% highlight python %}
+``` python
 @cache_page(60 * 60 * 24)
 def autocomplete(request):
     query = ' '.join(request.GET.get('term', '').split()).lower()
@@ -126,7 +126,7 @@ def autocomplete(request):
         'name': app.name,
         'platform': app.platform,
     } for app in apps]), mimetype='application/json')
-{% endhighlight %}
+```
 
 ## Notes
 

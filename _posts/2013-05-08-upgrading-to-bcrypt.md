@@ -51,14 +51,14 @@ with a class method. All it does is try to find the user, then
 compare the passwords. If everything checks out, it returns the
 user. In all other cases, it returns `nil`.
 
-{% highlight ruby %}
+``` ruby
 class User < ActiveRecord::Base
   def self.authenticate(username, password)
     user = find_by_username(username)
     user if user && password == user.password
   end
 end
-{% endhighlight %}
+```
 
 ## During
 
@@ -71,20 +71,20 @@ Up first is adding a new field to the user model. We need to store
 the derived key bcrypt generates. A simple migration takes care of
 this step:
 
-{% highlight ruby %}
+``` ruby
 class AddBcryptHashToUser < ActiveRecord::Migration
   def change
     add_column :users, :bcrypt_hash, :string
   end
 end
-{% endhighlight %}
+```
 
 Now we need a couple utility functions. They'll allow us to see
 which users use bcrypt, set the password, and compare strings against
 it. These all require the [bcrypt-ruby][5] gem, so add `gem
 'bcrypt-ruby'` to your Gemfile.
 
-{% highlight ruby %}
+``` ruby
 require 'bcrypt'
 class User < ActiveRecord::Base
   include BCrypt
@@ -99,7 +99,7 @@ class User < ActiveRecord::Base
     self.bcrypt_hash = @bcrypt
   end
 end
-{% endhighlight %}
+```
 
 Lastly, the authenticate function needs to be modified. It should
 compare using bcrypt if the user has been updated. If they haven't,
@@ -110,7 +110,7 @@ a bcrypt hash for them so it'll use that next time. In addition,
 it needs to delete data stored by the old method. If it doesn't,
 an attacker could just focus their efforts on the legacy data.
 
-{% highlight ruby %}
+``` ruby
 def self.authenticate(username, password)
   user = find_by_username(username)
   return unless user
@@ -123,7 +123,7 @@ def self.authenticate(username, password)
     user
   end
 end
-{% endhighlight %}
+```
 
 ## After
 
@@ -132,7 +132,7 @@ in the old format. For users that haven't updated yet, a new password
 must be generated. You can either email it to them or they can rely
 on your password recovery service.
 
-{% highlight ruby %}
+``` ruby
 require 'bcrypt'
 class RemovePasswordFromUser < ActiveRecord::Migration
   def up
@@ -159,7 +159,7 @@ class RemovePasswordFromUser < ActiveRecord::Migration
     end
   end
 end
-{% endhighlight %}
+```
 
 ## Testing
 
@@ -169,7 +169,7 @@ this slowdown. The next version of bcrypt-ruby will support setting
 the cost with `BCrypt::Engine.cost = x`. For the time being, monkey
 patching is the way to go. Drop this into `spec/support/bcrypt.rb`:
 
-{% highlight ruby %}
+``` ruby
 require 'bcrypt'
 module BCrypt
   class Engine
@@ -178,7 +178,7 @@ module BCrypt
     end
   end
 end
-{% endhighlight %}
+```
 
 ## Conclusion
 

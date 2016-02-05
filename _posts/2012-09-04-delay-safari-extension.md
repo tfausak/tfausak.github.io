@@ -40,11 +40,11 @@ present, unlike `<body>`, which doesn't show up until later. After
 my script identifies the site as a time-waster, it updates the page
 to look like this:
 
-{% highlight html %}
+``` html
 <html delay="30">
     <!-- the rest of the DOM -->
 </html>
-{% endhighlight %}
+```
 
 Styling is handled by adding an attribute to the root element and
 then matching it with the `[attr]` selector in CSS. The first time
@@ -55,7 +55,7 @@ I went with `visibility: hidden` instead. Flash elements don't obey
 The countdown timer is created in CSS using the `:before` pseudo-element
 and the `attr()` function.
 
-{% highlight css %}
+``` css
 [delay]:before {
     content: attr(delay);
     /* ... */
@@ -64,7 +64,7 @@ and the `attr()` function.
     opacity: 0 !important;
     visibility: hidden !important;
 }
-{% endhighlight %}
+```
 
 [1]: /static/images/2012/09/04/let-go.png
 [2]: http://xkcd.com/862/

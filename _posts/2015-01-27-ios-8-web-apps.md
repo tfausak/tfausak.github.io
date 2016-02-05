@@ -20,20 +20,20 @@ iOS device to see the finished product.
 
 ### `apple-mobile-web-app-capable`
 
-{% highlight html %}
+``` html
 <meta name="apple-mobile-web-app-capable"
       content="yes">
-{% endhighlight %}
+```
 
 This tag allows the page to be run full screen. Note that this only
 works when it has been added to the home screen.
 
 ### `apple-mobile-web-app-title`
 
-{% highlight html %}
+``` html
 <meta name="apple-mobile-web-app-title"
       content="iOS Web App">
-{% endhighlight %}
+```
 
 This tag sets a custom title. If it's missing, iOS will use the
 `<title>` tag. If that is missing too, it will default to "Favorites".
@@ -41,10 +41,10 @@ This is limited to about 8 to 12 characters.
 
 ### `apple-mobile-web-app-status-bar-style`
 
-{% highlight html %}
+``` html
 <meta name="apple-mobile-web-app-status-bar-style"
       content="black">
-{% endhighlight %}
+```
 
 This tag changes the color of the status bar. There are three
 options: `default`, `black`, and `black-translucent`. The best bet
@@ -55,10 +55,10 @@ the web app fixes this problem.)
 
 ### `viewport`
 
-{% highlight html %}
+``` html
 <meta name="viewport"
       content="initial-scale=1">
-{% endhighlight %}
+```
 
 This tag sets the size of the browser's viewport. That means it
 determines how wide the virtual window is. By setting `initial-scale`
@@ -67,11 +67,11 @@ device. That makes it the only setting you need here. Other settings,
 like `device-width` just cause trouble. (In particular, `device-width=320`
 will cause letterboxing on iOS 7+.)
 
-{% highlight html %}
+``` html
 <!-- Only for web apps pretending to be native. -->
 <meta name="viewport"
       content="initial-scale=1,minimum-scale=1,maximum-scale=1">
-{% endhighlight %}
+```
 
 If you want to pretend like you're a native app, set `minimum-scale=1`
 and `maximum-scale=1`. Be warned that this means users can't scale
@@ -79,16 +79,16 @@ your app at all.
 
 ### `format-detection`
 
-{% highlight html %}
+``` html
 <meta name="format-detection"
       content="telephone=no">
-{% endhighlight %}
+```
 
 This tag prevents Safari from automatically linking phone numbers.
 
 ## Icons
 
-{% highlight html %}
+``` html
 <!-- iPad retina icon -->
 <link href="apple-touch-icon-precomposed-152.png"
       sizes="152x152"
@@ -117,7 +117,7 @@ This tag prevents Safari from automatically linking phone numbers.
 <link href="apple-touch-icon-precomposed-57.png"
       sizes="57x57"
       rel="apple-touch-icon-precomposed">
-{% endhighlight %}
+```
 
 You'll need seven icon sizes:
 
@@ -153,7 +153,7 @@ The exact dimensions will depend on the device.
 
 ## Startup images
 
-{% highlight html %}
+``` html
 <!-- iPad retina portrait startup image -->
 <link href="apple-touch-startup-image-1536x2008.png"
       media="(device-width: 768px) and (device-height: 1024px)
@@ -210,7 +210,7 @@ The exact dimensions will depend on the device.
       media="(device-width: 320px) and (device-height: 480px)
              and (-webkit-device-pixel-ratio: 1)"
       rel="apple-touch-startup-image">
-{% endhighlight %}
+```
 
 You'll need ten startup image sizes:
 
@@ -250,13 +250,13 @@ here. Safari will not perform any scaling.
 
 ## Hacks
 
-{% highlight html %}
+``` html
 <style>
   html {
     -webkit-text-size-adjust: 100%;
   }
 </style>
-{% endhighlight %}
+```
 
 This style prevents fonts from getting bigger when rotating to
 landscape.

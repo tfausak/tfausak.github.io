@@ -19,7 +19,7 @@ The server isn't too complicated. It returns an HTTP 200 OK response
 to every request. It also includes the text "Hello, world!" in the
 response.
 
-{% highlight javascript %}
+``` javascript
 var http = require('http');
 
 this.server = http.createServer(function (req, res) {
@@ -34,7 +34,7 @@ exports.listen = function () {
 exports.close = function (callback) {
   this.server.close(callback);
 };
-{% endhighlight %}
+```
 
 You may notice that the server doesn't start automatically. You
 have to call `listen` for anything to happen. Setting up the server
@@ -49,7 +49,7 @@ Before getting to the actual tests, there's a little bit of boilerplate
 to get out of the way. The test suite should fire up the server
 when it starts and kill the server when it finishes.
 
-{% highlight javascript %}
+``` javascript
 var server = require('../lib/server');
 
 describe('server', function () {
@@ -61,14 +61,14 @@ describe('server', function () {
     server.close();
   });
 });
-{% endhighlight %}
+```
 
 With that out of the way, it's on to the actual tests. Since the
 server does so little, it stands to reason that there won't be much
 to the tests. All they do is check the status code and response
 body. Exactly what you'd expect.
 
-{% highlight javascript %}
+``` javascript
 var assert = require('assert'),
     http = require('http');
 
@@ -95,7 +95,7 @@ describe('/', function () {
     });
   });
 });
-{% endhighlight %}
+```
 
 That's all there is to it! Running the test suite is a piece of
 cake with `npm test`.

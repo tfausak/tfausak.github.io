@@ -16,11 +16,11 @@ they're all the same. They take a pattern and a callback. When
 someone says something that matches the pattern, it runs the callback.
 For example:
 
-{% highlight coffeescript %}
+``` coffeescript
 module.exports = (robot) ->
   robot.respond /ping/i, (msg) ->
     msg.send('pong')
-{% endhighlight %}
+```
 
 Give that a whirl and you'll end up with something like:
 
@@ -32,11 +32,11 @@ much harder. All you need is a regular expression that looks for
 both a pattern and callback, then evaluates them and calls
 `robot.respond` with the results.
 
-{% highlight coffeescript %}
+``` coffeescript
 module.exports = (robot) ->
   robot.respond /respond (\/.+\/i) (.+)/i, (msg) ->
     robot.respond eval(msg.match[1]), eval(msg.match[2])
-{% endhighlight %}
+```
 
 (This seems like as good a time as any to point out that having a
 programmable Hubot means that it's possible for someone to write
@@ -69,13 +69,13 @@ most Hubot scripts use `msg`.
 Fortunately CoffeeScript's string interpolation makes it easy to
 remove a lot of the boilerplate:
 
-{% highlight coffeescript %}
+``` coffeescript
 module.exports = (robot) ->
   robot.respond /respond \/(.+)\/ (.+)/i, (msg) ->
     pattern = eval("/#{msg.match[1]}/i")
     callback = eval("_ = function (msg) { #{msg.match[2]} }")
     robot.respond pattern, callback
-{% endhighlight %}
+```
 
 Now it's much easier to modify Hubot on the fly:
 
@@ -90,13 +90,13 @@ can't. Adding that functionality poses more of a challenge and
 requires diving into Hubot's internals --- the [`Robot#respond`][6]
 method in particular:
 
-{% highlight coffeescript %}
+``` coffeescript
 class Robot
   # ...
   respond: (regex, callback) ->
     # ...
     @listeners.push new TextListener(@, newRegex, callback)
-{% endhighlight %}
+```
 
 Given a regular expression and a callback, it performs some work
 on the regex before pushing a new listener onto its stack of
@@ -109,7 +109,7 @@ Moving all this functionality into a class made sense to me. I'll
 get to the actual implementation in a second, but here's how the
 script will end up looking:
 
-{% highlight coffeescript %}
+``` coffeescript
 module.exports = (robot) ->
   responders = new Responders(robot)
   robot.respond /responders/i, (msg) ->
@@ -120,7 +120,7 @@ module.exports = (robot) ->
     responders.remove(msg.match[1])
   robot.respond /respond \/(.+)\/ ([^]+)/i, (msg) ->
     responders.add(msg.match[1], msg.match[2])
-{% endhighlight %}
+```
 
 As you can see, it's a pretty simple interface. I called it
 `Responders` so it wouldn't clash with Hubot's `Listener` class.
@@ -134,7 +134,7 @@ Now that you've seen how it behaves, how does it look behind the
 scenes? It stores everything as an object in the robot brain, which
 persists if your Hubot is set up that way.
 
-{% highlight coffeescript %}
+``` coffeescript
 class Responders
   constructor: (@robot) ->
     @robot.brain.data.responders = {}
@@ -142,7 +142,7 @@ class Responders
     @robot.brain.data.responders
   responder: (pattern) ->
     @responders()[pattern]
-{% endhighlight %}
+```
 
 Adding a responder works by first removing any responder with the
 same pattern, then adding it with `robot.respond`, and finally
@@ -150,7 +150,7 @@ saving it to the brain. Note that it doesn't use the `eval`ed pattern
 or callback for storage in the brain; this makes it easier to inspect
 and reason about.
 
-{% highlight coffeescript %}
+``` coffeescript
 add: (pattern, callback) ->
   eval_pattern = eval("/#{pattern}/i")
   eval_callback = eval("_ = function (msg) { #{callback} }")
@@ -160,7 +160,7 @@ add: (pattern, callback) ->
     callback: callback,
     index: @robot.listeners.length - 1,
   }
-{% endhighlight %}
+```
 
 Removing responders is the last piece of the puzzle. First it makes
 sure it's actually responding to the pattern in the first place.
@@ -168,14 +168,14 @@ Then another sanity check to ensure it knows where it is in the
 listeners array. Then it replaces itself with `(->)`, an empty
 callback. After all that, it deletes itself from the brain.
 
-{% highlight coffeescript %}
+``` coffeescript
 remove: (pattern) ->
   responder = @responder(pattern)
   if responder
     if responder.index
       @robot.listeners.splice(responder.index, 1, (->))
     delete @responders()[pattern]
-{% endhighlight %}
+```
 
 You may be wondering why it assigns an empty callback to the listener
 instead of deleting it outright. If you delete it, Hubot will

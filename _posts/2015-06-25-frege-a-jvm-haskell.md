@@ -49,7 +49,7 @@ dealing with them. Every data type defines a namespace, so you can have fields
 on different types with the same name. Plus reading, writing, and updating
 fields is easy.
 
-{% highlight haskell %}
+``` haskell
 data Athlete = Athlete { name :: String }
 data Club = Club { name :: Maybe String }
 
@@ -61,26 +61,26 @@ club2 = club1.{ name = Just "Fixed Touring" }
 
 athlete3 = athlete2.{ name <- (++ "!") }
 club3 = club2.{ name <- fmap (++ "!") }
-{% endhighlight %}
+```
 
 Imports are also a lot better. By default imports are qualified by the last
 part of the module name. Qualified imports don't require the `qualified`
 keyword. And you can do qualified and unqualified on the same line.
 
-{% highlight haskell %}
+``` haskell
 import an.example.Set (Set)
 -- In Haskell:
 --   import An.Example.Set (Set)
 --   import qualified An.Example.Set as Set
-{% endhighlight %}
+```
 
 Access control is handled with `private` modifiers instead of an export list. I
 like this a lot better. It puts the information closer to where you need it.
 
-{% highlight haskell %}
+``` haskell
 private f :: a -> a
 private f x = x
-{% endhighlight %}
+```
 
 A bevy of other things are worse or just different. They are not very
 substantial, so I will just rattle them off here:

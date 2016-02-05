@@ -35,13 +35,13 @@ raise the error if anything was amiss. I was working in Python's
 interactive shell, so I don't have the actual code, but it looked
 something like this:
 
-{% highlight python %}
+``` python
 from mongoengine import connect
 from models import Family
 connect('the-production-database')
 for family in Family.objects:
     family.save()
-{% endhighlight %}
+```
 
 That finished without issue, so I shut my laptop and turned my
 attention back to the conference. A couple hours later, Cody was
@@ -49,10 +49,10 @@ getting a bunch of emails about our server responding slowly. He
 popped open his laptop and I glanced over at the screen. I nearly
 had a heart attack when I saw:
 
-{% highlight python %}
+``` python
 >>> Family.objects.count()
 38
-{% endhighlight %}
+```
 
 That number was off by a couple orders of magnitude! We quietly
 freaked out, then excused ourselves from the conference room.
@@ -67,10 +67,10 @@ to see what I entered earlier in the day. And since I was working
 in the interactive shell, I didn't have any history. My best guess,
 though, is that I did something like this, instead:
 
-{% highlight python %}
+``` python
 for family in Family.objects:
     family.delete()
-{% endhighlight %}
+```
 
 D'oh! Both `save` and `delete` don't return anything, so I didn't
 notice anything wrong when I saw the families scroll by. (I'm not

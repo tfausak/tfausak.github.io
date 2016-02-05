@@ -23,7 +23,7 @@ together), but commenting out the whitespace keeps the markup readable.
 At this point, [the markup][6] is a good baseline to work on. Each letter
 can be styled individually but the whole thing just looks like a word.
 
-{% highlight html %}
+``` html
 <h1 class="famigo-logo">
     <span class="famigo-logo-f">F</span><!--
  --><span class="famigo-logo-a">a</span><!--
@@ -32,7 +32,7 @@ can be styled individually but the whole thing just looks like a word.
  --><span class="famigo-logo-g">g</span><!--
  --><span class="famigo-logo-o">o</span>
 </h1>
-{% endhighlight %}
+```
 
 It's worth noting that the Famigo logo uses [Clarendon][7]. It's not a
 web font, but [Georgia][8] is pretty close and basically ubiquitous.
@@ -53,7 +53,7 @@ browsers, `-moz-`, `-ms-`, and `-o-` should be added.
 otherwise the rotations won't work. I've ignored that here, but it's in
 [the code][12].)
 
-{% highlight css %}
+``` css
 .famigo-logo-f {
     color: #8dc63f;
     letter-spacing: -0.075em;
@@ -79,7 +79,7 @@ otherwise the rotations won't work. I've ignored that here, but it's in
     color: #1ab7ea;
     vertical-align: 0.075em;
     -webkit-transform: rotate(9deg); }
-{% endhighlight %}
+```
 
 ![Logo with proper color, rotation, and spacing][13]
 
@@ -92,7 +92,7 @@ components: the bottom part, a [dotless "i"][15], and the top part,
 a [dot diacritic][16]. Their code points are U+0131 (&#x131;) for the
 lower case dotless "i" and U+02D9 (&#x2d9;) for the dot diacritic.
 
-{% highlight html %}
+``` html
 <h1 class="famigo-logo">
     <span class="famigo-logo-f">F</span><!--
  --><span class="famigo-logo-a">a</span><!--
@@ -102,7 +102,7 @@ lower case dotless "i" and U+02D9 (&#x2d9;) for the dot diacritic.
  --><span class="famigo-logo-o">o</span>
     <span class="famigo-logo-tittle">&#x307;</span>
 </h1>
-{% endhighlight %}
+```
 
 Each part gets styled just the same as the "i", but the dot either
 has to be moved over to fit over the "i" or be absolutely positioned
@@ -110,7 +110,7 @@ on top of it. I initially did it the first way but ended up with the
 second. Absolutely positioning it requires the top-level container to
 be positioned, too.
 
-{% highlight css %}
+``` css
 .famigo-logo {
     position: relative
     /* ... */ }
@@ -120,7 +120,7 @@ be positioned, too.
     position: absolute;
     vertical-align: 0.15em;
     -webkit-transform: rotate(7deg); }
-{% endhighlight %}
+```
 
 ![Logo with tittle colored properly][17]
 
@@ -132,12 +132,12 @@ source, though.
 Since I want to do this without images, I'll use CSS [gradients][18]
 and [masks][19] for this effect.
 
-{% highlight css %}
+``` css
 .famigo-logo {
     -webkit-mask-image: -webkit-linear-gradient(
         transparent, black);
     /* ... */ }
-{% endhighlight %}
+```
 
 ![Logo with gradient mask][20]
 
@@ -158,7 +158,7 @@ the foreground mask makes parts of the foreground transparent. It would
 be counter-productive to put an opaque letter behind a partially
 transparent one.
 
-{% highlight css %}
+``` css
 .famigo-logo-background {
     height: 0;
     -webkit-text-stroke: 1px; }
@@ -186,9 +186,9 @@ transparent one.
 .famigo-logo-background .famigo-logo-tittle {
     color: transparent;
     -webkit-text-stroke-color: #ee3124; }
-{% endhighlight %}
+```
 
-{% highlight html %}
+``` html
 <h1 class="famigo-logo">
     <div class="famigo-logo-background">
         <span class="famigo-logo-f">F</span><!--
@@ -209,7 +209,7 @@ transparent one.
         <span class="famigo-logo-tittle">&#x307;</span>
     </div>
 </h1>
-{% endhighlight %}
+```
 
 ![Logo with stroke][22]
 

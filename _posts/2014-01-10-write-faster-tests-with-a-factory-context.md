@@ -42,7 +42,7 @@ Let's get started by writing some simple classes. We're going to
 model a Reddit-style site with users, posts, and votes. Posts are
 submitted by users and users cast votes on posts.
 
-{% highlight ruby %}
+``` ruby
 class User < ActiveRecord::Base
   has_many :posts
   has_many :votes
@@ -57,12 +57,12 @@ class Vote < ActiveRecord::Base
   belongs_to :post
   belongs_to :user
 end
-{% endhighlight %}
+```
 
 Next we're going to create factories for these classes. Just like
 the classes, they're pretty simple.
 
-{% highlight ruby %}
+``` ruby
 factory :user
 
 factory :post do
@@ -73,19 +73,19 @@ factory :vote do
   post
   user
 end
-{% endhighlight %}
+```
 
 Now we can use those factories in some tests. This particular test
 doesn't do much, but it does show that two posts will be created.
 
-{% highlight ruby %}
+``` ruby
 let(:post) { create(:post) }
 let(:vote) { create(:vote) }
 
 it do
   expect(vote.post).to_not eq(post)
 end
-{% endhighlight %}
+```
 
 Sometimes this is what you want, but usually it isn't. To avoid
 creating extra objects, you need to specify all of the associations.
@@ -95,7 +95,7 @@ increases.
 So to keep from repeating yourself, put all the definitions in a
 shared context.
 
-{% highlight ruby %}
+``` ruby
 shared_context 'factories' do
   let(:user) do
     create(:user)
@@ -109,7 +109,7 @@ shared_context 'factories' do
     create(:vote, post: post, user: user)
   end
 end
-{% endhighlight %}
+```
 
 Then you can include the context and just start talking about the
 objects you want. You don't have to build anything, and fewer objects
@@ -117,13 +117,13 @@ will be created behind the scenes.
 
 For example, this test creates half as many objects as the last one.
 
-{% highlight ruby %}
+``` ruby
 include_context 'factories'
 
 it do
   expect(vote.post).to eq(post)
 end
-{% endhighlight %}
+```
 
 Let me repeat that: In this contrived example with three simple
 models, using the context created *half* as many objects. In a real
@@ -133,33 +133,33 @@ But what if we wanted to use `let!` to eagerly load some objects?
 It looks like the factory context won't let us do that. But it does
 --- just talk about the objects that need to be loaded.
 
-{% highlight ruby %}
+``` ruby
 before do
   user
   post
   vote
 end
-{% endhighlight %}
+```
 
 That's not great, though. It's not immediately obvious why those
 statements are there. We can do better by adding a helper method
 to the context.
 
-{% highlight ruby %}
+``` ruby
 def preload(*factories)
   factories.each do |factory|
     send(factory)
   end
 end
-{% endhighlight %}
+```
 
 Now you can use `preload` when you want to eagerly load an object.
 
-{% highlight ruby %}
+``` ruby
 before do
   preload(:user, :post, :vote)
 end
-{% endhighlight %}
+```
 
 After switching to a factory context, writing tests got easier and
 running tests got faster. Plus we didn't lose any expressiveness

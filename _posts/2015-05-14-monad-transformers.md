@@ -17,7 +17,7 @@ nothing. Like the `identity` function, it isn't too useful by itself
 but becomes it can be handy in certain situations. Here's an example
 of how to use it:
 
-{% highlight hs %}
+``` hs
 import Data.Functor.Identity (Identity, runIdentity)
 
 type Output = Integer
@@ -30,13 +30,13 @@ anIdentity = do
 
 >>> runIdentity anIdentity
 6
-{% endhighlight %}
+```
 
 The next monad we'll look at is [`Reader`][3]. It adds some read-only
 data. It can be a convenient way to add configuration information
 to an otherwise pure function. Here's how it looks in action:
 
-{% highlight hs %}
+``` hs
 import Control.Monad.Trans.Reader (Reader, ask, runReader)
 
 type Input = Integer
@@ -50,14 +50,14 @@ aReader = do
 
 >>> runReader aReader 3
 "The input was 3"
-{% endhighlight %}
+```
 
 Finally we'll take a look at the [`Writer`][4] monad. It is the
 opposite of the reader monad. It adds write-only data. It is most
 often used to add logging to a function. Like the reader, it is
 easy to use:
 
-{% highlight hs %}
+``` hs
 import Control.Monad.Trans.Writer (Writer, tell, runWriter)
 
 type Output = [String]
@@ -71,7 +71,7 @@ aWriter = do
 
 >>> runWriter aWriter
 (3,["The number was 3"])
-{% endhighlight %}
+```
 
 Now that we've covered all the monads, there's one more piece we
 need for transformers. The [`lift`][5] function takes a function
@@ -89,7 +89,7 @@ application configuration. For our purposes, it'll hold a number.
 And at the top we'll have a `Writer` monad. We'll have it accumulate
 a list of strings, which may be what you'd use it for in real life.
 
-{% highlight hs %}
+``` hs
 import Control.Monad.Trans.Class (lift)
 import Data.Functor.Identity (Identity, runIdentity)
 import Control.Monad.Trans.Reader (ReaderT, ask, runReader)
@@ -104,7 +104,7 @@ stack = do
     x <- lift ask
     tell ["The input was " ++ show x]
     return x
-{% endhighlight %}
+```
 
 So that's the whole stack. We can use the outer `Writer` monad
 directly with `tell`. But we have to wrap calls to the inner `Reader`
@@ -116,12 +116,12 @@ you need to get all the way to the one you want.
 The only downside is that you need to run all of these monads. Doing
 so can be a little tedious.
 
-{% highlight hs %}
+``` hs
 >>> let newReader = runWriterT stack
 >>> let newIdentity = runReaderT newReader 3
 >>> runIdentity newIdentity
 (3,["The number was 3"])
-{% endhighlight %}
+```
 
 This example is trivial, but I hope it shows how monad transformers
 work. They are a powerful way to combine monadic actions.

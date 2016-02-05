@@ -26,16 +26,16 @@ point. That meant a before filter was to blame, so I threw a debugger
 into those and chased down the offending line of code. It appeared
 completely benign:
 
-{% highlight ruby %}
+``` ruby
 req.save if req.new_record? || req.changed?
-{% endhighlight %}
+```
 
 Nothing particularly concerning about that. The validators that get
 called before saving the record are another matter entirely, though.
 In particular, that `req` object has a URL field. It's checked
 against the following regular expression:
 
-{% highlight ruby %}
+``` ruby
 %r{
   https?://             # protocol
   (?:.+\.)+             # subdomains
@@ -44,7 +44,7 @@ against the following regular expression:
   (?:[^.]+\.[0-9a-z]+)? # file
   (?:[#?].*)?           # query string or fragment
 }ix
-{% endhighlight %}
+```
 
 (Before you pull out that [Zawinski][3] quote, I know this isn't
 ideal. [`URI::regexp`][4] is better. That's not the point.)
@@ -53,9 +53,9 @@ If you have an eagle eye for regexes, you might spot the problem
 right away. I didn't, so I played with both the regex and URL until
 I whittled it down to this evil part:
 
-{% highlight ruby %}
+``` ruby
 /^([^.\/]+\/?)*$/.match('0123456789012345678901234//')
-{% endhighlight %}
+```
 
 That's the path component of the pattern trying to match against a
 pathological string. I figured the problem was with nested repetition
@@ -67,17 +67,17 @@ I was curious about exactly what it was doing, so I fired up Perl
 to debug the regex, since Ruby doesn't have a regex debugger. This
 script confirmed my suspicions:
 
-{% highlight perl %}
+``` perl
 use re 'debugcolor';
 '0123456789012345678901234//' =~ /^([^.\/]+\/?)*$/;
-{% endhighlight %}
+```
 
 The solution was to rewrite the evil part of the pattern. The
 original regex tried too hard to break the URL into components,
 especially considering they weren't being saved into match groups.
 The rewrite is a little more lax in that regard.
 
-{% highlight ruby %}
+``` ruby
 %r{
   https?://          # protocol
   (?:[-0-9a-z]+\.)+  # subdomains
@@ -88,7 +88,7 @@ The rewrite is a little more lax in that regard.
     (?:#.*)?         # fragment
   )?
 }ix
-{% endhighlight %}
+```
 
 [1]: /static/images/2013/02/10/regular-expression-problems.png
 [2]: http://xkcd.com/1171/

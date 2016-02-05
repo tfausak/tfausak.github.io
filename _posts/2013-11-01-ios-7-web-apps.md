@@ -21,10 +21,10 @@ Check out the [example web app][4] before digging in!
 
 To get started, put this in your `<head>`:
 
-{% highlight html %}
+``` html
 <meta name="apple-mobile-web-app-capable"
       content="yes">
-{% endhighlight %}
+```
 
 The `apple-touch-fullscreen` alias is obsolete. It was never
 officially supported. As of iOS 7, it no longer works. Don't use
@@ -39,11 +39,11 @@ probably won't ever see it. If you have the `<title>` attribute
 set, Safari will use that instead. You can override that by setting
 the `apple-mobile-web-app-title` meta attribute.
 
-{% highlight html %}
+``` html
 <title>Normal title</title>
 <meta name="apple-mobile-web-app-title"
       content="iOS title">
-{% endhighlight %}
+```
 
 Regardless of how you set the title, you should try to make it
 between 8 to 12 characters long.
@@ -78,7 +78,7 @@ If you give both, the precomposed icon will be preferred. iOS 7
 doesn't apply any effects to icons, so I recommend using precomposed
 icons for consistency across all versions of iOS.
 
-{% highlight html %}
+``` html
 <!-- iPad, iOS 7, retina -->
 <link href="apple-touch-icon-152x152.png"
       sizes="152x152"
@@ -111,7 +111,7 @@ icons for consistency across all versions of iOS.
 <link href="apple-touch-icon-57x57.png"
       sizes="57x57"
       rel="apple-touch-icon">
-{% endhighlight %}
+```
 
 Older versions of iOS ignore the `sizes` attribute, so the last
 icon should be a fallback. If none of the icons match the expected
@@ -130,7 +130,7 @@ The default startup image is plain white. Unlike the icons, Safari
 doesn't try anything by default. To specify a startup image, you
 must add a `<link>` with `rel="apple-touch-startup-image"`.
 
-{% highlight html %}
+``` html
 <!-- iPad, retina, portrait -->
 <link href="apple-touch-startup-image-1536x2008.png"
       media="(device-width: 768px) and (device-height: 1024px)
@@ -170,7 +170,7 @@ must add a `<link>` with `rel="apple-touch-startup-image"`.
       media="(device-width: 320px) and (device-height: 480px)
          and (-webkit-device-pixel-ratio: 1)"
       rel="apple-touch-startup-image">
-{% endhighlight %}
+```
 
 Older iPhones ignore media queries and just load the last startup
 image. So just like the icons, the last one should be a fallback.
@@ -197,10 +197,10 @@ By default, the status bar has black text on a black background.
 That makes it essentially useless. To fix it, set the
 `apple-mobile-web-app-status-bar-style`.
 
-{% highlight html %}
+``` html
 <meta name="apple-mobile-web-app-status-bar-style"
       content="black">
-{% endhighlight %}
+```
 
 The only other allowable value is `black-translucent`. It's a bit
 of a misnomer, though. The background is completely translucent and
@@ -213,19 +213,19 @@ Unlike iOS 6, web apps are never letterboxed on iOS 7. That means
 you can set the viewport to whatever you want. However, I would
 recommend using the workaround anyway for maximum compatibility.
 
-{% highlight html %}
+``` html
 <meta name="viewport"
       content="initial-scale=1">
-{% endhighlight %}
+```
 
 By default, Safari resizes text on orientation change. To disable
 this, add the `-webkit-text-size-adjust` CSS property.
 
-{% highlight html %}
+``` html
 <style>
     -webkit-text-size-adjust: 100%;
 </style>
-{% endhighlight %}
+```
 
 [1]: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW3
 [2]: {% post_url 2012-03-27-ios-web-app-icons-and-startup-images %}

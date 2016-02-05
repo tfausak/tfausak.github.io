@@ -50,14 +50,14 @@ that has neither, the icon will have to do.
 Since that logic is a little complicated for a template, let's throw
 it in a method. Here it is as pseudo-code:
 
-{% highlight python %}
+``` python
 def pinterest_media(self):
     if self.banner:
         return self.banner
     if self.screenshots:
         return self.screenshots[0]
     return self.icon
-{% endhighlight %}
+```
 
 Adding it to the URL for the "Pin It" button is a piece of cake
 now.

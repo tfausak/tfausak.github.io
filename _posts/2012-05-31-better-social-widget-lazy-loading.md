@@ -20,9 +20,9 @@ sleaze][4]; lazy loading widgets addresses the technical concerns
 Typically, loading a social widget like the Google +1 button looks
 like this:
 
-{% highlight html %}
+``` html
 <div class="g-plusone" data-size="tall"></div>
-{% endhighlight %}
+```
 
 Waiting to load the widget until the user hovers over it requires
 some additional markup. The widget needs a placeholder, which will
@@ -30,14 +30,14 @@ be used until the user hovers, and for clients with JavaScript
 disabled. Both the widget and the placeholder need to be wrapped
 in a container.
 
-{% highlight html %}
+``` html
 <div class="social-widget google-widget">
     <a href="#google" id="google-widget">
         +1
     </a>
     <div class="g-plusone" data-size="tall"></div>
 </div>
-{% endhighlight %}
+```
 
 Of course, `#google` should be replaced with a link to Google's
 sharer. Stack Overflow covers [adding a Google +1 link without
@@ -52,7 +52,7 @@ orange (`#dd4b39`), and Twitter's Tweet is light blue (`#33ccff`).
 Also, the widgets are all about the same size. They'll all fit in
 a 62-by-55 pixel rectangle.
 
-{% highlight css %}
+``` css
 #facebook-widget,
 #google-widget,
 #twitter-widget {
@@ -66,7 +66,7 @@ a 62-by-55 pixel rectangle.
 #facebook-widget { background: #3b5b99; }
 #google-widget   { background: #dd4b39; }
 #twitter-widget  { background: #33ccff; }
-{% endhighlight %}
+```
 
 Now the placeholders won't be an eyesore before the actual widgets load.
 
@@ -78,7 +78,7 @@ when the user hovers over the +1 widget, load Google's +1 library.
 In addition, the placeholder should be removed, since it's obsoleted
 by the actual widget.
 
-{% highlight javascript %}
+``` javascript
 var element, script;
 element = document.getElementById('google-widget');
 element.onmouseover = function () {
@@ -89,7 +89,7 @@ element.onmouseover = function () {
     script.src = '//apis.google.com/js/plusone.js';
     document.body.appendChild(script);
 };
-{% endhighlight %}
+```
 
 That's all there is to it! Loading the other social networks' widgets
 is very similar.
