@@ -1,7 +1,5 @@
-/.bundle/
+/_site/
+/.jekyll-metadata
 /.sass-cache/
 /Gemfile.lock
-/_site/
 /static/images/favicon-*.png
-/tmp/
-/vendor/

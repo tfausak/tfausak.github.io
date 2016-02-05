@@ -7,7 +7,7 @@ end
 
 desc 'Serve the site'
 task :serve do
-  sh(*%w(jekyll serve --drafts --future --watch))
+  sh(*%w(jekyll serve --drafts --future --incremental --watch))
 end
 
 desc 'Remove assets'
