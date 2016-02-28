@@ -2,22 +2,34 @@
 title: Neon: An alternative PureScript prelude
 ---
 
-- {% post_url 2015-10-22-better-know-a-language-purescript %}
-- https://github.com/tfausak/purescript-neon
-- 0.0.x basically only changed names
-- for instance, Semigroup became HasAdd
-- 0.1.x removed class hierarchy
-- so HasZero (Monoid) does not require HasAdd (Semigroup)
-- 0.2.x reordered function arguments and added `..` operator
-- put "subject" last, so `add y x` means `x + y`, not `y + x`
-- `..` operator made things read better as `x .. add y`
-- 0.3.x replaced `..` with `:` and increased the precedence
-- much more compact than previous operator `x :add y`
-- behaves better with operators `a :add b ^ c :add d`
-- gets parsed as `(a + b) ^ (c + d)`
+I am proud to announce [Neon][], an alternative prelude (standard library) for
+PureScript. If you haven't heard of PureScript, it's a language like Haskell
+that compiles to JavaScript. To learn more about it, check out my [Better know
+a language: PureScript][] presentation.
+
+Why make a standard library? Two reasons:
+
+1.  It takes a lot of imports to do anything useful in PureScript. This can be
+    fixed in other ways, such as creating a "batteries included" prelude that
+    pulls in the most useful packages. (That's exactly what my [Batteries][]
+    library does.) Unfortunately many packages don't work well with this
+    approach since they require qualified imports to avoid collisions. For
+    example, look at how many packages define [`singleton`][]. You can't have
+    all those in one namespace.
+
+2.  PureScript (and Haskell) can be hard to read. You often have to read
+    expressions from the inside out to really understand what they do. In
+    extreme cases, you have to read lines both [forwards and backwards at the
+    same time][]. Operators like [`$`][] and [`<<<`][] sometimes help, but they
+    can be hard to understand if you're not already familiar with them.
+
+I think Neon fixes both of those problems. To get a feel for what it looks
+like, let's solve [problem 1 on Project Euler][] with both Neon and the
+traditional prelude. Here is a solution using Neon:
 
 ``` purescript
 import Neon
+
 main :: Eff (console :: CONSOLE) Unit
 main = 1
   :upTo 999
@@ -26,32 +38,32 @@ main = 1
   :print
 ```
 
-- Functions should take their subject last. This means `add x y` is really
-  `y + x`. Consider calling functions with `:`, like `y :add x`.
+And for comparison, here is the same solution without Neon:
 
-- Type classes should be lawless. This means `zero` doesn't have to be the
-  additive identity. That's recommended, but not necessary.
+``` purescript
+import Control.Monad.Eff (Eff)
+import Control.Monad.Eff.Console (CONSOLE, print)
+import Data.Array (filter, (..))
+import Data.Foldable (sum)
+import Prelude
 
-- There should be no type class hierarchy. This means `Zero` does not imply
-  `Add`. If you need both, add both to your type signature.
+main :: Eff (console :: CONSOLE) Unit
+main
+  = print
+  <<< sum
+  <<< filter (\ n -> n `mod` 3 == 0 || n `mod` 5 == 0)
+  $ 1 .. 999
+```
 
-- There should be as few operators as possible. This means `<$>` does not
-  exist. Use `map` instead.
+I much prefer reading and writing the Neon version. The whole thing reads from
+left to right and top to bottom. It only uses two operators, `:` and `||`. And
+of course it only has one import.
 
-- There should be one obvious way to do things. This means `return` is not an
-  alias for `wrap`. In fact, it doesn't exist at all.
-
-- Functions should be defined in type classes. This means `add` can be used for
-  both numbers and strings.
-
-- Type classes should be as small as possible. This means the `Bounded` type
-  class is split into `Bottom` and `Top`.
-
-- Type classes should be designed for programmers, not mathematicians. This
-  means `Add` is a semigroup, but it's not called `Semigroup`.
-
-- Pure functions should not throw exceptions. This means `fromInt` returns a
-  `Maybe` value. Pure functions that throw exceptions should be marked unsafe.
-
-- Qualified imports are annoying, and fewer imports are better. This mean
-  `import Neon` is enough. No need for tens of lines of imports.
+[Neon]: https://github.com/tfausak/purescript-neon
+[Better know a language: PureScript]: {% post_url 2015-10-22-better-know-a-language-purescript %}
+[Batteries]: https://github.com/tfausak/purescript-batteries
+[`singleton`]: https://pursuit.purescript.org/search?q=singleton
+[forwards and backwards at the same time]: https://www.reddit.com/r/haskell/comments/2o4lrk/lets_build_a_browser_engine_in_haskell_not_a_blog/cmk3x06?context=3
+[`$`]: https://pursuit.purescript.org/packages/purescript-prelude/0.1.4/docs/Prelude#v:($)
+[`<<<`]: https://pursuit.purescript.org/packages/purescript-prelude/0.1.4/docs/Prelude#v:(<<<)
+[problem 1 on Project Euler]: https://projecteuler.net/problem=1
