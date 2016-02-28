@@ -59,9 +59,9 @@ I much prefer reading and writing the Neon version. The whole thing reads from
 left to right and top to bottom. It only uses two operators, `:` and `||`. And
 of course it only has one import.
 
-[Neon]: https://github.com/tfausak/purescript-neon
+[Neon]: https://pursuit.purescript.org/packages/purescript-neon/0.4.1
 [Better know a language: PureScript]: {% post_url 2015-10-22-better-know-a-language-purescript %}
-[Batteries]: https://github.com/tfausak/purescript-batteries
+[Batteries]: https://pursuit.purescript.org/packages/purescript-batteries/0.5.1
 [`singleton`]: https://pursuit.purescript.org/search?q=singleton
 [forwards and backwards at the same time]: https://www.reddit.com/r/haskell/comments/2o4lrk/lets_build_a_browser_engine_in_haskell_not_a_blog/cmk3x06?context=3
 [`$`]: https://pursuit.purescript.org/packages/purescript-prelude/0.1.4/docs/Prelude#v:($)
