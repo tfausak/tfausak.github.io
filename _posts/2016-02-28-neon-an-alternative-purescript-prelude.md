@@ -1,5 +1,5 @@
 ---
-title: Neon: An alternative PureScript prelude
+title: 'Neon: An alternative PureScript prelude'
 ---
 
 I am proud to announce [Neon][], an alternative prelude (standard library) for
