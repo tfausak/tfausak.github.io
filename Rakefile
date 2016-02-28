@@ -44,12 +44,12 @@ task :clean do
 end
 
 multitask :images
-def image(name, width, height = width, background: '#ac4142', rotate: true)
+def image(name, width, height = width, background: '#151515', rotate: true)
   "static/images/#{name}.png".tap do |path|
     args = [
       '-filter', 'point',
       '-background', background,
-      '-density', ([width, height].min * 72.0 / 5.0).round(1).to_s,
+      '-density', ([width, height].min * 72.0 / 10.0).round(1).to_s,
       '-gravity', 'center'
     ]
 
@@ -89,6 +89,6 @@ favicons = []
   favicons << image("favicon-#{size}", size)
 end
 file 'static/images/favicon.ico' => favicons do |t|
-  sh("convert -colors 4 #{t.prerequisites.join(' ')} #{t.name}")
+  sh("convert -colors 16 #{t.prerequisites.join(' ')} #{t.name}")
 end
 task images: ['static/images/favicon.ico']
