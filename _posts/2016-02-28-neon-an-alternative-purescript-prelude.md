@@ -27,7 +27,7 @@ I think Neon fixes both of those problems. To get a feel for what it looks
 like, let's solve [problem 1 on Project Euler][] with both Neon and the
 traditional prelude. Here is a solution using Neon:
 
-``` purescript
+``` haskell
 import Neon
 
 main :: Eff (console :: CONSOLE) Unit
@@ -40,7 +40,7 @@ main = 1
 
 And for comparison, here is the same solution without Neon:
 
-``` purescript
+``` haskell
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Console (CONSOLE, print)
 import Data.Array (filter, (..))
