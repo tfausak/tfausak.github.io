@@ -60,7 +60,7 @@ def image(name, width, height = width, background: '#151515', rotate: true)
 
     args += [
       '-extent', "#{width}x#{height}",
-      'static/images/logo.svg', path
+      '_includes/logo.svg', path
     ]
 
     task images: [path]

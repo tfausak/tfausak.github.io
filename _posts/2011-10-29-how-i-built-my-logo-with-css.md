@@ -91,13 +91,12 @@ palette, so I pulled some colors from that.
     border-left-color: #d3d7cf; }
 ```
 
-That's it! This method works in every browser I can get my hands
-on. It also compares favorably to the other methods ([raster][9]
-or [vector][10] image) in terms of size. The raster image is the
-largest at 646 bytes. The CSS-based version is in the middle at 557
-bytes for both the markup and styles. The vector image is the
-smallest at 311 bytes. However, the CSS-based version doesn't require
-any extra HTTP requests.
+That's it! This method works in every browser I can get my hands on. It also
+compares favorably to the other methods (raster or vector image) in terms of
+size. The raster image is the largest at 646 bytes. The CSS-based version is in
+the middle at 557 bytes for both the markup and styles. The vector image is the
+smallest at 311 bytes. However, the CSS-based version doesn't require any extra
+HTTP requests.
 
 [1]: http://v1.jontangerine.com
 [2]: http://v1.jontangerine.com/log/2007/11/complex-type-css-fix-cleartype-miss
@@ -107,5 +106,3 @@ any extra HTTP requests.
 [6]: http://meyerweb.com/eric/css/edge/slantastic/demo.html
 [7]: http://www.quirksmode.org/css/display.html
 [8]: http://en.wikipedia.org/wiki/Tango_Desktop_Project
-[9]: /static/images/og-image.png
-[10]: /static/images/logo.svg
