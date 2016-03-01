@@ -44,12 +44,12 @@ task :clean do
 end
 
 multitask :images
-def image(name, width, height = width, background: '#151515', rotate: true)
+def image(name, width, height = width, background: '#f5f5f5', rotate: true)
   "static/images/#{name}.png".tap do |path|
     args = [
       '-filter', 'point',
       '-background', background,
-      '-density', ([width, height].min * 72.0 / 10.0).round(1).to_s,
+      '-density', ([width, height].min * 72.0 / 7.0).round(1).to_s,
       '-gravity', 'center'
     ]
 
