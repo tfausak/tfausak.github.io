@@ -35,7 +35,7 @@ type API
     -- GET /things
     = "things" :> Get '[JSON] [Thing]
     -- GET /things/:id
-    :<|> "thing" :> Capture "id" Integer :> Get '[JSON] Thing
+    :<|> "things" :> Capture "id" Integer :> Get '[JSON] Thing
 ```
 
 That describes two endpoints, `GET /things` and `GET /things/:id`.
