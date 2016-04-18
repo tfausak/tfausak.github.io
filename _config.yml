@@ -12,8 +12,10 @@ exclude:
 - README.md
 - Rakefile
 gems:
+- jekyll-coffeescript
 - jekyll-sitemap
 kramdown:
+  hard_wrap: false
   input: GFM
 permalink: pretty
 sass:
