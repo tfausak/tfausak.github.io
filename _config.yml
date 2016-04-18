@@ -15,7 +15,6 @@ gems:
 - jekyll-sitemap
 kramdown:
   input: GFM
-lsi: false
 permalink: pretty
 sass:
   sass_dir: static/styles
