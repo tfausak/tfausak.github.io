@@ -15,7 +15,7 @@ for more than one operating system. Fortunately Travis CI allows me to do this
 automatically.
 
 Travis, like most other continuous integration services, runs separate builds
-for Git tags. And it sets and environment variable when it runs one of those
+for Git tags. And it sets an environment variable when it runs one of those
 builds. So if the build was for a tag and it succeeds, it should go ahead and
 upload the executable to that tag.
 
