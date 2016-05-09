@@ -48,6 +48,9 @@ after_success:
   fi
 ```
 
+(If your project uses a nightly resolver newer than 2016-05-07, you can leave
+out the `--resolver ...` options.)
+
 Make sure you replace `your-name` with your GitHub username and `your-project`
 with your GitHub repository name. Also be sure to set the `GITHUB_TOKEN`
 environment variable and hide it from the build log. You can make a token on
