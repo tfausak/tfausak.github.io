@@ -19,19 +19,19 @@ Haskeleton and explain the decisions I made along the way.
 
 <aside>Update: Haskeleton has been implemented as a template for <a href="https://github.com/fujimura/hi">hi</a>.</aside>
 
--   [Setup][5]
--   [Library][6]
--   [Executable][7]
--   [Documentation][8]
--   [Tests][9]
--   [Benchmarks][10]
--   [Code Quality][11]
-    -   [Documentation Tests][12]
-    -   [Documentation Coverage][13]
-    -   [Test Coverage][14]
-    -   [Static Analysis][15]
--   [Continuous Integration][16]
--   [Notes][17]
+-   [Setup](#setup)
+-   [Library](#library)
+-   [Executable](#executable)
+-   [Documentation](#documentation)
+-   [Tests](#tests)
+-   [Benchmarks](#benchmarks)
+-   [Code Quality](#code-quality)
+    -   [Documentation Tests](#documentation-tests)
+    -   [Documentation Coverage](#documentation-coverage)
+    -   [Test Coverage](#test-coverage)
+    -   [Static Analysis](#static-analysis)
+-   [Continuous Integration](#continuous-integration)
+-   [Notes](#notes)
 
 ## Setup
 
@@ -719,19 +719,6 @@ I used a number of invaluable resources while writing this post, including:
 [2]: https://github.com/tfausak/h99
 [3]: https://github.com/tfausak/project-euler/tree/master/haskell
 [4]: https://github.com/tfausak/haskeleton
-[5]: #setup
-[6]: #library
-[7]: #executable
-[8]: #documentation
-[9]: #tests
-[10]: #benchmarks
-[11]: #code-quality
-[12]: #documentation-tests
-[13]: #documentation-coverage
-[14]: #test-coverage
-[15]: #static-analysis
-[16]: #continuous-integration
-[17]: #notes
 [18]: http://www.haskell.org/platform/
 [19]: http://www.haskell.org/cabal/users-guide/developing-packages.html#package-properties
 [20]: http://www.haskell.org/cabal/users-guide/developing-packages.html#build-information
