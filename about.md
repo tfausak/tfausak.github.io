@@ -5,7 +5,7 @@ title: About
 
 # {{ page.title }}
 
-Howdy! My name is Taylor Fausak. I am a 26-year-old software developer
+Howdy! My name is Taylor Fausak. I am a 27-year-old software developer
 living in Dallas, Texas. I currently work for [OrgSync][1]. I studied
 Computer Science at [UT Austin][2] for a while, but I don't have
 anything to show for it.
