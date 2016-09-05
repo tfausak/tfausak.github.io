@@ -43,6 +43,7 @@ task :clean do
   ))
 end
 
+desc 'Rasterize images'
 multitask :images
 def image(name, width, height = width, background: '#f5f5f5', rotate: true)
   "static/images/#{name}.png".tap do |path|
