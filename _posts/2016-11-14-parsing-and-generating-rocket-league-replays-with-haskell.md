@@ -1,0 +1,31 @@
+---
+title: Parsing and generating Rocket League replays with Haskell
+---
+
+- <https://github.com/tfausak/rattletrap>
+- can parse every replay
+- outputs human-readable json
+- goes at about 0.5 mbps
+    - most replays parsed in 2 seconds
+    - order of magnitude (at least) faster than python and php parsers
+- a 1.0 mb replay turns into
+    - 95 mb pretty json (930% bigger)
+    - 27 mb minified json (260% bigger)
+    - 2.2 mb pretty json compressed (120% bigger)
+    - 1.4 mb minified json compressed (39% bigger)
+- can generate replay files from json
+- generating is about 8x slower than parsing
+- a 1.0 mb replay takes about 15 seconds to generate
+- the output is bit-for-bit identical to the input
+- this means you can modify replays by editing json
+- write in whatever language you want!
+    - i know not everyone likes haskell
+- rattletrap is written in haskell
+- it's about 3000 lines of code
+- it doesn't use any advanced features
+    - no weird operators
+    - no language extensions
+- uses idiomatic style suggested by hlint
+- uses community formatting enforced by hindent
+- if you're looking for haskell in the "real world", check it out
+- haskell is safe, fast, memory efficient, easy to profile, and has all the libraries i need
