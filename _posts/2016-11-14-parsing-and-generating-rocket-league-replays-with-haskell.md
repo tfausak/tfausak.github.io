@@ -29,3 +29,7 @@ title: Parsing and generating Rocket League replays with Haskell
 - uses community formatting enforced by hindent
 - if you're looking for haskell in the "real world", check it out
 - haskell is safe, fast, memory efficient, easy to profile, and has all the libraries i need
+- profiled cpu usage with ghc-prof-flamegraph and `stack build --profile` and ghc rts options
+- profiled memory usage with stack via `stack build --profile` and ghc rts options
+- visualized dependencies with stack via `stack dot`
+- checked code coverage also with stack `stack test --coverage`
