@@ -7,7 +7,8 @@ title: Parsing and generating Rocket League replays with Haskell
 - outputs human-readable json
 - goes at about 0.5 mbps
     - most replays parsed in 2 seconds
-    - order of magnitude (at least) faster than python and php parsers
+    - c# parser takes about 12 seconds
+    - python/php parsers take about a minute
 - a 1.0 mb replay turns into
     - 95 mb pretty json (930% bigger)
     - 27 mb minified json (260% bigger)
@@ -22,6 +23,8 @@ title: Parsing and generating Rocket League replays with Haskell
     - i know not everyone likes haskell
 - rattletrap is written in haskell
 - it's about 3000 lines of code
+    - c# parser is about 4300 lines of code
+    - python/php parsers are about 1000 lines of code
 - it doesn't use any advanced features
     - no weird operators
     - no language extensions
