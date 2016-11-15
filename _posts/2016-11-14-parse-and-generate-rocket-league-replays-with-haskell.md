@@ -28,6 +28,8 @@ Why might you want to parse Rocket League replays?
 Parsing can be useful for getting stats about a match.
 Anything you see on the scoreboard in-game is also in the replay.
 You can even [analyze boost usage][] or [watch the replay in your browser][]!
+I'm sure there are other neat things to be done with the replay data.
+I'd love to see what you come up with!
 
 ### Generate
 
@@ -41,13 +43,6 @@ It takes about 15 seconds to generate the average replay.
 If the input JSON came from `rattletrap decode`, then the output replay will be identical to the input.
 In other words, replays can be converted to and from JSON without losing any information.
 
-Why would you want to generate a replay?
-It's not quite as useful as parsing them, but you can still have some fun.
-For example, you could [remove your wheels][] or [wear unusual items][].
-You can also force every car to look the same.
-I would like to see something that stitches replays together to make a highlight reel.
-Making cinematic camera paths (["smooths"][]) would be cool too.
-
 ### Modify
 
 ``` sh
@@ -56,11 +51,17 @@ Making cinematic camera paths (["smooths"][]) would be cool too.
 > rattletrap encode modified.json modified.replay
 ```
 
-These three commands parse a replay into JSON, modify that JSON, then generate a replay from it.
+Those three commands parse a replay into JSON, modify that JSON, then generate a replay from it.
 By using Rattletrap to handle the annoying replay file format, you can work with easy-to-use JSON.
 
+Why would you want to modify a replay?
+It's not quite as useful as parsing one, but you can still have some fun.
+For example, you could [remove your wheels][] or [wear unusual items][].
+You can also force every car to look the same.
+I would like to see something that stitches replays together to make a highlight reel, or something that makes cinematic camera paths (["smooths"][]) for videos.
+
 That's pretty much all there is to know about using Rattletrap.
-I hope it's useful to you, and let me know if you run into any problems!
+I'm excited to see what you can do with it!
 
 ## Development
 
@@ -75,7 +76,7 @@ Because it's written in Haskell, Rattletrap is fast.
 Compared to the Python parser, Rattletrap is about 30 times faster.
 And compared to the C# parser, it's about 6 times faster.
 
-I was able to make Rattletrap so fast thanks to the great tools available with Haskell.
+I was able to make Rattletrap so fast thanks to the great tools available in Haskell.
 In particular, [Stack][] makes profiling as easy as `stack build --profile`.
 Haskell's runtime system gives you a window into your program's behavior with `+RTS -p`.
 That will give you a raw profiling file that you can turn into a chart with [ghc-prof-flamegraph][].
@@ -95,7 +96,7 @@ That will generate a heap profile that you can visualize with `hp2ps`.
 This graph shows the memory usage over time for parsing a 1 MB replay.
 It reaches a peak of about 30 MB and most of that is used by `CompressedWord` values.
 That makes sense because it's the most common value in a replay.
-This replay has about 600,000 `CompressedWord` values.
+For example, this replay has about 600,000 `CompressedWord` values.
 The Pusher blog goes into more detail [about memory profiling][].
 
 Rattletrap has never crashed at runtime, and I doubt it ever will.
@@ -134,7 +135,7 @@ getCamSettingsAttribute = do
 ```
 
 I have really enjoyed working on this project.
-I've been able to dive deep into different areas of Haskell.
+It has allowed me to dive deep into different areas of Haskell.
 And in the end I wrote a tool that I use every day to make sense of my replays.
 I hope you like it!
 
