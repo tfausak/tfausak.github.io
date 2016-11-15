@@ -156,10 +156,10 @@ day to make sense of my replays. I hope you like it!
 [12]: https://github.com/Galile0
 [13]: https://docs.haskellstack.org/en/stable/README/
 [14]: https://hackage.haskell.org/package/ghc-prof-flamegraph
-[15]: /static/images/2016/11/14/cpu-flame-graph.png
+[15]: /static/images/2016/11/15/cpu-flame-graph.png
 [16]: https://www.fpcomplete.com/blog/2015/04/ghc-prof-flamegraph
-[17]: /static/images/2016/11/14/memory-usage-graph.png
+[17]: /static/images/2016/11/15/memory-usage-graph.png
 [18]: https://blog.pusher.com/memory-profiling-in-haskell/
-[19]: /static/images/2016/11/14/code-coverage-report.png
+[19]: /static/images/2016/11/15/code-coverage-report.png
 [20]: http://book.realworldhaskell.org/read/testing-and-quality-assurance.html#id629497
 [21]: https://www.stackage.org/haddock/nightly-2016-11-13/rattletrap-0.4.1/src/Rattletrap.Replay.html
