@@ -1,5 +1,5 @@
 ---
-title: Parsing and generating Rocket League replays with Haskell
+title: Parse and generate Rocket League replays with Haskell
 ---
 
 - <https://github.com/tfausak/rattletrap>
