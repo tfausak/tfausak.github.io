@@ -162,4 +162,4 @@ day to make sense of my replays. I hope you like it!
 [18]: https://blog.pusher.com/memory-profiling-in-haskell/
 [19]: /static/images/2016/11/15/code-coverage-report.png
 [20]: http://book.realworldhaskell.org/read/testing-and-quality-assurance.html#id629497
-[21]: https://www.stackage.org/haddock/nightly-2016-11-13/rattletrap-0.4.1/src/Rattletrap.Replay.html
+[21]: https://www.stackage.org/haddock/nightly-2016-11-15/rattletrap-1.0.0/src/Rattletrap.Replay.html
