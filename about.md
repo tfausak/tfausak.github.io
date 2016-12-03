@@ -34,6 +34,12 @@ find me at other places on the web, check [my Keybase profile][4].
   and idiomatic starting point. I made it to codify best practices. It also
   encourages package authors to create tests and benchmarks.
 
+- [Rattletrap][] (Haskell):
+  Rattletrap parses and generates Rocket League replays. It is used to extract
+  meaningful data from an opaque binary format and to write that data back out
+  to the same format. I made this to see how Haskell compares to other
+  languages in a medium-sized, real-world project.
+
 - [Neon][] (PureScript):
   Neon is an experimental standard library for PureScript. It starts from
   scratch to explore lawless type classes. I made it to see what duck typing
@@ -108,6 +114,7 @@ find me at other places on the web, check [my Keybase profile][4].
 [stoplight]: https://github.com/orgsync/stoplight
 [cameron desautels]: https://camdez.com
 [haskeleton]: https://github.com/tfausak/haskeleton
+[rattletrap]: https://github.com/tfausak/rattletrap
 [neon]: https://github.com/tfausak/purescript-neon
 [flow]: https://github.com/tfausak/flow
 [wuss]: https://github.com/tfausak/wuss
