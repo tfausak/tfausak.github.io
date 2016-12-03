@@ -39,17 +39,22 @@ find me at other places on the web, check [my Keybase profile][4].
   scratch to explore lawless type classes. I made it to see what duck typing
   would look like in a language like Haskell.
 
-- [Blunt][] (Haskell):
-  Blunt converts Haskell expressions between the pointfree and pointful styles.
-  It is a web front end to the `pointfree` and `pointful` executables extracted
-  from the Lambdabot. I created it as a more convenient way to use those tools.
-  I also learned how to create WebSocket clients and servers for this service.
-
 - [Flow][] (Haskell):
   Flow allows writing more understandable Haskell. It borrows function
   application and composition operators from F#, Elm, and Elixir. I got fed up
   with cryptic, backwards operators and decided to create my own. It is a hard
   sell with the Haskell community, though.
+
+- [Wuss][] (Haskell):
+  Wuss supports secure WebSockets. It handles the WSS protocol in Haskell. I
+  wrote it to scratch an itch; the standard WebSocket library did not support
+  WSS and I needed it for a project. Instead of making it only for myself, I
+  released it as a package.
+
+- [Strive][] (Haskell):
+  Strive wraps the Strava V3 API. It provides a convenient way to consume the
+  API from Haskell. I built this to see how writing real-world stuff in Haskell
+  felt. I liked it, and I learned about lenses along the way.
 
 - [Erudite][] (Ruby):
   Erudite helps turn documentation into tests. It is a Ruby version of Python's
@@ -57,22 +62,17 @@ find me at other places on the web, check [my Keybase profile][4].
   existing gems that did this. Also it is strange to me that doctests are not
   as popular in Ruby as they are in Python.
 
-- [Strive][] (Haskell):
-  Strive wraps the Strava V3 API. It provides a convenient way to consume the
-  API from Haskell. I built this to see how writing real-world stuff in Haskell
-  felt. I liked it, and I learned about lenses along the way.
-
 - [Delay][]:
   Delay slows down time-wasting websites. It is a Safari extension that adds a
   delay to the loading of websites like Facebook and Reddit. I made it to curb
   my own usage of such sites. There are lots of Firefox addons and extensions
   that do the same thing, but I don't know of any other Safari extensions.
 
-- [Wuss][] (Haskell):
-  Wuss supports secure WebSockets. It handles the WSS protocol in Haskell. I
-  wrote it to scratch an itch; the standard WebSocket library did not support
-  WSS and I needed it for a project. Instead of making it only for myself, I
-  released it as a package.
+- [Blunt][] (Haskell):
+  Blunt converts Haskell expressions between the pointfree and pointful styles.
+  It is a web front end to the `pointfree` and `pointful` executables extracted
+  from the Lambdabot. I created it as a more convenient way to use those tools.
+  I also learned how to create WebSocket clients and servers for this service.
 
 - [Ledger][] (Haskell, JavaScript):
   Ledger tracks expenses. It is an alternative to manually entering
