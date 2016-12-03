@@ -6,7 +6,7 @@ title: About
 # {{ page.title }}
 
 Howdy! My name is Taylor Fausak. I am a 27-year-old software developer
-living in Dallas, Texas. I currently work for [OrgSync][1]. I studied
+living in Dallas, Texas. I currently work for [Front Row][1]. I studied
 Computer Science at [UT Austin][2] for a while, but I don't have
 anything to show for it.
 
@@ -97,8 +97,8 @@ find me at other places on the web, check [my Keybase profile][4].
   learn about document-based data stores and the XML toolchain, including XPath
   and XSLT.
 
-[1]: http://www.orgsync.com
-[2]: http://www.utexas.edu
+[1]: https://www.frontrowed.com
+[2]: https://www.utexas.edu
 [3]: mailto:taylor+honeypot@fausak.me
 [4]: https://keybase.io/taylorfausak
 [5]: /static/images/taylor-fausak.jpg
