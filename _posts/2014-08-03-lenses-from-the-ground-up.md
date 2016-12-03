@@ -382,7 +382,7 @@ lenses and goes on to cover prisms, traversals, and isomorphisms.
 [2]: http://strava.github.io/api/
 [3]: https://github.com/tfausak/strive
 [4]: https://github.com/tfausak/strive/issues/44
-[5]: http://lens.github.io/
+[5]: http://lens.github.io
 [6]: http://creately.com/diagram/h5nyo9ne1/Hierarchy
 [7]: https://ghc.haskell.org/trac/haskell-prime/wiki/MultiParamTypeClasses
 [8]: https://ghc.haskell.org/trac/haskell-prime/wiki/TypeSynonymInstances

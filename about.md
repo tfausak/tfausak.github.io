@@ -118,5 +118,5 @@ find me at other places on the web, check [my Keybase profile][4].
 [ledger]: https://assembly.com/ledger
 [moxen]: /moxen/
 [mad minute]: https://github.com/tfausak/MadMinute
-[famigo]: http://www.famigo.com/
+[famigo]: http://www.famigo.com
 [bdbxml-jukebox]: https://github.com/tfausak/bdbxml-jukebox

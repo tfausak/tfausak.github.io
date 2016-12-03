@@ -57,7 +57,7 @@ above are for [Google][10], [Facebook][11], and [Twitter][12].)
 [7]: /static/pages/2012-02-03-wp7-tile.html
 [8]: /static/images/2012/02/03/web-page-tiles.png
 [9]: https://gist.github.com/tfausak/1727983
-[10]: /static/pages/2012-02-03-wp7-tile.html?title=Google&icon=http://i.imgur.com/4UNSv.png&url=https://www.google.com/
-[11]: /static/pages/2012-02-03-wp7-tile.html?title=Facebook&icon=http://i.imgur.com/wXxZR.png&url=https://www.facebook.com/
-[12]: /static/pages/2012-02-03-wp7-tile.html?title=Twitter&icon=http://i.imgur.com/lfyve.png&url=https://twitter.com/
+[10]: /static/pages/2012-02-03-wp7-tile.html?title=Google&icon=http://i.imgur.com/4UNSv.png&url=https://www.google.com
+[11]: /static/pages/2012-02-03-wp7-tile.html?title=Facebook&icon=http://i.imgur.com/wXxZR.png&url=https://www.facebook.com
+[12]: /static/pages/2012-02-03-wp7-tile.html?title=Twitter&icon=http://i.imgur.com/lfyve.png&url=https://twitter.com
 [13]: http://www.buildmypinnedsite.com

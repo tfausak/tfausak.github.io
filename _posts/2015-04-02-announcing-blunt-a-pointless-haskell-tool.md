@@ -49,7 +49,7 @@ over there. If you're only interested in using it, be sure to bookmark
 [1]: https://blunt.herokuapp.com
 [2]: http://hackage.haskell.org/package/pointfree
 [3]: http://hackage.haskell.org/package/pointful
-[4]: https://haskellonheroku.com/
+[4]: https://haskellonheroku.com
 [5]: http://hackage.haskell.org/package/warp
 [6]: http://hackage.haskell.org/package/wai-websockets
 [7]: http://hackage.haskell.org/package/lucid
