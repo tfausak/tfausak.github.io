@@ -2,12 +2,8 @@
 title: 'Haskeleton: a Haskell project skeleton'
 ---
 
-<aside>
-
-Haskeleton is now available as a [Stack][] template. Create a new project with
-`stack new haskeleton your-project`.
-
-</aside>
+<aside>Haskeleton is now available as a <a href="https://docs.haskellstack.org/en/stable/README/">Stack</a> template. Create a new project with
+<code>stack new haskeleton your-project</code>.</aside>
 
 I'm new to Haskell. I've learned enough to feel comfortable writing programs in
 it. I can solve code katas like [exercism.io][1], [H-99][2], and [Project
@@ -24,11 +20,7 @@ I hope it replaces `cabal init` someday. For the time being, it's just an
 example project. This post will walk you through setting up a project like
 Haskeleton and explain the decisions I made along the way.
 
-<aside>
-
-Update: Haskeleton has been implemented as a template for [hi][36].
-
-</aside>
+<aside>Update: Haskeleton has been implemented as a template for <a href="https://github.com/fujimura/hi">hi</a>.</aside>
 
 -   [Setup](#setup)
 -   [Library](#library)
@@ -749,4 +741,3 @@ I used a number of invaluable resources while writing this post, including:
 [34]: http://fvisser.nl/post/2013/may/28/towards-a-better-haskell-package.html
 [35]: https://github.com/kazu-yamamoto/unit-test-example/blob/master/markdown/en/tutorial.md
 [36]: https://github.com/fujimura/hi
-[37]: https://docs.haskellstack.org/en/stable/README/

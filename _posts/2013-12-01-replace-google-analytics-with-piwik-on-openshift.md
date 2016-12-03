@@ -2,9 +2,7 @@
 title: Replace Google Analytics with Piwik on OpenShift
 ---
 
-<aside>
-    There is now a <a href="https://hub.openshift.com/quickstarts/3-piwik">Piwik QuickStart</a> for OpenShift.
-</aside>
+<aside>There is now a <a href="https://hub.openshift.com/quickstarts/3-piwik">Piwik QuickStart</a> for OpenShift.</aside>
 
 I have used Google Analytics for years. Recently I've been interested
 in moving off of Google products. I researched lots of other analytics

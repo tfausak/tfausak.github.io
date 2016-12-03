@@ -385,12 +385,7 @@ transformer stack.
 >     MonadReader Config)
 ```
 
-<aside>
-
-Monad transformers are a confusing topic. Read [my other post][9] about them
-for a deeper look.
-
-</aside>
+<aside>Monad transformers are a confusing topic. Read <a href="{% post_url 2015-05-14-monad-transformers %}">my other post</a> about them for a deeper look.</aside>
 
 Options
 ---
@@ -717,4 +712,3 @@ I used a few excellent resources while working on this post, including:
 [6]: http://adit.io/posts/2013-04-15-making-a-website-with-haskell.html
 [7]: https://halcyon.sh/shootout/#hello-scotty
 [8]: http://www.yesodweb.com/book/persistent
-[9]: {% post_url 2015-05-14-monad-transformers %}

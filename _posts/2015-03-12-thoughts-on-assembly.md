@@ -2,11 +2,7 @@
 title: Thoughts on Assembly
 ---
 
-<aside>
-
-Assembly does not exist anymore. And Ledger is not running anymore.
-
-</aside>
+<aside>Assembly does not exist anymore. And Ledger is not running anymore.</aside>
 
 ![][1]
 
