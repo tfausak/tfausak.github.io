@@ -2,6 +2,12 @@
 title: Thoughts on Assembly
 ---
 
+<aside>
+
+Assembly does not exist anymore. And Ledger is not running anymore.
+
+</aside>
+
 ![][1]
 
 [Assembly][2] helps you "turn ideas into great products with people

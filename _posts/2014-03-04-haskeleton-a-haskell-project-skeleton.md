@@ -2,6 +2,13 @@
 title: 'Haskeleton: a Haskell project skeleton'
 ---
 
+<aside>
+
+Haskeleton is now available as a [Stack][] template. Create a new project with
+`stack new haskeleton your-project`.
+
+</aside>
+
 I'm new to Haskell. I've learned enough to feel comfortable writing programs in
 it. I can solve code katas like [exercism.io][1], [H-99][2], and [Project
 Euler][3]. Yet I don't feel comfortable developing software with it. Writing
@@ -742,3 +749,4 @@ I used a number of invaluable resources while writing this post, including:
 [34]: http://fvisser.nl/post/2013/may/28/towards-a-better-haskell-package.html
 [35]: https://github.com/kazu-yamamoto/unit-test-example/blob/master/markdown/en/tutorial.md
 [36]: https://github.com/fujimura/hi
+[37]: https://docs.haskellstack.org/en/stable/README/

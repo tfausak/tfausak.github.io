@@ -2,6 +2,13 @@
 title: iOS 8 web apps
 ---
 
+<aside>
+
+Some parts of this do not (and apparently cannot) work in iOS 9 or 10. See
+[this Gist][6] for a lot of discussion.
+
+</aside>
+
 Apple released the iPhone 6 and 6 Plus a few months ago. They also
 released iOS 8 along with it. Unfortunately they didn't update
 [their web app documentation][1] at the same time. That leaves the
@@ -266,3 +273,4 @@ landscape.
 [3]: {% post_url 2012-09-20-iphone-5-web-app-startup-image %}
 [4]: {% post_url 2012-03-27-ios-web-app-icons-and-startup-images %}
 [5]: /static/pages/2015-01-27-ios-8-web-app.html
+[6]: https://gist.github.com/tfausak/2222823

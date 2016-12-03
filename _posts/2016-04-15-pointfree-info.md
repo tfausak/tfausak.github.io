@@ -2,6 +2,12 @@
 title: Blunt is now pointfree.info
 ---
 
+<aside>
+
+I am no longer hosting Blunt. Consider using [pointfree.io][7] instead.
+
+</aside>
+
 Last year I [announced Blunt][1], a pointless Haskell tool. By "pointless", I
 mean that it converts Haskell expressions between pointfree and pointful
 styles. The point*free* style is sometimes called point*less*.
@@ -34,3 +40,4 @@ Triton. I highly recommend it!
 [4]: https://www.docker.com
 [5]: https://www.joyent.com
 [6]: https://hub.docker.com
+[7]: http://pointfree.io

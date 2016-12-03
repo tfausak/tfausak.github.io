@@ -113,6 +113,12 @@ getName document = listToMaybe contents where
   cursor = fromDocument document
 ```
 
+<aside>
+
+Consider using [xml-lens][7] instead of xml-conduit.
+
+</aside>
+
 With the name in hand, we can display it to the user. If, for whatever reason,
 we couldn't find the name, we'll just print out a question mark.
 
@@ -158,3 +164,4 @@ than you expected.
 [4]: http://gatherer.wizards.com/Pages/Default.aspx
 [5]: http://hackage.haskell.org/package/conduit-1.2.4.2
 [6]: http://hackage.haskell.org/package/xml-conduit-1.3.0
+[7]: https://hackage.haskell.org/package/xml-lens-0.1.6.3
