@@ -93,7 +93,7 @@ find me at other places on the web, check [my Keybase profile][4].
 
 - [Mad Minute][] (Objective-C):
   Mad Minute is a fast-paced math game. It is an iOS version of a game I played
-  in second grade. I wrote this as an example consumer of the [Famigo][] API.
+  in second grade. I wrote this as an example consumer of the Famigo API.
   It was in the App Store for a brief while.
 
 - [bdbxml-jukebox][] (PHP):
@@ -125,5 +125,4 @@ find me at other places on the web, check [my Keybase profile][4].
 [ledger]: https://github.com/asm-products/ledger-backend
 [moxen]: https://github.com/tfausak/moxen
 [mad minute]: https://github.com/tfausak/MadMinute
-[famigo]: http://www.famigo.com
 [bdbxml-jukebox]: https://github.com/tfausak/bdbxml-jukebox

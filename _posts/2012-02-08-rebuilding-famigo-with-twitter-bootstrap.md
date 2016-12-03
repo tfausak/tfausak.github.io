@@ -2,11 +2,11 @@
 title: Rebuilding Famigo with Twitter Bootstrap
 ---
 
-Over the past week, I rebuilt [Famigo's website][1] using the
+Over the past week, I rebuilt Famigo's website using the
 [Twitter Bootstrap][2]. I'm happy to announce that version 2.0 of
 our website is going live today.
 
-[![Famigo][3]][1]
+![Famigo][3]
 
 The bootstrap made it easy to quickly put together a great-looking
 website. I loved working with it and look forward to continuing
@@ -26,7 +26,7 @@ on the back end. We tried to mitigate it using [Django's template
 inheritance][4], which worked okay. But it's always easier to worry
 about one file instead of two.
 
-[![Reflexions][5]][14]
+![Reflexions][5]
 
 Of the many CSS frameworks out there, only a handful use responsive
 layouts. [Foundation][6], [Skeleton][7], and [Less][8] were the
@@ -62,15 +62,14 @@ We're looking forward to customizing the bootstrap, though. It was
 so easy to get everything set up with the defaults that we're
 assuming tinkering with it will be a piece of cake.
 
-[![Best Free Games][12]][15]
+![Best Free Games][12]
 
 Please send feedback about the new site to [taylor@fausak.me][13].
 I'd love to hear what you think about it!
 
-[1]: http://www.famigo.com
 [2]: http://twitter.github.com/bootstrap/
 [3]: /static/images/2012/02/08/famigo-bootstrap-comparison.png
-[4]: https://docs.djangoproject.com/en/1.3/topics/templates/#template-inheritance
+[4]: https://docs.djangoproject.com/en/dev/ref/templates/language/#template-inheritance
 [5]: /static/images/2012/02/08/famigo-bootstrap-responsive.png
 [6]: http://foundation.zurb.com
 [7]: http://www.getskeleton.com
@@ -80,5 +79,3 @@ I'd love to hear what you think about it!
 [11]: http://wordpress.org/extend/themes/default
 [12]: /static/images/2012/02/08/famigo-best-free-games.png
 [13]: mailto:taylor@fausak.me
-[14]: http://www.famigo.com/app/reflexions/
-[15]: http://www.famigo.com/best-free-games/

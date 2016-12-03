@@ -110,7 +110,7 @@ To see an example of this, check out [Factory][6], my example Servant web servic
 It does everything that Servant is capable of right now, as of version 0.4.
 
 If you are interested in learning more about Servant,
-I am giving [a talk this Wednesday][7] and broadcasting it over Hangouts on Air.
+I am giving a talk this Wednesday and broadcasting it over Hangouts on Air.
 If you can't make it,
 the talk will be available afterwards on YouTube.
 ([The slides][8] are now available on this site.)
@@ -121,5 +121,4 @@ the talk will be available afterwards on YouTube.
 [4]: http://stackoverflow.com/questions/27044209/haskell-why-use-proxy
 [5]: https://en.wikipedia.org/wiki/Connascence_%28computer_programming%29#Connascence_of_Position_.28CoP.29
 [6]: https://github.com/tfausak/factory
-[7]: https://plus.google.com/events/ca830qjcae9570q7kgmq3fl5cmk
 [8]: /static/pages/2015-08-26-type-safe-web-services-in-haskell-with-servant.html

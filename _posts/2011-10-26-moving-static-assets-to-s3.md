@@ -2,10 +2,10 @@
 title: Moving static assets to S3
 ---
 
-At [Famigo][1], we serve lots of static assets. Every application
+At Famigo, we serve lots of static assets. Every application
 we review has an icon, some screenshots (with thumbnails), and some
 associated content like logos and background images. An app like
-[iBlast Moki][2] weighs in with more than 200 KB of images.
+iBlast Moki weighs in with more than 200 KB of images.
 
 Up until last week, we weren't serving up those images in the best
 way. Our web server runs [Django][3] with [MongoDB][4] as the
@@ -97,8 +97,6 @@ should end up looking like this:
 For a more detailed look at caching, I suggest [Mark Nottingham][11]'s
 [caching tutorial][12].
 
-[1]: http://www.famigo.com
-[2]: http://www.famigo.com/app/iblastmoki/
 [3]: https://www.djangoproject.com
 [4]: http://www.mongodb.org
 [5]: http://www.lighttpd.net

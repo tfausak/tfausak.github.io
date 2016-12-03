@@ -2,7 +2,7 @@
 title: The Famigo tech stack
 ---
 
-Ever wonder what happens when you point your browser to [Famigo][1]?
+Ever wonder what happens when you point your browser to Famigo?
 An array of no fewer than 20 technologies work together to bring
 you the requested page. The best way to explain it is to follow the
 request from start to finish.
@@ -78,7 +78,6 @@ else is running smoothly.
 -   Just in case everything goes belly-up, we use [CopperEgg][26] and
     10get's [MMS][27] for external monitoring.
 
-[1]: http://www.famigo.com
 [2]: http://aws.amazon.com/elasticloadbalancing/
 [3]: http://www.ubuntu.com
 [4]: http://aws.amazon.com/ec2/

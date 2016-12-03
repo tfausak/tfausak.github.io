@@ -6,14 +6,14 @@ Two summers ago, I interned at [Cisco][1]. I worked in the office
 from 9 to 5 every day --- no exceptions. I couldn't stay late, come
 in early, or work from home. They were very particular about my
 hours. I didn't like that very much. I'm much happier with my current
-arrangement at [Famigo][2]. Working for a startup offers a lot of
+arrangement at Famigo. Working for a startup offers a lot of
 perks, and one of my favorites is working remotely.
 
 Being able to get out of the office occasionally is important to
 me. My girlfriend lives about 200 miles away in Dallas. Traveling
 to see her is a piece of cake since I can just work from her
 apartment. I set up a desk on one end of her loft so I can do my
-thing while she [does hers][3].
+thing while she does hers.
 
 Sometimes the weather is just amazing and I want to go for a bike
 ride while it's nice out. I can take an hour or two off in the
@@ -35,8 +35,6 @@ in different cities. Laptops and [a remote development environment][6]
 mean we're not tied to our desks.
 
 [1]: http://www.cisco.com
-[2]: http://www.famigo.com
-[3]: http://www.hypergleam.com
 [4]: http://campfirenow.com
 [5]: http://www.skype.com/en/
 [6]: {% post_url 2011-10-27-be-productive-use-screen %}

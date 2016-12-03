@@ -2,7 +2,7 @@
 title: Making the Famigo logo with CSS
 ---
 
-The [Famigo][1] [logo][2] is relatively simple. Some colorful, jumbled
+The Famigo logo is relatively simple. Some colorful, jumbled
 text and a dot tumbling across them. I figured it was possible to render
 the whole thing in HTML and CSS. [The result][3] isn't pixel-perfect,
 but it's pretty close.
@@ -223,8 +223,6 @@ letters and have them rotate when they're hit. CSS animations don't play
 nice with all the other stuff I'm doing, though. Letters get clipped in
 weird places, gradients and strokes disappear. It's ugly.
 
-[1]: http://www.famigo.com
-[2]: http://www.famigo.com/static/images/famigo-logo.png
 [3]: https://gist.github.com/tfausak/1644047#file-famigo-logo-png
 [4]: /static/images/2012/01/20/famigo-logo-comparison.png
 [5]: https://gist.github.com/tfausak/1644047/75d290bceb5c397e28aaa81b6aa2d678bffde936

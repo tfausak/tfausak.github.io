@@ -3,7 +3,7 @@ title: I accidentally deleted all our data
 ---
 
 Yesterday, I went to [MongoDallas][1] with [Cody][2] and [Shaun][3],
-my coworkers at [Famigo][4]. We first heard about it a couple months
+my coworkers at Famigo. We first heard about it a couple months
 ago and figured it'd be a fun trip. We use MongoDB for nearly
 everything, and Cody gave a presentation about that.
 
@@ -103,6 +103,5 @@ day][6].
 [1]: http://www.10gen.com/events/mongodb-dallas-2011
 [2]: http://www.codypowell.com
 [3]: https://twitter.com/shaundubs
-[4]: http://www.famigo.com
 [5]: {% post_url 2011-10-27-be-productive-use-screen %}
 [6]: http://www.codinghorror.com/blog/2009/12/international-backup-awareness-day.html

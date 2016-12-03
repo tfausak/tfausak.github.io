@@ -81,7 +81,7 @@ pretty easy to keep it up-to-date if the bootstrap changes. However,
 there are a couple caveats. The `[attr]` selector [isn't supported by
 IE6][7], and the `:not()` selector [isn't supported by IE8][8].
 
-Ultimately, I used this approach for [Famigo][9] since all versions of
+Ultimately, I used this approach for Famigo since all versions of
 Internet Explorer account for less than 3% of our visits.
 
 ## Replacing the Class
@@ -160,5 +160,4 @@ don't want to) modify the bootstrap's CSS files.
 [6]: /static/images/2012/03/15/famigo-bootstrap-navbar-dropdown.png
 [7]: http://www.quirksmode.org/css/contents.html#t13
 [8]: http://www.quirksmode.org/css/contents.html#t37
-[9]: http://www.famigo.com
 [10]: https://gist.github.com/tfausak/2046174
