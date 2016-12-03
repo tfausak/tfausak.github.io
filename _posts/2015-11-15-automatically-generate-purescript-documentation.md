@@ -3,7 +3,7 @@ title: Automatically generate PureScript documentation
 ---
 
 Recently I have been pouring a lot of time into PureScript projects. The
-canonical source for PureScript packages and documentation is [Pursuit][]. It
+canonical source for PureScript packages and documentation is [Pursuit][1]. It
 annoyed me that I had to manually generate and upload my documentation whenever
 I released a new version. So I figured out how to automate it and thought I'd
 share my workflow.
@@ -68,13 +68,13 @@ That does a lot, so here's a breakdown:
 Now when you want to release a new version, all you have to do is create a new
 Git tag. Everything else will happen automatically!
 
-If you want to see a complete, working example of this, check out [Neon][], one
-of my PureScript packages. You should be able to copy its [`package.json`][]
-and [`.travis.yml`][] into your own package. Take a look at [this build][] to
-see how it looks on Travis.
+If you want to see a complete, working example of this, check out [Neon][2],
+one of my PureScript packages. You should be able to copy its
+[`package.json`][3] and [`.travis.yml`][4] into your own package. Take a look
+at [this build][5] to see how it looks on Travis.
 
-[pursuit]: http://pursuit.purescript.org
-[neon]: https://github.com/tfausak/purescript-neon
-[`package.json`]: https://github.com/tfausak/purescript-neon/blob/v0.0.25/package.json
-[`.travis.yml`]: https://github.com/tfausak/purescript-neon/blob/v0.0.25/.travis.yml
-[this build]: https://travis-ci.org/tfausak/purescript-neon/builds/91235573#L1817-L1823
+[1]: http://pursuit.purescript.org
+[2]: https://github.com/tfausak/purescript-neon
+[3]: https://github.com/tfausak/purescript-neon/blob/v0.0.25/package.json
+[4]: https://github.com/tfausak/purescript-neon/blob/v0.0.25/.travis.yml
+[5]: https://travis-ci.org/tfausak/purescript-neon/builds/91235573#L1817-L1823

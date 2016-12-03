@@ -2,7 +2,12 @@
 title: Windows Phone 7 web page tiles
 ---
 
-<aside>Update: You should use <a href="http://www.buildmypinnedsite.com/">My Pinned Site</a> by Microsoft to create web page tiles.</aside>
+<aside>
+
+Update: You should use [My Pinned Site][] by Microsoft to create web page
+tiles.
+
+</aside>
 
 Adding a web page to the home screen of an iOS device uses a
 screenshot of the page or [a web page icon][1] if it's available.
@@ -55,3 +60,4 @@ above are for [Google][10], [Facebook][11], and [Twitter][12].)
 [10]: /static/pages/2012-02-03-wp7-tile.html?title=Google&icon=http://i.imgur.com/4UNSv.png&url=https://www.google.com/
 [11]: /static/pages/2012-02-03-wp7-tile.html?title=Facebook&icon=http://i.imgur.com/wXxZR.png&url=https://www.facebook.com/
 [12]: /static/pages/2012-02-03-wp7-tile.html?title=Twitter&icon=http://i.imgur.com/lfyve.png&url=https://twitter.com/
+[13]: http://www.buildmypinnedsite.com

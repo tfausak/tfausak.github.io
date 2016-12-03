@@ -21,11 +21,11 @@ upload the executable to that tag.
 
 GitHub has allowed adding files to releases for as long as they've had
 releases. Unfortunately it's not very easy. You'd need more than a couple lines
-of Bash to get it done. In the past I used [github-release][], a Go executable,
-to do this. But where's the fun in using a Go program to deploy a Haskell
-program?
+of Bash to get it done. In the past I used [github-release][1], a Go
+executable, to do this. But where's the fun in using a Go program to deploy a
+Haskell program?
 
-That's why I made [GitHub Release][]. It's a Haskell version of (part of) the
+That's why I made [GitHub Release][2]. It's a Haskell version of (part of) the
 Go program. You can use it to upload files to tags on your GitHub project. It's
 self-hosting, meaning it uploads files to its own releases.
 
@@ -54,7 +54,7 @@ out the `--resolver ...` options.)
 Make sure you replace `your-name` with your GitHub username and `your-project`
 with your GitHub repository name. Also be sure to set the `GITHUB_TOKEN`
 environment variable and hide it from the build log. You can make a token on
-the [personal access tokens][] page of your GitHub settings.
+the [personal access tokens][3] page of your GitHub settings.
 
 If you don't want to build it yourself, you can download the latest binary from
 GitHub. This is what you should do for non-Haskell projects.
@@ -79,6 +79,6 @@ after_success:
 I hope GitHub Release is useful for you! Please open an issue if you hit any
 problems or if you want it to do anything else with GitHub releases.
 
-[github-release]: https://github.com/aktau/github-release
-[GitHub Release]: https://github.com/tfausak/github-release
-[personal access tokens]: https://github.com/settings/tokens
+[1]: https://github.com/aktau/github-release
+[2]: https://github.com/tfausak/github-release
+[3]: https://github.com/settings/tokens
