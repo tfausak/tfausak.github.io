@@ -109,12 +109,12 @@ find me at other places on the web, check [my Keybase profile][4].
 [cameron desautels]: http://camdez.com
 [haskeleton]: /haskeleton/
 [neon]: https://github.com/tfausak/purescript-neon
-[blunt]: https://blunt.herokuapp.com
 [flow]: /flow/
-[erudite]: /erudite/
-[strive]: /strive/
-[delay]: /delay/
 [wuss]: /wuss/
+[strive]: /strive/
+[erudite]: /erudite/
+[delay]: /delay/
+[blunt]: https://blunt.herokuapp.com
 [ledger]: https://assembly.com/ledger
 [moxen]: /moxen/
 [mad minute]: https://github.com/tfausak/MadMinute
