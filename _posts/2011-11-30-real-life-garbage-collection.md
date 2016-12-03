@@ -11,8 +11,8 @@ can do something else with it. They both have the same goal: a
 program that doesn't gobble up memory.
 
 Why would anyone prefer to manually manage memory? The same reason
-people prefer manual transmissions over automatics. In fact, [one
-of my professors][3] used this exact analogy. With manual memory
+people prefer manual transmissions over automatics. In fact, one
+of my professors (Glenn Downing) used this exact analogy. With manual memory
 management ([stick shift][4]), you get better gas mileage and
 performance. You can even do things that are impossible in an
 automatic, like engine braking. But in an automatic, you don't have
@@ -42,5 +42,4 @@ up, or you have to keep track of things as you go.
 
 [1]: http://en.wikipedia.org/wiki/Garbage_collection_(computer_science)
 [2]: http://en.wikipedia.org/wiki/Manual_memory_management
-[3]: https://zweb.cs.utexas.edu/users/downing/drupal/
 [4]: http://en.wikipedia.org/wiki/Stick_shift

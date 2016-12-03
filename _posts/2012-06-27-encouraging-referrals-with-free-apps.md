@@ -2,7 +2,7 @@
 title: Encouraging referrals with free apps
 ---
 
-At [Famigo][1], we're always making our [Sandbox][2] better. But
+At Famigo, we're always making our [Sandbox][2] better. But
 one of the biggest problems we face is letting people know about
 our app. Sure, we can (and do) run ads and work on app store SEO,
 but word-of-mouth is much more powerful. For instance, Dropbox
@@ -84,7 +84,6 @@ process:
     hashed email addresses from our database and invalidate the
     referral.
 
-[1]: http://www.famigo.com
 [2]: https://play.google.com/store/apps/details?id=com.famigo.sandbox
 [3]: https://www.dropbox.com/help/54/en
 [4]: http://urbanairship.com

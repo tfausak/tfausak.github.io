@@ -2,12 +2,12 @@
 title: Adding Pinterest's "Pin It" button
 ---
 
-At [Famigo][1], we want to make it as easy as possible to share
-your favorite [free apps][2] with your family and friends. When I
+At Famigo, we want to make it as easy as possible to share
+your favorite free apps with your family and friends. When I
 [rebuilt our website with Twitter Bootstrap][3], I included social
 widgets on every page to make them easy to share.
 
-[![Cut the Rope][4]][5]
+![Cut the Rope][4]
 
 They were pretty easy to drop in. A chunk of JavaScript and a snippet
 of HTML for each one and they're ready to go. Recently, I decided
@@ -64,18 +64,14 @@ now.
 
     &media={% raw %}{{ application.pinterest_media }}{% endraw %}
 
-[![Talking Tom Cat][9]][10]
+![Talking Tom Cat][9]
 
 Curiously, the button doesn't show the number of pins. I haven't
 figured that out yet.
 
-[1]: http://www.famigo.com
-[2]: http://www.famigo.com/free-apps/
 [3]: {% post_url 2012-02-08-rebuilding-famigo-with-twitter-bootstrap %}
 [4]: /static/images/2012/02/25/famigo-cut-the-rope.png
-[5]: http://www.famigo.com/app/cut-the-rope/
 [6]: http://business.pinterest.com/widget-builder/#do_pin_it_button
 [7]: https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.build_absolute_uri
 [8]: http://ogp.me
 [9]: /static/images/2012/02/25/famigo-talking-tom-cat.png
-[10]: http://www.famigo.com/app/talking-tom-cat/

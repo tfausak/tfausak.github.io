@@ -43,7 +43,7 @@ your home screen, it'll just redirect you.
 The page is available [as a Gist on GitHub][9]. (The example pages
 above are for [Google][10], [Facebook][11], and [Twitter][12].)
 
-[1]: https://developer.apple.com/library/IOs/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+[1]: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
 [2]: http://stackoverflow.com/questions/1951381/configuring-android-web-applications
 [3]: http://stackoverflow.com/questions/5994380/windows-phone-7-internet-shortcut-icon
 [4]: http://msdn.microsoft.com/en-us/library/IE/gg491731(v=vs.85).aspx

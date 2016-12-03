@@ -2,7 +2,7 @@
 title: The coding grindstone
 ---
 
-[![Disused grindstones][1]][2]
+![Disused grindstones][1]
 
 Working on the same thing day in and day out has a way of getting
 you stuck in a rut. You may know your codebase like the back of
@@ -54,9 +54,8 @@ power to you. You also get to go at your own pace, which can be a
 blessing and a curse.
 
 [1]: /static/images/2012/08/28/disused-grindstones.jpg
-[2]: http://www.flickr.com/photos/earthwatcher/2643137236/
 [3]: /static/images/2012/08/28/leonhard-euler.jpg
 [4]: http://commons.wikimedia.org/wiki/File:Leonhard_Euler_2.jpg
 [5]: http://projecteuler.net
 [6]: /static/images/2012/08/28/inspectocat.jpg
-[7]: http://octodex.github.com/inspectocat/
+[7]: https://octodex.github.com/inspectocat

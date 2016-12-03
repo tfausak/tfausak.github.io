@@ -101,4 +101,4 @@ That's all there is to it! Running the test suite is a piece of
 cake with `npm test`.
 
 [1]: http://nodejs.org
-[2]: http://visionmedia.github.com/mocha/
+[2]: http://mochajs.org

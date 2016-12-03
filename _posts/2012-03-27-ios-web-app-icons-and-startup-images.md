@@ -137,8 +137,8 @@ Icons and startup images are completely unsupported on Windows Phone
 7. However, it is possible to create [mobile web app tiles on Windows
 Phone 7][6] using completely unrelated techniques.
 
-[1]: http://developer.apple.com/library/ios/#DOCUMENTATION/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
-[2]: http://developer.apple.com/library/ios/#DOCUMENTATION/UserExperience/Conceptual/MobileHIG/IconsImages/IconsImages.html%23//apple_ref/doc/uid/TP40006556-CH14
+[1]: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+[2]: https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/
 [3]: https://developer.mozilla.org/en-US/docs/CSS/Media_queries#-moz-device-pixel-ratio
 [4]: /static/pages/2012-03-27-web-app.html
 [5]: https://gist.github.com/tfausak/2222823

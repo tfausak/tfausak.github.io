@@ -3,7 +3,7 @@ title: 'Be productive: use screen'
 ---
 
 My development machine exists in "the cloud", so to speak. At
-[Famigo][1], [Amazon EC2][2] powers both our development and
+Famigo, [Amazon EC2][2] powers both our development and
 production environments. I still connect to EC2 using good old-fashioned
 hardware, but the only thing I know about my development instance
 is that it gives me a shell prompt.
@@ -59,7 +59,6 @@ still keeping all my files open and tests running.
 
 So there you have it. That's how I use screen to be productive at work.
 
-[1]: http://www.famigo.com
 [2]: http://aws.amazon.com/ec2/
 [3]: http://www.srcds.com/db/engine.php?&id=1098643920
 [4]: http://en.wikipedia.org/wiki/GNU_Screen

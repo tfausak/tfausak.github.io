@@ -2,7 +2,7 @@
 title: South By South Fixed
 ---
 
-[![South By South Fixed][1]][2]
+![South By South Fixed][1]]
 
 > The 4th annual South By South Fixed ride. 3 Days. 240 Miles. By far
 > the best way to get to SXSW. A weekend of bike riding and beer
@@ -61,4 +61,3 @@ heading our separate ways.
 All in all, not a bad way to spend a weekend.
 
 [1]: /static/images/2013/03/12/south-by-south-fixed.jpg
-[2]: http://fixedtouring.com/south-by-south-fixed/

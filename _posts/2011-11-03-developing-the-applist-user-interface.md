@@ -3,7 +3,7 @@ title: Developing the applist user interface
 ---
 
 Yesterday, [I introduced a new feature][1] I worked on this week:
-[Famigo Applists][2]. Today, I'll talk about developing the user
+Famigo Applists. Today, I'll talk about developing the user
 interface and backend for creating applists.
 
 ## Frontend
@@ -28,8 +28,7 @@ suggestions, and `autocomplete_select` creates a DOM element when
 a suggestion is selected.
 
 It's import to create good suggestions in `autocomplete_render` so
-that users can pick an app with confidence. (Try searching for
-["angry birds"][6], for example.) Including the icon, developer,
+that users can pick an app with confidence. Including the icon, developer,
 and platform (Android or iOS) along with the app name should help
 the user pick the right app.
 
@@ -140,11 +139,9 @@ lot of extra work for a small benefit. Django returns cached pages
 pretty quickly.
 
 [1]: {% post_url 2011-11-02-applists-playlists-for-your-apps %}
-[2]: http://www.famigo.com/applists/
 [3]: http://jqueryui.com
 [4]: http://jquery.com
 [5]: http://jqueryui.com/autocomplete/
-[6]: https://play.google.com/store/search?q=angry+birds&c=apps
 [7]: /static/images/2011/11/02/applist-creation.png
 [8]: /static/images/2011/11/02/applist.png
 [9]: http://mongoengine.org

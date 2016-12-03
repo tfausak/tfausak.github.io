@@ -20,7 +20,7 @@ Why make a standard library? Two reasons:
 2.  PureScript (and Haskell) can be hard to read. You often have to read
     expressions from the inside out to really understand what they do. In
     extreme cases, you have to read lines both [forwards and backwards at the
-    same time][5]. Operators like [`$`][6] and [`<<<`][7] sometimes help, but
+    same time][5]. Operators like `$` and `<<<` sometimes help, but
     they can be hard to understand if you're not already familiar with them.
 
 I think Neon fixes both of those problems. To get a feel for what it looks
@@ -59,11 +59,9 @@ I much prefer reading and writing the Neon version. The whole thing reads from
 left to right and top to bottom. It only uses two operators, `:` and `||`. And
 of course it only has one import.
 
-[1]: https://pursuit.purescript.org/packages/purescript-neon/0.4.1
+[1]: https://github.com/tfausak/purescript-neon
 [2]: {% post_url 2015-10-22-better-know-a-language-purescript %}
-[3]: https://pursuit.purescript.org/packages/purescript-batteries/0.5.1
+[3]: https://github.com/tfausak/purescript-batteries
 [4]: https://pursuit.purescript.org/search?q=singleton
 [5]: https://www.reddit.com/r/haskell/comments/2o4lrk/lets_build_a_browser_engine_in_haskell_not_a_blog/cmk3x06?context=3
-[6]: https://pursuit.purescript.org/packages/purescript-prelude/0.1.4/docs/Prelude#v:($)
-[7]: https://pursuit.purescript.org/packages/purescript-prelude/0.1.4/docs/Prelude#v:(<<<)
 [8]: https://projecteuler.net/problem=1

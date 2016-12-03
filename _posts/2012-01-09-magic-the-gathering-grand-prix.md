@@ -51,5 +51,5 @@ didn't have fun. I did. I had a great time. I just never want to
 do it again.
 
 [1]: http://en.wikipedia.org/wiki/Magic:_The_Gathering
-[2]: http://www.wizards.com/Magic/Magazine/Article.aspx?x=grandprix/welcome
+[2]: http://magic.wizards.com/en/content/grand-prix-event-types-events
 [3]: http://www.urbandictionary.com/define.php?term=con%20funk

@@ -46,7 +46,7 @@ I'm looking forward to rounding out Erudite's feature set, and I hope you find
 it useful. Check out [its project page][9] or the source [on GitHub][11]
 
 [1]: /static/images/2014/09/23/erudite.png
-[2]: https://groups.google.com/forum/#!msg/comp.lang.python/DfzH5Nrt05E/Yyd3s7fPVxwJ
+[2]: https://groups.google.com/d/msg/comp.lang.python/DfzH5Nrt05E/Yyd3s7fPVxwJ
 [3]: /about/#projects
 [4]: https://rubygems.org/search?query=doctest
 [5]: https://github.com/tablatom/rubydoctest

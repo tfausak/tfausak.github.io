@@ -4,7 +4,7 @@ title: Adios, Famigo! Hello, OrgSync!
 
 ![Famigo and OrgSync][1]
 
-Two and a half years ago, I interviewed with Cody from [Famigo][2]
+Two and a half years ago, I interviewed with Cody from Famigo
 for a summer internship. They had initially reached out to my
 brother, but he already had a job and recommended me instead. The
 interview went well, but I decided to spend my summer working for
@@ -54,7 +54,6 @@ I've enjoyed working on a great product with such a talented group
 of people.
 
 [1]: /static/images/2012/09/28/famigo-and-orgsync.png
-[2]: http://www.famigo.com
 [3]: https://github.com/tfausak/MadMinute
 [4]: {% post_url 2011-10-25-dropping-out-a-year-later %}
 [5]: https://play.google.com/store/apps/details?id=com.famigo.sandbox

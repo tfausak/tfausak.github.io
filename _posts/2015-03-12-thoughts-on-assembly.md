@@ -12,8 +12,7 @@ To find out, I put [Ledger][3], one of my side projects, on Assembly.
 
 Ledger tracks your expenses on the web. I wrote the back end in
 Haskell and the front end in JavaScript with React. It is a complete
-working application, and I hosted it on OpenShift. You can try it
-out at [ledgerreact-fausak.rhcloud.com][4].
+working application, and I hosted it on OpenShift.
 
 I started the transition to Assembly by answering questions about
 my project. What was the point of it? To easily track expenses
@@ -75,4 +74,3 @@ might double down and try to get people interested in Ledger.
 [1]: /static/images/2015/03/12/assembly.svg
 [2]: https://assembly.com
 [3]: https://github.com/asm-products/ledger-backend
-[4]: http://ledgerreact-fausak.rhcloud.com

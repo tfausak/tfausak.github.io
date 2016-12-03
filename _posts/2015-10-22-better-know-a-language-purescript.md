@@ -15,5 +15,5 @@ JavaScript.
 [2]: http://www.orgsync.com
 [3]: {% post_url 2015-07-14-better-know-a-language-kotlin %}
 [4]: http://www.purescript.org
-[5]: http://www.youtube.com/watch?v=4bAYr90dkls
+[5]: https://www.youtube.com/watch?v=4bAYr90dkls
 [6]: /static/pages/2015-10-22-better-know-a-language-purescript.html
