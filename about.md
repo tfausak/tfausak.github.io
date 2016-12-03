@@ -103,20 +103,20 @@ find me at other places on the web, check [my Keybase profile][4].
 [4]: https://keybase.io/taylorfausak
 [5]: /static/images/taylor-fausak.jpg
 
-[activeinteraction]: http://devblog.orgsync.com/active_interaction/
-[aaron lasseigne]: http://aaronlasseigne.com
-[stoplight]: http://devblog.orgsync.com/stoplight/
-[cameron desautels]: http://camdez.com
-[haskeleton]: /haskeleton/
+[activeinteraction]: https://github.com/orgsync/active_interaction
+[aaron lasseigne]: https://aaronlasseigne.com
+[stoplight]: https://github.com/orgsync/stoplight
+[cameron desautels]: https://camdez.com
+[haskeleton]: https://github.com/tfausak/haskeleton
 [neon]: https://github.com/tfausak/purescript-neon
-[flow]: /flow/
-[wuss]: /wuss/
-[strive]: /strive/
-[erudite]: /erudite/
-[delay]: /delay/
-[blunt]: https://blunt.herokuapp.com
-[ledger]: https://assembly.com/ledger
-[moxen]: /moxen/
+[flow]: https://github.com/tfausak/flow
+[wuss]: https://github.com/tfausak/wuss
+[strive]: https://github.com/tfausak/strive
+[erudite]: https://github.com/tfausak/erudite
+[delay]: https://github.com/tfausak/delay
+[blunt]: https://github.com/tfausak/blunt
+[ledger]: https://github.com/asm-products/ledger-backend
+[moxen]: https://github.com/tfausak/moxen
 [mad minute]: https://github.com/tfausak/MadMinute
 [famigo]: http://www.famigo.com
 [bdbxml-jukebox]: https://github.com/tfausak/bdbxml-jukebox
