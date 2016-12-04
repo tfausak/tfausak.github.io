@@ -2,10 +2,18 @@
 title: Haskell package checklist
 ---
 
+- Host on GitHub.
+- Build with Stack.
+- Use hpack instead of raw Cabal files.
+- Use kebab-case for package names.
+- Use semver.
+- Choose a license.
+- Write a good README.
+- Write a synopsis.
+- Make the description link to the README.
+- Include any non-source files necessary to build in `extra-source-files`.
 - Make sure there are no warnings when running `stack sdist`.
-- Avoid putting too much in your package's description. Either make it a copy of the synopsis or a link to the README.
-- Use hpack's `package.yaml` instead of `*.cabal`.
-- Use Stack instead of Cabal.
+
 - Test on CI.
 - Automate releases. Just `stack upload .` from your CI.
 - Build `-Wall` clean. Use `--pedantic` on your CI.
