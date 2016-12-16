@@ -2,9 +2,12 @@
 title: Haskell package checklist
 ---
 
-[Towards a better Haskell package](http://fvisser.nl/post/2013/may/28/towards-a-better-haskell-package.html)
-[Haskeleton: a Haskell project skeleton]({% post_url 2014-03-04-haskeleton-a-haskell-project-skeleton %})
-[Parse and generate Rocket League replays with Haskell]({% post_url 2016-11-15-parse-and-generate-rocket-league-replays-with-haskell %})
+- This post is a complete checklist for developing a Haskell package.
+- It won't go into super specifics, but it'll touch on everything necessary.
+- The [Cabal user guide](https://www.haskell.org/cabal/users-guide/developing-packages.html) provides good low-level information but doesn't cover everything a package needs.
+- Sebastiaan's [Towards a better Haskell package](http://fvisser.nl/post/2013/may/28/towards-a-better-haskell-package.html) is good but I disagree with some points and it's a little old.
+- My Stack template [Haskeleton]({% post_url 2014-03-04-haskeleton-a-haskell-project-skeleton %}) implements most if not all of the ideas listed here.
+- My Rocket League replay parser [Rattletrap]({% post_url 2016-11-15-parse-and-generate-rocket-league-replays-with-haskell %}) is a real-world package following these guidelines.
 
 - **Use Git for source control.**
   If it's not in source control, it doesn't exist.
@@ -81,6 +84,7 @@ title: Haskell package checklist
   you should avoid having too many dependencies.
   Think about how long it would take to install your package starting from scratch.
 
+
 - **Include `extra-source-files`.**
   If a file is necessary for your package to build, it belongs in `extra-source-files`.
   This includes files that tests and benchmarks need.
@@ -97,6 +101,7 @@ title: Haskell package checklist
   In other words, separate your package metadata from actual source files.
   This makes it easy to write scripts that work on every Haskell file, like formatting or counting lines of code.
   The exact names aren't important, but you should end up with a structure like this:
+
   - `source/library/YourPackage.hs`
   - `source/executables/Main.hs`
   - `source/tests/Main.hs`
