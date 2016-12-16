@@ -2,6 +2,10 @@
 title: Haskell package checklist
 ---
 
+[Towards a better Haskell package](http://fvisser.nl/post/2013/may/28/towards-a-better-haskell-package.html)
+[Haskeleton: a Haskell project skeleton]({% post_url 2014-03-04-haskeleton-a-haskell-project-skeleton %})
+[Parse and generate Rocket League replays with Haskell]({% post_url 2016-11-15-parse-and-generate-rocket-league-replays-with-haskell %})
+
 - **Use Git for source control.**
   If it's not in source control, it doesn't exist.
   Git is the most popular choice,
@@ -65,14 +69,14 @@ title: Haskell package checklist
       name:
         aeson
       synopsis:
-        encode and decode JSON
+        Encode and decode JSON.
       description:
         Aeson encodes and decodes JSON.
 
 - **Avoid heavy dependencies.**
   Only add a dependency if your package needs it to function.
   Don't include stuff that's just nice to have.
-  For example, you should probably avoid `lens` even though it makes easier to write.
+  For example, you should probably avoid `lens` even though it makes code easier to write.
   In addition to avoiding heavy dependencies,
   you should avoid having too many dependencies.
   Think about how long it would take to install your package starting from scratch.
@@ -81,66 +85,76 @@ title: Haskell package checklist
   If a file is necessary for your package to build, it belongs in `extra-source-files`.
   This includes files that tests and benchmarks need.
   You should also include package metadata like your README and change log.
+  Note that you don't need to include your license file if your package's `license-file` is set.
 
-- Avoid package warnings
-  - Stack prints these out when you run `stack sdist`.
-  - Some of the warnings, like category and description, are annoying.
-  - Generally using `--pvp-bounds=both` is good.
+- **Fix package warnings.**
+  Stack prints these out when you run `stack sdist`.
+  You should fix all of them, even though some aren't that useful.
+  For instance, Stack warns you if you don't set a category even though the categories on Hackage aren't that useful.
+  To fix warnings about version bounds, consider using `--pvp-bounds=both`.
 
-- Put everything in `source/`
-  - This separates Haskell files from package metadata.
-  - Makes it easy to search and script Haskell files.
-  - Looks like `source/library/Foo.hs`, `source/executables/Main.hs`, `source/tests/Main.hs`, `source/benchmarks/Main.hs`, and so on.
-  - The exact names aren't important.
+- **Put Haskell files in `source/`.**
+  In other words, separate your package metadata from actual source files.
+  This makes it easy to write scripts that work on every Haskell file, like formatting or counting lines of code.
+  The exact names aren't important, but you should end up with a structure like this:
+  - `source/library/YourPackage.hs`
+  - `source/executables/Main.hs`
+  - `source/tests/Main.hs`
+  - `source/benchmarks/Main.hs`
 
-- Match module and package names
-  - Module names use `CamelCase`, package names use `kebab-case`.
-  - If you package is named `foo-bar`, you should have a top-level module called `FooBar`.
-  - Not `Data.FooBar` or `Text.ParserCombinators.FooBar`.
+- **Match package and module names.**
+  If your package is named `tasty-burrito`, you should have a top-level module called `TastyBurrito`.
+  Avoid the unnecessary module hierarchy like `Data.ByteString` or `Text.ParserCombinators.Parsec`.
+  While the package name uses `kebab-case`, module names should use `CamelCase`.
 
-- Require one import
-  - Users should be able to hit the ground running with `import FooBar`.
-  - If necessary, re-export functions from other packages.
-  - Optimize for qualified imports, so don’t be afraid to take common names.
+- **Require one import.**
+  Users should be able to get started with nothing more than `import YourPackage`.
+  If necessary, re-export stuff from other packages.
+  Design for qualified imports;
+  don't be afraid to take common names like `singleton`.
 
-- Expose implementation details
-  - People will use your package in ways you didn’t think of.
-  - Make everything public, but not necessarily published.
-  - Use `Internal` module names to signal that they’re private.
+- **Expose implementation details.**
+  People will want to use your package in ways you didn't think of.
+  Make everything public, but not necessarily part of your published API.
+  Use `Internal` module names like `Data.Text.Internal` to signal that things aren't published.
 
-- Build `-Wall` clean
-  - GHC can find all kinds of problems but doesn’t by default.
-  - Few false positives, generally helps you write better code.
-  - You can ignore specific warnings with `-fno-warn-whatever`.
+- **Build `-Wall` clean.**
+  GHC finds all kinds of problems with `-Wall`.
+  Few of them are false positives and they generally help you write better code.
+  But if you don't like one, disable it with `-fno-warn-whatever`.
+  Be sure to use `stack build --pedantic` when developing your package.
+  It will force you to fix warnings.
 
-- Follow most HLint suggestions
-  - Overall a great tool that helps you write better software.
-  - Some suggestions aren’t worth following.
-  - In particular the re-export shortcut and anything involving operators.
+- **Follow most HLint suggestions.**
+  Overall HLint is a great tool for improving code quality.
+  However some suggestions aren't worth following.
+  For example, the re-export shortcut suggestion breaks the Haddock documentation.
+  Use your own judgement when deciding which suggestions to follow.
 
-- Format code with `hindent`
-  - This frees you up to never think about formatting again.
-  - Improving `hindent` improves formatting for everyone.
-  - Side steps useless arguments in pull requests.
+- **Format code with hindent.**
+  hindent is the closest thing we have to a community style.
+  Using it frees you from ever thinking about formatting again.
+  If you don't like how something looks, fix it in hindent and everyone's formatting will improve.
+  Using hindent also avoids pointless arguments about style in pull requests.
 
-- Document with examples
-  - Types are good, but they’re not documentation.
-  - The same is true for laws.
-  - Usually functions are added to solve a problem. Show that problem in the documentation as an example.
+- **Write documentation with examples.**
+  Types are not a substitute for documentation.
+  Neither are laws.
+  Usually functions are added to solve a specific problem.
+  Show that problem in the documentation as an example.
 
-- Test with Tasty using Hspec
-  - Tasty is a testing framework for running different kinds of tests.
-  - Hspec tests are the nicest to write.
-  - Use other providers like QuickCheck when they make sense.
+- **Test with Tasty using Hspec.**
+  Tasty provides a framework for running different kinds of tests with the same command line interface.
+  It handles randomizing the test order, selecting which tests to run, and displaying their output.
+  Hspec provides a library for writing human-readable tests.
+  Use other testing libraries like QuickCheck when they make sense.
 
-- Run tests on Travis CI
-  - Travis CI is free and integrates with GitHub.
-  - You can run tests on Linux and macOS.
-  - Consider also using AppVeyor for Windows builds.
-
-- Build and test with `--pedantic`
-  - This forces you to fix warnings.
-  - Particularly useful as new versions of GHC and dependencies come out.
+- **Run tests on Travis CI.**
+  Travis CI is free for open source projects and integrates with GitHub.
+  Every time you push a commit to GitHub, Travis CI will run your test suite.
+  This makes it easy to keep your package buildable.
+  By default Travis CI runs on Linux, but you can also run on macOS.
+  If you want to run your test suite on Windows, consider using AppVeyor.
 
 - **Keep executables small.**
   If your package provides an executable,
@@ -151,12 +165,13 @@ title: Haskell package checklist
       module Main (module YourPackage) where
       import YourPackage (main)
 
-- Benchmark with Criterion
-  - Only if your package needs to be fast!
-  - Otherwise this is a lot of overhead to maintain.
-  - Criterion is the gold standard for pretty much any language.
+- **Benchmark with Criterion.**
+  If your package needs to be fast, Criterion is the best tool for measuring it.
+  On the other hand if your package doesn't need to be fast, there's no sense in maintaining benchmarks for it.
 
-- Automate releases
-  - Most CI services set an environment variable when building a Git tag.
-  - Upload packages to Hackage from CI using `stack upload .`.
-  - Be sure not to leak credentials into build log.
+- **Automate releases.**
+  Don't manually create distribution tarballs and upload them to Hackage.
+  Instead, get Travis CI to do it.
+  Travis CI sets the `TRAVIS_TAG` environment variable.
+  If that's set, you can run `stack upload .` to upload your package.
+  Travis CI will need your Hackage credentials, so be sure not to leak those into the build log.
