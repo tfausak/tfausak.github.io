@@ -2,12 +2,11 @@
 title: Haskell package checklist
 ---
 
-- This post is a complete checklist for developing a Haskell package.
-- It won't go into super specifics, but it'll touch on everything necessary.
-- The [Cabal user guide](https://www.haskell.org/cabal/users-guide/developing-packages.html) provides good low-level information but doesn't cover everything a package needs.
-- Sebastiaan's [Towards a better Haskell package](http://fvisser.nl/post/2013/may/28/towards-a-better-haskell-package.html) is good but I disagree with some points and it's a little old.
-- My Stack template [Haskeleton]({% post_url 2014-03-04-haskeleton-a-haskell-project-skeleton %}) implements most if not all of the ideas listed here.
-- My Rocket League replay parser [Rattletrap]({% post_url 2016-11-15-parse-and-generate-rocket-league-replays-with-haskell %}) is a real-world package following these guidelines.
+This post covers everything you need to know about how to develop a Haskell package.
+I decided to create it because I have made a few packages and nothing covers the entire process.
+The [Cabal user guide](https://www.haskell.org/cabal/users-guide/developing-packages.html) provides good low-level information,
+and Sebastiaan Visser's [Towards a better Haskell package](http://fvisser.nl/post/2013/may/28/towards-a-better-haskell-package.html) gives some nice high-level guidance.
+This post covers both of those and then some.
 
 - **Use Git for source control.**
   If it's not in source control, it doesn't exist.
@@ -15,37 +14,37 @@ title: Haskell package checklist
   but its interface can be difficult to understand.
   Consider using a GUI like GitHub Desktop.
 
-- **Host your package on GitHub.**
+- **Host on GitHub.**
   GitHub allows other developers to easily contribute to your package.
   Compared to other hosts,
   you are more likely to receive contributions.
   Plus it integrates nicely with many other services.
 
-- **Build your package with Stack.**
+- **Build with Stack.**
   Stack painlessly manages Haskell dependencies.
   It manages GHC installations
   and ensures you get a build plan that actually works.
   Plus it avoids bit rot by making sure your package will build tomorrow if it builds today.
 
-- **Define your package with hpack.**
+- **Define with hpack.**
   The default Cabal package file format is custom, tedious, and verbose.
   hpack uses YAML and avoids unnecessary boilerplate.
   Stack integrates hpack to automatically convert your `package.yaml` into a `*.cabal` file when necessary.
 
-- **Name your package with kebab-case.**
+- **Name with kebab-case.**
   Keep everything lowercase to avoid confusion.
   You don't want people trying to install `http` when they really meant `HTTP`.
   Use hyphens to separate words, but keep it short and memorable.
   Nobody wants to type out `hypertext-transfer-protocol`.
 
-- **Version your package with Semantic Versioning.**
+- **Use Semantic Versioning.**
   Unfortunately Hackage recommends the Package Versioning Policy.
   The PVP adds ambiguity by using two major version numbers.
   It also encourages packages to stay on major version 0, which looks bad.
   Many other languages use Semantic Versioning.
   SemVer matches how developers generally think about version numbers.
 
-- **Choose a license for your package.**
+- **License your package.**
   Nobody can use a package without a license.
   The most popular license for Haskell is BSD 3-Clause, followed by MIT.
   Whichever license you choose, include the license file in your package (like `LICENSE.markdown`).
@@ -69,12 +68,9 @@ title: Haskell package checklist
   which can be pretty much the same as the `synopsis`.
   For example:
 
-      name:
-        aeson
-      synopsis:
-        Encode and decode JSON.
-      description:
-        Aeson encodes and decodes JSON.
+      name:        aeson
+      synopsis:    Encode and decode JSON.
+      description: Aeson encodes and decodes JSON.
 
 - **Avoid heavy dependencies.**
   Only add a dependency if your package needs it to function.
@@ -83,7 +79,6 @@ title: Haskell package checklist
   In addition to avoiding heavy dependencies,
   you should avoid having too many dependencies.
   Think about how long it would take to install your package starting from scratch.
-
 
 - **Include `extra-source-files`.**
   If a file is necessary for your package to build, it belongs in `extra-source-files`.
@@ -105,7 +100,6 @@ title: Haskell package checklist
   - `source/library/YourPackage.hs`
   - `source/executables/Main.hs`
   - `source/tests/Main.hs`
-  - `source/benchmarks/Main.hs`
 
 - **Match package and module names.**
   If your package is named `tasty-burrito`, you should have a top-level module called `TastyBurrito`.
@@ -134,7 +128,7 @@ title: Haskell package checklist
   Overall HLint is a great tool for improving code quality.
   However some suggestions aren't worth following.
   For example, the re-export shortcut suggestion breaks the Haddock documentation.
-  Use your own judgement when deciding which suggestions to follow.
+  Use your own judgment when deciding which suggestions to follow.
 
 - **Format code with hindent.**
   hindent is the closest thing we have to a community style.
@@ -180,3 +174,10 @@ title: Haskell package checklist
   Travis CI sets the `TRAVIS_TAG` environment variable.
   If that's set, you can run `stack upload .` to upload your package.
   Travis CI will need your Hackage credentials, so be sure not to leak those into the build log.
+
+If you're looking for a starting point that ticks most of these boxes,
+consider my [Haskeleton]({% post_url 2014-03-04-haskeleton-a-haskell-project-skeleton %}) Stack template.
+It will give you a good base to start from.
+If you're looking for an actual package that follows the guidelines,
+check out [Rattletrap]({% post_url 2016-11-15-parse-and-generate-rocket-league-replays-with-haskell %}), my Rocket League replay parser and generator.
+It can show you exactly how some of these things are implemented.
