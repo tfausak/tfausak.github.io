@@ -2,11 +2,11 @@
 title: Haskell package checklist
 ---
 
-This post covers everything you need to know about how to develop a Haskell package.
-I decided to create it because I have made a few packages and nothing covers the entire process.
-The [Cabal user guide](https://www.haskell.org/cabal/users-guide/developing-packages.html) provides good low-level information,
-and Sebastiaan Visser's [Towards a better Haskell package](http://fvisser.nl/post/2013/may/28/towards-a-better-haskell-package.html) gives some nice high-level guidance.
-This post covers both of those and then some.
+This post covers everything you need to know about developing a Haskell package.
+I wrote it because I made a few packages and nothing covers the entire process.
+The [Cabal user guide][1] provides good low-level information,
+and Sebastiaan Visser's [Towards a better Haskell package][2] gives some nice high-level guidance.
+This post covers both of those and fills in some of the gaps left by them.
 
 - **Use Git for source control.**
   If it's not in source control, it doesn't exist.
@@ -18,13 +18,13 @@ This post covers both of those and then some.
   GitHub allows other developers to easily contribute to your package.
   Compared to other hosts,
   you are more likely to receive contributions.
-  Plus it integrates nicely with many other services.
+  Also GitHub integrates nicely with many other services.
 
 - **Build with Stack.**
   Stack painlessly manages Haskell dependencies.
-  It manages GHC installations
+  It installs GHC for you
   and ensures you get a build plan that actually works.
-  Plus it avoids bit rot by making sure your package will build tomorrow if it builds today.
+  If your package builds today, Stack ensures it will continue to build tomorrow.
 
 - **Define with hpack.**
   The default Cabal package file format is custom, tedious, and verbose.
@@ -40,26 +40,26 @@ This post covers both of those and then some.
 - **Use Semantic Versioning.**
   Unfortunately Hackage recommends the Package Versioning Policy.
   The PVP adds ambiguity by using two major version numbers.
-  It also encourages packages to stay on major version 0, which looks bad.
+  That encourages packages to stay on major version 0, which doesn't inspire confidence.
   Many other languages use Semantic Versioning.
   SemVer matches how developers generally think about version numbers.
 
 - **License your package.**
   Nobody can use a package without a license.
   The most popular license for Haskell is BSD 3-Clause, followed by MIT.
-  Whichever license you choose, include the license file in your package (like `LICENSE.markdown`).
+  Whichever license you choose, include the license file in your package.
 
 - **Write a README.**
   Most people will familiarize themselves with your package by reading your README.
   It should describe the problem that your package solves.
   Be sure to include at least one concrete example in it.
-  And make it look nice by using Markdown (like `README.markdown`).
+  GitHub will automatically format your `README.markdown`.
 
 - **Keep a change log.**
-  Most packages will use Git tags to mark releases.
-  However reading diffs is not an acceptable way for users to discover changes.
+  Most packages will use Git tags to mark releases,
+  but reading diffs is not an acceptable way for users to discover changes.
   Put a human-readable summary of changes in the GitHub releases.
-  Link to that from a CHANGELOG file (like `CHANGELOG.markdown`).
+  Then link to that from your `CHANGELOG.markdown`.
 
 - **Write a `synopsis`.**
   This shows up when searching and viewing your package.
@@ -176,8 +176,13 @@ This post covers both of those and then some.
   Travis CI will need your Hackage credentials, so be sure not to leak those into the build log.
 
 If you're looking for a starting point that ticks most of these boxes,
-consider my [Haskeleton]({% post_url 2014-03-04-haskeleton-a-haskell-project-skeleton %}) Stack template.
+consider my [Haskeleton][3] Stack template.
 It will give you a good base to start from.
 If you're looking for an actual package that follows the guidelines,
-check out [Rattletrap]({% post_url 2016-11-15-parse-and-generate-rocket-league-replays-with-haskell %}), my Rocket League replay parser and generator.
+check out [Rattletrap][4], my Rocket League replay parser and generator.
 It can show you exactly how some of these things are implemented.
+
+[1]: https://www.haskell.org/cabal/users-guide/developing-packages.html
+[2]: http://fvisser.nl/post/2013/may/28/towards-a-better-haskell-package.html
+[3]: {% post_url 2014-03-04-haskeleton-a-haskell-project-skeleton %}
+[4]: {% post_url 2016-11-15-parse-and-generate-rocket-league-replays-with-haskell %}
