@@ -29,3 +29,30 @@ title: Problematic versioning policy
   - For example `aeson-0.11.2.1` and `aeson-1.0.2.1` are broadly compatible.
   - Correct bounds would be `aeson (>= 0.11.2 && < 0.12) || (>= 1.0.2 && < 1.1)`.
   - Typical bounds are `aeson >= 0.11 && < 1.1`.
+  - Technically 0.12 could be incompatible with 0.11 and 1.1.
+  - For some people, this is a positive thing because you can keep developing the 0.x "series".
+  - For others, this is negative because bounds are annoying and it maybe shouldn't be allowed at all.
+- If you *must* use the PVP, just set the super-major version at 1 and treat the rest like SemVer.
+- Some people claim that tooling depends on the PVP.
+  - Cabal/Hackage does not; its solver can handle any version bounds.
+  - Stack/Stackage does not; its snapshots use version bounds from packages.
+- The PVP is older, but who cares?
+  - The PVP was first introduced in November 2006, but it looked like SemVer at first.
+  - Around October 2007 it changed into its current form.
+  - SemVer appeared in December 2009.
+- The PVP allows for non-breaking, non-adding changes to modify the major or minor version numbers.
+  - For instance, a bug fix to 1.2.3 can be released as 1.2.3.0, 1.2.4, 1.3.0, or 2.0.0.
+- The PVP allows for non-contiguous version ranges.
+  - Example: 1.2.3 can become 1.2.5, 1.4.0, or 3.0.0, leaving a gap.
+- The PVP does not require smaller components to reset.
+  - Example: 1.2.3 can become 1.3.3 instead of 1.3.0, or 2.2.3 instead of 2.0.0.
+- SemVer specifies pre-release and build metadata version components.
+  - Cabal rejects them, so they don't matter for this discussion.
+- The PVP also specifies how you should constrain your dependency versions.
+  - SemVer doesn't spell this out, but `>= A.B && < A'` follows naturally.
+- The PVP considers deprecation to be the same as removal.
+  - That means deprecating something requires a major version change.
+  - SemVer requires only a minor version bump for deprecations.
+- The PVP considers additions breaking changes if you use a "general" namespace.
+  - SemVer says all additions are non-breaking.
+  - Consequence of PVP: other packages are sort of part of the API you have to consider when cutting releases.
