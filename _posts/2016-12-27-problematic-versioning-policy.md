@@ -1,0 +1,31 @@
+---
+title: Problematic versioning policy
+---
+
+- The PVP gives freedom that most packages don't take advantage of.
+  - It is not clear when to update one major version number versus another.
+- Hackage has about 10,642 packages.
+- Only 921 packages (9%) have changed their most significant version number.
+  - Having more version numbers means the most significant one is less likely to change.
+- 8,585 packages (81%) use `0` as their most significant version number.
+  - Having more version numbers means the most significant one is more likely to be `0`.
+- Version bounds are often incorrect with the PVP since `>= A.B && < C.D` is not specific enough.
+  - TODO: Get actual numbers for this claim.
+- Constraints are often loose, like `base >= 4.8 && < 5` or `base < 9000`.
+  - TODO: Get concrete examples of these.
+- The PVP allows for any number of version components.
+  - Different versions of the same package often don't have the same number of components.
+  - The spec allows a breaking change from `1` to `1.0` because `1.0 > 1` according to `Data.Version`.
+  - Hackage specifically checks for this scenario and rejects it.
+  - This is problematic for version bounds since `>= A.B` isn't the same as `>= A.B.0`.
+- SemVer requires exactly 3 components.
+- 8,492 packages (80%) have less than 10 releases.
+- Most other ecosystems use SemVer.
+  - Required: Elixir, Elm, JavaScript, Rust
+  - Recommended: Clojure, Java, Objective-C, PHP, PureScript, Python, Ruby, Swift
+  - Unofficially recommended: .NET, C/C++
+  - Not recommended: Go, Haskell, Perl
+- The PVP allows for annoying releases that are difficult to constrain correctly.
+  - For example `aeson-0.11.2.1` and `aeson-1.0.2.1` are broadly compatible.
+  - Correct bounds would be `aeson (>= 0.11.2 && < 0.12) || (>= 1.0.2 && < 1.1)`.
+  - Typical bounds are `aeson >= 0.11 && < 1.1`.
