@@ -33,8 +33,8 @@ I am aware of a few reasons why people prefer the PVP to SemVer.
     SemVer forces these into the package name, which frees you from matching
     your major version number to the library you're wrapping. (What if you
     wanted to make a big breaking change to the 1.x series?) You might end up
-    with an `sdl1` package and an `sdl2` package. If you wanted to share code
-    between them, you might need an `sdl-base` package too.
+    with an sdl1 package and an sdl2 package. If you wanted to share code
+    between them, you might need an sdl-base package too.
 
 -   Because the PVP has two major version numbers, **package authors can make
     backwards-incompatible changes to old versions**. Imagine that the current
@@ -48,7 +48,7 @@ I am aware of a few reasons why people prefer the PVP to SemVer.
 
 -   The PVP has **no special case for major version 0**. Going from version 0.x
     to 1.x does not change any of the rules. This means that major version 0
-    communicates neither (a lack of) stability nor maturity.
+    communicates neither a lack of stability nor maturity.
 
     By comparison, SemVer does not restrict major version 0 at all. Packages
     with major version 0 are in their initial phase of development. Users of
@@ -73,20 +73,20 @@ I have many reasons for preferring SemVer to the PVP.
     versions: 4.15.1, 4.14, 4.13.2.1. This isn't a problem by itself, but it is
     a problem when specifying version bounds. Version 4.14 of lens would not be
     matched by a constraint of `>= 4.14.0`. That's because version 4.14 is less
-    than 4.14.0 according to `Data.Version`.
+    than 4.14.0 according to Data.Version.
 
     Another less obvious problem with this variable number of version
     components is that going from version 1 to version 1.0 is both allowed and
-    a breaking change. This case is so surprising and treacherous that Hackage
-    now prevents authors from uploading packages that only add ".0"s to the end
-    of version numbers.
+    *a breaking change*. This case is so surprising and treacherous that
+    Hackage now prevents authors from uploading packages that only add ".0"s to
+    the end of version numbers.
 
 -   The PVP is **unclear when to change which major version number**. If you
     need to release a breaking change, do you go from 1.0 to 1.1 or 2.0?
     Consider the 4.8 release of the base package, which changed the superclass
     hierarchy of the `Monad` class. That seems like a big change; why was it
-    communicated by going from 4.7 to 4.8 instead of 5.0? Which types of
-    changes motivate version 5.0 of the base package to be released?
+    communicated by going from 4.7 to 4.8 instead of from 4.7 to 5.0? Which
+    types of changes motivate version 5.0 of the base package to be released?
 
 -   The PVP **encourages packages to stay on major version 0**. This follows
     from the previous point. At which point do you go from 0.x to 1.0? Making
@@ -98,7 +98,7 @@ I have many reasons for preferring SemVer to the PVP.
 
 -   The PVP **considers deprecation a breaking change**. In other words, it
     considers deprecation the same as removal. Compare this to SemVer, which
-    allows deprecations minor release.
+    allows deprecations in a minor release.
 
 -   Dependency **lower bounds are often incorrect** with the PVP. The correct
     minimum bound for a PVP package is `>= A.B.C`. Many packages only specify
@@ -114,14 +114,14 @@ I have many reasons for preferring SemVer to the PVP.
     breaking changes.
 
 -   In addition to the previous two points, **bounds are often incorrect** with
-    the PVP. For example, consider the aeson package. Its versions 0.11.2.1 and
+    the PVP. For example, consider the aeson package. Versions 0.11.2.1 and
     1.0.2.1 are broadly compatible. You might write `>= 0.11.2 && < 1.1` as a
     reasonable-looking version constraint that isn't a problem according to the
     previous two points. However, it's entirely possible that version 0.12 of
     aeson will be released and it will be neither backwards compatible with
     0.11 nor forwards compatible with 1.0. So the accurate version bounds for
     this scenario are `(>= 0.11.2 && < 0.12) || (>= 1.0.2 && < 1.1)`. That is
-    tedious at best to write out, so often it will be lazily constrained as
+    tedious at best to write out, so it will often be lazily constrained as
     `>= 0.11 && < 1.1`.
 
 -   The PVP **provides no guidance about patch releases**. For example,
@@ -131,7 +131,7 @@ I have many reasons for preferring SemVer to the PVP.
 
 -   The PVP **allows non-contiguous version ranges**. The spec does not require
     version components to go up by 1. It only requires that they increase. So
-    it's perfectly fine to go from version 1.2.3 to 3.0.0. This is not
+    it's perfectly fine to go from version 1.2.3 to 4.0.0. This is not
     necessarily a problem, but it is potentially confusing.
 
 -   The PVP **does not require smaller components to reset**. For example,
@@ -139,14 +139,15 @@ I have many reasons for preferring SemVer to the PVP.
     merely confusing.
 
 -   The PVP **considers additions to be breaking if you use a "general" name
-    space**. For example, if you want to add a module called `Data.Set.Mine`,
-    it must be accompanied by a new major version number.
+    space**. For example, if you want to add a module called Data.Set.Mine, it
+    must be accompanied by a new major version number.
 
 I have heard reasons for preferring the PVP that I consider invalid.
 
 -   The PVP is older, but why does it matter? The PVP was introduced in
     November 2006, but it looked like SemVer at that time. Around October 2007
     it changed into its current form. SemVer was introduced in December 2009.
+    We shouldn't use inferior things simply because they've been around longer.
 
 -   Tooling does no depend on the PVP. If you use Cabal and Hackage, everything
     works with version bounds and a solver. If you use Stack and Stackage,
