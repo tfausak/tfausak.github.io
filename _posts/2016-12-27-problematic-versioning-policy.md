@@ -8,6 +8,55 @@ I stand by it.
 In fact, I think the PVP is a bad policy
 and the Haskell community should abandon it in favor of SemVer.
 
+The main difference between these two versioning schemes is that
+the PVP has an extra major version number for encoding breaking changes.
+It recommends that versions follow a *major.major.minor* format.
+SemVer differs by requiring versions to follow the *major.minor.patch* format.
+
+I am aware of a few reasons why people prefer the PVP to SemVer.
+
+-   Because the PVP allows for more version components,
+    **it is more expressive**.
+    In particular, it can differentiate between big and small breaking changes.
+    Re-writing a package from the ground up is an example of a big breaking change.
+    A small breaking change might be renaming a function.
+
+    SemVer treats all breaking changes the same,
+    which I think is the right approach.
+    A small change from the package author's point of view might be a big change from the package user's point of view.
+    Similarly, a ground-up rewrite might not introduce any breaking changes at all.
+
+-   **The first major version number can be used for something else**
+    because the PVP has two major version numbers.
+    For example, it might be used for marketing.
+    Or, a single SDL package could have both a 1.x and a 2.x series,
+    targeting different versions of the underlying SDL library.
+
+    SemVer forces these into the package name,
+    which frees you from matching your major version number to the library you're wrapping.
+    (What if you wanted to make a big breaking change to the 1.x series?)
+    You might end up with an `sdl1` package and an `sdl2` package.
+    If you wanted to share code between them, you might need an `sdl-base` package too.
+
+-   Because the PVP has two major version numbers,
+    **package authors can make backwards-incompatible changes to old versions**.
+    Imagine that the current version of a package is 2.0 but some people are still using version 1.0.
+    They discover a bug;
+    the fix requires a breaking change.
+    The PVP allows that bug fix to be released as version 1.1.
+
+    SemVer makes users upgrade to the latest version for backwards-incompatible bug fixes.
+    Or it encourages package authors to find backwards-compatible bug fixes.
+    Either way, this is not a scenario that comes up often.
+
+-   The PVP has **no special case for major version 0**.
+    Going from version 0.x to 1.x does not change any of the rules.
+    This means that major version 0 communicates neither (a lack of) stability nor maturity.
+
+    By comparison, SemVer does not restrict major version 0 at all.
+    Packages with major version 0 are in their initial phase of development.
+    Users of those packages can make a case that the package should commit to stability and get on major version 1.
+
 [Haskell package checklist]: {% post_url 2016-12-05-haskell-package-checklist %}
 [Semantic Versioning]: https://github.com/mojombo/semver/blob/520670dc0e68cf3587549baf207d5d3da46ac87b/semver.md
 [Package Versioning Policy]: https://github.com/haskell/pvp/blob/6b90cef4b14893180010b3202a8eb0ced1b5b295/pvp-specification.md
