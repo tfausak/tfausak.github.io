@@ -2,6 +2,16 @@
 title: Problematic versioning policy
 ---
 
+My [Haskell package checklist][] recommends using [Semantic Versioning][] (SemVer) instead of the [Package Versioning Policy][] (PVP).
+Many people disagree with that recommendation.
+I stand by it.
+In fact, I think the PVP is a bad policy
+and the Haskell community should abandon it in favor of SemVer.
+
+[Haskell package checklist]: {% post_url 2016-12-05-haskell-package-checklist %}
+[Semantic Versioning]: https://github.com/mojombo/semver/blob/520670dc0e68cf3587549baf207d5d3da46ac87b/semver.md
+[Package Versioning Policy]: https://github.com/haskell/pvp/blob/6b90cef4b14893180010b3202a8eb0ced1b5b295/pvp-specification.md
+
 - The PVP gives freedom that most packages don't take advantage of.
   - It is not clear when to update one major version number versus another.
 - Hackage has about 10,642 packages.
@@ -9,10 +19,12 @@ title: Problematic versioning policy
   - Having more version numbers means the most significant one is less likely to change.
 - 8,585 packages (81%) use `0` as their most significant version number.
   - Having more version numbers means the most significant one is more likely to be `0`.
-- Version bounds are often incorrect with the PVP since `>= A.B && < C.D` is not specific enough.
-  - TODO: Get actual numbers for this claim.
-- Constraints are often loose, like `base >= 4.8 && < 5` or `base < 9000`.
-  - TODO: Get concrete examples of these.
+- Version bounds are often not specific enough.
+  - deepseq uses `base >= 4.3 && < 4.10` and `array >= 0.3 && < 0.6`
+  - directory uses `base >= 4.5 && < 4.11` and `filepath >= 1.3 && <1.5` and `time >= 1.4 && < 1.8`
+- Constraints are often loose.
+  - containers uses `base >= 4.3 && < 5`
+  - assert uses `base >= 4 && <= 9000`
 - The PVP allows for any number of version components.
   - Different versions of the same package often don't have the same number of components.
   - The spec allows a breaking change from `1` to `1.0` because `1.0 > 1` according to `Data.Version`.
@@ -49,7 +61,7 @@ title: Problematic versioning policy
 - SemVer specifies pre-release and build metadata version components.
   - Cabal rejects them, so they don't matter for this discussion.
 - The PVP also specifies how you should constrain your dependency versions.
-  - SemVer doesn't spell this out, but `>= A.B && < A'` follows naturally.
+  - SemVer doesn't spell this out, but `>= A.B && < (A+1)` follows naturally.
 - The PVP considers deprecation to be the same as removal.
   - That means deprecating something requires a major version change.
   - SemVer requires only a minor version bump for deprecations.
