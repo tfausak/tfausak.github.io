@@ -40,10 +40,10 @@ module Data.Time
   ( module Export
   ) where
 
-import Data.Time.Calendar as Export
-import Data.Time.Clock as Export
+import Data.Time.Calendar  as Export
+import Data.Time.Clock     as Export
 import Data.Time.LocalTime as Export
-import Data.Time.Format as Export
+import Data.Time.Format    as Export
 ```
 
 This solves the problem of having to write out each module name twice, but it
@@ -55,6 +55,7 @@ of manually listing the modules you want to export, add Autoexporter as a
 dependency. Then replace the entire module with this:
 
 ``` hs
+-- Data.Time
 {-# OPTIONS_GHC -F -pgmF autoexporter #-}
 ```
 
