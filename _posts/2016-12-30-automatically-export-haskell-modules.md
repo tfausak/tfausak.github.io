@@ -64,7 +64,7 @@ automatically include all direct children of the module. So if that's in
 `Data.Time`, it will include `Data.Time.Calendar` but not
 `Data.Time.Calendar.Julian`.
 
-I find this to be very convenient, more so for applications that libraries. But
+I find this to be very convenient, more so for applications than libraries. But
 in both cases it reduces the friction of adding more modules to a Haskell
 package.
 
