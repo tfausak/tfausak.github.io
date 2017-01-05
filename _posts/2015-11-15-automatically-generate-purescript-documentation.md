@@ -2,7 +2,7 @@
 title: Automatically generate PureScript documentation
 ---
 
-<aside>Pulp, the PureScript build tool, can do this for you now. Read more about <a href="https://github.com/bodil/pulp/blob/v10.0.0/README.md#releasing-packages">releasing packages</a> with Pulp.</aside>
+<aside>Pulp, the PureScript build tool, can do this for you now. Read more about <a href="https://github.com/bodil/pulp/blob/d63d2fb9f880401243a42abcca380a29d5d5254e/README.md#releasing-packages">releasing packages</a> with Pulp.</aside>
 
 Recently I have been pouring a lot of time into PureScript projects. The
 canonical source for PureScript packages and documentation is [Pursuit][1]. It
