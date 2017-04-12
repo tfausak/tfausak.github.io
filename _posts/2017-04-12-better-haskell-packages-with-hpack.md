@@ -1,5 +1,5 @@
 ---
-title: Use hpack for Haskell packages
+title: Better Haskell packages with hpack
 ---
 
 - <https://github.com/sol/hpack>
