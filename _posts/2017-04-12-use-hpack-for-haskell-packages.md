@@ -1,0 +1,32 @@
+---
+title: Use hpack for Haskell packages
+---
+
+- <https://github.com/sol/hpack>
+  - made by Simon Hengel (hspec, doctest, markdown-unlit)
+- uses YAML rather than custom syntax
+  - the *only* way to parse Cabal files is with the Cabal library
+  - YAML is easy to pretty-print
+  - also possible to change a field (like the version) from a script
+- avoids common boilerplate
+  - for example `exposed-modules` are globbed automatically
+- adds nice shortcuts
+  - can use file globs for `extra-source-files`
+- allows configuring the same stuff as Cabal
+  - you can still set `exposed-modules`
+- reduces duplication
+  - put `dependencies`, `ghc-options`, and others at the top level to share between groups
+- use advanced YAML features to really remove duplication
+  - generally not necessary
+  - anchors, aliases, and merge keys let you share stuff
+  - also possible to include a common "library"
+- built in to Stack
+  - creates Cabal file automatically as part of `stack build`
+- generates a pretty Cabal file
+  - easy to switch back if you want to
+  - also easy to see exactly what it's doing
+- possible to mechanically convert `*.cabal` files into `package.yaml` files
+  - <https://github.com/yamadapc/hpack-convert>
+- it's possible Cabal will eventually have similar functionality
+  - but it's been a known issue since at least 2012
+  - <https://github.com/haskell/cabal/issues/938>
