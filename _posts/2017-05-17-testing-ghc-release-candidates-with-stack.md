@@ -199,9 +199,13 @@ packages:
 ```
 
 You should prefer this solution because it's generally more robust and can
-solve any problem, not just ones that can be fixed by GHC options. Remember
-that you can always fork a package on GitHub to add support for a release
-candidate and point Stack to your fork.
+solve any problem, not just ones that can be fixed by GHC options.
+
+Remember that you can always fork a package on GitHub to add support for a
+release candidate and point Stack to your fork. In fact, this is a great way to
+contribute to the Haskell ecosystem. Once your fork works with the release
+candidate, open a pull request against the original repository. Then the next
+person won't have to fix it themselves!
 
 ## Conclusion
 
