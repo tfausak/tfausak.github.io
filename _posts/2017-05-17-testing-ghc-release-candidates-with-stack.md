@@ -26,7 +26,7 @@ compiler: ghc-8.2.0.20170507
 compiler-check: match-exact
 ```
 
-Don't be fooled by the compiler version! `ghc-8.2.0.20160507` is actually GHC
+Don't be fooled by the compiler version! `ghc-8.2.0.20170507` is actually GHC
 8.2.1-rc2. Note that we tell Stack to match the compiler version exactly. If we
 didn't, it would try to use the previous release candidate if you had it
 installed.
