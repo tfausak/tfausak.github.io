@@ -9,6 +9,8 @@ interpreter directly is easy enough, but what about building an entire project?
 How can a Haskell developer test their code with the latest release candidate?
 I'm going to show you how to use Stack to do just that.
 
+## Compiler version
+
 Assuming your project already uses Stack, your `stack.yaml` probably looks
 something like this:
 
@@ -31,6 +33,8 @@ Don't be fooled by the compiler version! `ghc-8.2.0.20170507` is actually GHC
 8.2.1-rc2. Note that we tell Stack to match the compiler version exactly. If we
 didn't, it would try to use the previous release candidate if you had it
 installed.
+
+## Setup information
 
 At this point you won't be able to build you project. Let's see what happens
 when you try.
@@ -64,6 +68,8 @@ setup-info:
     url: https://downloads.haskell.org/~ghc/8.2.1-rc2/ghc-8.2.0.20170507-x86_64-unknown-mingw32.tar.xz
 ```
 
+## Installation
+
 Now that we've told Stack where to find the compiler we can run `stack setup`
 to download and install it.
 
@@ -95,6 +101,8 @@ Leaving GHCi.
 
 Great! The new compiler works.
 
+## Resolvers
+
 Before we move on, a brief note about resolvers. We're telling Stack to use the
 latest compiler along with a resolver meant for the previous compiler. This is
 convenient because most packages will build against the latest compiler without
@@ -102,6 +110,8 @@ changing anything, but it is a little sloppy. We can tell Stack to only use
 built-in packages by setting `resolver: ghc-8.2.0.20170507`. Then we can add
 other packages using `stack solver`. However I won't be walking through how to
 do that because it's pretty tedious.
+
+## Version constraints
 
 If we try to build our project we'll probably see something like this.
 
@@ -138,6 +148,8 @@ WARNING: Ignoring out of range dependency (allow-newer enabled): base-4.10.0.0. 
 
 But hopefully it will start downloading, configuring, and building some
 dependencies.
+
+## Troubleshooting
 
 It's pretty much guaranteed that you'll try to build the `deepseq` package.
 Unfortunately it won't build with this release candidate out of the box. You'll
@@ -190,6 +202,8 @@ You should prefer this solution because it's generally more robust and can
 solve any problem, not just ones that can be fixed by GHC options. Remember
 that you can always fork a package on GitHub to add support for a release
 candidate and point Stack to your fork.
+
+## Conclusion
 
 With that, you should be able to test your Haskell project against GHC
 8.2.1-rc2 using Stack. If your project has a lot of dependencies, you may need
