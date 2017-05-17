@@ -56,12 +56,13 @@ setup-info:
   linux64:
    8.2.0.20170507:
     url: https://downloads.haskell.org/~ghc/8.2.1-rc2/ghc-8.2.0.20170507-x86_64-deb8-linux.tar.xz
+  macosx:
+   8.2.0.20170507:
+    url: https://downloads.haskell.org/~ghc/8.2.1-rc2/ghc-8.2.0.20170507-x86_64-apple-darwin.tar.xz
+  windows64:
+   8.2.0.20170507:
+    url: https://downloads.haskell.org/~ghc/8.2.1-rc2/ghc-8.2.0.20170507-x86_64-unknown-mingw32.tar.xz
 ```
-
-I'm on a 64-bit Linux machine so I only included information for the `linux64`
-operating system. If you're on a different OS you'll have to use a different
-key and URL. [This Gist][] has setup information for the most common operating
-systems, including macOS and Windows.
 
 Now that we've told Stack where to find the compiler we can run `stack setup`
 to download and install it.
