@@ -22,6 +22,7 @@ release candidate. For starters we'll tell it to use the GHC 8.2.1-rc2
 compiler.
 
 ``` yaml
+# Add this to your project's existing stack.yaml file.
 compiler: ghc-8.2.0.20170507
 compiler-check: match-exact
 ```
@@ -49,6 +50,7 @@ Furthermore it doesn't know how to install the version we want. That's okay! We
 can tell Stack where to find the compiler we want.
 
 ``` yaml
+# Add this to your project's existing stack.yaml file.
 setup-info:
  ghc:
   linux64:
@@ -121,6 +123,7 @@ try to build against the new version anyway. Simply add this to your
 `stack.yaml`.
 
 ``` yaml
+# Add this to your project's existing stack.yaml file.
 allow-newer: true
 ```
 
@@ -157,6 +160,8 @@ this. The first way is to do what GHC suggests and tell `deepseq` to enable the
 following to our `stack.yaml`.
 
 ``` yaml
+# Add this to your project's existing stack.yaml file,
+# but prefer the next approach.
 ghc-options:
  deepseq: -XTypeSynonymInstances
 ```
@@ -171,6 +176,7 @@ This problem has already been fixed in `deepseq` but a new version hasn't been
 released. Fortunately we can tell Stack to grab it from GitHub.
 
 ``` yaml
+# Add this to your project's existing stack.yaml file.
 packages:
  - .
  - extra-dep: true
