@@ -149,7 +149,7 @@ I have heard reasons for preferring the PVP that I consider invalid.
     it changed into its current form. SemVer was introduced in December 2009.
     We shouldn't use inferior things simply because they've been around longer.
 
--   Tooling does no depend on the PVP. If you use Cabal and Hackage, everything
+-   Tooling does not depend on the PVP. If you use Cabal and Hackage, everything
     works with version bounds and a solver. If you use Stack and Stackage,
     everything works with snapshots.
 
