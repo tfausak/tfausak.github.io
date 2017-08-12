@@ -144,11 +144,33 @@ And now, the moment you've been waiting for! For GHC 8.2.1, deriving all the
 
 [![deriving performance][]][deriving performance]
 
+Type classes            | Build time (ms)
+---                     | ---
+none                    | 326
+`Typeable`              | 332
+`Eq`                    | 597
+`Show`                  | 982
+`Ord` (and `Eq`)        | 1153
+`Data` (and `Typeable`) | 1380
+`Read`                  | 1449
+all                     | 3882
+
 The good news is that GHC 8.2.1 is *1.2 times faster* than 8.0.2, which was the
 slowest release I tested. In fact, GHC 8.2.1 is as fast as 7.8.4, which was the
 fastest release I tested.
 
 [![GHC performance][]][GHC performance]
+
+GHC version | Build time (ms)
+---         | ---
+7.0.4       | 4233
+7.2.2       | 4217
+7.4.2       | 4090
+7.6.3       | 4508
+7.8.4       | 3840
+7.10.3      | 4489
+8.0.2       | 4643
+8.2.1       | 3882
 
 In conclusion, deriving type classes in Haskell is slow, but it's getting
 better. If you want to help out, I recommend running my benchmark yourself to
