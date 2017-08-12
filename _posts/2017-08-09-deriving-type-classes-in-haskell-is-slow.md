@@ -15,9 +15,8 @@ data types. Rather than come up with them from scratch, I extracted them from
 [Rattletrap][], my Rocket League replay parser/generator. I ended up with 54
 data types in a single module.
 
-Of those 54 types, 40 of them are records. Each of them has up to 11 fields,
-but most of them only have a few. The `Mark` data type is a representative
-example.
+Of those 54 types, 40 of them are records. They can have up to 11 fields, but
+most of them only have a few. The `Mark` data type is a representative example:
 
 ``` haskell
 data Mark
@@ -25,7 +24,7 @@ data Mark
 ```
 
 Of the 14 remaining types, 10 are wrappers. Each has a single named field. For
-example, an `UpdatedReplication` wraps a list of attributes.
+example, an `UpdatedReplication` wraps a list of attributes:
 
 ``` haskell
 newtype UpdatedReplication
@@ -33,7 +32,7 @@ newtype UpdatedReplication
 ```
 
 The last 4 types are enumerations. The largest of these has 29 constructors,
-but the others, like `RemoteId`, are pretty small.
+but the others, like `RemoteId`, are pretty small:
 
 ``` haskell
 data RemoteId
@@ -77,7 +76,7 @@ data T = C deriving ()
 ```
 
 Similarly, we could set `CLASSES` to the comma-separated list of type classes
-we want to derive.
+we want to derive:
 
 ``` haskell
 -- ghc -D CLASSES='Eq, Ord, Read, Show'
@@ -104,26 +103,27 @@ $ apt-get install ghc-8.2.1
 ## Benchmark
 
 Now that we've got a bunch of data types, a way to dynamically change the list
-of type classes to derive, and a bunch of versions of GHC, we can put it all
+of type classes to derive, and a slew of GHC versions, we can put it all
 together into a single benchmark. I'm going to use Gabriel Gonzalez's [Bench][]
 tool to handle timing the commands and recording the results.
 
 For starters, we can compile our module with no type classes on the latest GHC
 to get a baseline. The `-fforce-recomp` flag forces GHC to recompile the module
-even though it hasn't changed between runs.
+even though it hasn't changed between runs:
 
 ``` shell
 $ bench 'ghc-8.2.1 -D CLASSES="" -fforce-recomp Deriving.hs'
 ```
 
-After that we can derive all the type classes in `base` (except `Bounded` and `Enum`).
+After that we can derive all the type classes in `base` (except `Bounded` and
+`Enum`):
 
 ``` shell
 $ bench 'ghc-8.2.1 -D CLASSES="Data, Eq, Ord, Read, Show, Typeable" -fforce-recomp Deriving.hs'
 ```
 
 And finally we can run the same commands with different versions of GHC to see
-how they compare.
+how they compare:
 
 ``` shell
 $ bench \
@@ -142,33 +142,11 @@ which includes raw, plain text, CSV, and JSON formats.
 And now, the moment you've been waiting for! For GHC 8.2.1, deriving all the
 `base` type classes is *12 times slower* than deriving none of them.
 
-Type classes            | Build time (ms)
----                     | ---
-none                    | 326
-`Typeable`              | 332
-`Eq`                    | 597
-`Show`                  | 982
-`Ord` (and `Eq`)        | 1153
-`Data` (and `Typeable`) | 1380
-`Read`                  | 1449
-all                     | 3882
-
 [![deriving performance][]][deriving performance]
 
 The good news is that GHC 8.2.1 is *1.2 times faster* than 8.0.2, which was the
 slowest release I tested. In fact, GHC 8.2.1 is as fast as 7.8.4, which was the
 fastest release I tested.
-
-GHC version | Build time (ms)
----         | ---
-7.0.4       | 4233
-7.2.2       | 4217
-7.4.2       | 4090
-7.6.3       | 4508
-7.8.4       | 3840
-7.10.3      | 4489
-8.0.2       | 4643
-8.2.1       | 3882
 
 [![GHC performance][]][GHC performance]
 
