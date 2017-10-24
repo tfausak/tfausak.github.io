@@ -5,15 +5,11 @@ title: About
 
 # {{ page.title }}
 
-Howdy! My name is Taylor Fausak. I am a 27-year-old software developer
-living in Dallas, Texas. I currently work for [Front Row][1]. I studied
-Computer Science at [UT Austin][2] for a while, but I don't have
-anything to show for it.
+Howdy! My name is Taylor Fausak. I am a software developer living in Texas. The
+best way to reach me is by sending an email to [taylor@fausak.me][]. To find me
+at other places on the web, check [my Keybase profile][].
 
-The best way to reach me is by sending an email to [taylor@fausak.me][3]. To
-find me at other places on the web, check [my Keybase profile][4].
-
-![Taylor Fausak][5]
+![Portrait][]
 
 ## Projects
 
@@ -103,26 +99,23 @@ find me at other places on the web, check [my Keybase profile][4].
   learn about document-based data stores and the XML toolchain, including XPath
   and XSLT.
 
-[1]: https://www.frontrowed.com
-[2]: https://www.utexas.edu
-[3]: mailto:taylor+honeypot@fausak.me
-[4]: https://keybase.io/taylorfausak
-[5]: /static/images/taylor-fausak.jpg
-
-[activeinteraction]: https://github.com/orgsync/active_interaction
-[aaron lasseigne]: https://aaronlasseigne.com
-[stoplight]: https://github.com/orgsync/stoplight
-[cameron desautels]: https://camdez.com
-[haskeleton]: https://github.com/tfausak/haskeleton
-[rattletrap]: https://github.com/tfausak/rattletrap
-[neon]: https://github.com/tfausak/purescript-neon
-[flow]: https://github.com/tfausak/flow
-[wuss]: https://github.com/tfausak/wuss
-[strive]: https://github.com/tfausak/strive
-[erudite]: https://github.com/tfausak/erudite
-[delay]: https://github.com/tfausak/delay
-[blunt]: https://github.com/tfausak/blunt
-[ledger]: https://github.com/asm-products/ledger-backend
-[moxen]: https://github.com/tfausak/moxen
-[mad minute]: https://github.com/tfausak/MadMinute
+[Aaron Lasseigne]: https://aaronlasseigne.com
+[ActiveInteraction]: https://github.com/orgsync/active_interaction
 [bdbxml-jukebox]: https://github.com/tfausak/bdbxml-jukebox
+[Blunt]: https://github.com/tfausak/blunt
+[Cameron Desautels]: https://camdez.com
+[Delay]: https://github.com/tfausak/delay
+[Erudite]: https://github.com/tfausak/erudite
+[Flow]: https://github.com/tfausak/flow
+[Haskeleton]: https://github.com/tfausak/haskeleton
+[Ledger]: https://github.com/asm-products/ledger-backend
+[Mad Minute]: https://github.com/tfausak/MadMinute
+[Moxen]: https://github.com/tfausak/moxen
+[my Keybase profile]: https://keybase.io/taylorfausak
+[Neon]: https://github.com/tfausak/purescript-neon
+[Portrait]: /static/images/taylor-fausak.jpg
+[Rattletrap]: https://github.com/tfausak/rattletrap
+[Stoplight]: https://github.com/orgsync/stoplight
+[Strive]: https://github.com/tfausak/strive
+[taylor@fausak.me]: mailto:taylor+honeypot@fausak.me
+[Wuss]: https://github.com/tfausak/wuss
