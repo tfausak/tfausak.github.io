@@ -166,7 +166,20 @@ todo
 
 <h2 name="question-21"><a href="question-21">21</a>: Which language extensions would you like to be enabled by default?</h2>
 
-todo
+Votes | Language extension
+---   | ---
+512   | `OverloadedStrings`
+367   | `BangPatterns`
+359   | `GADTs`
+337   | `DeriveFunctor`
+336   | `DeriveGeneric`
+331   | `LambdaCase`
+317   | `ScopedTypeVariables`
+276   | `DeriveFoldable`
+276   | `RankNTypes`
+268   | `GeneralizedNewtypeDeriving`
+
+*Download these responses as a [CSV](/static/pages/2017-11-15-language-extensions.csv).*
 
 <h2 name="question-22"><a href="question-22">22</a>: Which build tools do you use?</h2>
 
