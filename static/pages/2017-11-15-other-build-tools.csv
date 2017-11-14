@@ -1,0 +1,31 @@
+"(Nix obviously uses Cabal underneath, but I don’t want to break your stats)",1
+Bazel,1
+Buck,2
+Custom,1
+Etlas,2
+Gnumake,1
+Halcyon,1
+Haskell for Mac,1
+HaskellForMac,1
+"I don't do big projects, and buld tools get in the way",1
+In-house,1
+Inhouse build tool based on Shake,1
+Mafia,5
+None. I do small stuff.,1
+Own,1
+Python script wrapper around ghc --make,1
+Shake,1
+W,1
+bazel,1
+buck,1
+cabal new-xxx (love it!),1
+hpack,2
+mafia,5
+make,4
+make+ghc,1
+makepkg,1
+not sure,1
+self-written makefiles,1
+shake,1
+sometimes Halcyon,1
+tinc,1

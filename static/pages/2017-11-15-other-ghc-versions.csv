@@ -1,0 +1,20 @@
+7.4.*,1
+7.4.2,1
+7.6.1,1
+7.6.2,1
+7.6.3,1
+"7.6.3, 6.12.3",1
+8.2.2-rc1,1
+Dont know,1
+GHCJS HEAD,1
+Generally the newest,1
+Ghcjs,1
+HEAD,12
+Latest in FreeBSD pkg,1
+No preference. Use whatever stack / stackage provides.,1
+"Not something I keep track of, but I go through a lot of versions to find one that makes GHCJS/Reflex stuff happy",1
+Not sure,1
+Whatever Stack lts has,1
+"all rcs, HEAD",1
+also HEAD for occasional testing especially on OpenBSD,1
+unsure? `stack new new-template` or whatever the syntax is I always get it backwards,1
