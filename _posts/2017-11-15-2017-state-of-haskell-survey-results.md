@@ -116,11 +116,41 @@ you might still give up on it because it's either too hard or simply not worth i
 
 <h2 name="question-4"><a href="#question-4">4</a>: If you stopped using Haskell, why did you stop? <a href="#top">&#x2191;</a></h2>
 
-todo
+> Fascinating language and I really wanted to like it, but:
+> not beginner-friendly;
+> hard to debug errors;
+> hard to reason about performance;
+> relative lack of use in industry;
+> fewer libraries;
+> lack of a well-supported and actively maintained way to target JS.
+
+A common thread in these answers was finishing a Haskell project and moving on to something else.
+Sometimes that meant completing a school assignment where the next thing was in a different language.
+Other times it meant wrapping up a project and decided that it wasn't worth it to keep using Haskell.
+
+Another common response was a lack of support at work.
+Usually this meant that Haskell didn't make the short list of blessed languages.
+Sometimes it meant that Haskell couldn't be introduced to the rest of the team
+because it's not familiar enough or too difficult to teach.
+
+In both cases it was common to mention switching to another language.
+Scala, F#, Rust, and PureScript were popular choices.
 
 <h2 name="question-5"><a href="#question-5">5</a>: If you don't use Haskell, why not? <a href="#top">&#x2191;</a></h2>
 
-todo
+> The barrier to entry is huge.
+> The install size of the tooling is huge.
+> Installing or building from source any tool built in Haskell inevitably involves downloading hundreds of megabytes of stuff.
+> The fascination with concepts and naming of concepts that don't appear elsewhere is off-putting to beginners.
+
+The most common reason for not using Haskell is that it's hard to learn.
+In particular, the documentation is bad and there is a lack of tutorials covering beginner/intermediate topics.
+
+Problems with tooling also contribute to people not using Haskell.
+In particular, there is no good Haskell IDE.
+Also the whole Haskell toolchain uses a lot of disk space.
+
+It was also common to see complaints about Haskell being too academic or not practical enough for real world usage.
 
 <h2 name="question-6"><a href="#question-6">6</a>: How long have you been using Haskell? <a href="#top">&#x2191;</a></h2>
 
@@ -166,7 +196,13 @@ That's great!
 
 <h2 name="question-10"><a href="#question-10">10</a>: If you don't use Haskell at work, why not? <a href="#top">&#x2191;</a></h2>
 
-todo
+> We usually do not have the need for anything faster (in execution) than Python
+> and Python cuts development times by offering multitude of libraries.
+> Static typing usually also gets trumped by functional tests.
+
+Overall the answers to this question were similar to [question 4](#question-4).
+One thing worth pointing out here is that many people are the only Haskell users at their workplace.
+Convincing the rest of their team to use Haskell doesn't seem feasible.
 
 <h2 name="question-11"><a href="#question-11">11</a>: What is the total size of all the Haskell projects you work on? <a href="#top">&#x2191;</a></h2>
 
@@ -230,7 +266,24 @@ However it also added some new big ticket features like the Backpack module syst
 
 <h2 name="question-17"><a href="#question-17">17</a>: If upgrading GHC broke your code in the last year, how did it break? <a href="#top">&#x2191;</a></h2>
 
-todo
+> GHC fixed several issues around overlapping instances lately,
+> that triggered warning in my code base.
+> Since we use `-Wall` and `-Werror` as a policy with the code base,
+> the builds broke.
+> Never the less I was really happy to find out errors in my understanding around the issues
+> and fixing my code actually improved it very much.
+
+Most of the breakage included basic stuff like AMP, FTP, and dependency resolution.
+Finding a set of dependencies that works with the latest compiler is a common problem.
+
+The next biggest chunk of breakage included advanced features like
+the GHC API, Template Haskell, generics, and language extensions.
+Many users admitted that breaking changes weren't surprising here,
+but they still needed to be dealt with.
+
+A significant number of people mentioned that they build with `-Werror`
+and upgrading introduced new warnings that broke their build.
+Most were happy to have new warnings and didn't see this as a problem.
 
 <h2 name="question-18"><a href="#question-18">18</a>: If you use GHC, which versions of it do you use? <a href="#top">&#x2191;</a></h2>
 
@@ -256,7 +309,17 @@ given that GHC already has the features most people want and it's an intimidatin
 
 <h2 name="question-20"><a href="#question-20">20</a>: If you have not contributed to GHC, why not? <a href="#top">&#x2191;</a></h2>
 
-todo
+> Organizing everything through mailing lists seems so complicated and outdated.
+> It would be much easier to get involved if everything was on GitHub.
+> By comparison, I have contributed to `rustc` multiple times.
+
+Most people didn't see a need to contribute to GHC.
+For those that did, they either didn't have enough time
+or felt they lacked the experience necessary to contribute.
+Many people felt that they needed to be an expert Haskell developer to contribute to GHC.
+
+Complaints about GHC's development and build processes were also common.
+Many people expressed an interest in GHC being hosted on GitHub.
 
 <h2 name="question-21"><a href="#question-21">21</a>: Which language extensions would you like to be enabled by default? <a href="#top">&#x2191;</a></h2>
 
@@ -343,7 +406,22 @@ but it's almost an even split.
 
 <h2 name="question-28"><a href="#question-28">28</a>: If you have not contributed to an open source Haskell project, why not? <a href="#top">&#x2191;</a></h2>
 
-todo
+> Very unclear how to engage.
+> I don't know if my contributions would be taken seriously
+> or will be reprimanded because of my lack of knowledge on Haskell.
+> Just to be honest,
+> I don't know how much I don't know
+> and feel my contributions would be useless.
+
+A lack of time was the biggest hurdle to contributing to open source Haskell projects.
+This makes sense when you consider that most Haskell users are either hobbyists or students.
+They are likely to spend their time on their own projects.
+
+Many people wanted to contribute to something
+but felt that they lacked the skill to make a meaningful contribution.
+As the maintainer of several open source Haskell projects, I want to take a moment to say:
+I welcome contributions from Haskell users of all skill levels!
+Please open an issue or a PR, even if you just started learning Haskell today.
 
 <h2 name="question-29"><a href="#question-29">29</a>: How do you interact with the Haskell community? <a href="#top">&#x2191;</a></h2>
 
@@ -488,12 +566,34 @@ This is a common complaint about Haskell that its pervasive laziness contributes
 
 <h2 name="question-43"><a href="#question-43">43</a>: In your opinion, what is Haskell's biggest problem? <a href="#top">&#x2191;</a></h2>
 
-todo
+> Haskell's strongest point is its biggest problem at the same time:
+> it's too powerful.
+> One can express pretty much anything,
+> but there are no strongly accepted best practices or design patterns for a lot of tasks.
+
+Almost 1,000 people answered this question, giving more than 20,000 words of feedback.
+It's nearly impossible to distill it down into key points.
+
+Most of the big problems were covered by other questions and expanded upon here.
 
 <h2 name="question-44"><a href="#question-44">44</a>: If you could change anything about Haskell's community, what would it be? <a href="#top">&#x2191;</a></h2>
 
-todo
+> I think the community has a lot of very grown-up, intelligent, and thoughtful people, generally open to exchange.
+> Having said that, I also have the impression that we tend to over-complicate a lot of things instead of trying to get the simplest possible solutions to a lot of problems.
+
+Most people want the Haskell community to be bigger.
+To that end, many people want the community to be less divisive (for example Stack versus Cabal)
+or less elitist (for example putting down other languages).
+Also more beginner and intermediate documentation and tutorials would help.
 
 <h2 name="question-45"><a href="#question-45">45</a>: Do you have any other comments about Haskell, its ecosystem, its community, or this survey? <a href="#top">&#x2191;</a></h2>
 
-todo
+> Too bad the questions forced me to show the bad side of Haskell.
+> This is by far my preferred language.
+> The one I think in when I close my eyes.
+> When I code in Haskell after a day having coding in Clojure I'm so relieved.
+
+It's hard to summarize these responses as they varied quite a bit.
+Even so, most of them were positive and hopeful.
+In spite of the gripes,
+people generally like Haskell and its community.
