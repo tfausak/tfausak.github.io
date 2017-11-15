@@ -126,7 +126,7 @@ you might still give up on it because it's either too hard or simply not worth i
 
 A common thread in these answers was finishing a Haskell project and moving on to something else.
 Sometimes that meant completing a school assignment where the next thing was in a different language.
-Other times it meant wrapping up a project and decided that it wasn't worth it to keep using Haskell.
+Other times it meant wrapping up a project and deciding that it wasn't worth it to keep using Haskell.
 
 Another common response was a lack of support at work.
 Usually this meant that Haskell didn't make the short list of blessed languages.
@@ -144,10 +144,11 @@ Scala, F#, Rust, and PureScript were popular choices.
 > The fascination with concepts and naming of concepts that don't appear elsewhere is off-putting to beginners.
 
 The most common reason for not using Haskell is that it's hard to learn.
-In particular, the documentation is bad and there is a lack of tutorials covering beginner/intermediate topics.
+In particular, the documentation is bad
+and there is a lack of tutorials covering beginner and intermediate topics.
 
 Problems with tooling also contribute to people not using Haskell.
-In particular, there is no good Haskell IDE.
+For example, there is no good Haskell IDE.
 Also the whole Haskell toolchain uses a lot of disk space.
 
 It was also common to see complaints about Haskell being too academic or not practical enough for real world usage.
@@ -161,6 +162,7 @@ It was also common to see complaints about Haskell being too academic or not pra
 Most people have been using Haskell for a long time.
 This is encouraging because it means learning and using Haskell is worth it to those people.
 However, the relative lack of new users is not great.
+Only 22% of Haskell users have been using it for less than a year.
 For next year's survey, I will be splitting the "more than a year" choice into more discrete choices.
 
 <h2 name="question-7"><a href="#question-7">7</a>: How frequently do you use Haskell? <a href="#top">&#x2191;</a></h2>
