@@ -11,7 +11,7 @@ Download the anonymized responses as [JSON](/static/pages/2017-11-15-responses-a
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-date.svg) or a [PNG](/static/images/2017/11/15/chart-date.png).*
 
-The survey opened on the morning of Wednesday, November 1, 2017.
+I opened the survey in the morning on Wednesday, November 1, 2017.
 It stayed open for one week.
 Most people responded in the first few days.
 A significant number of people responded on the last day.
@@ -94,7 +94,8 @@ Hopefully some of you will consider using Haskell again!
 Most people used Haskell for a significant amount of time before stopping.
 Haskell has a reputation for being hard to learn.
 I think this data supports that reputation.
-Even if you've been using it for a year, you might still give up on Haskell because it's too hard or simply not worth it.
+Even if you have been using Haskell for a year,
+you might still give up on it because it's either too hard or simply not worth it.
 
 <h2 name="question-4"><a href="#question-4">4</a>: If you stopped using Haskell, why did you stop?</h2>
 
@@ -112,7 +113,7 @@ todo
 
 Most people have been using Haskell for a long time.
 This is encouraging because it means learning and using Haskell is worth it to those people.
-However the relative lack of new users is not great.
+However, the relative lack of new users is not great.
 For next year's survey, I will be splitting the "more than a year" choice into more discrete choices.
 
 <h2 name="question-7"><a href="#question-7">7</a>: How frequently do you use Haskell?</h2>
@@ -131,7 +132,9 @@ That means Haskell is compelling enough to use again and again for hobby project
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-used-at.svg) or a [PNG](/static/images/2017/11/15/chart-used-at.png).*
 
-todo
+Almost everyone uses Haskell at home.
+Haskell is also a popular choice at school.
+Unfortunately it's not as popular at work, but see the next question.
 
 <h2 name="question-9"><a href="#question-9">9</a>: How do you use Haskell at work?</h2>
 
@@ -139,7 +142,10 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-work-usage.svg) or a [PNG](/static/images/2017/11/15/chart-work-usage.png).*
 
-todo
+I'm not sure why fewer than 200 people said they use Haskell at work in the previous question
+but more than 600 said they use Haskell at work at least some of the time in this question.
+Regardless, there are more people who use Haskell at work than those who don't.
+That's great!
 
 <h2 name="question-10"><a href="#question-10">10</a>: If you don't use Haskell at work, why not?</h2>
 
@@ -151,7 +157,8 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-total-size.svg) or a [PNG](/static/images/2017/11/15/chart-total-size.png).*
 
-todo
+Small to medium size Haskell projects are the most popular.
+That being said, there are a fair number of large to huge Haskell projects out there.
 
 <h2 name="question-12"><a href="#question-12">12</a>: Which platforms do you develop on?</h2>
 
@@ -159,7 +166,9 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-build-platforms.svg) or a [PNG](/static/images/2017/11/15/chart-build-platforms.png). Download the "other" responses as a [CSV](/static/pages/2017-11-15-other-build-platforms.csv).*
 
-todo
+Linux is far and away the most popular build platform.
+macOS comes in second with Windows bringing up the rear.
+A BSD was the most common choice for people not using one of the big three.
 
 <h2 name="question-13"><a href="#question-13">13</a>: Which platforms do you target?</h2>
 
@@ -167,7 +176,9 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-target-platforms.svg) or a [PNG](/static/images/2017/11/15/chart-target-platforms.png). Download the "other" responses as a [CSV](/static/pages/2017-11-15-other-target-platforms.csv).*
 
-todo
+This mirrors the build platforms.
+It's interesting to note that more people target Windows than build on it.
+The opposite is true for macOS.
 
 <h2 name="question-14"><a href="#question-14">14</a>: Which Haskell compilers do you use?</h2>
 
@@ -175,7 +186,9 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-compilers.svg) or a [PNG](/static/images/2017/11/15/chart-compilers.png). Download the "other" responses as a [CSV](/static/pages/2017-11-15-other-compilers.csv).*
 
-todo
+GHC won, hands down.
+For all intents and purposes, Haskell is GHC.
+The most popular "other" response was GHCJS.
 
 <h2 name="question-15"><a href="#question-15">15</a>: If you use GHC, how do you install it?</h2>
 
@@ -183,7 +196,10 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-compiler-install.svg) or a [PNG](/static/images/2017/11/15/chart-compiler-install.png).*
 
-todo
+Stack is clearly the preferred way to install GHC.
+It's more than three times as popular as operating system packages in second place.
+I did receive feedback that the official binaries and Nix were missing.
+I'll be sure to add those to next year's survey.
 
 <h2 name="question-16"><a href="#question-16">16</a>: If you use GHC, has upgrading it broken your code in the last year?</h2>
 
@@ -191,7 +207,9 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-broken-by-compiler.svg) or a [PNG](/static/images/2017/11/15/chart-broken-by-compiler.png).*
 
-todo
+Upgrading GHC was not a problem for 84% of people in the past year.
+This makes sense because the 8.2.1 release focused on performance and stability.
+However it also added some new big ticket features like the Backpack module system.
 
 <h2 name="question-17"><a href="#question-17">17</a>: If upgrading GHC broke your code in the last year, how did it break?</h2>
 
@@ -203,7 +221,11 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-ghc-versions.svg) or a [PNG](/static/images/2017/11/15/chart-ghc-versions.png). Download the "other" responses as a [CSV](/static/pages/2017-11-15-other-ghc-versions.csv).*
 
-todo
+Most people use a version of GHC that was released in the past year.
+Going back two years to GHC 7.10.3 covers 90% of the user base.
+My takeaway here is that even though operating system packages might provide older versions of GHC,
+most people will be using a newer version.
+Don't spend too much time supporting old versions of GHC.
 
 <h2 name="question-19"><a href="#question-19">19</a>: Have you ever contributed to GHC?</h2>
 
@@ -211,7 +233,9 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-ghc-contributor.svg) or a [PNG](/static/images/2017/11/15/chart-ghc-contributor.png).*
 
-todo
+Only 1 out of every 10 Haskell users have contributed to GHC.
+I am not too surprised by these results,
+given that GHC already has the features most people want and it's an intimidating code base.
 
 <h2 name="question-20"><a href="#question-20">20</a>: If you have not contributed to GHC, why not?</h2>
 
@@ -234,7 +258,10 @@ Votes | Language extension
 
 *Download these responses as a [CSV](/static/pages/2017-11-15-language-extensions.csv).*
 
-todo
+These are the top ten desired language extensions.
+Overloaded strings is by far the most popular.
+However I encourage you to look at the CSV,
+as 42 language extensions got more than 100 votes.
 
 <h2 name="question-22"><a href="#question-22">22</a>: Which build tools do you use?</h2>
 
@@ -242,7 +269,9 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-build-tools.svg) or a [PNG](/static/images/2017/11/15/chart-build-tools.png). Download the "other" responses as a [CSV](/static/pages/2017-11-15-other-build-tools.csv).*
 
-todo
+Stack is used by more than twice as many people as Cabal.
+Both Nix and raw `ghc-pkg` are used by a surprising number of people.
+The most popular build tool other than the top four is Mafia.
 
 <h2 name="question-23"><a href="#question-23">23</a>: What is your preferred build tool?</h2>
 
@@ -250,7 +279,10 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-preferred-build-tool.svg) or a [PNG](/static/images/2017/11/15/chart-preferred-build-tool.png). Download the "other" responses as a [CSV](/static/pages/2017-11-15-other-preferred-build-tool.csv).*
 
-todo
+In spite of being a relative newcomer,
+Stack is clearly the preferred build tool for Haskell users.
+It was first released a little over two years ago.
+Now five times the number of people use it as their preferred build tool compared to Cabal.
 
 <h2 name="question-24"><a href="#question-24">24</a>: Which editors do you use for Haskell?</h2>
 
@@ -258,7 +290,10 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-editors.svg) or a [PNG](/static/images/2017/11/15/chart-editors.png). Download the "other" responses as a [CSV](/static/pages/2017-11-15-other-editors.csv).*
 
-todo
+Vim and Emacs, the old standbys, are the favorites here.
+Interestingly Haskell users are split evenly between the two editors.
+The Electron-based Visual Studio Code and Atom editors are both pretty popular.
+The most popular editor not listed here is IntelliJ IDEA.
 
 <h2 name="question-25"><a href="#question-25">25</a>: Which version control systems do you use for Haskell?</h2>
 
@@ -266,7 +301,8 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-source-controllers.svg) or a [PNG](/static/images/2017/11/15/chart-source-controllers.png). Download the "other" responses as a [CSV](/static/pages/2017-11-15-other-source-controllers.csv).*
 
-todo
+Git is easily the most popular version control system for Haskell users.
+Interestingly the new VCS Pijul was the most popular "other" choice.
 
 <h2 name="question-26"><a href="#question-26">26</a>: Where do you get Haskell packages from?</h2>
 
@@ -274,7 +310,10 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-package-repositories.svg) or a [PNG](/static/images/2017/11/15/chart-package-repositories.png). Download the "other" responses as a [CSV](/static/pages/2017-11-15-other-package-repositories.csv).*
 
-todo
+Stackage barely edged out Hackage as the most popular package repository.
+That means some people never need to get a package that isn't in their Stackage snapshot.
+Downloading source is also a surprisingly popular method of getting Haskell packages.
+The most popular choice not listed here was Nix.
 
 <h2 name="question-27"><a href="#question-27">27</a>: Have you contributed to an open source Haskell project?</h2>
 
@@ -282,7 +321,8 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-open-source-contributor.svg) or a [PNG](/static/images/2017/11/15/chart-open-source-contributor.png).*
 
-todo
+More people are open source contributors than not,
+but it's almost an even split.
 
 <h2 name="question-28"><a href="#question-28">28</a>: If you have not contributed to an open source Haskell project, why not?</h2>
 
@@ -294,7 +334,9 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-communities.svg) or a [PNG](/static/images/2017/11/15/chart-communities.png). Download the "other" responses as a [CSV](/static/pages/2017-11-15-other-communities.csv).*
 
-todo
+Reddit is the main hub for the Haskell community.
+Twitter, IRC, Stack Overflow, and mailing lists are pretty much in a four way tie for second place.
+The most popular choices not listed here are GitHub and Gitter.
 
 <h2 name="question-30"><a href="#question-30">30</a>: How would you rate your proficiency in Haskell?</h2>
 
@@ -302,7 +344,8 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-proficiency.svg) or a [PNG](/static/images/2017/11/15/chart-proficiency.png).*
 
-todo
+Most people consider themselves intermediate Haskellers.
+Haskell is a big, complicated language, and few people consider themselves experts of it.
 
 <h2 name="question-31"><a href="#question-31">31</a>: I am satisfied with Haskell as a language.</h2>
 
@@ -310,7 +353,10 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-language-satisfaction.svg) or a [PNG](/static/images/2017/11/15/chart-language-satisfaction.png).*
 
-todo best
+(Questions 31 through 42 rated things on a Likert scale.
+By summing the responses, the twelve questions can be compared against each other.)
+Rank: 1 of 12 (best).
+Haskell users are extremely satisfied with the language itself.
 
 <h2 name="question-32"><a href="#question-32">32</a>: I am satisfied with Haskell's build tools (such as cabal-install or Stack).</h2>
 
@@ -318,7 +364,8 @@ todo best
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-build-tool-satisfaction.svg) or a [PNG](/static/images/2017/11/15/chart-build-tool-satisfaction.png).*
 
-todo
+Rank: 4 of 12.
+Haskell users are satisfied with the build tools.
 
 <h2 name="question-33"><a href="#question-33">33</a>: I am satisfied with Haskell's package repositories (such as Hackage or Stackage).</h2>
 
@@ -326,7 +373,8 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-package-repository-satisfaction.svg) or a [PNG](/static/images/2017/11/15/chart-package-repository-satisfaction.png).*
 
-todo
+Rank: 3 of 12.
+Haskell users are satisfied with the package repositories.
 
 <h2 name="question-34"><a href="#question-34">34</a>: I can find Haskell libraries for the things that I need.</h2>
 
@@ -334,7 +382,9 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-library-existence-satisfaction.svg) or a [PNG](/static/images/2017/11/15/chart-library-existence-satisfaction.png).*
 
-todo
+Rank: 5 of 12.
+Haskell users are satisfied with the library selection.
+I was surprised to see this one ranked so high given that Haskell doesn't have nearly as many libraries as other languages like JavaScript or Rust.
 
 <h2 name="question-35"><a href="#question-35">35</a>: I think Haskell libraries are high quality.</h2>
 
@@ -342,7 +392,10 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-library-quality-satisfaction.svg) or a [PNG](/static/images/2017/11/15/chart-library-quality-satisfaction.png).*
 
-todo
+Rank: 2 of 12.
+Haskell users are extremely satisfied with the quality of libraries.
+It's interesting to compare this result to the next two questions.
+Haskell libraries are high quality but poorly documented and hard to choose between.
 
 <h2 name="question-36"><a href="#question-36">36</a>: I think Haskell libraries are well documented.</h2>
 
@@ -350,7 +403,9 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-library-documentation-satisfaction.svg) or a [PNG](/static/images/2017/11/15/chart-library-documentation-satisfaction.png).*
 
-todo
+Rank: 10 of 12.
+Haskell users are unsatisfied with library documentation.
+This is a common complaint.
 
 <h2 name="question-37"><a href="#question-37">37</a>: I can easily compare Haskell libraries to select the best one.</h2>
 
@@ -358,7 +413,11 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-library-comparison-satisfaction.svg) or a [PNG](/static/images/2017/11/15/chart-library-comparison-satisfaction.png).*
 
-todo worst
+Rank: 12 of 12 (worst).
+Haskell users are extremely unsatisfied with the ability to compare libraries.
+I am not at all surprised to see this at the bottom of the list.
+There is no good way to compare libraries that solve the same problem.
+In fact, there's often no good way to even discover other similar libraries.
 
 <h2 name="question-38"><a href="#question-38">38</a>: I find Haskell libraries easy to use.</h2>
 
@@ -366,7 +425,9 @@ todo worst
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-library-ease-satisfaction.svg) or a [PNG](/static/images/2017/11/15/chart-library-ease-satisfaction.png).*
 
-todo
+Rank: 9 of 12.
+Haskell users are unsatisfied with the ease of libraries.
+The lack of good documentation no doubt contributes to this.
 
 <h2 name="question-39"><a href="#question-39">39</a>: I find that Haskell libraries provide a stable API.</h2>
 
@@ -374,7 +435,8 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-library-stability-satisfaction.svg) or a [PNG](/static/images/2017/11/15/chart-library-stability-satisfaction.png).*
 
-todo
+Rank: 7 of 12.
+Haskell users are satisfied with library stability.
 
 <h2 name="question-40"><a href="#question-40">40</a>: I find that Haskell libraries work well with other libraries.</h2>
 
@@ -382,7 +444,8 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-library-compatibility-satisfaction.svg) or a [PNG](/static/images/2017/11/15/chart-library-compatibility-satisfaction.png).*
 
-todo
+Rank: 8 of 12.
+Haskell users are satisfied with library compatibility.
 
 <h2 name="question-41"><a href="#question-41">41</a>: I find that Haskell libraries perform well.</h2>
 
@@ -390,7 +453,8 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-library-performance-satisfaction.svg) or a [PNG](/static/images/2017/11/15/chart-library-performance-satisfaction.png).*
 
-todo
+Rank: 6 of 12.
+Haskell users are satisfied with library performance.
 
 <h2 name="question-42"><a href="#question-42">42</a>: I can easily reason about the performance of my Haskell programs.</h2>
 
@@ -398,7 +462,12 @@ todo
 
 *Download this image as an [SVG](/static/images/2017/11/15/chart-program-performance-satisfaction.svg) or a [PNG](/static/images/2017/11/15/chart-program-performance-satisfaction.png).*
 
-todo
+Rank: 11 of 12.
+Haskell users are extremely unsatisfied with their ability to reason about the performance of their programs.
+This is interesting to compare to the previous question
+because even though Haskell libraries are performant,
+making performant programs is still hard.
+This is a common complaint about Haskell that its pervasive laziness contributes to.
 
 <h2 name="question-43"><a href="#question-43">43</a>: In your opinion, what is Haskell's biggest problem?</h2>
 
