@@ -1,0 +1,27 @@
+Buck,1
+Custom,1
+Depends on the project,1
+Etlas,1
+Gnumake,1
+Haven’t really got a build to work with any dependencies after 8.2.1,1
+Mafia,4
+Not applicable.,1
+Shake,1
+Undecided,1
+bazel,1
+cabal new-build,1
+don't really have a preference,1
+ghc --make,1
+gradle,1
+internal,1
+mafia,5
+make,2
+make+ghc,1
+makefiles,1
+none,1
+"none, they all suck",1
+not sure,1
+nothing,1
+shake,1
+"so far, everyone I've tried has been pretty bad",1
+tinc,1
