@@ -14,7 +14,7 @@ The responses are licensed under the [CC BY 4.0](https://creativecommons.org/lic
 **Important note:**
 The anonymized responses do not currently include the answers to the free response questions.
 *If you want your responses excluded from the anonymized dataset,
-send an email to <info@haskelweekly.news> by November 22.*
+send an email to <info@haskellweekly.news> by November 22.*
 Otherwise your responses will be included in the anonymized dataset when I update it on November 22.
 
 Before we look at the responses themselves,
