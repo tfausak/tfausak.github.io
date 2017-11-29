@@ -8,14 +8,11 @@ To the 1,335 people that responded to the survey:
 Thank you!
 I appreciate your feedback.
 
-You can download the anonymized responses as [JSON](/static/pages/2017-11-15-responses-anonymized.json.zip) or [CSV](/static/pages/2017-11-15-responses-anonymized.csv.zip).
+You can download the anonymized responses as [JSON](/static/pages/2017-11-29-responses-anonymized.json.zip) or [CSV](/static/pages/2017-11-29-responses-anonymized.csv.zip).
 The responses are licensed under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
 
-**Important note:**
-The anonymized responses do not currently include the answers to the free response questions.
-*If you want your responses excluded from the anonymized dataset,
-send an email to <info@haskellweekly.news> by November 22.*
-Otherwise your responses will be included in the anonymized dataset when I update it on November 22.
+**November 29, 2017 update:**
+The anonymized responses, both JSON and CSV, now include the answers to free response questions.
 
 Before we look at the responses themselves,
 let's take a look at when they were submitted.
