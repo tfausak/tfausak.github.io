@@ -3,7 +3,7 @@ title: 'Haskeleton: a Haskell project skeleton'
 ---
 
 <aside>Haskeleton is now available as a <a href="https://docs.haskellstack.org/en/stable/README/">Stack</a> template. Create a new project with
-<code>stack new haskeleton your-project</code>.</aside>
+<code>stack new your-project haskeleton</code>.</aside>
 
 I'm new to Haskell. I've learned enough to feel comfortable writing programs in
 it. I can solve code katas like [exercism.io][1], [H-99][2], and [Project
