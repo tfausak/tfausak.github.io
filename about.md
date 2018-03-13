@@ -13,6 +13,10 @@ at other places on the web, check [my Keybase profile][].
 
 ## Projects
 
+These are things that I have worked on that were noteworthy in some way. Not
+everything made the cut. This list is likely to be out of date. You can see a
+complete list of my projects [on GitHub][].
+
 - [ActiveInteraction][] (Ruby):
   ActiveInteraction confidently manages business logic. It is an implementation
   of the command pattern in Ruby. [Aaron Lasseigne][] and I developed it to add
@@ -113,6 +117,7 @@ at other places on the web, check [my Keybase profile][].
 [Moxen]: https://github.com/tfausak/moxen
 [my Keybase profile]: https://keybase.io/taylorfausak
 [Neon]: https://github.com/tfausak/purescript-neon
+[on GitHub]: https://github.com/tfausak?tab=repositories&type=source
 [Portrait]: /static/images/taylor-fausak.jpg
 [Rattletrap]: https://github.com/tfausak/rattletrap
 [Stoplight]: https://github.com/orgsync/stoplight
