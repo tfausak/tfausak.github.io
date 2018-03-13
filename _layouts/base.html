@@ -3,6 +3,7 @@
 <html lang="en-us" prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
 
         <title>{% if page.title %}{{ page.title | escape }} &#xb7; {% endif %}{{ site.data.config.title | escape }}</title>
 
@@ -14,7 +15,6 @@
 
         <link href="{{ site.data.config.url }}{% if page.url != '/' %}{{ page.url }}{% endif %}" rel="canonical">
 
-        {% include apple.html %}
         {% include facebook.html %}
         {% include opengraph.html %}
         {% include pagination.html %}
