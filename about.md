@@ -5,7 +5,7 @@ title: About
 
 # {{ page.title }}
 
-Howdy! My name is Taylor Fausak. I am a software developer living in Texas. The
+Howdy! My name is Taylor Fausak. I am a software developer living in Florida. The
 best way to reach me is by sending an email to [taylor@fausak.me][]. To find me
 at other places on the web, check [my Keybase profile][].
 
