@@ -34,11 +34,6 @@ task :clean do
     static/images/favicon-32.png
     static/images/favicon-48.png
     static/images/favicon.ico
-    static/images/msapplication-TileImage.png
-    static/images/msapplication-square150x150logo.png
-    static/images/msapplication-square310x310logo.png
-    static/images/msapplication-square70x70logo.png
-    static/images/msapplication-wide310x150logo.png
     static/images/og-image.png
   ))
 end
@@ -72,11 +67,6 @@ def image(name, width, height = width, background: '#f5f5f5', rotate: true)
 end
 
 image('og-image', 300)
-image('msapplication-TileImage', 144, background: 'none')
-image('msapplication-wide310x150logo', 310, 150, background: 'none', rotate: false)
-[70, 150, 310].each do |size|
-  image("msapplication-square#{size}x#{size}logo", size, background: 'none')
-end
 [57, 60, 72, 76, 114, 120, 144, 152].each do |size|
   image("apple-touch-icon-#{size}x#{size}", size)
 end
