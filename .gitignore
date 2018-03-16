@@ -3,3 +3,5 @@
 /.sass-cache/
 /Gemfile.lock
 /static/images/favicon-*.png
+.bundle/
+vendor/
