@@ -4,7 +4,7 @@ title: 2018 State of Haskell Survey
 
 I am excited to announce the [2018 State of Haskell Survey](https://bit.ly/haskell2018)!
 This is the second annual State of Haskell survey.
-I am happy to say this this year the survey is co-sponsored by [Haskell Weekly](https://haskellweekly.news) and [Haskell.org](https://www.haskell.org).
+I am happy to say that this year the survey is co-sponsored by [Haskell Weekly](https://haskellweekly.news) and [Haskell.org](https://www.haskell.org).
 
 The goal of the survey is to better understand what people think of the Haskell programming language, together with its ecosystem and community.
 Whether you have never used Haskell or you use it every day, we want to hear from you!
