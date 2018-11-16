@@ -19,6 +19,8 @@ I encourage any interested parties to download the raw results, do their own ana
 You can download the anonymized responses as a [CSV][3], which is licensed under the [ODbL 1.0 license][4].
 
 1.  [Submission date](#q1)
+2.  [Do you use Haskell?](#q2)
+3.  [If you stopped using Haskell, how long did you use it before you stopped?](#q3)
 
 <h2 id="q1">Submission date</h2>
 <img alt="" src="/static/images/2018/11/16/1.png">
@@ -40,6 +42,15 @@ Date | Count
 2018-11-13 | 420
 2018-11-14 | 346
 2018-11-15 | 11
+
+<h2 id="q2">Do you use Haskell?</h2>
+<img alt="" src="/static/images/2018/11/16/2.png">
+
+Answer | Count
+--- | ---
+Yes | 4,935
+No, but I used to | 103
+No, I never have | 45
 
 [1]: {% post_url 2018-11-01-2018-state-of-haskell-survey %}
 [2]: {% post_url 2017-11-15-2017-state-of-haskell-survey-results %}
