@@ -21,6 +21,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 1.  [Submission date](#q1)
 2.  [Do you use Haskell?](#q2)
 3.  [If you stopped using Haskell, how long did you use it before you stopped?](#q3)
+4.  [If you do not use Haskell, why not?](#q4)
 
 <h2 id="q1">Submission date</h2>
 <img alt="" src="/static/images/2018/11/16/1.png">
@@ -51,6 +52,31 @@ Answer | Count
 Yes | 4,935
 No, but I used to | 103
 No, I never have | 45
+
+<h2 id="q3">If you stopped using Haskell, how long did you use it before you stopped?</h2>
+<img alt="" src="/static/images/2018/11/16/3.png">
+
+Answer | Count
+--- | ---
+Less than 1 day | 6
+1 day to 1 week | 11
+1 week to 1 month | 20
+1 month to 1 year | 66
+More than 1 year | 53
+
+<h2 id="q4">If you do not use Haskell, why not?</h2>
+<img alt="" src="/static/images/2018/11/16/4.png">
+
+Answer | Count
+--- | ---
+Haskell does not support the platforms I need | 12
+Haskell is too hard to learn | 44
+Haskell lacks critical features | 8
+Haskell lacks critical libraries | 30
+Haskell lacks critical tools | 31
+Haskell's documentation is not good enough | 35
+Haskell's performance is not good enough | 12
+My company doesn't use Haskell | 89
 
 [1]: {% post_url 2018-11-01-2018-state-of-haskell-survey %}
 [2]: {% post_url 2017-11-15-2017-state-of-haskell-survey-results %}
