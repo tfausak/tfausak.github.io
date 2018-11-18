@@ -1570,4 +1570,4 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 [2]: {% post_url 2017-11-15-2017-state-of-haskell-survey-results %}
 [3]: /static/pages/2018-11-16-2018-state-of-haskell-survey-results.csv.zip
 [4]: https://opendatacommons.org/licenses/odbl/
-[5]: https://gist.github.com/tfausak/cc381ddd0ddd8304cc3eae6250966f55/0f68d17adfd117ed8b727e1a15c7d554f3aaac59#file-main-hs-L29
+[5]: https://gist.github.com/tfausak/cc381ddd0ddd8304cc3eae6250966f55/782825c9e30034eff20954c7545d5fcdd0928a89#file-main-hs-L29
