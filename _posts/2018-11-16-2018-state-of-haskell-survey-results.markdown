@@ -2,16 +2,27 @@
 title: 2018 state of Haskell survey results
 ---
 
-The [2018 state of Haskell survey][1] opened at the start of November and closed a couple days ago.
+The [2018 state of Haskell survey][1] opened at the start of November and closed a few days ago.
 It was the second annual state of Haskell survey.
-The survey was co-sponsored by Haskell Weekly and Haskell.org.
+This year the survey was co-sponsored by Haskell Weekly and Haskell.org.
 
 Last year the [2017 state of Haskell survey][2] received 1,335 responses.
 This year we received almost four times as many.
-An astonishing 5,094 responses were submitted!
+However a large number of the responses appeared to be submitted by a script.
+Of the 5,096 responses, 3,417 were identified as problematic and removed from the result set.
+That left 1,679 legitimate responses, which is still a marked improvement over last year.
 To everyone that participated in the survey:
 Thank you!
 You feedback is hugely valuable.
+
+I am extremely disappointed that someone decided to submit thousands of bogus survey responses.
+Apparently they wanted to tip the scales on a few divisive issues in the community.
+Fortunately their attack was not very sophisticated, so it was easy to identify and ignore their responses.
+([This function][5] shows you exactly how the problematic responses were identified.)
+Even so, it has two profoundly negative impacts:
+One, it casts doubt on the survey responses as a whole;
+and two, it means that I'll have to devote time to countering attacks like this in future surveys.
+That being said, I have confidence in the filtered survey results and I hope you do too.
 
 This post will graph the responses to the multiple-choice questions.
 I will not attempt to summarize the responses free-response questions.
@@ -1560,3 +1571,4 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 [2]: {% post_url 2017-11-15-2017-state-of-haskell-survey-results %}
 [3]: /static/pages/2018-11-16-2018-state-of-haskell-survey-results.csv.zip
 [4]: https://opendatacommons.org/licenses/odbl/
+[5]: https://gist.github.com/tfausak/cc381ddd0ddd8304cc3eae6250966f55/0dd7415b657c2f361bbbbf305b1db869803a2c40#file-main-hs-L27-L44
