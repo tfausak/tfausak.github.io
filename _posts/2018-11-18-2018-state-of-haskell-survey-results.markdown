@@ -115,7 +115,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 ---
 
 <h2 id='question-001'><a href='#question-001'>#</a> Submission date <a href='#'>^</a></h2>
-<a href='question-001.svg'><img src='/static/images/2018/11/18/question-001.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-001.svg'><img src='/static/images/2018/11/18/question-001.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -138,7 +138,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-002'><a href='#question-002'>#</a> Haskell usage <a href='#'>^</a></h2>
-<a href='question-002.svg'><img src='/static/images/2018/11/18/question-002.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-002.svg'><img src='/static/images/2018/11/18/question-002.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -157,7 +157,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-003'><a href='#question-003'>#</a> Do you use Haskell? (single select) <a href='#'>^</a></h2>
-<a href='question-003.svg'><img src='/static/images/2018/11/18/question-003.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-003.svg'><img src='/static/images/2018/11/18/question-003.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -169,7 +169,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-004'><a href='#question-004'>#</a> If you stopped using Haskell, how long did you use it before you stopped? (single select) <a href='#'>^</a></h2>
-<a href='question-004.svg'><img src='/static/images/2018/11/18/question-004.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-004.svg'><img src='/static/images/2018/11/18/question-004.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -183,7 +183,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-005'><a href='#question-005'>#</a> If you do not use Haskell, why not? (multiple select) <a href='#'>^</a></h2>
-<a href='question-005.svg'><img src='/static/images/2018/11/18/question-005.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-005.svg'><img src='/static/images/2018/11/18/question-005.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -200,7 +200,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-007'><a href='#question-007'>#</a> How long have you been using Haskell? (single select) <a href='#'>^</a></h2>
-<a href='question-007.svg'><img src='/static/images/2018/11/18/question-007.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-007.svg'><img src='/static/images/2018/11/18/question-007.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -218,7 +218,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-008'><a href='#question-008'>#</a> How frequently do you use Haskell? (single select) <a href='#'>^</a></h2>
-<a href='question-008.svg'><img src='/static/images/2018/11/18/question-008.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-008.svg'><img src='/static/images/2018/11/18/question-008.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -232,7 +232,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-009'><a href='#question-009'>#</a> How would you rate your proficiency in Haskell? (single select) <a href='#'>^</a></h2>
-<a href='question-009.svg'><img src='/static/images/2018/11/18/question-009.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-009.svg'><img src='/static/images/2018/11/18/question-009.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -246,7 +246,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-010'><a href='#question-010'>#</a> Where do you use Haskell? (multiple select) <a href='#'>^</a></h2>
-<a href='question-010.svg'><img src='/static/images/2018/11/18/question-010.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-010.svg'><img src='/static/images/2018/11/18/question-010.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -258,7 +258,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-011'><a href='#question-011'>#</a> Do you use Haskell at work? (single select) <a href='#'>^</a></h2>
-<a href='question-011.svg'><img src='/static/images/2018/11/18/question-011.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-011.svg'><img src='/static/images/2018/11/18/question-011.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -271,7 +271,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-012'><a href='#question-012'>#</a> If you do not use Haskell at work, why not? (multiple select) <a href='#'>^</a></h2>
-<a href='question-012.svg'><img src='/static/images/2018/11/18/question-012.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-012.svg'><img src='/static/images/2018/11/18/question-012.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -289,7 +289,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-014'><a href='#question-014'>#</a> Which programming languages other than Haskell are you fluent in? (multiple select) <a href='#'>^</a></h2>
-<a href='question-014.svg'><img src='/static/images/2018/11/18/question-014.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-014.svg'><img src='/static/images/2018/11/18/question-014.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -328,7 +328,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-016'><a href='#question-016'>#</a> Which types of software do you develop with Haskell? (multiple select) <a href='#'>^</a></h2>
-<a href='question-016.svg'><img src='/static/images/2018/11/18/question-016.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-016.svg'><img src='/static/images/2018/11/18/question-016.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -345,7 +345,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-018'><a href='#question-018'>#</a> Which industries do you use Haskell in? (multiple select) <a href='#'>^</a></h2>
-<a href='question-018.svg'><img src='/static/images/2018/11/18/question-018.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-018.svg'><img src='/static/images/2018/11/18/question-018.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -363,7 +363,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-020'><a href='#question-020'>#</a> Projects <a href='#'>^</a></h2>
-<a href='question-020.svg'><img src='/static/images/2018/11/18/question-020.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-020.svg'><img src='/static/images/2018/11/18/question-020.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -382,7 +382,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-021'><a href='#question-021'>#</a> How many Haskell projects do you contribute to? (single select) <a href='#'>^</a></h2>
-<a href='question-021.svg'><img src='/static/images/2018/11/18/question-021.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-021.svg'><img src='/static/images/2018/11/18/question-021.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -397,7 +397,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-022'><a href='#question-022'>#</a> What is the total size of all the Haskell projects you contribute to? (single select) <a href='#'>^</a></h2>
-<a href='question-022.svg'><img src='/static/images/2018/11/18/question-022.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-022.svg'><img src='/static/images/2018/11/18/question-022.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -410,7 +410,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-023'><a href='#question-023'>#</a> Which platforms do you develop Haskell on? (multiple select) <a href='#'>^</a></h2>
-<a href='question-023.svg'><img src='/static/images/2018/11/18/question-023.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-023.svg'><img src='/static/images/2018/11/18/question-023.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -423,7 +423,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-025'><a href='#question-025'>#</a> Which platforms do you target? (multiple select) <a href='#'>^</a></h2>
-<a href='question-025.svg'><img src='/static/images/2018/11/18/question-025.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-025.svg'><img src='/static/images/2018/11/18/question-025.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -438,7 +438,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-027'><a href='#question-027'>#</a> Compilers <a href='#'>^</a></h2>
-<a href='question-027.svg'><img src='/static/images/2018/11/18/question-027.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-027.svg'><img src='/static/images/2018/11/18/question-027.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -457,7 +457,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-028'><a href='#question-028'>#</a> Which Haskell compilers do you use? (multiple select) <a href='#'>^</a></h2>
-<a href='question-028.svg'><img src='/static/images/2018/11/18/question-028.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-028.svg'><img src='/static/images/2018/11/18/question-028.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -469,7 +469,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-030'><a href='#question-030'>#</a> Which installation methods do you use for your Haskell compiler? (multiple select) <a href='#'>^</a></h2>
-<a href='question-030.svg'><img src='/static/images/2018/11/18/question-030.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-030.svg'><img src='/static/images/2018/11/18/question-030.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -485,7 +485,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-032'><a href='#question-032'>#</a> Has upgrading your Haskell compiler broken your code in the last year? (single select) <a href='#'>^</a></h2>
-<a href='question-032.svg'><img src='/static/images/2018/11/18/question-032.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-032.svg'><img src='/static/images/2018/11/18/question-032.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -496,7 +496,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-033'><a href='#question-033'>#</a> How has upgrading your Haskell compiler broken your code in the past year? (multiple select) <a href='#'>^</a></h2>
-<a href='question-033.svg'><img src='/static/images/2018/11/18/question-033.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-033.svg'><img src='/static/images/2018/11/18/question-033.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -510,7 +510,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-035'><a href='#question-035'>#</a> Which versions of GHC do you use? <a href='#'>^</a></h2>
-<a href='question-035.svg'><img src='/static/images/2018/11/18/question-035.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-035.svg'><img src='/static/images/2018/11/18/question-035.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -530,7 +530,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-036'><a href='#question-036'>#</a> How do you feel about the new GHC release schedule? (single select) <a href='#'>^</a></h2>
-<a href='question-036.svg'><img src='/static/images/2018/11/18/question-036.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-036.svg'><img src='/static/images/2018/11/18/question-036.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -543,7 +543,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-038'><a href='#question-038'>#</a> Which GHC language extensions would you like to be enabled by default? (multiple select) <a href='#'>^</a></h2>
-<a href='question-038.svg'><img src='/static/images/2018/11/18/question-038.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-038.svg'><img src='/static/images/2018/11/18/question-038.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -668,7 +668,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-039'><a href='#question-039'>#</a> How important do you feel it would be to have a new version of the Haskell standard? (single select) <a href='#'>^</a></h2>
-<a href='question-039.svg'><img src='/static/images/2018/11/18/question-039.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-039.svg'><img src='/static/images/2018/11/18/question-039.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -682,7 +682,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-040'><a href='#question-040'>#</a> Tooling <a href='#'>^</a></h2>
-<a href='question-040.svg'><img src='/static/images/2018/11/18/question-040.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-040.svg'><img src='/static/images/2018/11/18/question-040.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -701,7 +701,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-041'><a href='#question-041'>#</a> Which build tools do you use for Haskell? (multiple select) <a href='#'>^</a></h2>
-<a href='question-041.svg'><img src='/static/images/2018/11/18/question-041.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-041.svg'><img src='/static/images/2018/11/18/question-041.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -718,7 +718,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-043'><a href='#question-043'>#</a> Which editors do you use for Haskell? (multiple select) <a href='#'>^</a></h2>
-<a href='question-043.svg'><img src='/static/images/2018/11/18/question-043.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-043.svg'><img src='/static/images/2018/11/18/question-043.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -734,7 +734,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-045'><a href='#question-045'>#</a> Which version control systems do you use for Haskell? (multiple select) <a href='#'>^</a></h2>
-<a href='question-045.svg'><img src='/static/images/2018/11/18/question-045.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-045.svg'><img src='/static/images/2018/11/18/question-045.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -749,7 +749,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-047'><a href='#question-047'>#</a> Where do you get Haskell packages from? (multiple select) <a href='#'>^</a></h2>
-<a href='question-047.svg'><img src='/static/images/2018/11/18/question-047.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-047.svg'><img src='/static/images/2018/11/18/question-047.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -762,7 +762,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-049'><a href='#question-049'>#</a> Which libraries do you use to test Haskell code? (multiple select) <a href='#'>^</a></h2>
-<a href='question-049.svg'><img src='/static/images/2018/11/18/question-049.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-049.svg'><img src='/static/images/2018/11/18/question-049.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -779,7 +779,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-051'><a href='#question-051'>#</a> Which libraries do you use to benchmark Haskell code? (multiple select) <a href='#'>^</a></h2>
-<a href='question-051.svg'><img src='/static/images/2018/11/18/question-051.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-051.svg'><img src='/static/images/2018/11/18/question-051.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -791,7 +791,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-053'><a href='#question-053'>#</a> Infrastructure <a href='#'>^</a></h2>
-<a href='question-053.svg'><img src='/static/images/2018/11/18/question-053.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-053.svg'><img src='/static/images/2018/11/18/question-053.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -810,7 +810,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-054'><a href='#question-054'>#</a> Which tools do you use to deploy Haskell applications? (multiple select) <a href='#'>^</a></h2>
-<a href='question-054.svg'><img src='/static/images/2018/11/18/question-054.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-054.svg'><img src='/static/images/2018/11/18/question-054.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -823,7 +823,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-056'><a href='#question-056'>#</a> Where do you deploy Haskell applications? (multiple select) <a href='#'>^</a></h2>
-<a href='question-056.svg'><img src='/static/images/2018/11/18/question-056.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-056.svg'><img src='/static/images/2018/11/18/question-056.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -838,7 +838,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-058'><a href='#question-058'>#</a> Community <a href='#'>^</a></h2>
-<a href='question-058.svg'><img src='/static/images/2018/11/18/question-058.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-058.svg'><img src='/static/images/2018/11/18/question-058.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -857,7 +857,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-059'><a href='#question-059'>#</a> Where do you interact with the Haskell community? (multiple select) <a href='#'>^</a></h2>
-<a href='question-059.svg'><img src='/static/images/2018/11/18/question-059.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-059.svg'><img src='/static/images/2018/11/18/question-059.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -882,7 +882,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-061'><a href='#question-061'>#</a> Which of the following Haskell topics would you like to see more written about? (multiple select) <a href='#'>^</a></h2>
-<a href='question-061.svg'><img src='/static/images/2018/11/18/question-061.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-061.svg'><img src='/static/images/2018/11/18/question-061.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -910,7 +910,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-063'><a href='#question-063'>#</a> Feelings <a href='#'>^</a></h2>
-<a href='question-063.svg'><img src='/static/images/2018/11/18/question-063.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-063.svg'><img src='/static/images/2018/11/18/question-063.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -929,7 +929,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-064'><a href='#question-064'>#</a> I feel welcome in the Haskell community. <a href='#'>^</a></h2>
-<a href='question-064.svg'><img src='/static/images/2018/11/18/question-064.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-064.svg'><img src='/static/images/2018/11/18/question-064.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -943,7 +943,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-065'><a href='#question-065'>#</a> I am satisfied with Haskell as a language. <a href='#'>^</a></h2>
-<a href='question-065.svg'><img src='/static/images/2018/11/18/question-065.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-065.svg'><img src='/static/images/2018/11/18/question-065.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -957,7 +957,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-067'><a href='#question-067'>#</a> I am satisfied with Haskell&apos;s compilers, such as GHC. <a href='#'>^</a></h2>
-<a href='question-067.svg'><img src='/static/images/2018/11/18/question-067.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-067.svg'><img src='/static/images/2018/11/18/question-067.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -971,7 +971,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-069'><a href='#question-069'>#</a> I am satisfied with Haskell&apos;s build tools, such as Cabal. <a href='#'>^</a></h2>
-<a href='question-069.svg'><img src='/static/images/2018/11/18/question-069.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-069.svg'><img src='/static/images/2018/11/18/question-069.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -985,7 +985,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-071'><a href='#question-071'>#</a> I am satisfied with Haskell&apos;s package repositories, such as Hackage. <a href='#'>^</a></h2>
-<a href='question-071.svg'><img src='/static/images/2018/11/18/question-071.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-071.svg'><img src='/static/images/2018/11/18/question-071.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -999,7 +999,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-073'><a href='#question-073'>#</a> I can find Haskell libraries for the things that I need. <a href='#'>^</a></h2>
-<a href='question-073.svg'><img src='/static/images/2018/11/18/question-073.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-073.svg'><img src='/static/images/2018/11/18/question-073.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1013,7 +1013,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-074'><a href='#question-074'>#</a> I think Haskell libraries are high quality. <a href='#'>^</a></h2>
-<a href='question-074.svg'><img src='/static/images/2018/11/18/question-074.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-074.svg'><img src='/static/images/2018/11/18/question-074.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1027,7 +1027,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-075'><a href='#question-075'>#</a> I have a good understanding of Haskell best practices. <a href='#'>^</a></h2>
-<a href='question-075.svg'><img src='/static/images/2018/11/18/question-075.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-075.svg'><img src='/static/images/2018/11/18/question-075.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1041,7 +1041,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-076'><a href='#question-076'>#</a> I think Haskell libraries are well documented. <a href='#'>^</a></h2>
-<a href='question-076.svg'><img src='/static/images/2018/11/18/question-076.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-076.svg'><img src='/static/images/2018/11/18/question-076.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1055,7 +1055,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-077'><a href='#question-077'>#</a> I can easily compare competing Haskell libraries to select the best one. <a href='#'>^</a></h2>
-<a href='question-077.svg'><img src='/static/images/2018/11/18/question-077.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-077.svg'><img src='/static/images/2018/11/18/question-077.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1069,7 +1069,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-078'><a href='#question-078'>#</a> I think that Haskell libraries are easy to use. <a href='#'>^</a></h2>
-<a href='question-078.svg'><img src='/static/images/2018/11/18/question-078.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-078.svg'><img src='/static/images/2018/11/18/question-078.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1083,7 +1083,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-079'><a href='#question-079'>#</a> I think that Haskell libraries provide a stable API. <a href='#'>^</a></h2>
-<a href='question-079.svg'><img src='/static/images/2018/11/18/question-079.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-079.svg'><img src='/static/images/2018/11/18/question-079.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1097,7 +1097,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-080'><a href='#question-080'>#</a> I think that Haskell libraries work well together. <a href='#'>^</a></h2>
-<a href='question-080.svg'><img src='/static/images/2018/11/18/question-080.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-080.svg'><img src='/static/images/2018/11/18/question-080.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1111,7 +1111,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-081'><a href='#question-081'>#</a> I think that software written in Haskell is easy to maintain. <a href='#'>^</a></h2>
-<a href='question-081.svg'><img src='/static/images/2018/11/18/question-081.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-081.svg'><img src='/static/images/2018/11/18/question-081.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1125,7 +1125,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-082'><a href='#question-082'>#</a> Once my Haskell program compiles, it generally does what I intended. <a href='#'>^</a></h2>
-<a href='question-082.svg'><img src='/static/images/2018/11/18/question-082.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-082.svg'><img src='/static/images/2018/11/18/question-082.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1139,7 +1139,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-083'><a href='#question-083'>#</a> I think that Haskell libraries perform well. <a href='#'>^</a></h2>
-<a href='question-083.svg'><img src='/static/images/2018/11/18/question-083.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-083.svg'><img src='/static/images/2018/11/18/question-083.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1153,7 +1153,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-084'><a href='#question-084'>#</a> Haskell&apos;s performance meets my needs. <a href='#'>^</a></h2>
-<a href='question-084.svg'><img src='/static/images/2018/11/18/question-084.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-084.svg'><img src='/static/images/2018/11/18/question-084.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1167,7 +1167,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-085'><a href='#question-085'>#</a> I can easily reason about the performance of my Haskell code. <a href='#'>^</a></h2>
-<a href='question-085.svg'><img src='/static/images/2018/11/18/question-085.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-085.svg'><img src='/static/images/2018/11/18/question-085.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1181,7 +1181,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-086'><a href='#question-086'>#</a> I would recommend using Haskell to others. <a href='#'>^</a></h2>
-<a href='question-086.svg'><img src='/static/images/2018/11/18/question-086.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-086.svg'><img src='/static/images/2018/11/18/question-086.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1195,7 +1195,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-087'><a href='#question-087'>#</a> I would prefer to use Haskell for my next new project. <a href='#'>^</a></h2>
-<a href='question-087.svg'><img src='/static/images/2018/11/18/question-087.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-087.svg'><img src='/static/images/2018/11/18/question-087.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1209,7 +1209,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-088'><a href='#question-088'>#</a> Haskell is working well for my team. <a href='#'>^</a></h2>
-<a href='question-088.svg'><img src='/static/images/2018/11/18/question-088.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-088.svg'><img src='/static/images/2018/11/18/question-088.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1223,7 +1223,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-089'><a href='#question-089'>#</a> Haskell is critical to my company&apos;s success. <a href='#'>^</a></h2>
-<a href='question-089.svg'><img src='/static/images/2018/11/18/question-089.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-089.svg'><img src='/static/images/2018/11/18/question-089.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1237,7 +1237,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-090'><a href='#question-090'>#</a> As a candidate, I can easily find Haskell jobs. <a href='#'>^</a></h2>
-<a href='question-090.svg'><img src='/static/images/2018/11/18/question-090.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-090.svg'><img src='/static/images/2018/11/18/question-090.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1251,7 +1251,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-091'><a href='#question-091'>#</a> As a hiring manager, I can easily find qualified Haskell candidates. <a href='#'>^</a></h2>
-<a href='question-091.svg'><img src='/static/images/2018/11/18/question-091.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-091.svg'><img src='/static/images/2018/11/18/question-091.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1265,7 +1265,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-094'><a href='#question-094'>#</a> Demographics <a href='#'>^</a></h2>
-<a href='question-094.svg'><img src='/static/images/2018/11/18/question-094.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-094.svg'><img src='/static/images/2018/11/18/question-094.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1284,7 +1284,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-095'><a href='#question-095'>#</a> Which country do you live in? (single select) <a href='#'>^</a></h2>
-<a href='question-095.svg'><img src='/static/images/2018/11/18/question-095.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-095.svg'><img src='/static/images/2018/11/18/question-095.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1365,7 +1365,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-096'><a href='#question-096'>#</a> How old are you? (single select) <a href='#'>^</a></h2>
-<a href='question-096.svg'><img src='/static/images/2018/11/18/question-096.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-096.svg'><img src='/static/images/2018/11/18/question-096.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1381,7 +1381,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-097'><a href='#question-097'>#</a> What is your gender? (single select) <a href='#'>^</a></h2>
-<a href='question-097.svg'><img src='/static/images/2018/11/18/question-097.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-097.svg'><img src='/static/images/2018/11/18/question-097.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1393,7 +1393,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-098'><a href='#question-098'>#</a> Do you identify as transgender? (single select) <a href='#'>^</a></h2>
-<a href='question-098.svg'><img src='/static/images/2018/11/18/question-098.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-098.svg'><img src='/static/images/2018/11/18/question-098.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1404,7 +1404,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-099'><a href='#question-099'>#</a> Are you a student? (single select) <a href='#'>^</a></h2>
-<a href='question-099.svg'><img src='/static/images/2018/11/18/question-099.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-099.svg'><img src='/static/images/2018/11/18/question-099.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1416,7 +1416,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-100'><a href='#question-100'>#</a> What is the highest level of education you have completed? (single select) <a href='#'>^</a></h2>
-<a href='question-100.svg'><img src='/static/images/2018/11/18/question-100.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-100.svg'><img src='/static/images/2018/11/18/question-100.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1433,7 +1433,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-101'><a href='#question-101'>#</a> What is your employment status? (single select) <a href='#'>^</a></h2>
-<a href='question-101.svg'><img src='/static/images/2018/11/18/question-101.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-101.svg'><img src='/static/images/2018/11/18/question-101.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1448,7 +1448,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-102'><a href='#question-102'>#</a> How large is the company you work for? (single select) <a href='#'>^</a></h2>
-<a href='question-102.svg'><img src='/static/images/2018/11/18/question-102.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-102.svg'><img src='/static/images/2018/11/18/question-102.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1461,7 +1461,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-103'><a href='#question-103'>#</a> How many years have you been coding? (single select) <a href='#'>^</a></h2>
-<a href='question-103.svg'><img src='/static/images/2018/11/18/question-103.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-103.svg'><img src='/static/images/2018/11/18/question-103.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1477,7 +1477,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-104'><a href='#question-104'>#</a> How many years have you been coding professionally? (single select) <a href='#'>^</a></h2>
-<a href='question-104.svg'><img src='/static/images/2018/11/18/question-104.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-104.svg'><img src='/static/images/2018/11/18/question-104.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1491,7 +1491,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-105'><a href='#question-105'>#</a> Do you code as a hobby? (single select) <a href='#'>^</a></h2>
-<a href='question-105.svg'><img src='/static/images/2018/11/18/question-105.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-105.svg'><img src='/static/images/2018/11/18/question-105.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1502,7 +1502,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-106'><a href='#question-106'>#</a> Have you contributed to any open source projects? (single select) <a href='#'>^</a></h2>
-<a href='question-106.svg'><img src='/static/images/2018/11/18/question-106.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-106.svg'><img src='/static/images/2018/11/18/question-106.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1513,7 +1513,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-107'><a href='#question-107'>#</a> Meta survey <a href='#'>^</a></h2>
-<a href='question-107.svg'><img src='/static/images/2018/11/18/question-107.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-107.svg'><img src='/static/images/2018/11/18/question-107.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1532,7 +1532,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-108'><a href='#question-108'>#</a> Did you take last year&apos;s survey? (single select) <a href='#'>^</a></h2>
-<a href='question-108.svg'><img src='/static/images/2018/11/18/question-108.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-108.svg'><img src='/static/images/2018/11/18/question-108.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
@@ -1544,7 +1544,7 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 </table>
 
 <h2 id='question-109'><a href='#question-109'>#</a> How did you hear about this survey? (single select) <a href='#'>^</a></h2>
-<a href='question-109.svg'><img src='/static/images/2018/11/18/question-109.svg' alt='' width='800.0' height='600.0'></a>
+<a href='/static/images/2018/11/18/question-109.svg'><img src='/static/images/2018/11/18/question-109.svg' alt='' width='800.0' height='600.0'></a>
 <table>
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
