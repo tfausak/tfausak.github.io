@@ -279,11 +279,11 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 <tr><td>My company doesn&apos;t use Haskell</td><td>438</td><td>32.2%</td></tr>
 <tr><td>Haskell is too hard to learn</td><td>76</td><td>5.6%</td></tr>
 <tr><td>It is too hard to hire Haskell developers</td><td>72</td><td>5.3%</td></tr>
+<tr><td>Haskell lacks critical libraries</td><td>48</td><td>3.5%</td></tr>
 <tr><td>Haskell lacks critical tools</td><td>41</td><td>3.0%</td></tr>
 <tr><td>Haskell does not support the platforms I need</td><td>33</td><td>2.4%</td></tr>
-<tr><td>Haskell lacks critical libraries</td><td>48</td><td>3.5%</td></tr>
-<tr><td>Haskell&apos;s performance is not good enough</td><td>12</td><td>0.9%</td></tr>
 <tr><td>Haskell&apos;s documentation is not good enough</td><td>31</td><td>2.3%</td></tr>
+<tr><td>Haskell&apos;s performance is not good enough</td><td>12</td><td>0.9%</td></tr>
 <tr><td>Haskell lacks critical features</td><td>8</td><td>0.6%</td></tr>
 </tbody>
 </table>
@@ -294,21 +294,21 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
 <tbody>
-<tr><td>Java</td><td>550</td><td>40.4%</td></tr>
 <tr><td>Python</td><td>659</td><td>48.4%</td></tr>
 <tr><td>JavaScript</td><td>599</td><td>44.0%</td></tr>
+<tr><td>Java</td><td>550</td><td>40.4%</td></tr>
 <tr><td>C</td><td>512</td><td>37.6%</td></tr>
 <tr><td>C++</td><td>394</td><td>28.9%</td></tr>
 <tr><td>Shell</td><td>320</td><td>23.5%</td></tr>
+<tr><td>C#</td><td>203</td><td>14.9%</td></tr>
 <tr><td>Scala</td><td>198</td><td>14.5%</td></tr>
 <tr><td>Ruby</td><td>174</td><td>12.8%</td></tr>
-<tr><td>C#</td><td>203</td><td>14.9%</td></tr>
-<tr><td>TypeScript</td><td>146</td><td>10.7%</td></tr>
 <tr><td>Rust</td><td>158</td><td>11.6%</td></tr>
+<tr><td>TypeScript</td><td>146</td><td>10.7%</td></tr>
 <tr><td>PHP</td><td>142</td><td>10.4%</td></tr>
-<tr><td>Assembly</td><td>90</td><td>6.6%</td></tr>
 <tr><td>Go</td><td>110</td><td>8.1%</td></tr>
 <tr><td>Clojure</td><td>93</td><td>6.8%</td></tr>
+<tr><td>Assembly</td><td>90</td><td>6.6%</td></tr>
 <tr><td>Ocaml</td><td>87</td><td>6.4%</td></tr>
 <tr><td>Perl</td><td>83</td><td>6.1%</td></tr>
 <tr><td>R</td><td>65</td><td>4.8%</td></tr>
@@ -354,11 +354,11 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 <tr><td>Banking or finance</td><td>185</td><td>13.6%</td></tr>
 <tr><td>Education</td><td>184</td><td>13.5%</td></tr>
 <tr><td>Commerce or retail</td><td>127</td><td>9.3%</td></tr>
-<tr><td>Government</td><td>35</td><td>2.6%</td></tr>
-<tr><td>Mobile</td><td>32</td><td>2.4%</td></tr>
-<tr><td>Healthcare or medical</td><td>43</td><td>3.2%</td></tr>
 <tr><td>Gaming</td><td>59</td><td>4.3%</td></tr>
+<tr><td>Healthcare or medical</td><td>43</td><td>3.2%</td></tr>
+<tr><td>Government</td><td>35</td><td>2.6%</td></tr>
 <tr><td>Embedded</td><td>33</td><td>2.4%</td></tr>
+<tr><td>Mobile</td><td>32</td><td>2.4%</td></tr>
 </tbody>
 </table>
 
@@ -490,8 +490,8 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
 <tbody>
-<tr><td>Yes</td><td>437</td><td>32.1%</td></tr>
 <tr><td>No</td><td>736</td><td>54.1%</td></tr>
+<tr><td>Yes</td><td>437</td><td>32.1%</td></tr>
 </tbody>
 </table>
 
@@ -501,11 +501,11 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 <thead>
 <tr><th>Answer</th><th>Count</th><th>Percent</th></tr></thead>
 <tbody>
-<tr><td>Expected changes, such as the MonadFail proposal</td><td>225</td><td>16.5%</td></tr>
 <tr><td>Incompatible dependencies</td><td>247</td><td>18.1%</td></tr>
-<tr><td>Unexpected changes</td><td>54</td><td>4.0%</td></tr>
-<tr><td>Compiler bugs</td><td>58</td><td>4.3%</td></tr>
+<tr><td>Expected changes, such as the MonadFail proposal</td><td>225</td><td>16.5%</td></tr>
 <tr><td>New warnings</td><td>76</td><td>5.6%</td></tr>
+<tr><td>Compiler bugs</td><td>58</td><td>4.3%</td></tr>
+<tr><td>Unexpected changes</td><td>54</td><td>4.0%</td></tr>
 </tbody>
 </table>
 
@@ -550,122 +550,119 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 <tbody>
 <tr><td>OverloadedStrings</td><td>486</td><td>35.7%</td></tr>
 <tr><td>LambdaCase</td><td>327</td><td>24.0%</td></tr>
-<tr><td>DeriveFunctor</td><td>260</td><td>19.1%</td></tr>
 <tr><td>DeriveGeneric</td><td>263</td><td>19.3%</td></tr>
+<tr><td>DeriveFunctor</td><td>260</td><td>19.1%</td></tr>
 <tr><td>BangPatterns</td><td>254</td><td>18.7%</td></tr>
-<tr><td>GADTs</td><td>251</td><td>18.4%</td></tr>
 <tr><td>ScopedTypeVariables</td><td>254</td><td>18.7%</td></tr>
+<tr><td>GADTs</td><td>251</td><td>18.4%</td></tr>
 <tr><td>FlexibleInstances</td><td>223</td><td>16.4%</td></tr>
 <tr><td>FlexibleContexts</td><td>217</td><td>15.9%</td></tr>
 <tr><td>DeriveFoldable</td><td>192</td><td>14.1%</td></tr>
 <tr><td>RankNTypes</td><td>187</td><td>13.7%</td></tr>
-<tr><td>MultiParamTypeClasses</td><td>178</td><td>13.1%</td></tr>
 <tr><td>TupleSections</td><td>183</td><td>13.4%</td></tr>
+<tr><td>MultiParamTypeClasses</td><td>178</td><td>13.1%</td></tr>
 <tr><td>GeneralisedNewtypeDeriving</td><td>178</td><td>13.1%</td></tr>
 <tr><td>DeriveTraversable</td><td>171</td><td>12.6%</td></tr>
-<tr><td>TypeApplications</td><td>138</td><td>10.1%</td></tr>
 <tr><td>DataKinds</td><td>144</td><td>10.6%</td></tr>
-<tr><td>KindSignatures</td><td>135</td><td>9.9%</td></tr>
+<tr><td>TypeApplications</td><td>138</td><td>10.1%</td></tr>
 <tr><td>TypeOperators</td><td>136</td><td>10.0%</td></tr>
+<tr><td>KindSignatures</td><td>135</td><td>9.9%</td></tr>
 <tr><td>TypeFamilies</td><td>127</td><td>9.3%</td></tr>
 <tr><td>ApplicativeDo</td><td>122</td><td>9.0%</td></tr>
-<tr><td>ViewPatterns</td><td>113</td><td>8.3%</td></tr>
 <tr><td>StandaloneDeriving</td><td>117</td><td>8.6%</td></tr>
 <tr><td>ConstraintKinds</td><td>116</td><td>8.5%</td></tr>
 <tr><td>DerivingVia</td><td>116</td><td>8.5%</td></tr>
-<tr><td>RecordWildCards</td><td>110</td><td>8.1%</td></tr>
+<tr><td>ViewPatterns</td><td>113</td><td>8.3%</td></tr>
 <tr><td>InstanceSigs</td><td>113</td><td>8.3%</td></tr>
 <tr><td>MultiWayIf</td><td>111</td><td>8.2%</td></tr>
+<tr><td>RecordWildCards</td><td>110</td><td>8.1%</td></tr>
+<tr><td>FunctionalDependencies</td><td>101</td><td>7.4%</td></tr>
 <tr><td>DeriveDataTypeable</td><td>100</td><td>7.3%</td></tr>
 <tr><td>EmptyCase</td><td>92</td><td>6.8%</td></tr>
-<tr><td>FunctionalDependencies</td><td>101</td><td>7.4%</td></tr>
-<tr><td>ExplicitForAll</td><td>83</td><td>6.1%</td></tr>
 <tr><td>NamedFieldPuns</td><td>87</td><td>6.4%</td></tr>
-<tr><td>DerivingStrategies</td><td>76</td><td>5.6%</td></tr>
 <tr><td>EmptyDataDecls</td><td>83</td><td>6.1%</td></tr>
-<tr><td>NumericUnderscores</td><td>67</td><td>4.9%</td></tr>
+<tr><td>ExplicitForAll</td><td>83</td><td>6.1%</td></tr>
+<tr><td>DerivingStrategies</td><td>76</td><td>5.6%</td></tr>
 <tr><td>DeriveAnyClass</td><td>74</td><td>5.4%</td></tr>
 <tr><td>BinaryLiterals</td><td>74</td><td>5.4%</td></tr>
 <tr><td>DefaultSignatures</td><td>69</td><td>5.1%</td></tr>
-<tr><td>ExistentialQuantification</td><td>57</td><td>4.2%</td></tr>
-<tr><td>DuplicateRecordFields</td><td>62</td><td>4.6%</td></tr>
+<tr><td>NumericUnderscores</td><td>67</td><td>4.9%</td></tr>
 <tr><td>PatternSynonyms</td><td>64</td><td>4.7%</td></tr>
+<tr><td>DuplicateRecordFields</td><td>62</td><td>4.6%</td></tr>
+<tr><td>ExistentialQuantification</td><td>57</td><td>4.2%</td></tr>
 <tr><td>OverloadedLists</td><td>55</td><td>4.0%</td></tr>
 <tr><td>PolyKinds</td><td>54</td><td>4.0%</td></tr>
+<tr><td>GADTSyntax</td><td>54</td><td>4.0%</td></tr>
 <tr><td>BlockArguments</td><td>53</td><td>3.9%</td></tr>
 <tr><td>NoImplicitPrelude</td><td>53</td><td>3.9%</td></tr>
 <tr><td>DeriveLift</td><td>47</td><td>3.5%</td></tr>
-<tr><td>GADTSyntax</td><td>54</td><td>4.0%</td></tr>
-<tr><td>TypeSynonymInstances</td><td>37</td><td>2.7%</td></tr>
-<tr><td>UnicodeSyntax</td><td>38</td><td>2.8%</td></tr>
 <tr><td>PatternGuards</td><td>42</td><td>3.1%</td></tr>
-<tr><td>DisambiguateRecordFields</td><td>30</td><td>2.2%</td></tr>
 <tr><td>AutoDeriveTypeable</td><td>39</td><td>2.9%</td></tr>
-<tr><td>TypeInType</td><td>33</td><td>2.4%</td></tr>
-<tr><td>NoMonomorphismRestriction</td><td>34</td><td>2.5%</td></tr>
+<tr><td>UnicodeSyntax</td><td>38</td><td>2.8%</td></tr>
+<tr><td>TypeSynonymInstances</td><td>37</td><td>2.7%</td></tr>
 <tr><td>PartialTypeSignatures</td><td>36</td><td>2.6%</td></tr>
-<tr><td>TypeFamilyDependencies</td><td>29</td><td>2.1%</td></tr>
-<tr><td>Arrows</td><td>21</td><td>1.5%</td></tr>
+<tr><td>NoMonomorphismRestriction</td><td>34</td><td>2.5%</td></tr>
+<tr><td>TypeInType</td><td>33</td><td>2.4%</td></tr>
 <tr><td>TemplateHaskell</td><td>31</td><td>2.3%</td></tr>
-<tr><td>PackageImports</td><td>24</td><td>1.8%</td></tr>
-<tr><td>NamedWildCards</td><td>20</td><td>1.5%</td></tr>
+<tr><td>DisambiguateRecordFields</td><td>30</td><td>2.2%</td></tr>
+<tr><td>TypeFamilyDependencies</td><td>29</td><td>2.1%</td></tr>
 <tr><td>QuasiQuotes</td><td>28</td><td>2.1%</td></tr>
-<tr><td>QuantifiedConstraints</td><td>22</td><td>1.6%</td></tr>
-<tr><td>NegativeLiterals</td><td>19</td><td>1.4%</td></tr>
-<tr><td>MonadComprehensions</td><td>18</td><td>1.3%</td></tr>
-<tr><td>ParallelListComp</td><td>19</td><td>1.4%</td></tr>
-<tr><td>AllowAmbiguousTypes</td><td>22</td><td>1.6%</td></tr>
 <tr><td>RecordPuns</td><td>25</td><td>1.8%</td></tr>
-<tr><td>DoAndIfThenElse</td><td>19</td><td>1.4%</td></tr>
+<tr><td>PackageImports</td><td>24</td><td>1.8%</td></tr>
+<tr><td>QuantifiedConstraints</td><td>22</td><td>1.6%</td></tr>
+<tr><td>AllowAmbiguousTypes</td><td>22</td><td>1.6%</td></tr>
+<tr><td>Arrows</td><td>21</td><td>1.5%</td></tr>
 <tr><td>EmptyDataDeriving</td><td>21</td><td>1.5%</td></tr>
-<tr><td>RecursiveDo</td><td>17</td><td>1.2%</td></tr>
-<tr><td>PatternSignatures</td><td>16</td><td>1.2%</td></tr>
-<tr><td>StarIsType</td><td>14</td><td>1.0%</td></tr>
-<tr><td>MagicHash</td><td>13</td><td>1.0%</td></tr>
-<tr><td>ForeignFunctionInterface</td><td>15</td><td>1.1%</td></tr>
-<tr><td>MonadFailDesugaring</td><td>11</td><td>0.8%</td></tr>
-<tr><td>RoleAnnotations</td><td>14</td><td>1.0%</td></tr>
-<tr><td>Rank2Types</td><td>16</td><td>1.2%</td></tr>
-<tr><td>StrictData</td><td>11</td><td>0.8%</td></tr>
-<tr><td>NumDecimals</td><td>17</td><td>1.2%</td></tr>
+<tr><td>NamedWildCards</td><td>20</td><td>1.5%</td></tr>
+<tr><td>NegativeLiterals</td><td>19</td><td>1.4%</td></tr>
+<tr><td>ParallelListComp</td><td>19</td><td>1.4%</td></tr>
+<tr><td>DoAndIfThenElse</td><td>19</td><td>1.4%</td></tr>
+<tr><td>MonadComprehensions</td><td>18</td><td>1.3%</td></tr>
 <tr><td>OverloadedLabels</td><td>18</td><td>1.3%</td></tr>
-<tr><td>IncoherentInstances</td><td>0</td><td>0.0%</td></tr>
+<tr><td>RecursiveDo</td><td>17</td><td>1.2%</td></tr>
+<tr><td>NumDecimals</td><td>17</td><td>1.2%</td></tr>
 <tr><td>NullaryTypeClasses</td><td>17</td><td>1.2%</td></tr>
-<tr><td>ImplicitParams</td><td>9</td><td>0.7%</td></tr>
-<tr><td>ConstrainedClassMethods</td><td>9</td><td>0.7%</td></tr>
+<tr><td>PatternSignatures</td><td>16</td><td>1.2%</td></tr>
+<tr><td>Rank2Types</td><td>16</td><td>1.2%</td></tr>
+<tr><td>ForeignFunctionInterface</td><td>15</td><td>1.1%</td></tr>
+<tr><td>UnboxedTuples</td><td>15</td><td>1.1%</td></tr>
+<tr><td>StarIsType</td><td>14</td><td>1.0%</td></tr>
+<tr><td>RoleAnnotations</td><td>14</td><td>1.0%</td></tr>
+<tr><td>MagicHash</td><td>13</td><td>1.0%</td></tr>
 <tr><td>LiberalTypeSynonyms</td><td>13</td><td>1.0%</td></tr>
 <tr><td>CPP</td><td>12</td><td>0.9%</td></tr>
-<tr><td>UndecidableInstances</td><td>10</td><td>0.7%</td></tr>
-<tr><td>UnboxedTuples</td><td>15</td><td>1.1%</td></tr>
+<tr><td>HexFloatLiterals</td><td>12</td><td>0.9%</td></tr>
+<tr><td>MonadFailDesugaring</td><td>11</td><td>0.8%</td></tr>
+<tr><td>StrictData</td><td>11</td><td>0.8%</td></tr>
 <tr><td>ExplicitNamespaces</td><td>11</td><td>0.8%</td></tr>
 <tr><td>UnboxedSums</td><td>11</td><td>0.8%</td></tr>
-<tr><td>HexFloatLiterals</td><td>12</td><td>0.9%</td></tr>
+<tr><td>UndecidableInstances</td><td>10</td><td>0.7%</td></tr>
+<tr><td>ImplicitParams</td><td>9</td><td>0.7%</td></tr>
+<tr><td>ConstrainedClassMethods</td><td>9</td><td>0.7%</td></tr>
 <tr><td>DoRec</td><td>9</td><td>0.7%</td></tr>
-<tr><td>Strict</td><td>7</td><td>0.5%</td></tr>
-<tr><td>TransformListComp</td><td>5</td><td>0.4%</td></tr>
 <tr><td>OverlappingInstances</td><td>8</td><td>0.6%</td></tr>
-<tr><td>ParallelArrays</td><td>3</td><td>0.2%</td></tr>
+<tr><td>Strict</td><td>7</td><td>0.5%</td></tr>
+<tr><td>DatatypeContexts</td><td>6</td><td>0.4%</td></tr>
+<tr><td>CApiFFI</td><td>6</td><td>0.4%</td></tr>
+<tr><td>TransformListComp</td><td>5</td><td>0.4%</td></tr>
+<tr><td>TemplateHaskellQuotes</td><td>5</td><td>0.4%</td></tr>
+<tr><td>PolymorphicComponents</td><td>5</td><td>0.4%</td></tr>
+<tr><td>RelaxedPolyRec</td><td>5</td><td>0.4%</td></tr>
 <tr><td>ExtendedDefaultRules</td><td>4</td><td>0.3%</td></tr>
 <tr><td>PostfixOperators</td><td>4</td><td>0.3%</td></tr>
-<tr><td>AlternativeLayoutRule</td><td>2</td><td>0.1%</td></tr>
-<tr><td>DatatypeContexts</td><td>6</td><td>0.4%</td></tr>
-<tr><td>TemplateHaskellQuotes</td><td>5</td><td>0.4%</td></tr>
 <tr><td>NPlusKPatterns</td><td>4</td><td>0.3%</td></tr>
+<tr><td>ParallelArrays</td><td>3</td><td>0.2%</td></tr>
 <tr><td>ImpredicativeTypes</td><td>3</td><td>0.2%</td></tr>
-<tr><td>CApiFFI</td><td>6</td><td>0.4%</td></tr>
+<tr><td>InterruptibleFFI</td><td>3</td><td>0.2%</td></tr>
+<tr><td>AlternativeLayoutRule</td><td>2</td><td>0.1%</td></tr>
 <tr><td>NoTraditionalRecordSyntax</td><td>2</td><td>0.1%</td></tr>
-<tr><td>PolymorphicComponents</td><td>5</td><td>0.4%</td></tr>
 <tr><td>RebindableSyntax</td><td>2</td><td>0.1%</td></tr>
 <tr><td>UnliftedFFITypes</td><td>2</td><td>0.1%</td></tr>
-<tr><td>AlternativeLayoutRuleTransitional</td><td>1</td><td>0.1%</td></tr>
-<tr><td>InterruptibleFFI</td><td>3</td><td>0.2%</td></tr>
 <tr><td>UndecidableSuperClasses</td><td>2</td><td>0.1%</td></tr>
-<tr><td>MonoLocalBinds</td><td>1</td><td>0.1%</td></tr>
-<tr><td>MonoPatBinds</td><td>0</td><td>0.0%</td></tr>
-<tr><td>JavaScriptFFI</td><td>1</td><td>0.1%</td></tr>
-<tr><td>RelaxedPolyRec</td><td>5</td><td>0.4%</td></tr>
 <tr><td>RelaxedLayout</td><td>2</td><td>0.1%</td></tr>
-<tr><td>StaticPointers</td><td>0</td><td>0.0%</td></tr>
+<tr><td>AlternativeLayoutRuleTransitional</td><td>1</td><td>0.1%</td></tr>
+<tr><td>MonoLocalBinds</td><td>1</td><td>0.1%</td></tr>
+<tr><td>JavaScriptFFI</td><td>1</td><td>0.1%</td></tr>
 <tr><td>GHCForeignImportPrim</td><td>1</td><td>0.1%</td></tr>
 </tbody>
 </table>
@@ -731,8 +728,8 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 <tr><td>Visual Studio Code</td><td>329</td><td>24.2%</td></tr>
 <tr><td>Atom</td><td>112</td><td>8.2%</td></tr>
 <tr><td>Sublime Text</td><td>83</td><td>6.1%</td></tr>
-<tr><td>Notepad++</td><td>19</td><td>1.4%</td></tr>
 <tr><td>IntelliJ IDEA</td><td>62</td><td>4.6%</td></tr>
+<tr><td>Notepad++</td><td>19</td><td>1.4%</td></tr>
 </tbody>
 </table>
 
@@ -772,11 +769,11 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 <tbody>
 <tr><td>QuickCheck</td><td>696</td><td>51.1%</td></tr>
 <tr><td>Hspec</td><td>537</td><td>39.5%</td></tr>
-<tr><td>Tasty</td><td>323</td><td>23.7%</td></tr>
 <tr><td>HUnit</td><td>333</td><td>24.5%</td></tr>
+<tr><td>Tasty</td><td>323</td><td>23.7%</td></tr>
 <tr><td>Hedgehog</td><td>162</td><td>11.9%</td></tr>
-<tr><td>Haskell Test Framework</td><td>53</td><td>3.9%</td></tr>
 <tr><td>SmallCheck</td><td>58</td><td>4.3%</td></tr>
+<tr><td>Haskell Test Framework</td><td>53</td><td>3.9%</td></tr>
 <tr><td>LeanCheck</td><td>4</td><td>0.3%</td></tr>
 </tbody>
 </table>
@@ -869,18 +866,18 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 <tr><td>GitHub</td><td>590</td><td>43.4%</td></tr>
 <tr><td>Twitter</td><td>392</td><td>28.8%</td></tr>
 <tr><td>IRC</td><td>348</td><td>25.6%</td></tr>
-<tr><td>Mailing lists</td><td>248</td><td>18.2%</td></tr>
-<tr><td>Meetups</td><td>250</td><td>18.4%</td></tr>
 <tr><td>Stack Overflow</td><td>266</td><td>19.5%</td></tr>
+<tr><td>Meetups</td><td>250</td><td>18.4%</td></tr>
+<tr><td>Mailing lists</td><td>248</td><td>18.2%</td></tr>
 <tr><td>Slack</td><td>225</td><td>16.5%</td></tr>
 <tr><td>Conferences (commercial)</td><td>206</td><td>15.1%</td></tr>
 <tr><td>Conferences (academic)</td><td>157</td><td>11.5%</td></tr>
 <tr><td>Discord</td><td>110</td><td>8.1%</td></tr>
 <tr><td>Gitter</td><td>65</td><td>4.8%</td></tr>
-<tr><td>Matrix/Riot</td><td>13</td><td>1.0%</td></tr>
 <tr><td>Lobsters</td><td>65</td><td>4.8%</td></tr>
 <tr><td>Telegram</td><td>42</td><td>3.1%</td></tr>
 <tr><td>Mastodon</td><td>27</td><td>2.0%</td></tr>
+<tr><td>Matrix/Riot</td><td>13</td><td>1.0%</td></tr>
 </tbody>
 </table>
 
@@ -1304,8 +1301,8 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 <tr><td>India</td><td>24</td><td>1.8%</td></tr>
 <tr><td>Japan</td><td>21</td><td>1.5%</td></tr>
 <tr><td>Italy</td><td>20</td><td>1.5%</td></tr>
-<tr><td>Finland</td><td>19</td><td>1.4%</td></tr>
 <tr><td>Poland</td><td>20</td><td>1.5%</td></tr>
+<tr><td>Finland</td><td>19</td><td>1.4%</td></tr>
 <tr><td>Switzerland</td><td>19</td><td>1.4%</td></tr>
 <tr><td>Austria</td><td>17</td><td>1.2%</td></tr>
 <tr><td>Norway</td><td>16</td><td>1.2%</td></tr>
@@ -1554,17 +1551,17 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 <tbody>
 <tr><td>Reddit</td><td>394</td><td>28.9%</td></tr>
 <tr><td>Twitter</td><td>296</td><td>21.7%</td></tr>
-<tr><td>Haskell Weekly</td><td>113</td><td>8.3%</td></tr>
 <tr><td>Mailing list</td><td>121</td><td>8.9%</td></tr>
-<tr><td>Other</td><td>48</td><td>3.5%</td></tr>
-<tr><td>In person</td><td>30</td><td>2.2%</td></tr>
+<tr><td>Haskell Weekly</td><td>113</td><td>8.3%</td></tr>
 <tr><td>Lobsters</td><td>78</td><td>5.7%</td></tr>
 <tr><td>Slack</td><td>65</td><td>4.8%</td></tr>
 <tr><td>Discord</td><td>49</td><td>3.6%</td></tr>
+<tr><td>Other</td><td>48</td><td>3.5%</td></tr>
+<tr><td>In person</td><td>30</td><td>2.2%</td></tr>
 <tr><td>IRC</td><td>12</td><td>0.9%</td></tr>
-<tr><td>Matrix/Riot</td><td>2</td><td>0.1%</td></tr>
 <tr><td>Telegram</td><td>12</td><td>0.9%</td></tr>
 <tr><td>Gitter</td><td>6</td><td>0.4%</td></tr>
+<tr><td>Matrix/Riot</td><td>2</td><td>0.1%</td></tr>
 <tr><td>Mastodon</td><td>2</td><td>0.1%</td></tr>
 </tbody>
 </table>
