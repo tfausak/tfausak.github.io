@@ -2,7 +2,7 @@
 title: 2018 state of Haskell survey results
 ---
 
-The [2018 state of Haskell survey][1] opened at the start of November and few a couple days ago.
+The [2018 state of Haskell survey][1] opened at the start of November and closed a couple days ago.
 It was the second annual state of Haskell survey.
 The survey was co-sponsored by Haskell Weekly and Haskell.org.
 
