@@ -24,9 +24,9 @@ One, it casts doubt on the survey responses as a whole;
 and two, it means that I'll have to devote time to countering attacks like this in future surveys.
 That being said, I have confidence in the filtered survey results and I hope you do too.
 
-This post will graph the responses to the multiple-choice questions.
-I will not attempt to summarize the responses free-response questions.
-I encourage any interested parties to download the raw results, do their own analysis, and share the results.
+This post will graph the answers to the multiple-choice questions.
+I will not attempt to summarize the answers to free-response questions.
+I encourage any interested parties to download the raw results, do their own analysis, and share their results.
 You can download the anonymized responses as a [CSV][3], which is licensed under the [ODbL 1.0 license][4].
 
 - [Submission date](#question-001)
@@ -1568,6 +1568,6 @@ You can download the anonymized responses as a [CSV][3], which is licensed under
 
 [1]: {% post_url 2018-11-01-2018-state-of-haskell-survey %}
 [2]: {% post_url 2017-11-15-2017-state-of-haskell-survey-results %}
-[3]: /static/pages/2018-11-16-2018-state-of-haskell-survey-results.csv.zip
+[3]: /static/pages/2018-11-18-2018-state-of-haskell-survey-results.csv.zip
 [4]: https://opendatacommons.org/licenses/odbl/
 [5]: https://gist.github.com/tfausak/cc381ddd0ddd8304cc3eae6250966f55/782825c9e30034eff20954c7545d5fcdd0928a89#file-main-hs-L29
