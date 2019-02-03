@@ -45,7 +45,7 @@ This graph shows the number of Haskell Weekly subscribers in 2018:
 
 At the start of the year, 2,110 people subscribed to Haskell Weekly. Every week
 about 17 people subscribed on average. At the end of the year, 3,002 people
-were subscribed. Compared to 2017, the rate of new subscribers has slowly a
+were subscribed. Compared to 2017, the rate of new subscribers has slowed a
 bit. That being said, I am thrilled to continue to grow my audience without
 doing any real marketing our outreach.
 
