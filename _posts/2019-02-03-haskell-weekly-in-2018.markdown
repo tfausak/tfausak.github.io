@@ -81,7 +81,7 @@ fall. I was pleasantly surprised to see it stay about the same instead.
 [What is happening]: https://joyofhaskell.com/posts/2018-08-06-announcement.html
 [Learning Haskell - Miscellaneous Enlightenments]: https://sras.me/haskell/miscellaneous-enlightenments.html
 [God's Programming Language With Philip Wadler]: https://corecursive.com/021-gods-programming-language-with-philip-wadler/
-[2018 state of Haskell survey results]: {% post_url 2018-11-18-state-of-haskell-survey-results %}
+[2018 state of Haskell survey results]: {% post_url 2018-11-01-2018-state-of-haskell-survey %}
 [Haskell Weekly subscribers in 2018]: /static/images/2019/02/03/haskell-weekly-subscribers.png
 [Haskell Weekly open rate in 2018]: /static/images/2019/02/03/haskell-weekly-open-rate.png
 [Haskell Weekly click rate in 2018]: /static/images/2019/02/03/haskell-weekly-click-rate.png
