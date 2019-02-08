@@ -17,5 +17,6 @@ slides][6] are available on this site.
 
 [1]: /static/images/2015/07/14/kotlin.svg
 [2]: http://www.orgsync.com
+[3]: https://kotlinlang.org
 [5]: https://www.youtube.com/watch?v=GIFD1AcNv-Q
 [6]: /static/pages/2015-07-14-better-know-a-language-kotlin.html
