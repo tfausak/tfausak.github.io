@@ -1,5 +1,5 @@
 ---
-title: Announcing the `list-singleton` package
+title: Announcing the list-singleton package
 ---
 
 Have you ever found yourself typing the five-character Haskell expression
