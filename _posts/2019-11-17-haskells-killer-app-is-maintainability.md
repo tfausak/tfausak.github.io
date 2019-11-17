@@ -4,7 +4,7 @@ title: Haskell’s killer app is maintainability
 
 I asked the following question on the 2019 State of Haskell Survey: “If you wanted to convince someone to use Haskell, what would you say?” My answer to that question involves long term maintainability and low risk refactoring. I looked through [the survey responses][] and found many other people express the same sentiment. I collected some of them here as testimonials for Haskell.
 
-[the survey responses]: {% post_url 2019-11-16-haskell-survey-responses %}
+[the survey responses]: {% post_url 2019-11-16-haskell-survey-results %}
 
 > Refactoring with Haskell is delicious.
 
