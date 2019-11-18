@@ -3028,14 +3028,6 @@ There aren't many entry-level Haskell jobs available.
   <div class='row'> <div class='bar' style='width: 2%;'> </div> <div class='percent'> 2% </div> <div class='count'> 20 </div> <div class='choice'> Italy </div> </div>
   <div class='row'> <div class='bar' style='width: 2%;'> </div> <div class='percent'> 2% </div> <div class='count'> 19 </div> <div class='choice'> India </div> </div>
   <div class='row'> <div class='bar' style='width: 2%;'> </div> <div class='percent'> 2% </div> <div class='count'> 19 </div> <div class='choice'> Brazil </div> </div>
-  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 9 </div> <div class='choice'> Turkey </div> </div>
-  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 9 </div> <div class='choice'> Singapore </div> </div>
-  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 9 </div> <div class='choice'> New Zealand </div> </div>
-  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 9 </div> <div class='choice'> Ireland </div> </div>
-  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 9 </div> <div class='choice'> Czech Republic </div> </div>
-  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 8 </div> <div class='choice'> Romania </div> </div>
-  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 8 </div> <div class='choice'> Argentina </div> </div>
-  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 7 </div> <div class='choice'> Greece </div> </div>
   <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 16 </div> <div class='choice'> Norway </div> </div>
   <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 15 </div> <div class='choice'> Finland </div> </div>
   <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 14 </div> <div class='choice'> Ukraine </div> </div>
@@ -3044,6 +3036,14 @@ There aren't many entry-level Haskell jobs available.
   <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 11 </div> <div class='choice'> Belgium </div> </div>
   <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 10 </div> <div class='choice'> Denmark </div> </div>
   <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 10 </div> <div class='choice'> China </div> </div>
+  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 9 </div> <div class='choice'> Turkey </div> </div>
+  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 9 </div> <div class='choice'> Singapore </div> </div>
+  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 9 </div> <div class='choice'> New Zealand </div> </div>
+  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 9 </div> <div class='choice'> Ireland </div> </div>
+  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 9 </div> <div class='choice'> Czech Republic </div> </div>
+  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 8 </div> <div class='choice'> Romania </div> </div>
+  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 8 </div> <div class='choice'> Argentina </div> </div>
+  <div class='row'> <div class='bar' style='width: 1%;'> </div> <div class='percent'> 1% </div> <div class='count'> 7 </div> <div class='choice'> Greece </div> </div>
   <div class='row'> <div class='bar' style='width: 0%;'> </div> <div class='percent'> 0% </div> <div class='count'> 6 </div> <div class='choice'> Israel </div> </div>
   <div class='row'> <div class='bar' style='width: 0%;'> </div> <div class='percent'> 0% </div> <div class='count'> 6 </div> <div class='choice'> Bulgaria </div> </div>
   <div class='row'> <div class='bar' style='width: 0%;'> </div> <div class='percent'> 0% </div> <div class='count'> 5 </div> <div class='choice'> South Africa </div> </div>
