@@ -1,0 +1,88 @@
+<svg viewBox="0 0 1000 1400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .interval-y {
+      fill: #9eebcf;
+    }
+    .interval-x {
+      fill: #96ccff;
+    }
+    .label {
+      dominant-baseline: central;
+      fill: #333333;
+      font: 64px sans-serif;
+      text-anchor: middle;
+    }
+    .label-x, .label-y {
+      dominant-baseline: inherit;
+    }
+    .label-x {
+      fill: #357edd;
+    }
+    .label-y {
+      fill: #19a974;
+    }
+    .guide {
+      stroke: #ff80cc;
+      stroke-width: 5;
+    }
+  </style>
+
+  <rect x="300" y="5" width="400" height="90" class="interval-y" />
+
+  <rect x="5" y="105" width="195" height="90" class="interval-x" />
+  <rect x="100" y="205" width="200" height="90" class="interval-x" />
+  <rect x="200" y="305" width="200" height="90" class="interval-x" />
+  <rect x="200" y="405" width="500" height="90" class="interval-x" />
+  <rect x="200" y="505" width="600" height="90" class="interval-x" />
+  <rect x="300" y="605" width="200" height="90" class="interval-x" />
+  <rect x="300" y="705" width="400" height="90" class="interval-x" />
+  <rect x="300" y="805" width="500" height="90" class="interval-x" />
+  <rect x="400" y="905" width="200" height="90" class="interval-x" />
+  <rect x="500" y="1005" width="200" height="90" class="interval-x" />
+  <rect x="600" y="1105" width="200" height="90" class="interval-x" />
+  <rect x="700" y="1205" width="200" height="90" class="interval-x" />
+  <rect x="800" y="1305" width="195" height="90" class="interval-x" />
+
+  <line x1="300" y1="0" x2="300" y2="1400" class="guide" />
+  <line x1="700" y1="0" x2="700" y2="1400" class="guide" />
+
+  <text x="500" y="150" class="label">
+    <tspan class="label-x"> x </tspan> before <tspan class="label-y"> y </tspan>
+  </text>
+  <text x="500" y="250" class="label">
+    <tspan class="label-x"> x </tspan> meets <tspan class="label-y"> y </tspan>
+  </text>
+  <text x="500" y="350" class="label">
+    <tspan class="label-x"> x </tspan> overlaps <tspan class="label-y"> y </tspan>
+  </text>
+  <text x="500" y="450" class="label">
+    <tspan class="label-x"> x </tspan> finished by <tspan class="label-y"> y </tspan>
+  </text>
+  <text x="500" y="550" class="label">
+    <tspan class="label-x"> x </tspan> contains <tspan class="label-y"> y </tspan>
+  </text>
+  <text x="500" y="650" class="label">
+    <tspan class="label-x"> x </tspan> starts <tspan class="label-y"> y </tspan>
+  </text>
+  <text x="500" y="750" class="label">
+    <tspan class="label-x"> x </tspan> equal <tspan class="label-y"> y </tspan>
+  </text>
+  <text x="500" y="850" class="label">
+    <tspan class="label-x"> x </tspan> started by <tspan class="label-y"> y </tspan>
+  </text>
+  <text x="500" y="950" class="label">
+    <tspan class="label-x"> x </tspan> during <tspan class="label-y"> y </tspan>
+  </text>
+  <text x="500" y="1050" class="label">
+    <tspan class="label-x"> x </tspan> finishes <tspan class="label-y"> y </tspan>
+  </text>
+  <text x="500" y="1150" class="label">
+    <tspan class="label-x"> x </tspan> overlapped by <tspan class="label-y"> y </tspan>
+  </text>
+  <text x="500" y="1250" class="label">
+    <tspan class="label-x"> x </tspan> met by <tspan class="label-y"> y </tspan>
+  </text>
+  <text x="500" y="1350" class="label">
+    <tspan class="label-x"> x </tspan> after <tspan class="label-y"> y </tspan>
+  </text>
+</svg>
