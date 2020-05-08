@@ -7,6 +7,13 @@ My [Haskell package checklist][1] recommends using [Semantic Versioning][2]
 disagree with that recommendation. I stand by it. In fact, I think the PVP is a
 bad policy and the Haskell community should abandon it in favor of SemVer.
 
+<aside>
+Update 2020-05-08:
+Since writing this, I have softened my position.
+I no longer think Haskell packages should use SemVer since the switching cost would be so much higher than any marginal gains from a better versioning scheme.
+Instead I suggest that packages use versions like <code>1.major.minor.patch</code>, which is broadly compatible with both SemVer and the PVP.
+</aside>
+
 The main difference between these two versioning schemes is that the PVP has an
 extra major version number for encoding breaking changes. It recommends that
 versions follow a *major.major.minor* format. SemVer differs by requiring
