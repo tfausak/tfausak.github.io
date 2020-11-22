@@ -69,127 +69,127 @@ Both are licensed under the [ODbL][].
 
 <ol>
   <li>
-    <a href="#s0" >Haskell usage </a>
+    <a href="#s0">Haskell usage</a>
     <ol>
-      <li> <a href="#s0q0"> What is your email address? </a> </li>
-      <li> <a href="#s0q1"> Do you use Haskell? </a> </li>
-      <li> <a href="#s0q2"> If you stopped using Haskell, how long did you use it before you stopped? </a> </li>
-      <li> <a href="#s0q3"> If you do not use Haskell, why not? </a> </li>
-      <li> <a href="#s0q4"> How long have you been using Haskell? </a> </li>
-      <li> <a href="#s0q5"> How frequently do you use Haskell? </a> </li>
-      <li> <a href="#s0q6"> How would you rate your proficiency in Haskell? </a> </li>
-      <li> <a href="#s0q7"> Where do you use Haskell? </a> </li>
-      <li> <a href="#s0q8"> Do you use Haskell at work? </a> </li>
-      <li> <a href="#s0q9"> If you do not use Haskell at work, why not? </a> </li>
-      <li> <a href="#s0q10"> Which programming languages other than Haskell are you fluent in? </a> </li>
-      <li> <a href="#s0q11"> Which types of software do you develop with Haskell? </a> </li>
-      <li> <a href="#s0q12"> Which industries do you use Haskell in? </a> </li>
+      <li> <a href="#s0q0">What is your email address?</a> </li>
+      <li> <a href="#s0q1">Do you use Haskell?</a> </li>
+      <li> <a href="#s0q2">If you stopped using Haskell, how long did you use it before you stopped?</a> </li>
+      <li> <a href="#s0q3">If you do not use Haskell, why not?</a> </li>
+      <li> <a href="#s0q4">How long have you been using Haskell?</a> </li>
+      <li> <a href="#s0q5">How frequently do you use Haskell?</a> </li>
+      <li> <a href="#s0q6">How would you rate your proficiency in Haskell?</a> </li>
+      <li> <a href="#s0q7">Where do you use Haskell?</a> </li>
+      <li> <a href="#s0q8">Do you use Haskell at work?</a> </li>
+      <li> <a href="#s0q9">If you do not use Haskell at work, why not?</a> </li>
+      <li> <a href="#s0q10">Which programming languages other than Haskell are you fluent in?</a> </li>
+      <li> <a href="#s0q11">Which types of software do you develop with Haskell?</a> </li>
+      <li> <a href="#s0q12">Which industries do you use Haskell in?</a> </li>
     </ol>
   </li>
   <li>
-    <a href="#s1"> Projects </a>
+    <a href="#s1">Projects</a>
     <ol>
-      <li> <a href="#s1q0"> How many Haskell projects do you contribute to? </a> </li>
-      <li> <a href="#s1q1"> What is the total size of all the Haskell projects you contribute to? </a> </li>
-      <li> <a href="#s1q2"> Which platforms do you develop Haskell on? </a> </li>
-      <li> <a href="#s1q3"> Which platforms do you target? </a> </li>
+      <li> <a href="#s1q0">How many Haskell projects do you contribute to?</a> </li>
+      <li> <a href="#s1q1">What is the total size of all the Haskell projects you contribute to?</a> </li>
+      <li> <a href="#s1q2">Which platforms do you develop Haskell on?</a> </li>
+      <li> <a href="#s1q3">Which platforms do you target?</a> </li>
     </ol>
   </li>
   <li>
-    <a href="#s2"> Compilers </a>
+    <a href="#s2">Compilers</a>
     <ol>
-      <li> <a href="#s2q0"> Which Haskell compilers do you use? </a> </li>
-      <li> <a href="#s2q1"> Which installation methods do you use for your Haskell compiler? </a> </li>
-      <li> <a href="#s2q2"> Has upgrading your Haskell compiler broken your code in the last year? </a> </li>
-      <li> <a href="#s2q3"> How has upgrading your Haskell compiler broken your code in the last year? </a> </li>
-      <li> <a href="#s2q4"> Which versions of GHC do you use? </a> </li>
-      <li> <a href="#s2q5"> Which language extensions would you like to be enabled by default? </a> </li>
-      <li> <a href="#s2q6"> How important do you feel it would be to have a new version of the Haskell language standard? </a> </li>
+      <li> <a href="#s2q0">Which Haskell compilers do you use?</a> </li>
+      <li> <a href="#s2q1">Which installation methods do you use for your Haskell compiler?</a> </li>
+      <li> <a href="#s2q2">Has upgrading your Haskell compiler broken your code in the last year?</a> </li>
+      <li> <a href="#s2q3">How has upgrading your Haskell compiler broken your code in the last year?</a> </li>
+      <li> <a href="#s2q4">Which versions of GHC do you use?</a> </li>
+      <li> <a href="#s2q5">Which language extensions would you like to be enabled by default?</a> </li>
+      <li> <a href="#s2q6">How important do you feel it would be to have a new version of the Haskell language standard?</a> </li>
     </ol>
   </li>
   <li>
-    <a href="#s3"> Tooling </a>
+    <a href="#s3">Tooling</a>
     <ol>
-      <li> <a href="#s3q0"> Which build tools do you use for Haskell? </a> </li>
-      <li> <a href="#s3q1"> Which editors do you use for Haskell? </a> </li>
-      <li> <a href="#s3q2"> Which version control systems do you use for Haskell? </a> </li>
-      <li> <a href="#s3q3"> Where do you get Haskell packages from? </a> </li>
-      <li> <a href="#s3q4"> Which tools do you use to test Haskell code? </a> </li>
-      <li> <a href="#s3q5"> Which tools do you use to benchmark Haskell code? </a> </li>
+      <li> <a href="#s3q0">Which build tools do you use for Haskell?</a> </li>
+      <li> <a href="#s3q1">Which editors do you use for Haskell?</a> </li>
+      <li> <a href="#s3q2">Which version control systems do you use for Haskell?</a> </li>
+      <li> <a href="#s3q3">Where do you get Haskell packages from?</a> </li>
+      <li> <a href="#s3q4">Which tools do you use to test Haskell code?</a> </li>
+      <li> <a href="#s3q5">Which tools do you use to benchmark Haskell code?</a> </li>
     </ol>
   </li>
   <li>
-    <a href="#s4"> Infrastructure </a>
+    <a href="#s4">Infrastructure</a>
     <ol>
-      <li> <a href="#s4q0"> Which tools do you use to deploy Haskell applications? </a> </li>
-      <li> <a href="#s4q1"> Where do you deploy Haskell applications? </a> </li>
+      <li> <a href="#s4q0">Which tools do you use to deploy Haskell applications?</a> </li>
+      <li> <a href="#s4q1">Where do you deploy Haskell applications?</a> </li>
     </ol>
   </li>
   <li>
-    <a href="#s5"> Community </a>
+    <a href="#s5">Community</a>
     <ol>
-      <li> <a href="#s5q0"> Where do you interact with the Haskell community? </a> </li>
-      <li> <a href="#s5q1"> Which of the following Haskell topics would you like to see more written about? </a> </li>
+      <li> <a href="#s5q0">Where do you interact with the Haskell community?</a> </li>
+      <li> <a href="#s5q1">Which of the following Haskell topics would you like to see more written about?</a> </li>
     </ol>
   </li>
   <li>
-    <a href="#s6"> Feelings </a>
+    <a href="#s6">Feelings</a>
     <ol>
-      <li> <a href="#s6q0"> I feel welcome in the Haskell community. </a> </li>
-      <li> <a href="#s6q1"> I am satisfied with Haskell as a language. </a> </li>
-      <li> <a href="#s6q2"> I am satisfied with Haskell&#39;s compilers, such as GHC. </a> </li>
-      <li> <a href="#s6q3"> I am satisfied with Haskell&#39;s build tools, such as Cabal. </a> </li>
-      <li> <a href="#s6q4"> I am satisfied with Haskell&#39;s package repositories, such as Hackage. </a> </li>
-      <li> <a href="#s6q5"> I can find Haskell libraries for the things that I need. </a> </li>
-      <li> <a href="#s6q6"> I think Haskell libraries are high quality. </a> </li>
-      <li> <a href="#s6q7"> I have a good understanding of Haskell best practices. </a> </li>
-      <li> <a href="#s6q8"> I think Haskell libraries are well documented. </a> </li>
-      <li> <a href="#s6q9"> I can easily compare competing Haskell libraries to select the best one. </a> </li>
-      <li> <a href="#s6q10"> I think that Haskell libraries are easy to use. </a> </li>
-      <li> <a href="#s6q11"> I think that Haskell libraries provide a stable API. </a> </li>
-      <li> <a href="#s6q12"> I think that Haskell libraries work well together. </a> </li>
-      <li> <a href="#s6q13"> I think that software written in Haskell is easy to maintain. </a> </li>
-      <li> <a href="#s6q14"> Once my Haskell program compiles, it generally does what I intended. </a> </li>
-      <li> <a href="#s6q15"> I think that Haskell libraries perform well. </a> </li>
-      <li> <a href="#s6q16"> Haskell&#39;s performance meets my needs. </a> </li>
-      <li> <a href="#s6q17"> I can easily reason about the performance of my Haskell code. </a> </li>
-      <li> <a href="#s6q18"> I would recommend using Haskell to others. </a> </li>
-      <li> <a href="#s6q19"> I would prefer to use Haskell for my next new project. </a> </li>
-      <li> <a href="#s6q20"> Haskell is working well for my team. </a> </li>
-      <li> <a href="#s6q21"> Haskell is critical to my company&#39;s success. </a> </li>
-      <li> <a href="#s6q22"> As a candidate, I can easily find Haskell jobs. </a> </li>
-      <li> <a href="#s6q23"> As a hiring manager, I can easily find qualified Haskell candidates. </a> </li>
+      <li> <a href="#s6q0">I feel welcome in the Haskell community.</a> </li>
+      <li> <a href="#s6q1">I am satisfied with Haskell as a language.</a> </li>
+      <li> <a href="#s6q2">I am satisfied with Haskell&#39;s compilers, such as GHC.</a> </li>
+      <li> <a href="#s6q3">I am satisfied with Haskell&#39;s build tools, such as Cabal.</a> </li>
+      <li> <a href="#s6q4">I am satisfied with Haskell&#39;s package repositories, such as Hackage.</a> </li>
+      <li> <a href="#s6q5">I can find Haskell libraries for the things that I need.</a> </li>
+      <li> <a href="#s6q6">I think Haskell libraries are high quality.</a> </li>
+      <li> <a href="#s6q7">I have a good understanding of Haskell best practices.</a> </li>
+      <li> <a href="#s6q8">I think Haskell libraries are well documented.</a> </li>
+      <li> <a href="#s6q9">I can easily compare competing Haskell libraries to select the best one.</a> </li>
+      <li> <a href="#s6q10">I think that Haskell libraries are easy to use.</a> </li>
+      <li> <a href="#s6q11">I think that Haskell libraries provide a stable API.</a> </li>
+      <li> <a href="#s6q12">I think that Haskell libraries work well together.</a> </li>
+      <li> <a href="#s6q13">I think that software written in Haskell is easy to maintain.</a> </li>
+      <li> <a href="#s6q14">Once my Haskell program compiles, it generally does what I intended.</a> </li>
+      <li> <a href="#s6q15">I think that Haskell libraries perform well.</a> </li>
+      <li> <a href="#s6q16">Haskell&#39;s performance meets my needs.</a> </li>
+      <li> <a href="#s6q17">I can easily reason about the performance of my Haskell code.</a> </li>
+      <li> <a href="#s6q18">I would recommend using Haskell to others.</a> </li>
+      <li> <a href="#s6q19">I would prefer to use Haskell for my next new project.</a> </li>
+      <li> <a href="#s6q20">Haskell is working well for my team.</a> </li>
+      <li> <a href="#s6q21">Haskell is critical to my company&#39;s success.</a> </li>
+      <li> <a href="#s6q22">As a candidate, I can easily find Haskell jobs.</a> </li>
+      <li> <a href="#s6q23">As a hiring manager, I can easily find qualified Haskell candidates.</a> </li>
     </ol>
   </li>
   <li>
-    <a href="#s7"> Demographics </a>
+    <a href="#s7">Demographics</a>
     <ol>
-      <li> <a href="#s7q0"> Which country do you live in? </a> </li>
-      <li> <a href="#s7q1"> How old are you? </a> </li>
-      <li> <a href="#s7q2"> What is your gender? </a> </li>
-      <li> <a href="#s7q3"> Do you identify as transgender? </a> </li>
-      <li> <a href="#s7q4"> Are you a student? </a> </li>
-      <li> <a href="#s7q5"> What is the highest level of education you have completed? </a> </li>
-      <li> <a href="#s7q6"> What is your employment status? </a> </li>
-      <li> <a href="#s7q7"> How large is the company you work for? </a> </li>
-      <li> <a href="#s7q8"> How many years have you been coding? </a> </li>
-      <li> <a href="#s7q9"> How many years have you been coding professionally? </a> </li>
-      <li> <a href="#s7q10"> Do you code as a hobby? </a> </li>
-      <li> <a href="#s7q11"> Have you contributed to any open source projects? </a> </li>
+      <li> <a href="#s7q0">Which country do you live in?</a> </li>
+      <li> <a href="#s7q1">How old are you?</a> </li>
+      <li> <a href="#s7q2">What is your gender?</a> </li>
+      <li> <a href="#s7q3">Do you identify as transgender?</a> </li>
+      <li> <a href="#s7q4">Are you a student?</a> </li>
+      <li> <a href="#s7q5">What is the highest level of education you have completed?</a> </li>
+      <li> <a href="#s7q6">What is your employment status?</a> </li>
+      <li> <a href="#s7q7">How large is the company you work for?</a> </li>
+      <li> <a href="#s7q8">How many years have you been coding?</a> </li>
+      <li> <a href="#s7q9">How many years have you been coding professionally?</a> </li>
+      <li> <a href="#s7q10">Do you code as a hobby?</a> </li>
+      <li> <a href="#s7q11">Have you contributed to any open source projects?</a> </li>
     </ol>
   </li>
   <li>
-    <a href="#s8"> Meta </a>
+    <a href="#s8">Meta</a>
     <ol>
-      <li> <a href="#s8q0"> Did you take any previous surveys? </a> </li>
-      <li> <a href="#s8q1"> How did you hear about this survey? </a> </li>
+      <li> <a href="#s8q0">Did you take any previous surveys?</a> </li>
+      <li> <a href="#s8q1">How did you hear about this survey?</a> </li>
     </ol>
   </li>
   <li>
-    <a href="#s9"> Free response </a>
+    <a href="#s9">Free response</a>
     <ol>
-      <li> <a href="#s9q0"> If you wanted to convince someone to use Haskell, what would you say? </a> </li>
-      <li> <a href="#s9q1"> If you could change one thing about Haskell, what would it be? </a> </li>
+      <li> <a href="#s9q0">If you wanted to convince someone to use Haskell, what would you say?</a> </li>
+      <li> <a href="#s9q1">If you could change one thing about Haskell, what would it be?</a> </li>
     </ol>
   </li>
 </ol>
@@ -6013,7 +6013,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">403
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6069,7 +6069,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">413
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6125,7 +6125,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">412
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6181,7 +6181,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">131
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6237,7 +6237,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">227
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6293,7 +6293,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">124
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6349,7 +6349,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">207
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6405,7 +6405,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">94
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6461,7 +6461,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">36
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6517,7 +6517,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">29
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6573,7 +6573,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">44
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6629,7 +6629,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">81
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6685,7 +6685,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">94
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6741,7 +6741,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">462
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6797,7 +6797,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">324
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6853,7 +6853,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">107
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6909,7 +6909,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">331
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -6965,7 +6965,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">40
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -7021,7 +7021,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">602
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -7077,7 +7077,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">710
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -7133,7 +7133,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">248
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -7189,7 +7189,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">176
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -7245,7 +7245,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">21
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
@@ -7301,7 +7301,7 @@ Both are licensed under the [ODbL][].
 </div>
 <div class="count">39
 </div>
-<div class="choice"> Strongly agree
+<div class="choice">Strongly agree
 </div>
 </div>
 </div>
