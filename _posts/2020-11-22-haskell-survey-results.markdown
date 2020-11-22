@@ -23,7 +23,7 @@ I deeply regret the bug and will make sure that it doesn't happen next year.
 You can download the responses as a [JSON][] or [CSV][] file.
 Both are licensed under the [ODbL][].
 
-[2019]: {% post_url 2019-11-16-2018-haskell-survey-results %}
+[2019]: {% post_url 2019-11-16-haskell-survey-results %}
 [2018]: {% post_url 2018-11-18-2018-state-of-haskell-survey-results %}
 [2017]: {% post_url 2017-11-15-2017-state-of-haskell-survey-results %}
 [bug]: https://github.com/haskellweekly/haskellweekly/commit/3ca54320d236e74662599ddd4a9d200cd19001ec
