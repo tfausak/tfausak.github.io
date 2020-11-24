@@ -363,8 +363,7 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 
-<h3 id="s0q4">How long have you been using Haskell?
-</h3>
+<h3 id="s0q4">How long have you been using Haskell? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -529,8 +528,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s0q5">How frequently do you use Haskell?
-</h3>
+
+<h3 id="s0q5">How frequently do you use Haskell? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -585,8 +584,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s0q6">How would you rate your proficiency in Haskell?
-</h3>
+
+<h3 id="s0q6">How would you rate your proficiency in Haskell? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -641,8 +640,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s0q7">Where do you use Haskell?
-</h3>
+
+<h3 id="s0q7">Where do you use Haskell? </h3>
 <p>Optional. Multi select. Did not allow &#39;other&#39;.
 </p>
 <div class="answer">
@@ -711,8 +710,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s0q8">Do you use Haskell at work?
-</h3>
+
+<h3 id="s0q8">Do you use Haskell at work? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -767,8 +766,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s0q9">If you do not use Haskell at work, why not?
-</h3>
+
+<h3 id="s0q9">If you do not use Haskell at work, why not? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -933,8 +932,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s0q10">Which programming languages other than Haskell are you fluent in?
-</h3>
+
+<h3 id="s0q10">Which programming languages other than Haskell are you fluent in? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -1467,8 +1466,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s0q11">Which types of software do you develop with Haskell?
-</h3>
+
+<h3 id="s0q11">Which types of software do you develop with Haskell? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -1617,8 +1616,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s0q12">Which industries do you use Haskell in?
-</h3>
+
+<h3 id="s0q12">Which industries do you use Haskell in? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -1831,10 +1830,10 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h2 id="s1">Projects
-</h2>
-<h3 id="s1q0">How many Haskell projects do you contribute to?
-</h3>
+
+<h2 id="s1">Projects </h2>
+
+<h3 id="s1q0">How many Haskell projects do you contribute to? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -1929,8 +1928,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s1q1">What is the total size of all the Haskell projects you contribute to?
-</h3>
+
+<h3 id="s1q1">What is the total size of all the Haskell projects you contribute to? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -1975,8 +1974,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s1q2">Which platforms do you develop Haskell on?
-</h3>
+
+<h3 id="s1q2">Which platforms do you develop Haskell on? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -2061,8 +2060,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s1q3">Which platforms do you target?
-</h3>
+
+<h3 id="s1q3">Which platforms do you target? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -2179,10 +2178,10 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h2 id="s2">Compilers
-</h2>
-<h3 id="s2q0">Which Haskell compilers do you use?
-</h3>
+
+<h2 id="s2">Compilers </h2>
+
+<h3 id="s2q0">Which Haskell compilers do you use? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -2235,8 +2234,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s2q1">Which installation methods do you use for your Haskell compiler?
-</h3>
+
+<h3 id="s2q1">Which installation methods do you use for your Haskell compiler? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -2385,8 +2384,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s2q2">Has upgrading your Haskell compiler broken your code in the last year?
-</h3>
+
+<h3 id="s2q2">Has upgrading your Haskell compiler broken your code in the last year? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -2411,8 +2410,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s2q3">How has upgrading your Haskell compiler broken your code in the last year?
-</h3>
+
+<h3 id="s2q3">How has upgrading your Haskell compiler broken your code in the last year? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -2513,8 +2512,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s2q4">Which versions of GHC do you use?
-</h3>
+
+<h3 id="s2q4">Which versions of GHC do you use? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -2663,8 +2662,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s2q5">Which language extensions would you like to be enabled by default?
-</h3>
+
+<h3 id="s2q5">Which language extensions would you like to be enabled by default? </h3>
 <p>Optional. Multi select. Did not allow &#39;other&#39;.
 </p>
 <div class="answer">
@@ -4397,8 +4396,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s2q6">How important do you feel it would be to have a new version of the Haskell language standard?
-</h3>
+
+<h3 id="s2q6">How important do you feel it would be to have a new version of the Haskell language standard? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -4453,10 +4452,10 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h2 id="s3">Tooling
-</h2>
-<h3 id="s3q0">Which build tools do you use for Haskell?
-</h3>
+
+<h2 id="s3">Tooling </h2>
+
+<h3 id="s3q0">Which build tools do you use for Haskell? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -4605,8 +4604,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s3q1">Which editors do you use for Haskell?
-</h3>
+
+<h3 id="s3q1">Which editors do you use for Haskell? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -4739,8 +4738,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s3q2">Which version control systems do you use for Haskell?
-</h3>
+
+<h3 id="s3q2">Which version control systems do you use for Haskell? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -4841,8 +4840,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s3q3">Where do you get Haskell packages from?
-</h3>
+
+<h3 id="s3q3">Where do you get Haskell packages from? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -4927,8 +4926,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s3q4">Which tools do you use to test Haskell code?
-</h3>
+
+<h3 id="s3q4">Which tools do you use to test Haskell code? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -5061,8 +5060,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s3q5">Which tools do you use to benchmark Haskell code?
-</h3>
+
+<h3 id="s3q5">Which tools do you use to benchmark Haskell code? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -5131,10 +5130,10 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h2 id="s4">Infrastructure
-</h2>
-<h3 id="s4q0">Which tools do you use to deploy Haskell applications?
-</h3>
+
+<h2 id="s4">Infrastructure </h2>
+
+<h3 id="s4q0">Which tools do you use to deploy Haskell applications? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -5219,8 +5218,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s4q1">Where do you deploy Haskell applications?
-</h3>
+
+<h3 id="s4q1">Where do you deploy Haskell applications? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -5337,10 +5336,10 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h2 id="s5">Community
-</h2>
-<h3 id="s5q0">Where do you interact with the Haskell community?
-</h3>
+
+<h2 id="s5">Community </h2>
+
+<h3 id="s5q0">Where do you interact with the Haskell community? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -5633,8 +5632,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s5q1">Which of the following Haskell topics would you like to see more written about?
-</h3>
+
+<h3 id="s5q1">Which of the following Haskell topics would you like to see more written about? </h3>
 <p>Optional. Multi select. Allowed &#39;other&#39;.
 </p>
 <div class="answer">
@@ -5959,10 +5958,10 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h2 id="s6">Feelings
-</h2>
-<h3 id="s6q0">I feel welcome in the Haskell community.
-</h3>
+
+<h2 id="s6">Feelings </h2>
+
+<h3 id="s6q0">I feel welcome in the Haskell community. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6017,8 +6016,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q1">I am satisfied with Haskell as a language.
-</h3>
+
+<h3 id="s6q1">I am satisfied with Haskell as a language. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6073,8 +6072,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q2">I am satisfied with Haskell&#39;s compilers, such as GHC.
-</h3>
+
+<h3 id="s6q2">I am satisfied with Haskell&#39;s compilers, such as GHC. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6129,8 +6128,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q3">I am satisfied with Haskell&#39;s build tools, such as Cabal.
-</h3>
+
+<h3 id="s6q3">I am satisfied with Haskell&#39;s build tools, such as Cabal. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6185,8 +6184,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q4">I am satisfied with Haskell&#39;s package repositories, such as Hackage.
-</h3>
+
+<h3 id="s6q4">I am satisfied with Haskell&#39;s package repositories, such as Hackage. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6241,8 +6240,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q5">I can find Haskell libraries for the things that I need.
-</h3>
+
+<h3 id="s6q5">I can find Haskell libraries for the things that I need. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6297,8 +6296,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q6">I think Haskell libraries are high quality.
-</h3>
+
+<h3 id="s6q6">I think Haskell libraries are high quality. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6353,8 +6352,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q7">I have a good understanding of Haskell best practices.
-</h3>
+
+<h3 id="s6q7">I have a good understanding of Haskell best practices. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6409,8 +6408,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q8">I think Haskell libraries are well documented.
-</h3>
+
+<h3 id="s6q8">I think Haskell libraries are well documented. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6465,8 +6464,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q9">I can easily compare competing Haskell libraries to select the best one.
-</h3>
+
+<h3 id="s6q9">I can easily compare competing Haskell libraries to select the best one. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6521,8 +6520,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q10">I think that Haskell libraries are easy to use.
-</h3>
+
+<h3 id="s6q10">I think that Haskell libraries are easy to use. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6577,8 +6576,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q11">I think that Haskell libraries provide a stable API.
-</h3>
+
+<h3 id="s6q11">I think that Haskell libraries provide a stable API. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6633,8 +6632,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q12">I think that Haskell libraries work well together.
-</h3>
+
+<h3 id="s6q12">I think that Haskell libraries work well together. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6689,8 +6688,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q13">I think that software written in Haskell is easy to maintain.
-</h3>
+
+<h3 id="s6q13">I think that software written in Haskell is easy to maintain. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6745,8 +6744,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q14">Once my Haskell program compiles, it generally does what I intended.
-</h3>
+
+<h3 id="s6q14">Once my Haskell program compiles, it generally does what I intended. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6801,8 +6800,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q15">I think that Haskell libraries perform well.
-</h3>
+
+<h3 id="s6q15">I think that Haskell libraries perform well. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6857,8 +6856,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q16">Haskell&#39;s performance meets my needs.
-</h3>
+
+<h3 id="s6q16">Haskell&#39;s performance meets my needs. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6913,8 +6912,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q17">I can easily reason about the performance of my Haskell code.
-</h3>
+
+<h3 id="s6q17">I can easily reason about the performance of my Haskell code. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -6969,8 +6968,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q18">I would recommend using Haskell to others.
-</h3>
+
+<h3 id="s6q18">I would recommend using Haskell to others. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -7025,8 +7024,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q19">I would prefer to use Haskell for my next new project.
-</h3>
+
+<h3 id="s6q19">I would prefer to use Haskell for my next new project. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -7081,8 +7080,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q20">Haskell is working well for my team.
-</h3>
+
+<h3 id="s6q20">Haskell is working well for my team. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -7137,8 +7136,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q21">Haskell is critical to my company&#39;s success.
-</h3>
+
+<h3 id="s6q21">Haskell is critical to my company&#39;s success. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -7193,8 +7192,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q22">As a candidate, I can easily find Haskell jobs.
-</h3>
+
+<h3 id="s6q22">As a candidate, I can easily find Haskell jobs. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -7249,8 +7248,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s6q23">As a hiring manager, I can easily find qualified Haskell candidates.
-</h3>
+
+<h3 id="s6q23">As a hiring manager, I can easily find qualified Haskell candidates. </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -7305,10 +7304,10 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h2 id="s7">Demographics
-</h2>
-<h3 id="s7q0">Which country do you live in?
-</h3>
+
+<h2 id="s7">Demographics </h2>
+
+<h3 id="s7q0">Which country do you live in? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -9893,8 +9892,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s7q1">How old are you?
-</h3>
+
+<h3 id="s7q1">How old are you? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -9969,8 +9968,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s7q2">What is your gender?
-</h3>
+
+<h3 id="s7q2">What is your gender? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -10005,8 +10004,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s7q3">Do you identify as transgender?
-</h3>
+
+<h3 id="s7q3">Do you identify as transgender? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -10031,8 +10030,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s7q4">Are you a student?
-</h3>
+
+<h3 id="s7q4">Are you a student? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -10067,8 +10066,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s7q5">What is the highest level of education you have completed?
-</h3>
+
+<h3 id="s7q5">What is the highest level of education you have completed? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -10153,8 +10152,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s7q6">What is your employment status?
-</h3>
+
+<h3 id="s7q6">What is your employment status? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -10219,8 +10218,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s7q7">How large is the company you work for?
-</h3>
+
+<h3 id="s7q7">How large is the company you work for? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -10275,8 +10274,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s7q8">How many years have you been coding?
-</h3>
+
+<h3 id="s7q8">How many years have you been coding? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -10351,8 +10350,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s7q9">How many years have you been coding professionally?
-</h3>
+
+<h3 id="s7q9">How many years have you been coding professionally? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -10427,8 +10426,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s7q10">Do you code as a hobby?
-</h3>
+
+<h3 id="s7q10">Do you code as a hobby? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -10453,8 +10452,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s7q11">Have you contributed to any open source projects?
-</h3>
+
+<h3 id="s7q11">Have you contributed to any open source projects? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -10479,10 +10478,10 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h2 id="s8">Meta
-</h2>
-<h3 id="s8q0">Did you take any previous surveys?
-</h3>
+
+<h2 id="s8">Meta </h2>
+
+<h3 id="s8q0">Did you take any previous surveys? </h3>
 <p>Optional. Multi select. Did not allow &#39;other&#39;.
 </p>
 <div class="answer">
@@ -10535,8 +10534,8 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h3 id="s8q1">How did you hear about this survey?
-</h3>
+
+<h3 id="s8q1">How did you hear about this survey? </h3>
 <p>Optional. Single select.
 </p>
 <div class="answer">
@@ -10701,13 +10700,13 @@ Both are licensed under the [ODbL][].
 </div>
 </div>
 </div>
-<h2 id="s9">Free response
-</h2>
-<h3 id="s9q0">If you wanted to convince someone to use Haskell, what would you say?
-</h3>
+
+<h2 id="s9">Free response </h2>
+
+<h3 id="s9q0">If you wanted to convince someone to use Haskell, what would you say? </h3>
 <p>Optional. Free response answers were collected but not analyzed.
 </p>
-<h3 id="s9q1">If you could change one thing about Haskell, what would it be?
-</h3>
+
+<h3 id="s9q1">If you could change one thing about Haskell, what would it be? </h3>
 <p>Optional. Free response answers were collected but not analyzed.
 </p>
