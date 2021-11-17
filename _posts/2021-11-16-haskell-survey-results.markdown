@@ -4922,6 +4922,6 @@ Both are licensed under the [ODbL][].
 [2019]: {% post_url 2019-11-16-haskell-survey-results %}
 [2018]: {% post_url 2018-11-18-2018-state-of-haskell-survey-results %}
 [2017]: {% post_url 2017-11-15-2017-state-of-haskell-survey-results %}
-[JSON]: /static/pages/2021-haskell-survey-results.json.zip
-[CSV]: /static/pages/2021-haskell-survey-results.csv.zip
+[JSON]: /static/pages/2021-state-of-haskell-survey-results.json.zip
+[CSV]: /static/pages/2021-state-of-haskell-survey-results.csv.zip
 [ODbL]: https://opendatacommons.org/licenses/odbl/
