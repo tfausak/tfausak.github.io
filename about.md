@@ -6,8 +6,7 @@ title: About
 # {{ page.title }}
 
 Howdy! My name is Taylor Fausak. I am a software developer living in Texas. The
-best way to reach me is by sending an email to [taylor@fausak.me][]. To find me
-at other places on the web, check [my Keybase profile][].
+best way to reach me is by sending an email to [taylor@fausak.me][].
 
 ![Portrait][]
 
@@ -115,7 +114,6 @@ complete list of my projects [on GitHub][].
 [Ledger]: https://github.com/asm-products/ledger-backend
 [Mad Minute]: https://github.com/tfausak/MadMinute
 [Moxen]: https://github.com/tfausak/moxen
-[my Keybase profile]: https://keybase.io/taylorfausak
 [Neon]: https://github.com/tfausak/purescript-neon
 [on GitHub]: https://github.com/tfausak?tab=repositories&type=source
 [Portrait]: /static/images/taylor-fausak.jpg
