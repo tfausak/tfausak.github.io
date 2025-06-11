@@ -2,7 +2,7 @@
 title: GHC support policy
 ---
 
-I maintain a small hadnful of Haskell packages.
+I maintain a small handful of Haskell packages.
 I keep [a dashboard](https://github.com/tfausak/haskell-packages/blob/060d4bdd9384973fd70ecb8ecc8510ead3e6c5cc/README.md) of all of them.
 I have been maintaining some of them for nearly a decade.
 Naturally I have developed some opinions about how to maintain them.
