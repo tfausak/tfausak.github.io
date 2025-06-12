@@ -13,6 +13,15 @@ Instead of using your password directly, use:
 cabal upload --token TOKEN
 ```
 
+<aside>
+
+Update 2025-06-12:
+If you use Stack, set [the `HACKAGE_TOKEN` environment variable][1] when running `stack upload`.
+
+[1]: https://docs.haskellstack.org/en/v3.5.1/commands/upload_command/#the-hackage_key-environment-variable
+
+</aside>
+
 This simple change brings several important benefits:
 
 1.  **Enhanced Security**: You no longer need to store your Hackage password in
