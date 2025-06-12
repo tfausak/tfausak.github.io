@@ -14,12 +14,8 @@ cabal upload --token TOKEN
 ```
 
 <aside>
-
 Update 2025-06-12:
-If you use Stack, set [the `HACKAGE_TOKEN` environment variable][1] when running `stack upload`.
-
-[1]: https://docs.haskellstack.org/en/v3.5.1/commands/upload_command/#the-hackage_key-environment-variable
-
+If you use Stack, set <a href="https://docs.haskellstack.org/en/v3.5.1/commands/upload_command/#the-hackage_key-environment-variable">the <code>HACKAGE_TOKEN</code> environment variable</a> when running <code>stack upload</code>.
 </aside>
 
 This simple change brings several important benefits:
