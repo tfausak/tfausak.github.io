@@ -1,5 +1,5 @@
 ---
-title: Haskell Weekly lost all subscribers
+title: Haskell Weekly lost its subscriber list
 ---
 
 > _Every_ day is [International Backup Awareness Day](https://blog.codinghorror.com/international-backup-awareness-day/).
@@ -7,7 +7,7 @@ title: Haskell Weekly lost all subscribers
 If you haven't received an email from Haskell Weekly in a while, you're not the only one!
 The last successful newsletter email went out on February 12th, which was a little more than a month ago.
 Unfortunately something caused the subscriber list to be reset.
-The problem is fixed now, but you will have to re-subscribe.
+The problem is fixed now, but you will have to [re-subscribe](https://haskellweekly.news/newsletter.html).
 
 I've been running Haskell Weekly for nearly ten years.
 This is the first major operational problem that I can remember.
@@ -17,7 +17,7 @@ So how did I lose them?
 
 To be honest, I'm not entirely sure.
 Haskell Weekly is hosted on [Fly](https://fly.io).
-It also used an unmanaged Fly Postgres instance.
+It also used to use an unmanaged Fly Postgres instance.
 And as of about two years ago it uses [listmonk](https://listmonk.app) for managing the subscriber list.
 
 I'm providing these details for context --- none of them appear to be at fault.
@@ -35,4 +35,4 @@ To prevent this from happening again, I've switched to Fly's _managed_ Postgres,
 Also I will periodically export the subscriber list and store it somewhere else.
 
 I'm sorry for the mishap.
-If you'd like to continue receiving the Haskell Weekly newsletter as an email, please re-subscribe.
+If you'd like to continue receiving the Haskell Weekly newsletter as an email, please re-subscribe here: <https://haskellweekly.news/newsletter.html>.
